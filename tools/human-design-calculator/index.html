@@ -3,55 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Human Design Calculator - Discover Your Type Free</title>
-  <meta name="description" content="Free Human Design type quiz. Discover if you are a Generator, Manifestor, Projector, Reflector or Manifesting Generator. Learn your strategy and authority.">
-  <meta name="keywords" content="human design calculator, human design type test, human design chart free, human design types, human design strategy, human design authority">
+  <title>Free Human Design Chart Calculator - Full Bodygraph with Birth Data</title>
+  <meta name="description" content="Free Human Design chart calculator. Enter your birth date, time and timezone to get your complete bodygraph with type, strategy, authority, profile, centers, channels and gates.">
+  <meta name="keywords" content="human design chart calculator, human design bodygraph free, human design type, human design chart free, human design calculator birth time, human design gates channels centers">
   <link rel="canonical" href="https://mynextools.com/tools/human-design-calculator/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Human Design Calculator - Discover Your Type Free">    <meta property="og:description" content="Free Human Design type quiz. Discover if you are a Generator, Manifestor, Projector, Reflector or Manifesting Generator. Learn your strategy and authority.">    <meta property="og:image" content="https://mynextools.com/images/og/default.png">    <meta property="og:url" content="https://mynextools.com/tools/human-design-calculator/">    <meta property="og:type" content="website">    <meta property="og:site_name" content="NexTools">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta property="og:title" content="Free Human Design Chart Calculator - Full Bodygraph">
+  <meta property="og:description" content="Get your complete Human Design bodygraph chart free. Enter birth data for type, strategy, authority, profile, all 9 centers and 36 channels.">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/human-design-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="stylesheet" href="/css/style.css">
   <style>
+    .chart-form { max-width:520px; margin:0 auto; }
+    .form-row { margin-bottom:1.25rem; }
+    .form-row label { display:block; font-weight:600; margin-bottom:0.4rem; font-size:0.9rem; color:var(--text-secondary); }
+    .form-row input, .form-row select {
+      width:100%; padding:0.75rem 1rem; background:var(--bg-input); border:1.5px solid var(--border-light);
+      border-radius:var(--radius-sm); color:var(--white); font-size:1rem; font-family:inherit; transition:border var(--transition);
+    }
+    .form-row input:focus, .form-row select:focus { outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(255,215,0,0.1); }
+    .form-row select option { background:var(--bg-card); color:var(--white); }
+    .form-row .hint { font-size:0.8rem; color:var(--text-faint); margin-top:0.3rem; }
+    .form-check { display:flex; align-items:center; gap:0.5rem; margin-top:0.5rem; }
+    .form-check input[type=checkbox] { width:auto; accent-color:var(--gold); }
+    .form-check label { margin:0; font-weight:400; font-size:0.85rem; color:var(--text-muted); }
+    .btn-calc {
+      display:block; width:100%; padding:1rem; background:var(--gold); color:#08080C; font-size:1.1rem;
+      font-weight:700; border:none; border-radius:var(--radius); cursor:pointer; transition:all var(--transition);
+      font-family:'Poppins',sans-serif; margin-top:1.5rem;
+    }
+    .btn-calc:hover { background:#e6c200; transform:translateY(-2px); box-shadow:0 4px 24px rgba(255,215,0,0.35); }
+    .btn-calc:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
+
+    /* Results */
+    #results { display:none; animation:fadeIn 0.5s ease; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    .chart-summary {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-bottom:2rem;
+    }
+    .summary-card {
+      background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius); padding:1.25rem;
+    }
+    .summary-card .label { font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:0.3rem; }
+    .summary-card .value { font-size:1.25rem; font-weight:700; color:var(--gold); font-family:'Poppins',sans-serif; }
+    .summary-card .sub { font-size:0.85rem; color:var(--text-muted); margin-top:0.25rem; }
+    .type-badge-lg {
+      display:inline-block; padding:0.4rem 1.25rem; border-radius:20px; font-size:0.9rem; font-weight:700;
+      letter-spacing:0.5px; margin-top:0.25rem;
+    }
+    .badge-generator { background:rgba(40,167,69,0.15); color:#66BB6A; }
+    .badge-mg { background:rgba(255,152,0,0.15); color:#FFB74D; }
+    .badge-projector { background:rgba(30,136,229,0.15); color:#64B5F6; }
+    .badge-manifestor { background:rgba(233,30,99,0.15); color:#F06292; }
+    .badge-reflector { background:rgba(156,39,176,0.15); color:#CE93D8; }
+
+    /* Bodygraph */
+    .bodygraph-wrap {
+      max-width:480px; margin:0 auto 2rem; background:var(--bg-card); border:1px solid var(--border-subtle);
+      border-radius:var(--radius); padding:1.5rem; text-align:center;
+    }
+    .bodygraph-wrap svg { width:100%; height:auto; }
+
+    /* Activations table */
+    .act-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+    .act-table th { text-align:left; padding:0.6rem 0.75rem; border-bottom:2px solid var(--border-light); font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); }
+    .act-table td { padding:0.5rem 0.75rem; border-bottom:1px solid var(--border-subtle); }
+    .act-table .pers { color:#ccc; }
+    .act-table .des { color:#e53935; }
+
+    /* Channels/Centers lists */
+    .chip { display:inline-block; padding:0.3rem 0.75rem; border-radius:16px; font-size:0.8rem; font-weight:600; margin:0.2rem; }
+    .chip-def { background:rgba(255,215,0,0.12); color:var(--gold); border:1px solid rgba(255,215,0,0.25); }
+    .chip-undef { background:rgba(255,255,255,0.04); color:var(--text-faint); border:1px solid var(--border-subtle); }
+
+    /* Section headers */
+    .res-heading { font-size:1.15rem; margin:2rem 0 1rem; padding-bottom:0.5rem; border-bottom:1px solid var(--border-subtle); color:var(--white); }
+
+    /* Quiz styles */
     .quiz-option {
-      display: block;
-      width: 100%;
-      padding: 1rem 1.25rem;
-      margin-bottom: 0.75rem;
-      border: 2px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      background: var(--bg-card);
-      color: var(--text-secondary);
-      text-align: left;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all var(--transition);
-      font-family: inherit;
-      line-height: 1.5;
+      display:block; width:100%; padding:1rem 1.25rem; margin-bottom:0.75rem;
+      border:2px solid var(--border-light); border-radius:var(--radius-sm); background:var(--bg-card);
+      color:var(--text-secondary); text-align:left; font-size:0.95rem; cursor:pointer;
+      transition:all var(--transition); font-family:inherit; line-height:1.5;
     }
-    .quiz-option:hover { background: var(--bg-card-hover); border-color: var(--gold); }
-    .quiz-option.selected { border-color: var(--gold); background: rgba(255,215,0,0.08); font-weight: 600; color: #fff; }
-    .quiz-progress { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
-    .quiz-dot {
-      width: 2.5rem; height: 4px; border-radius: 2px; background: var(--border-light); transition: background var(--transition);
-    }
-    .quiz-dot.active { background: var(--gold); }
-    .quiz-dot.done { background: var(--gold); }
-    .quiz-step { display: none; }
-    .quiz-step.active { display: block; animation: fadeIn 0.3s ease; }
-    .type-badge {
-      display: inline-block; padding: 0.5rem 1.5rem; border-radius: 20px;
-      font-size: 0.85rem; font-weight: 600; margin: 0.25rem;
-    }
-    .badge-generator { background: rgba(40,167,69,0.15); color: #66BB6A; }
-    .badge-mg { background: rgba(255,152,0,0.15); color: #FFB74D; }
-    .badge-projector { background: rgba(30,136,229,0.15); color: #64B5F6; }
-    .badge-manifestor { background: rgba(233,30,99,0.15); color: #F06292; }
-    .badge-reflector { background: rgba(156,39,176,0.15); color: #CE93D8; }
+    .quiz-option:hover { background:var(--bg-card-hover); border-color:var(--gold); }
+    .quiz-option.selected { border-color:var(--gold); background:rgba(255,215,0,0.08); font-weight:600; color:#fff; }
+    .quiz-progress { display:flex; gap:0.5rem; margin-bottom:2rem; }
+    .quiz-dot { width:2.5rem; height:4px; border-radius:2px; background:var(--border-light); transition:background var(--transition); }
+    .quiz-dot.active, .quiz-dot.done { background:var(--gold); }
+    .quiz-step { display:none; }
+    .quiz-step.active { display:block; animation:fadeIn 0.3s ease; }
   </style>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Design Type Calculator","description":"Free Human Design type quiz. Discover your type, strategy and authority.","url":"https://mynextools.com/tools/human-design-calculator/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Design Chart Calculator","description":"Free Human Design bodygraph chart calculator. Enter your birth date, time and timezone for a complete chart with type, strategy, authority, profile, centers, channels and gates.","url":"https://mynextools.com/tools/human-design-calculator/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
 </head>
 <body>
@@ -70,40 +119,142 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <section class="hero" style="padding:3rem 0 2rem">
     <div class="container">
-      <h1>Human Design Type Finder</h1>
-      <p>Discover your Human Design type through this quick quiz. Learn your strategy, authority and how you are designed to make decisions and interact with the world.</p>
+      <h1>Human Design Chart Calculator</h1>
+      <p>Enter your birth data to generate your complete bodygraph - type, strategy, authority, profile, all 9 centers, 36 channels and 26 planetary activations.</p>
     </div>
   </section>
 
+  <!-- Chart Calculator Form -->
   <section class="section">
     <div class="container">
       <div class="calc-container">
-        <h2 class="text-center">Quick Human Design Type Quiz</h2>
-        <p class="text-center" style="color:var(--text-muted);margin-bottom:1.5rem">Answer 7 questions to discover your likely Human Design type. For a precise chart, you need your exact birth time and location.</p>
+        <h2 class="text-center" style="margin-bottom:0.5rem">Generate Your Bodygraph</h2>
+        <p class="text-center" style="color:var(--text-muted);margin-bottom:2rem">Your exact birth time is crucial - even a few minutes can change your chart.</p>
 
-        <!-- Progress -->
-        <div class="quiz-progress" id="progress">
-          <div class="quiz-dot active"></div>
-          <div class="quiz-dot"></div>
-          <div class="quiz-dot"></div>
-          <div class="quiz-dot"></div>
-          <div class="quiz-dot"></div>
-          <div class="quiz-dot"></div>
-          <div class="quiz-dot"></div>
+        <div class="chart-form">
+          <div class="form-row">
+            <label for="birthDate">Date of Birth</label>
+            <input type="date" id="birthDate" required>
+          </div>
+          <div class="form-row">
+            <label for="birthTime">Time of Birth</label>
+            <input type="time" id="birthTime" value="12:00" required>
+            <div class="form-check">
+              <input type="checkbox" id="noTime">
+              <label for="noTime">I don't know my exact birth time (uses 12:00 noon - chart may be less accurate)</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="tz">Timezone at Birth</label>
+            <select id="tz">
+              <option value="-12">UTC-12 (Baker Island)</option>
+              <option value="-11">UTC-11 (Samoa)</option>
+              <option value="-10">UTC-10 (Hawaii)</option>
+              <option value="-9">UTC-9 (Alaska)</option>
+              <option value="-8">UTC-8 (Los Angeles)</option>
+              <option value="-7">UTC-7 (Denver)</option>
+              <option value="-6">UTC-6 (Chicago)</option>
+              <option value="-5">UTC-5 (New York)</option>
+              <option value="-4">UTC-4 (Atlantic)</option>
+              <option value="-3">UTC-3 (Buenos Aires)</option>
+              <option value="-2">UTC-2 (Mid-Atlantic)</option>
+              <option value="-1">UTC-1 (Azores)</option>
+              <option value="0">UTC+0 (London)</option>
+              <option value="1">UTC+1 (Paris, Berlin)</option>
+              <option value="2">UTC+2 (Jerusalem, Athens, Cairo)</option>
+              <option value="3">UTC+3 (Moscow, Istanbul, Riyadh)</option>
+              <option value="3.5">UTC+3:30 (Tehran)</option>
+              <option value="4">UTC+4 (Dubai)</option>
+              <option value="4.5">UTC+4:30 (Kabul)</option>
+              <option value="5">UTC+5 (Karachi)</option>
+              <option value="5.5">UTC+5:30 (Mumbai, Delhi)</option>
+              <option value="5.75">UTC+5:45 (Kathmandu)</option>
+              <option value="6">UTC+6 (Dhaka)</option>
+              <option value="7">UTC+7 (Bangkok)</option>
+              <option value="8">UTC+8 (Beijing, Singapore)</option>
+              <option value="9">UTC+9 (Tokyo, Seoul)</option>
+              <option value="9.5">UTC+9:30 (Adelaide)</option>
+              <option value="10">UTC+10 (Sydney)</option>
+              <option value="11">UTC+11 (Noumea)</option>
+              <option value="12">UTC+12 (Auckland)</option>
+              <option value="13">UTC+13 (Tongatapu)</option>
+            </select>
+            <div class="hint">Select the timezone that was in effect at the time of your birth. If born during daylight saving time (summer time), select the DST offset (e.g. Israel summer = UTC+3).</div>
+          </div>
+          <div class="form-row">
+            <label for="birthCity">Birth City <span style="font-weight:400;color:var(--text-faint)">(optional, for display)</span></label>
+            <input type="text" id="birthCity" placeholder="e.g. Tel Aviv, New York, London">
+          </div>
+          <button class="btn-calc" onclick="calculateChart()">Generate My Chart</button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="results">
+        <h2 class="text-center" style="margin-top:3rem;margin-bottom:0.5rem">Your Human Design Chart</h2>
+        <p class="text-center" id="birthSummary" style="color:var(--text-muted)"></p>
+
+        <!-- Summary Cards -->
+        <div class="chart-summary" id="summaryCards"></div>
+
+        <!-- Bodygraph SVG -->
+        <div class="bodygraph-wrap">
+          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-muted)">Your Bodygraph</h3>
+          <div id="bodygraphContainer"></div>
         </div>
 
-        <!-- Question 1 -->
+        <!-- Defined Centers -->
+        <h3 class="res-heading">Defined Centers</h3>
+        <div id="centersDisplay"></div>
+
+        <!-- Defined Channels -->
+        <h3 class="res-heading">Defined Channels</h3>
+        <div id="channelsDisplay"></div>
+
+        <!-- Planetary Activations -->
+        <h3 class="res-heading">Planetary Activations</h3>
+        <div style="overflow-x:auto">
+          <table class="act-table" id="activationsTable"></table>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-box" style="margin-top:2.5rem">
+          <h4>Go Deeper Into Your Design</h4>
+          <p>Get our complete Human Design guide with detailed explanations of your type, strategy, authority, gates and channels - plus a personalized decision-making framework.</p>
+          <a href="https://nextools.gumroad.com/l/human-design-tracker" class="btn btn-gold" target="_blank" rel="noopener">Explore Human Design Products</a>
+        </div>
+
+        <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+          <h4>Combine With Your Destiny Matrix</h4>
+          <p>Your Human Design shows how you operate. Your Destiny Matrix reveals your soul's purpose. Together they create a complete spiritual profile.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Destiny Matrix Calculator</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Quiz -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Quick Type Assessment</h2>
+        <p class="text-center" style="color:var(--text-muted);margin-bottom:1.5rem">Don't know your birth time? Answer 7 questions for a quick estimate of your Human Design type.</p>
+
+        <div class="quiz-progress" id="progress">
+          <div class="quiz-dot active"></div><div class="quiz-dot"></div><div class="quiz-dot"></div>
+          <div class="quiz-dot"></div><div class="quiz-dot"></div><div class="quiz-dot"></div><div class="quiz-dot"></div>
+        </div>
+
         <div class="quiz-step active" data-step="1">
           <h3>1. How do you typically start new projects?</h3>
-          <button class="quiz-option" data-scores="M3,MG2,G1,P0,R0" onclick="selectOption(this)">I feel a strong urge and just go for it, often without waiting for anyone</button>
-          <button class="quiz-option" data-scores="G3,MG3,M1,P0,R0" onclick="selectOption(this)">I wait until something excites me, then I have tons of energy for it</button>
+          <button class="quiz-option" data-scores="M3,MG2,G1,P0,R0" onclick="selectOption(this)">I feel a strong urge and just go for it, often without waiting</button>
+          <button class="quiz-option" data-scores="G3,MG3,M1,P0,R0" onclick="selectOption(this)">I wait until something excites me, then I have tons of energy</button>
           <button class="quiz-option" data-scores="P3,R1,G0,M0,MG0" onclick="selectOption(this)">I wait to be invited or recognized before stepping in</button>
           <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">I observe and reflect for a long time before deciding</button>
         </div>
-
-        <!-- Question 2 -->
         <div class="quiz-step" data-step="2">
           <h3>2. How would you describe your energy levels?</h3>
           <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Consistent, strong energy that lasts all day when I love what I do</button>
@@ -111,76 +262,52 @@
           <button class="quiz-option" data-scores="P3,R1,G0,M0,MG0" onclick="selectOption(this)">My energy fluctuates depending on who I am around</button>
           <button class="quiz-option" data-scores="R3,P2,G0,M0,MG0" onclick="selectOption(this)">I am deeply affected by the environment and need lots of alone time</button>
         </div>
-
-        <!-- Question 3 -->
         <div class="quiz-step" data-step="3">
           <h3>3. How do you make important decisions?</h3>
-          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">I go with my gut feeling - a strong yes or no response in my body</button>
+          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">I go with my gut feeling - a strong yes or no in my body</button>
           <button class="quiz-option" data-scores="M3,MG2,G0,P0,R0" onclick="selectOption(this)">I feel an inner knowing and act on it, sometimes impulsively</button>
-          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">I need time to think and talk it through with others before deciding</button>
-          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">I wait a full lunar cycle or longer, letting clarity emerge slowly</button>
+          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">I need time to think and talk it through with others</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">I wait a full lunar cycle or longer, letting clarity emerge</button>
         </div>
-
-        <!-- Question 4 -->
         <div class="quiz-step" data-step="4">
           <h3>4. In social situations, you tend to...</h3>
-          <button class="quiz-option" data-scores="M3,MG1,G0,P0,R0" onclick="selectOption(this)">Take charge and initiate conversations and activities</button>
+          <button class="quiz-option" data-scores="M3,MG1,G0,P0,R0" onclick="selectOption(this)">Take charge and initiate conversations</button>
           <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Respond enthusiastically when someone engages me</button>
           <button class="quiz-option" data-scores="P3,R1,G0,M0,MG0" onclick="selectOption(this)">Guide and advise others when they ask for my input</button>
           <button class="quiz-option" data-scores="R3,P2,G0,M0,MG0" onclick="selectOption(this)">Mirror and amplify the energy of the group</button>
         </div>
-
-        <!-- Question 5 -->
         <div class="quiz-step" data-step="5">
           <h3>5. What frustrates you most?</h3>
-          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">Doing work I do not love or feeling stuck in the wrong job</button>
+          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">Doing work I do not love or feeling stuck</button>
           <button class="quiz-option" data-scores="M3,MG1,G0,P0,R0" onclick="selectOption(this)">Being controlled or having to ask permission</button>
-          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">Not being seen, valued or recognized for my expertise</button>
+          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">Not being seen or valued for my expertise</button>
           <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">Feeling invisible or overwhelmed by others' emotions</button>
         </div>
-
-        <!-- Question 6 -->
         <div class="quiz-step" data-step="6">
           <h3>6. When it comes to work, you are best at...</h3>
-          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">Building and creating - I have endless energy for the right work</button>
-          <button class="quiz-option" data-scores="MG3,G2,M1,P0,R0" onclick="selectOption(this)">Multitasking and finding shortcuts - I am efficient and fast</button>
-          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">Managing and guiding others - I see potential and systems</button>
-          <button class="quiz-option" data-scores="M3,MG0,G0,P0,R0" onclick="selectOption(this)">Initiating new things and making an impact on my terms</button>
-          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">Evaluating and reflecting - I see what others miss</button>
+          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">Building and creating with endless energy</button>
+          <button class="quiz-option" data-scores="MG3,G2,M1,P0,R0" onclick="selectOption(this)">Multitasking and finding shortcuts</button>
+          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">Managing, guiding others, seeing systems</button>
+          <button class="quiz-option" data-scores="M3,MG0,G0,P0,R0" onclick="selectOption(this)">Initiating new things on my own terms</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">Evaluating and reflecting - seeing what others miss</button>
         </div>
-
-        <!-- Question 7 -->
         <div class="quiz-step" data-step="7">
           <h3>7. When you sleep, you...</h3>
-          <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Usually fall asleep easily, especially after a physically active day</button>
-          <button class="quiz-option" data-scores="M2,P2,R2,MG1,G0" onclick="selectOption(this)">Need to wind down in bed before falling asleep - my mind races</button>
-          <button class="quiz-option" data-scores="P3,M2,R1,G0,MG0" onclick="selectOption(this)">Sleep better when I go to bed before I am completely exhausted</button>
-          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">My sleep quality varies a lot depending on the lunar cycle or environment</button>
+          <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Usually fall asleep easily after an active day</button>
+          <button class="quiz-option" data-scores="M2,P2,R2,MG1,G0" onclick="selectOption(this)">Need to wind down - my mind races</button>
+          <button class="quiz-option" data-scores="P3,M2,R1,G0,MG0" onclick="selectOption(this)">Sleep better when I go to bed before exhaustion</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">Sleep quality varies with the lunar cycle or environment</button>
         </div>
 
-        <!-- Results -->
-        <div id="result-box" class="result-box" style="display:none">
-          <div class="result-title" id="result-type" style="font-size:1.8rem"></div>
-          <div id="result-badge" style="margin:1rem 0"></div>
-          <div class="result-description" id="result-desc"></div>
-          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
-
-          <div class="cta-box">
-            <h4>Get Your Precise Human Design Chart</h4>
-            <p>This quiz gives you a likely type. For your exact chart with all 64 gates, channels and profile lines, you need your exact birth time. Get our complete Human Design guide with chart reading instructions.</p>
-            <a href="https://nextools.gumroad.com/l/human-design-tracker" class="btn btn-gold" target="_blank" rel="noopener">Explore Human Design Products</a>
-          </div>
-
-          <div class="cta-box" style="margin-top:1rem">
-            <h4>Get Your Complete Body Graph Analysis</h4>
-            <p>Go beyond your type. Get a detailed PDF with your full body graph, all 9 centers, channels, gates, and personalized strategy for decision-making.</p>
-            <a href="https://nextools.gumroad.com/l/human-design-tracker" class="btn btn-gold" target="_blank" rel="noopener">Get Your Premium Body Graph - $29</a>
-          </div>
-
-          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
-            <h4>Also Try Your Destiny Matrix</h4>
-            <p>Combine Human Design with a Destiny Matrix reading for a complete spiritual profile.</p>
-            <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Destiny Matrix Calculator</a>
+        <div id="quiz-result" class="result-box" style="display:none">
+          <div class="result-title" id="q-result-type" style="font-size:1.8rem"></div>
+          <div id="q-result-badge" style="margin:1rem 0"></div>
+          <div class="result-description" id="q-result-desc"></div>
+          <div id="q-result-details" style="text-align:left;margin-top:1.5rem"></div>
+          <div class="cta-box" style="margin-top:1.5rem">
+            <h4>Get Your Precise Chart</h4>
+            <p>This quiz estimates your type. For your exact chart with all gates and channels, enter your birth time in the calculator above.</p>
+            <a href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'});return false" class="btn btn-gold">Go to Chart Calculator</a>
           </div>
         </div>
       </div>
@@ -188,59 +315,86 @@
   </section>
 
   <!-- SEO Content -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="article-content">
-        <h2>What is Human Design?</h2>
-        <p>Human Design is a system of self-knowledge that combines astrology, the I Ching, Kabbalah, the Hindu-Brahmin chakra system and quantum physics into a single, unified framework. Created by Ra Uru Hu in 1987, it uses your exact birth date, time and location to generate a unique "BodyGraph" chart.</p>
+        <h2>What is a Human Design Bodygraph?</h2>
+        <p>A Human Design bodygraph is your energetic blueprint - a visual map calculated from your exact birth date, time and location. Unlike a simple personality quiz, it uses real astronomical data (planetary positions at the moment of your birth) mapped onto the 64 hexagrams of the I Ching to reveal your unique energetic configuration.</p>
+        <p>The bodygraph shows 9 energy centers (similar to chakras), 36 channels connecting them, and 64 gates. When a planet activates a gate at the moment of your birth, it "turns on" that gate. When both gates of a channel are activated, the channel becomes defined - connecting two centers and creating a consistent flow of energy.</p>
+
+        <h2>How This Calculator Works</h2>
+        <p>This calculator uses astronomical algorithms to compute the exact positions of 13 celestial bodies (Sun, Earth, Moon, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune, Pluto, North Node and South Node) at two moments:</p>
+        <ul>
+          <li><strong>Personality (conscious)</strong> - calculated from your birth moment. Shown in black on the chart.</li>
+          <li><strong>Design (unconscious)</strong> - calculated from approximately 88 days before birth (when the Sun was 88 degrees behind its birth position). Shown in red on the chart.</li>
+        </ul>
+        <p>Each planetary position maps to one of the 64 gates and 6 lines within that gate. Together, these 26 activations (13 planets x 2 calculations) determine your complete chart.</p>
 
         <h2>The 5 Human Design Types</h2>
-
         <h3>Generator (about 37% of population)</h3>
-        <p>Generators are the life force of the planet. They have sustainable, powerful energy for work they love. Their strategy is to <strong>wait to respond</strong> rather than initiating. When Generators follow their gut response (sacral authority), they find deep satisfaction.</p>
+        <p>Generators have a defined Sacral center - a powerful motor that gives them sustainable, consistent energy for work they love. Their strategy is to <strong>wait to respond</strong> rather than initiating. When Generators follow their gut response (sacral authority), they find deep satisfaction.</p>
 
         <h3>Manifesting Generator (about 33%)</h3>
-        <p>Manifesting Generators combine the initiating power of Manifestors with the sustained energy of Generators. They are fast, efficient multi-taskers who skip steps and find shortcuts. Strategy: <strong>wait to respond, then inform</strong> before acting.</p>
+        <p>Manifesting Generators have a defined Sacral AND a motor connected to the Throat center. They combine sustainable energy with the ability to initiate and manifest. Fast, efficient multi-taskers who skip steps and find shortcuts. Strategy: <strong>wait to respond, then inform</strong>.</p>
 
         <h3>Projector (about 20%)</h3>
-        <p>Projectors are natural guides and managers who see others deeply. They do not have consistent energy for work, but excel at directing others' energy. Strategy: <strong>wait for the invitation</strong>. When recognized, Projectors experience success.</p>
+        <p>Projectors have an undefined Sacral center and no motor-to-Throat connection. They are natural guides and managers who see others deeply. Strategy: <strong>wait for the invitation</strong>. When recognized, Projectors experience success.</p>
 
         <h3>Manifestor (about 8%)</h3>
-        <p>Manifestors are the initiators and trailblazers. They have the unique ability to start things and make an impact independently. Strategy: <strong>inform before acting</strong>. When Manifestors inform, they find peace.</p>
+        <p>Manifestors have an undefined Sacral but DO have a motor connected to the Throat center. They are the initiators and trailblazers. Strategy: <strong>inform before acting</strong>. When Manifestors inform, they find peace.</p>
 
         <h3>Reflector (about 1%)</h3>
-        <p>Reflectors are the rarest type with no defined centers. They mirror and amplify the energy around them. Strategy: <strong>wait a full lunar cycle</strong> (28 days) before making major decisions. Reflectors experience surprise and delight when aligned.</p>
+        <p>Reflectors have NO defined centers at all. They mirror and amplify the energy around them. Strategy: <strong>wait a full lunar cycle</strong> (28 days) before major decisions.</p>
 
-        <h2>Human Design Authority Types</h2>
-        <p>Your authority is how you are designed to make correct decisions:</p>
+        <h2>The 9 Centers</h2>
+        <p>Each center in your bodygraph governs specific aspects of your life:</p>
         <ul>
-          <li><strong>Sacral</strong> - Gut response (Generators/MGs)</li>
-          <li><strong>Emotional (Solar Plexus)</strong> - Wait for emotional clarity</li>
-          <li><strong>Splenic</strong> - Instant intuitive knowing</li>
-          <li><strong>Ego/Heart</strong> - Willpower and commitment</li>
-          <li><strong>Self-Projected</strong> - Talk it out to hear your truth</li>
-          <li><strong>Mental/Environmental</strong> - Discuss with trusted others</li>
-          <li><strong>Lunar</strong> - Wait 28 days (Reflectors only)</li>
+          <li><strong>Head</strong> - Inspiration, mental pressure, questions</li>
+          <li><strong>Ajna</strong> - Conceptualization, mental processing, opinions</li>
+          <li><strong>Throat</strong> - Communication, manifestation, action</li>
+          <li><strong>G Center</strong> - Identity, direction, love</li>
+          <li><strong>Heart/Will</strong> - Willpower, ego, material value</li>
+          <li><strong>Spleen</strong> - Intuition, immune system, survival instincts</li>
+          <li><strong>Sacral</strong> - Life force energy, sexuality, work capacity</li>
+          <li><strong>Solar Plexus</strong> - Emotions, feelings, desire</li>
+          <li><strong>Root</strong> - Adrenaline, stress, drive</li>
         </ul>
 
-        <h2>Human Design Strategy</h2>
-        <p>Your strategy is the way you are designed to interact with life. Following your strategy reduces resistance (what Human Design calls "not-self" behavior) and aligns you with your true nature. The key strategies are: respond (Generators), inform (Manifestors), wait for invitation (Projectors), and wait a lunar cycle (Reflectors).</p>
-
         <h2>FAQ</h2>
-        <h3>Do I need my exact birth time for Human Design?</h3>
-        <p>For a precise BodyGraph chart, yes - even a few minutes can change your chart. This quiz gives you a likely type without needing birth time. For your full chart, visit <a href="https://www.jovianarchive.com" target="_blank" rel="noopener">Jovian Archive</a> or <a href="https://www.mybodygraph.com" target="_blank" rel="noopener">MyBodyGraph</a>.</p>
-
-        <h3>Can my Human Design type change?</h3>
-        <p>No. Your Human Design type is determined at birth and remains constant throughout your life. However, your understanding and embodiment of your type deepens over time.</p>
-
-        <h3>What is the difference between Human Design and the Destiny Matrix?</h3>
-        <p>Human Design requires exact birth time/location and maps your energy centers. The <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a> uses only your birthdate and works with 22 Arcana energies. They complement each other beautifully.</p>
+        <div itemscope itemtype="https://schema.org/FAQPage">
+          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">How accurate is this calculator?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">This calculator uses the same astronomical algorithms (based on JPL planetary data and Jean Meeus' methods) used by professional astrology software. Planetary positions are accurate to within a fraction of a degree, which is sufficient for determining gates and lines in Human Design. For the absolute highest precision, cross-reference with professional HD software that uses the Swiss Ephemeris.</p>
+            </div>
+          </div>
+          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">Why is my exact birth time so important?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">The Moon moves about 12 degrees per day, which means it changes gates roughly every 11 hours and changes lines every 2 hours. Even faster-moving planets like Mercury can shift your chart within hours. Your profile, some gates, and potentially your authority can all change with a birth time difference of just an hour or two.</p>
+            </div>
+          </div>
+          <div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h3 itemprop="name">What is the difference between Personality and Design?</h3>
+            <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <p itemprop="text">Your Personality calculation (black in the chart) represents what you are conscious of - traits you can recognize in yourself. Your Design calculation (red in the chart) is drawn from about 88 days before birth and represents your unconscious, genetic inheritance - what others see in you but you may not recognize. Together they create your complete design.</p>
+            </div>
+          </div>
+        </div>
 
         <div class="cta-box" style="margin-top:2rem">
           <h4>Explore More Free Tools</h4>
-          <a href="/tools/destiny-matrix-calculator/" class="btn btn-gold">Destiny Matrix</a>
-          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm" style="margin-left:0.5rem">Angel Numbers</a>
-          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm" style="margin-left:0.5rem">Life Path</a>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center">
+            <a href="/tools/destiny-matrix-calculator/" class="btn btn-gold btn-sm">Destiny Matrix</a>
+            <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Angel Numbers</a>
+            <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Life Path</a>
+            <a href="/tools/zodiac-calculator/" class="btn btn-purple btn-sm">Zodiac</a>
+            <a href="/tools/breathing-exercise/" class="btn btn-purple btn-sm">Breathing</a>
+            <a href="/tools/numerology-compatibility/" class="btn btn-purple btn-sm">Compatibility</a>
+            <a href="/tools/gratitude-journal/" class="btn btn-purple btn-sm">Gratitude</a>
+            <a href="/tools/affirmation-generator/" class="btn btn-purple btn-sm">Affirmations</a>
+            <a href="/tools/wisdom-mirror/" class="btn btn-purple btn-sm">Wisdom Mirror</a>
+          </div>
         </div>
       </div>
     </div>
@@ -258,164 +412,664 @@
     </div>
   </footer>
 
-  <script>
-  var currentStep = 1;
-  var totalSteps = 7;
-  var scores = { G: 0, MG: 0, M: 0, P: 0, R: 0 };
+<script>
+// ============================================================
+// HUMAN DESIGN CHART CALCULATOR - COMPLETE ENGINE
+// Uses astronomical algorithms for real planetary positions
+// ============================================================
 
-  var typeData = {
-    G: {
-      name: "Generator",
-      badge: "badge-generator",
-      pct: "~37%",
-      desc: "You are a Generator - the life force of the planet! You have powerful, sustainable energy for work that lights you up. When you are doing what you love, you can work tirelessly and feel deeply satisfied.",
-      strategy: "Wait to Respond",
-      strategyDesc: "Do not initiate. Instead, wait for life to bring opportunities to you, then listen to your gut response (sacral authority). A strong 'uh-huh' (yes) or 'uh-uh' (no) in your body tells you the truth.",
-      notSelf: "Frustration - When you initiate instead of responding, or do work that does not light you up",
-      signature: "Satisfaction - The deep fulfillment that comes from doing work your sacral says YES to",
-      famous: "Albert Einstein, Dalai Lama, Oprah Winfrey, Mozart"
-    },
-    MG: {
-      name: "Manifesting Generator",
-      badge: "badge-mg",
-      pct: "~33%",
-      desc: "You are a Manifesting Generator - the fastest, most efficient type! You combine the Generator's sustainable energy with the Manifestor's initiating power. You are a multi-passionate doer who finds shortcuts others miss.",
-      strategy: "Wait to Respond, Then Inform",
-      strategyDesc: "Like a Generator, wait for something to respond to. But once your sacral lights up, inform the people around you before you leap into action. You move fast - informing prevents resistance.",
-      notSelf: "Frustration and Anger - A mix of both Generator and Manifestor shadow emotions",
-      signature: "Satisfaction and Peace - The combined fulfillment of doing meaningful work on your own terms",
-      famous: "Tony Robbins, Angelina Jolie, Jimi Hendrix, Mother Teresa"
-    },
-    P: {
-      name: "Projector",
-      badge: "badge-projector",
-      pct: "~20%",
-      desc: "You are a Projector - a natural guide, manager and advisor. You have the rare gift of seeing deeply into others and understanding how to direct their energy. Your wisdom is your superpower.",
-      strategy: "Wait for the Invitation",
-      strategyDesc: "Do not force your guidance on others. Wait to be recognized and invited into major life areas (career, relationships, where you live). When invited, share your wisdom - it will be received and valued.",
-      notSelf: "Bitterness - When you offer guidance that is not recognized or you try to keep up with Generators' energy",
-      signature: "Success - The recognition and appreciation that comes when your guidance is truly valued",
-      famous: "Barack Obama, Princess Diana, Marilyn Monroe, Nelson Mandela"
-    },
-    M: {
-      name: "Manifestor",
-      badge: "badge-manifestor",
-      pct: "~8%",
-      desc: "You are a Manifestor - the initiator and trailblazer! You have the unique ability to start things, make an impact and bring new things into the world. You are independent and do not need anyone's permission.",
-      strategy: "Inform Before Acting",
-      strategyDesc: "You have the power to just do it. But informing the people who will be affected by your actions reduces resistance and creates peace. It is not asking permission - it is keeping people in the loop.",
-      notSelf: "Anger - When you feel controlled, constrained or like you need to ask permission",
-      signature: "Peace - The calm that comes from initiating freely while keeping others informed",
-      famous: "Maya Angelou, Johnny Depp, Al Gore, Jack Nicholson"
-    },
-    R: {
-      name: "Reflector",
-      badge: "badge-reflector",
-      pct: "~1%",
-      desc: "You are a Reflector - the rarest type in Human Design! With no defined centers, you are a mirror that reflects the health and truth of your community. You experience life differently than anyone else.",
-      strategy: "Wait a Lunar Cycle (28 Days)",
-      strategyDesc: "For major decisions, wait a full 28-day lunar cycle. As the Moon moves through your chart, different perspectives emerge. By the end of the cycle, you will have complete clarity. For small decisions, trust your environment.",
-      notSelf: "Disappointment - When you rush decisions or let others pressure you into acting before you are ready",
-      signature: "Surprise and Delight - The wonder that comes from seeing life through constantly shifting perspectives",
-      famous: "Sandra Bullock, Fyodor Dostoevsky, Uri Geller"
-    }
+var RAD = Math.PI / 180;
+var DEG = 180 / Math.PI;
+
+function norm360(x) { x = x % 360; return x < 0 ? x + 360 : x; }
+function sinD(d) { return Math.sin(d * RAD); }
+function cosD(d) { return Math.cos(d * RAD); }
+
+// === JULIAN DAY ===
+function julianDay(y, m, d, h) {
+  if (m <= 2) { y--; m += 12; }
+  var A = Math.floor(y / 100);
+  var B = 2 - A + Math.floor(A / 4);
+  return Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + d + h / 24 + B - 1524.5;
+}
+
+function jdToT(jd) { return (jd - 2451545.0) / 36525.0; }
+
+// === SUN LONGITUDE (Meeus, accuracy ~0.01 deg) ===
+function sunLong(T) {
+  var L0 = 280.46646 + 36000.76983 * T + 0.0003032 * T * T;
+  var M = 357.52911 + 35999.05029 * T - 0.0001537 * T * T;
+  var C = (1.914602 - 0.004817 * T) * sinD(M) + (0.019993 - 0.000101 * T) * sinD(2 * M) + 0.000289 * sinD(3 * M);
+  var sunLon = L0 + C;
+  var omega = 125.04 - 1934.136 * T;
+  sunLon -= 0.00569 + 0.00478 * sinD(omega);
+  return norm360(sunLon);
+}
+
+// === MOON LONGITUDE (Meeus Ch.47, accuracy ~0.3 deg) ===
+function moonLong(T) {
+  var T2 = T*T, T3 = T2*T, T4 = T3*T;
+  var Lp = norm360(218.3164477 + 481267.88123421*T - 0.0015786*T2 + T3/538841 - T4/65194000);
+  var D  = norm360(297.8501921 + 445267.1114034*T - 0.0018819*T2 + T3/545868 - T4/113065000);
+  var M  = norm360(357.5291092 + 35999.0502909*T - 0.0001536*T2 + T3/24490000);
+  var Mp = norm360(134.9633964 + 477198.8675055*T + 0.0087414*T2 + T3/69699 - T4/14712000);
+  var F  = norm360(93.2720950 + 483202.0175233*T - 0.0036539*T2 - T3/3526000 + T4/863310000);
+  var A1 = norm360(119.75 + 131.849*T);
+  var A2 = norm360(53.09 + 479264.290*T);
+  var E = 1 - 0.002516*T - 0.0000074*T2;
+  var E2 = E*E;
+  var s = sinD;
+  var sumL =
+    6288774*s(Mp) + 1274027*s(2*D-Mp) + 658314*s(2*D) + 213618*s(2*Mp) +
+    -185116*E*s(M) + -114332*s(2*F) + 58793*s(2*D-2*Mp) + 57066*E*s(2*D-M-Mp) +
+    53322*s(2*D+Mp) + 45758*E*s(2*D-M) + -40923*E*s(M-Mp) + -34720*s(D) +
+    -30383*E*s(M+Mp) + 15327*s(2*D-2*F) + -12528*s(Mp+2*F) + 10980*s(Mp-2*F) +
+    10675*s(4*D-Mp) + 10034*s(3*Mp) + 8548*s(4*D-2*Mp) +
+    -7888*E*s(2*D+M-Mp) + -6766*E*s(2*D+M) + -5163*s(D-Mp) +
+    4987*E*s(D+M) + 4036*E*s(2*D-M+Mp) + 3994*s(2*D+2*Mp) +
+    3861*s(4*D) + 3665*s(2*D-3*Mp) + -2689*E*s(M-2*Mp) +
+    -2602*s(2*D-Mp+2*F) + 2390*E*s(2*D-M-2*Mp) + -2348*s(D+Mp) +
+    2236*E2*s(2*D-2*M) + -2120*E*s(M+2*Mp) + -2069*E2*s(2*M);
+  sumL += 3958*s(A1) + 1962*s(Lp-F) + 318*s(A2);
+  return norm360(Lp + sumL / 1000000);
+}
+
+// === NORTH NODE (Mean Node) ===
+function northNodeLong(T) {
+  return norm360(125.04452 - 1934.136261*T + 0.0020708*T*T + T*T*T/450000);
+}
+
+// === PLANETARY POSITIONS (JPL Keplerian Elements 1800-2050) ===
+// [a0,a1, e0,e1, I0,I1, L0,L1, wbar0,wbar1, O0,O1]
+var ORB = {
+  mercury:[0.38709927,0.00000037, 0.20563593,0.00001906, 7.00497902,-0.00594749, 252.25032350,149472.67411175, 77.45779628,0.16047689, 48.33076593,-0.12534081],
+  venus:  [0.72333566,0.00000390, 0.00677672,-0.00004107, 3.39467605,-0.00078890, 181.97909950,58517.81538729, 131.60246718,0.00268329, 76.67984255,-0.27769418],
+  earth:  [1.00000261,0.00000562, 0.01671123,-0.00004392, -0.00001531,-0.01294668, 100.46457166,35999.37244981, 102.93768193,0.32327364, 0,0],
+  mars:   [1.52371034,0.00001847, 0.09339410,0.00007882, 1.84969142,-0.00813131, -4.55343205,19140.30268499, -23.94362959,0.44441088, 49.55953891,-0.29257343],
+  jupiter:[5.20288700,-0.00011607, 0.04838624,-0.00013253, 1.30439695,-0.00183714, 34.39644051,3034.74612775, 14.72847983,0.21252668, 100.47390909,0.20469106],
+  saturn: [9.53667594,-0.00125060, 0.05386179,-0.00050991, 2.48599187,0.00193609, 49.95424423,1222.49362201, 92.59887831,-0.41897216, 113.66242448,-0.28867794],
+  uranus: [19.18916464,-0.00196176, 0.04725744,-0.00004397, 0.77263783,-0.00242939, 313.23810451,428.48202785, 170.95427630,0.40805281, 74.01692503,0.04240589],
+  neptune:[30.06992276,0.00026291, 0.00859048,0.00005105, 1.77004347,0.00035372, -55.12002969,218.45945325, 44.96476227,-0.32241464, 131.78422574,-0.00508664],
+  pluto:  [39.48211675,-0.00031596, 0.24882730,0.00005170, 17.14001206,0.00004818, 238.92903833,145.20780515, 224.06891629,-0.04062942, 110.30393684,-0.01183482]
+};
+
+function solveKepler(M_deg, e) {
+  var M = M_deg * RAD;
+  var E = M;
+  for (var i = 0; i < 30; i++) {
+    var dE = (M - E + e * Math.sin(E)) / (1 - e * Math.cos(E));
+    E += dE;
+    if (Math.abs(dE) < 1e-12) break;
+  }
+  return E;
+}
+
+function helioXYZ(orb, T) {
+  var a = orb[0] + orb[1]*T;
+  var e = orb[2] + orb[3]*T;
+  var I = (orb[4] + orb[5]*T) * RAD;
+  var L = orb[6] + orb[7]*T;
+  var wbar = orb[8] + orb[9]*T;
+  var O = (orb[10] + orb[11]*T) * RAD;
+  var w = (wbar - orb[10] - orb[11]*T) * RAD;
+  var M = norm360(L - wbar);
+  var E = solveKepler(M, e);
+  var v = 2 * Math.atan2(Math.sqrt(1+e)*Math.sin(E/2), Math.sqrt(1-e)*Math.cos(E/2));
+  var r = a * (1 - e * Math.cos(E));
+  var cO = Math.cos(O), sO = Math.sin(O), cI = Math.cos(I), sI = Math.sin(I);
+  var cwv = Math.cos(w+v), swv = Math.sin(w+v);
+  return [
+    r * (cO*cwv - sO*swv*cI),
+    r * (sO*cwv + cO*swv*cI),
+    r * (swv*sI)
+  ];
+}
+
+function planetGeoLong(planet, T) {
+  var p = helioXYZ(ORB[planet], T);
+  var e = helioXYZ(ORB.earth, T);
+  var lon = Math.atan2(p[1]-e[1], p[0]-e[0]) * DEG;
+  return norm360(lon);
+}
+
+function sunGeoLong(T) {
+  // Use the accurate Meeus formula instead of orbital elements
+  return sunLong(T);
+}
+
+// === FIND DESIGN DATE (88 degrees before birth Sun) ===
+function findDesignJD(jd_birth) {
+  var T0 = jdToT(jd_birth);
+  var sunBirth = sunLong(T0);
+  var target = norm360(sunBirth - 88);
+  var jd = jd_birth - 88;
+  for (var i = 0; i < 50; i++) {
+    var T = jdToT(jd);
+    var sun = sunLong(T);
+    var diff = target - sun;
+    if (diff > 180) diff -= 360;
+    if (diff < -180) diff += 360;
+    if (Math.abs(diff) < 0.0001) break;
+    jd += diff / 0.9856;
+  }
+  return jd;
+}
+
+// === GET ALL 13 PLANET LONGITUDES AT A GIVEN JD ===
+function getPlanetPositions(jd) {
+  var T = jdToT(jd);
+  var sunL = sunLong(T);
+  return {
+    sun:    sunL,
+    earth:  norm360(sunL + 180),
+    moon:   moonLong(T),
+    nnode:  northNodeLong(T),
+    snode:  norm360(northNodeLong(T) + 180),
+    mercury: planetGeoLong('mercury', T),
+    venus:   planetGeoLong('venus', T),
+    mars:    planetGeoLong('mars', T),
+    jupiter: planetGeoLong('jupiter', T),
+    saturn:  planetGeoLong('saturn', T),
+    uranus:  planetGeoLong('uranus', T),
+    neptune: planetGeoLong('neptune', T),
+    pluto:   planetGeoLong('pluto', T)
   };
+}
 
-  function selectOption(btn) {
-    // Remove previous selection in this step
-    var step = btn.closest('.quiz-step');
-    step.querySelectorAll('.quiz-option').forEach(function(o) { o.classList.remove('selected'); });
-    btn.classList.add('selected');
+// === HD GATE MAPPING ===
+// Gate order on the Rave Mandala (zodiac wheel), starting at 358.25 degrees
+var GATE_ORDER = [25,17,21,51,42,3,27,24,2,23,8,20,16,35,45,12,15,52,39,53,62,56,31,33,7,4,29,59,40,64,47,6,46,18,48,57,32,50,28,44,1,43,14,34,9,5,26,11,10,58,38,54,61,60,41,19,13,49,30,55,37,63,22,36];
+var WHEEL_START = 358.25; // Gate 25 starts at 28 15' Pisces
 
-    // Parse scores
-    var scoreStr = btn.getAttribute('data-scores');
-    var pairs = scoreStr.split(',');
-    var stepScores = {};
-    pairs.forEach(function(p) {
-      var match = p.match(/^([A-Z]+)(\d+)$/);
-      if (match) stepScores[match[1]] = parseInt(match[2]);
+function longToGateLine(longitude) {
+  var angle = norm360(longitude - WHEEL_START);
+  var idx = Math.floor(angle / 5.625);
+  if (idx >= 64) idx = 0;
+  var gate = GATE_ORDER[idx];
+  var lineAngle = angle - idx * 5.625;
+  var line = Math.floor(lineAngle / 0.9375) + 1;
+  if (line > 6) line = 6;
+  return { gate: gate, line: line };
+}
+
+// === GATE TO CENTER MAPPING ===
+var G2C = {};
+(function() {
+  var map = {
+    head:[61,63,64], ajna:[4,11,17,24,43,47],
+    throat:[8,12,16,20,23,31,33,35,45,56,62],
+    g:[1,2,7,10,13,15,25,46], heart:[21,26,40,51],
+    spleen:[18,28,32,44,48,50,57], sacral:[3,5,9,14,27,29,34,42,59],
+    solar:[6,22,30,36,37,49,55], root:[19,38,39,41,52,53,54,58,60]
+  };
+  for (var c in map) { for (var i = 0; i < map[c].length; i++) G2C[map[c][i]] = c; }
+})();
+
+// === 36 CHANNELS [gate1, gate2] ===
+var CHANNELS = [
+  [64,47],[61,24],[63,4], // head-ajna
+  [17,62],[43,23],[11,56], // ajna-throat
+  [1,8],[7,31],[13,33],[10,20], // throat-g
+  [21,45], // throat-heart
+  [16,48],[20,57], // throat-spleen
+  [20,34], // throat-sacral
+  [12,22],[35,36], // throat-solar
+  [25,51], // g-heart
+  [2,14],[5,15],[29,46],[10,34], // g-sacral
+  [10,57], // g-spleen
+  [26,44], // heart-spleen
+  [37,40], // heart-solar
+  [27,50],[34,57], // spleen-sacral
+  [18,58],[28,38],[32,54], // spleen-root
+  [3,60],[9,52],[42,53], // sacral-root
+  [6,59], // sacral-solar
+  [19,49],[30,41],[39,55] // solar-root
+];
+
+// === GATE NAMES ===
+var GNAMES = {
+  1:'The Creative',2:'The Receptive',3:'Ordering',4:'Youthful Folly',5:'Waiting',6:'Friction',
+  7:'The Army',8:'Contribution',9:'Focus',10:'Self-Love',11:'Ideas',12:'Caution',
+  13:'The Listener',14:'Power Skills',15:'Extremes',16:'Skills',17:'Opinions',18:'Correction',
+  19:'Wanting',20:'The Now',21:'Control',22:'Openness',23:'Assimilation',24:'Rationalizing',
+  25:'Innocence',26:'The Trickster',27:'Caring',28:'The Player',29:'Commitment',30:'Desire',
+  31:'Leadership',32:'Continuity',33:'Privacy',34:'Power',35:'Change',36:'Crisis',
+  37:'Friendship',38:'The Fighter',39:'Provocation',40:'Aloneness',41:'Contraction',42:'Growth',
+  43:'Insight',44:'Alertness',45:'The Gatherer',46:'Serendipity',47:'Realization',48:'Depth',
+  49:'Principles',50:'Values',51:'Shock',52:'Inaction',53:'Beginnings',54:'Ambition',
+  55:'Spirit',56:'Stimulation',57:'Intuition',58:'Vitality',59:'Sexuality',60:'Limitation',
+  61:'Mystery',62:'Details',63:'Doubt',64:'Confusion'
+};
+
+var CENTER_NAMES = {head:'Head',ajna:'Ajna',throat:'Throat',g:'G (Identity)',heart:'Heart/Will',spleen:'Spleen',sacral:'Sacral',solar:'Solar Plexus',root:'Root'};
+
+var PLANET_NAMES = {sun:'Sun',earth:'Earth',moon:'Moon',nnode:'North Node',snode:'South Node',mercury:'Mercury',venus:'Venus',mars:'Mars',jupiter:'Jupiter',saturn:'Saturn',uranus:'Uranus',neptune:'Neptune',pluto:'Pluto'};
+var PLANET_ORDER = ['sun','earth','moon','nnode','snode','mercury','venus','mars','jupiter','saturn','uranus','neptune','pluto'];
+var PLANET_SYMBOLS = {sun:'\u2609',earth:'\u2641',moon:'\u263D',nnode:'\u260A',snode:'\u260B',mercury:'\u263F',venus:'\u2640',mars:'\u2642',jupiter:'\u2643',saturn:'\u2644',uranus:'\u2645',neptune:'\u2646',pluto:'\u2647'};
+
+// === CALCULATE FULL CHART ===
+function computeChart(jd_birth) {
+  var jd_design = findDesignJD(jd_birth);
+  var persPos = getPlanetPositions(jd_birth);
+  var desPos = getPlanetPositions(jd_design);
+
+  // Map to gates
+  var persAct = {}, desAct = {};
+  var allGates = new Set();
+  var persGates = new Set(), desGates = new Set();
+
+  PLANET_ORDER.forEach(function(p) {
+    persAct[p] = longToGateLine(persPos[p]);
+    desAct[p] = longToGateLine(desPos[p]);
+    allGates.add(persAct[p].gate); persGates.add(persAct[p].gate);
+    allGates.add(desAct[p].gate); desGates.add(desAct[p].gate);
+  });
+
+  // Find defined channels
+  var definedChannels = [];
+  CHANNELS.forEach(function(ch) {
+    if (allGates.has(ch[0]) && allGates.has(ch[1])) {
+      definedChannels.push(ch);
+    }
+  });
+
+  // Find defined centers
+  var definedCenters = new Set();
+  definedChannels.forEach(function(ch) {
+    definedCenters.add(G2C[ch[0]]);
+    definedCenters.add(G2C[ch[1]]);
+  });
+
+  // Determine Type
+  var sacralDefined = definedCenters.has('sacral');
+  var motorToThroat = isMotorConnectedToThroat(definedChannels, definedCenters);
+  var type;
+  if (definedCenters.size === 0) { type = 'Reflector'; }
+  else if (sacralDefined && motorToThroat) { type = 'Manifesting Generator'; }
+  else if (sacralDefined) { type = 'Generator'; }
+  else if (motorToThroat) { type = 'Manifestor'; }
+  else { type = 'Projector'; }
+
+  // Determine Authority
+  var authority = getAuthority(definedCenters, type);
+
+  // Profile
+  var persLine = persAct.sun.line;
+  var desLine = desAct.sun.line;
+  var profile = persLine + '/' + desLine;
+
+  // Definition type
+  var definition = getDefinition(definedCenters, definedChannels);
+
+  // Incarnation Cross
+  var crossType;
+  if (profile === '4/1') crossType = 'Juxtaposition';
+  else if (['1/3','1/4','2/4','2/5','3/5','3/6'].indexOf(profile) >= 0) crossType = 'Right Angle';
+  else crossType = 'Left Angle';
+  var cross = crossType + ' Cross of ' + GNAMES[persAct.sun.gate];
+
+  return {
+    type: type, strategy: getStrategy(type), authority: authority, profile: profile,
+    cross: cross, definition: definition,
+    definedCenters: definedCenters, definedChannels: definedChannels,
+    persGates: persGates, desGates: desGates, allGates: allGates,
+    persAct: persAct, desAct: desAct
+  };
+}
+
+function getStrategy(type) {
+  var m = {
+    'Generator':'Wait to Respond','Manifesting Generator':'Wait to Respond, Then Inform',
+    'Projector':'Wait for the Invitation','Manifestor':'Inform Before Acting',
+    'Reflector':'Wait a Lunar Cycle (28 Days)'
+  };
+  return m[type];
+}
+
+function getAuthority(dc, type) {
+  if (type === 'Reflector') return 'Lunar';
+  if (dc.has('solar')) return 'Emotional (Solar Plexus)';
+  if (dc.has('sacral')) return 'Sacral';
+  if (dc.has('spleen')) return 'Splenic';
+  if (dc.has('heart')) return 'Ego';
+  if (dc.has('g')) return 'Self-Projected';
+  if (dc.has('ajna') || dc.has('head')) return 'Mental / Environment';
+  return 'None';
+}
+
+// Check if any motor center is connected to Throat through defined channels
+function isMotorConnectedToThroat(defCh, defCenters) {
+  if (!defCenters.has('throat')) return false;
+  var motors = ['sacral','solar','heart','root'];
+  // Build adjacency graph of defined centers
+  var adj = {};
+  defCenters.forEach(function(c) { adj[c] = new Set(); });
+  defCh.forEach(function(ch) {
+    var c1 = G2C[ch[0]], c2 = G2C[ch[1]];
+    if (adj[c1]) adj[c1].add(c2);
+    if (adj[c2]) adj[c2].add(c1);
+  });
+  // BFS from throat to see if any motor is reachable
+  var visited = new Set(['throat']);
+  var queue = ['throat'];
+  while (queue.length > 0) {
+    var current = queue.shift();
+    if (motors.indexOf(current) >= 0) return true;
+    if (adj[current]) {
+      adj[current].forEach(function(next) {
+        if (!visited.has(next)) { visited.add(next); queue.push(next); }
+      });
+    }
+  }
+  return false;
+}
+
+function getDefinition(defCenters, defChannels) {
+  if (defCenters.size === 0) return 'No Definition';
+  var adj = {};
+  defCenters.forEach(function(c) { adj[c] = new Set(); });
+  defChannels.forEach(function(ch) {
+    var c1 = G2C[ch[0]], c2 = G2C[ch[1]];
+    adj[c1].add(c2); adj[c2].add(c1);
+  });
+  var visited = new Set();
+  var components = 0;
+  defCenters.forEach(function(start) {
+    if (visited.has(start)) return;
+    components++;
+    var q = [start];
+    while (q.length > 0) {
+      var c = q.shift();
+      if (visited.has(c)) continue;
+      visited.add(c);
+      adj[c].forEach(function(n) { if (!visited.has(n)) q.push(n); });
+    }
+  });
+  return ['','Single Definition','Split Definition','Triple Split Definition','Quadruple Split'][components] || components + '-Split';
+}
+
+// === PROFILE NAMES ===
+var LINE_NAMES = {1:'Investigator',2:'Hermit',3:'Martyr',4:'Opportunist',5:'Heretic',6:'Role Model'};
+
+// === SVG BODYGRAPH RENDERER ===
+var CP = {
+  head:{x:220,y:45,shape:'td',w:48,h:38,color:'#FDD835'},
+  ajna:{x:220,y:118,shape:'td',w:52,h:40,color:'#66BB6A'},
+  throat:{x:220,y:198,shape:'sq',w:54,h:44,color:'#A1887F'},
+  g:{x:220,y:308,shape:'dm',w:50,h:50,color:'#FFF176'},
+  heart:{x:335,y:250,shape:'tr',w:34,h:38,color:'#EF5350'},
+  spleen:{x:105,y:400,shape:'tl',w:38,h:44,color:'#8D6E63'},
+  sacral:{x:220,y:420,shape:'sq',w:52,h:42,color:'#FF7043'},
+  solar:{x:335,y:400,shape:'tr',w:38,h:44,color:'#795548'},
+  root:{x:220,y:530,shape:'sq',w:54,h:42,color:'#FF7043'}
+};
+
+// Channel paths: [gate1,gate2, center1,center2]
+var CH_MAP = [];
+CHANNELS.forEach(function(ch) { CH_MAP.push([ch[0],ch[1],G2C[ch[0]],G2C[ch[1]]]); });
+
+function renderBodygraph(chart) {
+  var svg = '<svg viewBox="0 0 440 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Human Design Bodygraph Chart">';
+  svg += '<defs>';
+  svg += '<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  svg += '<filter id="glowSm"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  svg += '</defs>';
+  svg += '<rect width="440" height="590" fill="#0d0d15" rx="8"/>';
+
+  // Group channels by center pair for offset calculation
+  var pairCount = {};
+  var pairIndex = {};
+  CH_MAP.forEach(function(ch) {
+    var key = ch[2] < ch[3] ? ch[2]+'-'+ch[3] : ch[3]+'-'+ch[2];
+    pairCount[key] = (pairCount[key] || 0) + 1;
+    pairIndex[key] = 0;
+  });
+
+  // Draw channels
+  CH_MAP.forEach(function(ch) {
+    var c1 = CP[ch[2]], c2 = CP[ch[3]];
+    var key = ch[2] < ch[3] ? ch[2]+'-'+ch[3] : ch[3]+'-'+ch[2];
+    var total = pairCount[key];
+    var idx = pairIndex[key]++;
+    var isDefined = chart.definedChannels.some(function(dc) {
+      return (dc[0]===ch[0] && dc[1]===ch[1]) || (dc[0]===ch[1] && dc[1]===ch[0]);
     });
 
-    // Store on step element
-    step.setAttribute('data-selected-scores', JSON.stringify(stepScores));
+    var dx = c2.x - c1.x, dy = c2.y - c1.y;
+    var len = Math.sqrt(dx*dx + dy*dy) || 1;
+    var px = -dy/len, py = dx/len;
+    var offset = (idx - (total-1)/2) * 7;
+    var x1 = c1.x + px*offset, y1 = c1.y + py*offset;
+    var x2 = c2.x + px*offset, y2 = c2.y + py*offset;
 
-    // Auto-advance after short delay
-    setTimeout(function() { nextStep(); }, 300);
-  }
-
-  function nextStep() {
-    if (currentStep >= totalSteps) {
-      showResults();
-      return;
-    }
-
-    // Update progress
-    var dots = document.querySelectorAll('.quiz-dot');
-    dots[currentStep - 1].classList.remove('active');
-    dots[currentStep - 1].classList.add('done');
-    dots[currentStep].classList.add('active');
-
-    // Hide current, show next
-    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.remove('active');
-    currentStep++;
-    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.add('active');
-  }
-
-  function showResults() {
-    // Tally scores
-    scores = { G: 0, MG: 0, M: 0, P: 0, R: 0 };
-    document.querySelectorAll('.quiz-step').forEach(function(step) {
-      var raw = step.getAttribute('data-selected-scores');
-      if (raw) {
-        var s = JSON.parse(raw);
-        for (var key in s) { if (scores.hasOwnProperty(key)) scores[key] += s[key]; }
+    if (isDefined) {
+      // Determine color: both pers = light, both des = red, mixed = gold
+      var g1p = chart.persGates.has(ch[0]), g1d = chart.desGates.has(ch[0]);
+      var g2p = chart.persGates.has(ch[1]), g2d = chart.desGates.has(ch[1]);
+      var onlyPers = g1p && g2p && !g1d && !g2d;
+      var onlyDes = g1d && g2d && !g1p && !g2p;
+      var color = onlyPers ? '#ccc' : onlyDes ? '#e53935' : '#FFD700';
+      if (!onlyPers && !onlyDes) {
+        // Draw striped: red dashed over light
+        svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#ccc" stroke-width="3.5" stroke-linecap="round" filter="url(#glowSm)"/>';
+        svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#e53935" stroke-width="3.5" stroke-dasharray="6 6" stroke-linecap="round"/>';
+      } else {
+        svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+color+'" stroke-width="3.5" stroke-linecap="round" filter="url(#glowSm)"/>';
       }
-    });
-
-    // Find winner
-    var maxType = 'G', maxScore = 0;
-    for (var t in scores) {
-      if (scores[t] > maxScore) { maxScore = scores[t]; maxType = t; }
+      // Gate labels
+      var mx = (x1+x2)/2, my = (y1+y2)/2;
+      svg += '<text x="'+(mx+px*8)+'" y="'+(my+py*8)+'" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-weight="600">'+ch[0]+'-'+ch[1]+'</text>';
+    } else {
+      svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>';
     }
+  });
 
-    var type = typeData[maxType];
+  // Draw centers
+  for (var name in CP) {
+    var c = CP[name];
+    var isDef = chart.definedCenters.has(name);
+    var fill = isDef ? c.color : 'none';
+    var stroke = isDef ? c.color : 'rgba(255,255,255,0.2)';
+    var opacity = isDef ? '0.55' : '1';
+    var sw = isDef ? '2' : '1';
+    var filt = isDef ? ' filter="url(#glow)"' : '';
 
-    // Hide last step + progress
-    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.remove('active');
-    document.getElementById('progress').style.display = 'none';
-
-    // Show result
-    document.getElementById('result-type').textContent = type.name;
-    document.getElementById('result-badge').innerHTML = '<span class="type-badge ' + type.badge + '">' + type.name + ' - ' + type.pct + ' of population</span>';
-    document.getElementById('result-desc').textContent = type.desc;
-
-    var details = '';
-    details += '<h3 style="margin-bottom:0.75rem;color:var(--gold)">Your Strategy: ' + type.strategy + '</h3>';
-    details += '<p>' + type.strategyDesc + '</p>';
-    details += '<p><strong>Not-Self Theme:</strong> ' + type.notSelf + '</p>';
-    details += '<p><strong>Signature Theme:</strong> ' + type.signature + '</p>';
-    details += '<p><strong>Famous ' + type.name + 's:</strong> ' + type.famous + '</p>';
-
-    details += '<h3 style="margin-top:1.5rem;margin-bottom:0.75rem;color:var(--gold)">Your Scores</h3>';
-    details += '<table style="width:100%;border-collapse:collapse">';
-    var order = ['G','MG','P','M','R'];
-    order.forEach(function(k) {
-      var pct = Math.round((scores[k] / (maxScore || 1)) * 100);
-      details += '<tr style="border-bottom:1px solid var(--border-subtle)"><td style="padding:0.5rem 0;font-weight:600">' + typeData[k].name + '</td>';
-      details += '<td style="padding:0.5rem 0"><div style="background:var(--border-subtle);border-radius:4px;height:8px;width:100%"><div style="background:var(--purple-mid);border-radius:4px;height:8px;width:' + pct + '%"></div></div></td>';
-      details += '<td style="padding:0.5rem 0 0.5rem 0.75rem;width:3rem;text-align:right">' + scores[k] + '</td></tr>';
-    });
-    details += '</table>';
-    details += '<p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted)"><em>Note: This quiz estimates your type based on behavioral patterns. For your exact Human Design chart, you need your precise birth time and location.</em></p>';
-
-    document.getElementById('result-details').innerHTML = details;
-
-    var box = document.getElementById('result-box');
-    box.style.display = 'block';
-    box.classList.add('visible');
-    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    switch(c.shape) {
+      case 'td': // triangle down
+        svg += '<polygon points="'+(c.x-c.w/2)+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+(c.y-c.h/2)+' '+c.x+','+(c.y+c.h/2)+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+        break;
+      case 'sq': // square
+        svg += '<rect x="'+(c.x-c.w/2)+'" y="'+(c.y-c.h/2)+'" width="'+c.w+'" height="'+c.h+'" rx="4" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+        break;
+      case 'dm': // diamond
+        svg += '<polygon points="'+c.x+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+c.y+' '+c.x+','+(c.y+c.h/2)+' '+(c.x-c.w/2)+','+c.y+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+        break;
+      case 'tr': // triangle right
+        svg += '<polygon points="'+(c.x-c.w/2)+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+c.y+' '+(c.x-c.w/2)+','+(c.y+c.h/2)+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+        break;
+      case 'tl': // triangle left
+        svg += '<polygon points="'+(c.x+c.w/2)+','+(c.y-c.h/2)+' '+(c.x-c.w/2)+','+c.y+' '+(c.x+c.w/2)+','+(c.y+c.h/2)+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+        break;
+    }
+    // Center label
+    var label = {head:'HEAD',ajna:'AJNA',throat:'THROAT',g:'G',heart:'HEART',spleen:'SPLEEN',sacral:'SACRAL',solar:'SOLAR\nPLEXUS',root:'ROOT'};
+    var textY = c.y + (c.shape === 'td' ? -2 : 4);
+    var textColor = isDef ? '#fff' : 'rgba(255,255,255,0.35)';
+    var fontSize = name === 'solar' ? '6.5' : '7.5';
+    if (name === 'solar') {
+      svg += '<text x="'+c.x+'" y="'+(textY-3)+'" text-anchor="middle" fill="'+textColor+'" font-size="'+fontSize+'" font-weight="700">SOLAR</text>';
+      svg += '<text x="'+c.x+'" y="'+(textY+5)+'" text-anchor="middle" fill="'+textColor+'" font-size="'+fontSize+'" font-weight="700">PLEXUS</text>';
+    } else {
+      svg += '<text x="'+c.x+'" y="'+textY+'" text-anchor="middle" fill="'+textColor+'" font-size="'+fontSize+'" font-weight="700">'+label[name]+'</text>';
+    }
   }
-  </script>
+
+  svg += '</svg>';
+  return svg;
+}
+
+// === UI: CALCULATE AND DISPLAY ===
+function calculateChart() {
+  var dateVal = document.getElementById('birthDate').value;
+  if (!dateVal) { alert('Please enter your date of birth.'); return; }
+  var parts = dateVal.split('-');
+  var year = parseInt(parts[0]), month = parseInt(parts[1]), day = parseInt(parts[2]);
+
+  var timeVal = document.getElementById('birthTime').value || '12:00';
+  var noTime = document.getElementById('noTime').checked;
+  if (noTime) timeVal = '12:00';
+  var timeParts = timeVal.split(':');
+  var hour = parseInt(timeParts[0]) + parseInt(timeParts[1]) / 60;
+
+  var tzOffset = parseFloat(document.getElementById('tz').value);
+  var utcHour = hour - tzOffset;
+
+  // Adjust date if UTC hour crosses midnight
+  var utcDay = day;
+  if (utcHour < 0) { utcHour += 24; utcDay--; }
+  if (utcHour >= 24) { utcHour -= 24; utcDay++; }
+
+  var jd = julianDay(year, month, utcDay, utcHour);
+  var chart = computeChart(jd);
+  displayResults(chart, dateVal, timeVal, noTime);
+}
+
+function displayResults(chart, dateStr, timeStr, noTime) {
+  var city = document.getElementById('birthCity').value;
+  var summary = dateStr + (noTime ? ' (noon estimate)' : ' at ' + timeStr);
+  if (city) summary += ' - ' + city;
+  document.getElementById('birthSummary').textContent = summary;
+
+  // Type badge class
+  var badgeClass = {
+    'Generator':'badge-generator','Manifesting Generator':'badge-mg',
+    'Projector':'badge-projector','Manifestor':'badge-manifestor','Reflector':'badge-reflector'
+  }[chart.type];
+
+  // Summary cards
+  var cards = '';
+  cards += card('Your Type', '<span class="type-badge-lg '+badgeClass+'">'+chart.type+'</span>', '');
+  cards += card('Strategy', chart.strategy, '');
+  cards += card('Authority', chart.authority, '');
+  cards += card('Profile', chart.profile, LINE_NAMES[chart.profile[0]] + ' / ' + LINE_NAMES[chart.profile[2]]);
+  cards += card('Definition', chart.definition, '');
+  cards += card('Incarnation Cross', chart.cross, '');
+  document.getElementById('summaryCards').innerHTML = cards;
+
+  // Bodygraph
+  document.getElementById('bodygraphContainer').innerHTML = renderBodygraph(chart);
+
+  // Defined Centers
+  var allCenters = ['head','ajna','throat','g','heart','spleen','sacral','solar','root'];
+  var centersHtml = '';
+  allCenters.forEach(function(c) {
+    var isDef = chart.definedCenters.has(c);
+    centersHtml += '<span class="chip '+(isDef?'chip-def':'chip-undef')+'">'+(isDef?'&#9632; ':'&#9633; ')+CENTER_NAMES[c]+'</span>';
+  });
+  document.getElementById('centersDisplay').innerHTML = centersHtml;
+
+  // Defined Channels
+  var chHtml = '';
+  if (chart.definedChannels.length === 0) {
+    chHtml = '<p style="color:var(--text-muted)">No defined channels (Reflector)</p>';
+  } else {
+    chart.definedChannels.forEach(function(ch) {
+      chHtml += '<span class="chip chip-def">'+ch[0]+'-'+ch[1]+' '+GNAMES[ch[0]]+' / '+GNAMES[ch[1]]+'</span>';
+    });
+  }
+  document.getElementById('channelsDisplay').innerHTML = chHtml;
+
+  // Activations Table
+  var tbl = '<thead><tr><th>Planet</th><th>Personality (Conscious)</th><th>Design (Unconscious)</th></tr></thead><tbody>';
+  PLANET_ORDER.forEach(function(p) {
+    var pa = chart.persAct[p], da = chart.desAct[p];
+    tbl += '<tr><td>'+PLANET_SYMBOLS[p]+' '+PLANET_NAMES[p]+'</td>';
+    tbl += '<td class="pers"><strong>Gate '+pa.gate+'</strong>.'+pa.line+' - '+GNAMES[pa.gate]+'</td>';
+    tbl += '<td class="des"><strong>Gate '+da.gate+'</strong>.'+da.line+' - '+GNAMES[da.gate]+'</td>';
+    tbl += '</tr>';
+  });
+  tbl += '</tbody>';
+  document.getElementById('activationsTable').innerHTML = tbl;
+
+  if (noTime) {
+    document.getElementById('birthSummary').innerHTML += '<br><em style="color:#FFB74D;font-size:0.85rem">Note: Without exact birth time, Moon, profile and some gates may be inaccurate.</em>';
+  }
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function card(label, value, sub) {
+  return '<div class="summary-card"><div class="label">'+label+'</div><div class="value">'+value+'</div>'+(sub?'<div class="sub">'+sub+'</div>':'')+'</div>';
+}
+
+// === AUTO-DETECT TIMEZONE ===
+(function() {
+  var offset = -new Date().getTimezoneOffset() / 60;
+  var sel = document.getElementById('tz');
+  for (var i = 0; i < sel.options.length; i++) {
+    if (parseFloat(sel.options[i].value) === offset) { sel.selectedIndex = i; break; }
+  }
+})();
+
+// ============================================================
+// QUICK QUIZ (existing functionality)
+// ============================================================
+var currentStep = 1, totalSteps = 7;
+var quizScores = { G:0, MG:0, M:0, P:0, R:0 };
+var quizTypeData = {
+  G:{name:'Generator',badge:'badge-generator',pct:'~37%',desc:'You are a Generator - the life force of the planet! You have powerful, sustainable energy for work that lights you up.',strategy:'Wait to Respond',strategyDesc:'Wait for life to bring opportunities, then listen to your gut response. A strong yes or no in your body tells you the truth.',notSelf:'Frustration',signature:'Satisfaction',famous:'Albert Einstein, Dalai Lama, Oprah Winfrey'},
+  MG:{name:'Manifesting Generator',badge:'badge-mg',pct:'~33%',desc:'You are a Manifesting Generator - the fastest, most efficient type! You combine sustainable energy with initiating power.',strategy:'Wait to Respond, Then Inform',strategyDesc:'Wait for something to respond to. Once your sacral lights up, inform people around you before you leap into action.',notSelf:'Frustration + Anger',signature:'Satisfaction + Peace',famous:'Tony Robbins, Angelina Jolie, Jimi Hendrix'},
+  P:{name:'Projector',badge:'badge-projector',pct:'~20%',desc:'You are a Projector - a natural guide and advisor. You have the rare gift of seeing deeply into others.',strategy:'Wait for the Invitation',strategyDesc:'Wait to be recognized and invited into major life areas. When invited, your wisdom will be received and valued.',notSelf:'Bitterness',signature:'Success',famous:'Barack Obama, Princess Diana, Nelson Mandela'},
+  M:{name:'Manifestor',badge:'badge-manifestor',pct:'~8%',desc:'You are a Manifestor - the initiator and trailblazer! You have the unique ability to start things independently.',strategy:'Inform Before Acting',strategyDesc:'Informing people affected by your actions reduces resistance and creates peace. It is not asking permission.',notSelf:'Anger',signature:'Peace',famous:'Maya Angelou, Johnny Depp, Jack Nicholson'},
+  R:{name:'Reflector',badge:'badge-reflector',pct:'~1%',desc:'You are a Reflector - the rarest type! With no defined centers, you mirror and reflect the health of your community.',strategy:'Wait a Lunar Cycle (28 Days)',strategyDesc:'For major decisions, wait a full lunar cycle. Different perspectives emerge as the Moon moves through your chart.',notSelf:'Disappointment',signature:'Surprise + Delight',famous:'Sandra Bullock, Fyodor Dostoevsky'}
+};
+
+function selectOption(btn) {
+  var step = btn.closest('.quiz-step');
+  step.querySelectorAll('.quiz-option').forEach(function(o){o.classList.remove('selected');});
+  btn.classList.add('selected');
+  var pairs = btn.getAttribute('data-scores').split(',');
+  var ss = {};
+  pairs.forEach(function(p){var m=p.match(/^([A-Z]+)(\d+)$/);if(m)ss[m[1]]=parseInt(m[2]);});
+  step.setAttribute('data-selected-scores',JSON.stringify(ss));
+  setTimeout(function(){nextQuizStep();},300);
+}
+
+function nextQuizStep() {
+  if (currentStep >= totalSteps) { showQuizResults(); return; }
+  var dots = document.querySelectorAll('.quiz-dot');
+  dots[currentStep-1].classList.remove('active');
+  dots[currentStep-1].classList.add('done');
+  dots[currentStep].classList.add('active');
+  document.querySelector('.quiz-step[data-step="'+currentStep+'"]').classList.remove('active');
+  currentStep++;
+  document.querySelector('.quiz-step[data-step="'+currentStep+'"]').classList.add('active');
+}
+
+function showQuizResults() {
+  quizScores = {G:0,MG:0,M:0,P:0,R:0};
+  document.querySelectorAll('.quiz-step').forEach(function(step){
+    var raw = step.getAttribute('data-selected-scores');
+    if(raw){var s=JSON.parse(raw);for(var k in s){if(quizScores.hasOwnProperty(k))quizScores[k]+=s[k];}}
+  });
+  var maxType='G',maxScore=0;
+  for(var t in quizScores){if(quizScores[t]>maxScore){maxScore=quizScores[t];maxType=t;}}
+  var type = quizTypeData[maxType];
+  document.querySelector('.quiz-step[data-step="'+currentStep+'"]').classList.remove('active');
+  document.getElementById('progress').style.display='none';
+  document.getElementById('q-result-type').textContent=type.name;
+  document.getElementById('q-result-badge').innerHTML='<span class="type-badge-lg '+type.badge+'">'+type.name+' - '+type.pct+' of population</span>';
+  document.getElementById('q-result-desc').textContent=type.desc;
+  var d='<h3 style="margin-bottom:0.75rem;color:var(--gold)">Strategy: '+type.strategy+'</h3><p>'+type.strategyDesc+'</p>';
+  d+='<p><strong>Not-Self Theme:</strong> '+type.notSelf+'</p><p><strong>Signature:</strong> '+type.signature+'</p>';
+  d+='<p><strong>Famous:</strong> '+type.famous+'</p>';
+  document.getElementById('q-result-details').innerHTML=d;
+  var box=document.getElementById('quiz-result');
+  box.style.display='block';
+  box.scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
 
 </body>
 </html>
