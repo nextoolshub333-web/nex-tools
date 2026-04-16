@@ -17,9 +17,10 @@
       width: 100%;
       padding: 1rem 1.25rem;
       margin-bottom: 0.75rem;
-      border: 2px solid var(--gray-300);
+      border: 2px solid var(--border-light);
       border-radius: var(--radius-sm);
-      background: var(--white);
+      background: var(--bg-card);
+      color: var(--text-secondary);
       text-align: left;
       font-size: 0.95rem;
       cursor: pointer;
@@ -27,13 +28,13 @@
       font-family: inherit;
       line-height: 1.5;
     }
-    .quiz-option:hover { border-color: var(--purple-mid); background: rgba(74,45,138,0.03); }
-    .quiz-option.selected { border-color: var(--purple-mid); background: rgba(74,45,138,0.08); font-weight: 600; }
+    .quiz-option:hover { background: var(--bg-card-hover); border-color: var(--gold); }
+    .quiz-option.selected { border-color: var(--gold); background: rgba(255,215,0,0.08); font-weight: 600; color: #fff; }
     .quiz-progress { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
     .quiz-dot {
-      width: 2.5rem; height: 4px; border-radius: 2px; background: var(--gray-300); transition: background var(--transition);
+      width: 2.5rem; height: 4px; border-radius: 2px; background: var(--border-light); transition: background var(--transition);
     }
-    .quiz-dot.active { background: var(--purple-mid); }
+    .quiz-dot.active { background: var(--gold); }
     .quiz-dot.done { background: var(--gold); }
     .quiz-step { display: none; }
     .quiz-step.active { display: block; animation: fadeIn 0.3s ease; }
@@ -41,11 +42,11 @@
       display: inline-block; padding: 0.5rem 1.5rem; border-radius: 20px;
       font-size: 0.85rem; font-weight: 600; margin: 0.25rem;
     }
-    .badge-generator { background: #E8F5E9; color: #2E7D32; }
-    .badge-mg { background: #FFF3E0; color: #E65100; }
-    .badge-projector { background: #E3F2FD; color: #1565C0; }
-    .badge-manifestor { background: #FCE4EC; color: #C62828; }
-    .badge-reflector { background: #F3E5F5; color: #6A1B9A; }
+    .badge-generator { background: rgba(40,167,69,0.15); color: #66BB6A; }
+    .badge-mg { background: rgba(255,152,0,0.15); color: #FFB74D; }
+    .badge-projector { background: rgba(30,136,229,0.15); color: #64B5F6; }
+    .badge-manifestor { background: rgba(233,30,99,0.15); color: #F06292; }
+    .badge-reflector { background: rgba(156,39,176,0.15); color: #CE93D8; }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"Human Design Type Calculator","description":"Free Human Design type quiz. Discover your type, strategy and authority.","url":"https://mynextools.com/tools/human-design-calculator/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
@@ -78,7 +79,7 @@
     <div class="container">
       <div class="calc-container">
         <h2 class="text-center">Quick Human Design Type Quiz</h2>
-        <p class="text-center" style="color:var(--gray-600);margin-bottom:1.5rem">Answer 7 questions to discover your likely Human Design type. For a precise chart, you need your exact birth time and location.</p>
+        <p class="text-center" style="color:var(--text-muted);margin-bottom:1.5rem">Answer 7 questions to discover your likely Human Design type. For a precise chart, you need your exact birth time and location.</p>
 
         <!-- Progress -->
         <div class="quiz-progress" id="progress">
@@ -392,12 +393,12 @@
     var order = ['G','MG','P','M','R'];
     order.forEach(function(k) {
       var pct = Math.round((scores[k] / (maxScore || 1)) * 100);
-      details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.5rem 0;font-weight:600">' + typeData[k].name + '</td>';
-      details += '<td style="padding:0.5rem 0"><div style="background:var(--gray-200);border-radius:4px;height:8px;width:100%"><div style="background:var(--purple-mid);border-radius:4px;height:8px;width:' + pct + '%"></div></div></td>';
+      details += '<tr style="border-bottom:1px solid var(--border-subtle)"><td style="padding:0.5rem 0;font-weight:600">' + typeData[k].name + '</td>';
+      details += '<td style="padding:0.5rem 0"><div style="background:var(--border-subtle);border-radius:4px;height:8px;width:100%"><div style="background:var(--purple-mid);border-radius:4px;height:8px;width:' + pct + '%"></div></div></td>';
       details += '<td style="padding:0.5rem 0 0.5rem 0.75rem;width:3rem;text-align:right">' + scores[k] + '</td></tr>';
     });
     details += '</table>';
-    details += '<p style="margin-top:1rem;font-size:0.85rem;color:var(--gray-600)"><em>Note: This quiz estimates your type based on behavioral patterns. For your exact Human Design chart, you need your precise birth time and location.</em></p>';
+    details += '<p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted)"><em>Note: This quiz estimates your type based on behavioral patterns. For your exact Human Design chart, you need your precise birth time and location.</em></p>';
 
     document.getElementById('result-details').innerHTML = details;
 
