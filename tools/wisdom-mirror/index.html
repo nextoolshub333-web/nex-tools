@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wisdom Mirror - Free Daily Self-Reflection Questions</title>
+  <meta name="description" content="Free daily self-reflection tool. Answer one powerful question each day to build self-awareness, clarity and emotional intelligence. Track your journey over time.">
+  <meta name="keywords" content="self reflection questions, daily reflection, wisdom mirror, self awareness, journaling prompts, introspection, personal growth questions">
+  <link rel="canonical" href="https://mynextools.com/tools/wisdom-mirror/">
+  <meta property="og:title" content="Wisdom Mirror - Free Daily Self-Reflection Questions">
+  <meta property="og:description" content="One powerful question each day for self-awareness and clarity. Free, private, tracked.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/wisdom-mirror/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Wisdom Mirror",
+    "description": "Free daily self-reflection tool. Answer one powerful question each day to build self-awareness and emotional intelligence.",
+    "url": "https://mynextools.com/tools/wisdom-mirror/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    .mirror-area { max-width: 640px; margin: 0 auto; }
+
+    .question-display { text-align: center; padding: 2.5rem 2rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+    .question-display::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--purple-light), var(--gold)); }
+    .question-category { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; }
+    .question-text { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--white); line-height: 1.5; }
+    .question-number { font-size: 0.8rem; color: var(--text-faint); margin-top: 0.75rem; }
+
+    .answer-area textarea { width: 100%; min-height: 150px; background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1rem; color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.7; resize: vertical; transition: border-color 0.2s; }
+    .answer-area textarea:focus { outline: none; border-color: var(--gold); }
+    .answer-area textarea::placeholder { color: var(--text-faint); }
+
+    .action-row { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+    .save-btn { flex: 1; padding: 0.85rem; background: var(--gold); color: #08080C; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s; }
+    .save-btn:hover { box-shadow: 0 0 20px rgba(255,215,0,0.3); }
+    .skip-btn { padding: 0.85rem 1.5rem; background: transparent; border: 1px solid var(--border-subtle); border-radius: var(--radius); color: var(--text-muted); cursor: pointer; font-size: 0.9rem; transition: all 0.2s; }
+    .skip-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    .stats-bar { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 1.5rem; font-weight: 800; color: var(--gold); font-family: 'Poppins', sans-serif; }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .past-reflections { margin-top: 2rem; }
+    .reflection-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+    .reflection-card .ref-date { color: var(--gold); font-size: 0.8rem; font-weight: 600; }
+    .reflection-card .ref-question { color: var(--text-muted); font-size: 0.85rem; font-style: italic; margin: 0.5rem 0; }
+    .reflection-card .ref-answer { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+
+    .toggle-past { background: none; border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9rem; display: block; margin: 1rem auto; }
+    .toggle-past:hover { border-color: var(--gold); color: var(--gold); }
+
+    .today-complete { text-align: center; padding: 2rem; }
+    .today-complete .check-icon { font-size: 3rem; color: var(--gold); margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/breathing-exercise/">Breathing</a>
+        <a href="/tools/gratitude-journal/">Gratitude</a>
+        <a href="/tools/wisdom-mirror/" style="color:var(--gold)">Wisdom Mirror</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Wisdom Mirror</h1>
+      <p>One powerful question each day. Write honestly, reflect deeply and watch your self-awareness grow over time. Your answers stay private on your device.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="mirror-area">
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-num" id="streak-count">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="total-reflections">0</div>
+            <div class="stat-label">Reflections</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num" id="total-words">0</div>
+            <div class="stat-label">Words Written</div>
+          </div>
+        </div>
+
+        <div id="question-section">
+          <div class="question-display">
+            <div class="question-category" id="q-category">Loading...</div>
+            <div class="question-text" id="q-text">...</div>
+            <div class="question-number" id="q-number"></div>
+          </div>
+
+          <div class="answer-area">
+            <textarea id="answer-input" placeholder="Take a moment. Breathe. Then write whatever comes to you..."></textarea>
+          </div>
+
+          <div class="action-row">
+            <button class="save-btn" onclick="saveReflection()">Save Reflection</button>
+            <button class="skip-btn" onclick="newQuestion()">Different Question</button>
+          </div>
+        </div>
+
+        <div id="today-done" class="today-complete" style="display:none">
+          <div class="check-icon">&#10003;</div>
+          <h3>Today's reflection is complete</h3>
+          <p style="color:var(--text-muted)">Come back tomorrow for a new question. Self-awareness is built one day at a time.</p>
+          <button class="toggle-past" onclick="showToday()">Read today's reflection</button>
+        </div>
+
+        <div class="past-reflections">
+          <h2 class="text-center" style="margin-top:2rem">Past Reflections</h2>
+          <div id="past-list"></div>
+          <button class="toggle-past" id="load-more" style="display:none" onclick="loadMore()">Load older reflections</button>
+        </div>
+
+        <div class="result-box" style="margin-top:2rem">
+          <div class="cta-box">
+            <h4>Know Yourself Deeper</h4>
+            <p>Self-reflection reveals patterns. Your Human Design type reveals your natural energy blueprint. Combine both for maximum clarity.</p>
+            <a href="/tools/human-design-calculator/" class="btn btn-gold">Discover Your Human Design</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>Why Daily Self-Reflection Matters</h2>
+        <p>Harvard Business School research found that employees who spent 15 minutes reflecting at the end of each day performed 23% better than those who did not. Reflection activates the prefrontal cortex - the brain region responsible for decision-making, emotional regulation and self-awareness.</p>
+
+        <p>A study in the Journal of Applied Psychology showed that reflective practitioners are better at recognizing their own biases, learning from mistakes and adapting their behavior. The simple act of writing answers to questions you would normally skip creates neural connections that improve judgment over time.</p>
+
+        <h2>How to Use the Wisdom Mirror</h2>
+        <ol>
+          <li>Read the daily question and sit with it for a moment before writing.</li>
+          <li>Write honestly - this is for you, not anyone else.</li>
+          <li>Aim for at least 3-5 sentences. Depth matters more than length.</li>
+          <li>If a question does not resonate, tap "Different Question" for another one.</li>
+          <li>Review past reflections occasionally to notice patterns and growth.</li>
+        </ol>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>How is this different from journaling?</h3>
+          <p>Traditional journaling is open-ended - you write about whatever comes to mind. The Wisdom Mirror provides a specific, carefully crafted question each day. This structure helps you explore areas you might normally avoid and builds a more complete picture of yourself over time.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if I do not know how to answer a question?</h3>
+          <p>That is actually the most valuable kind of question. Write "I do not know because..." and explore why. The resistance often points to something worth examining. You can also skip to a different question and come back to the difficult one later.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>When is the best time to reflect?</h3>
+          <p>Evening reflection helps you process the day and sleep better. Morning reflection sets an intentional tone. Try both and see which produces deeper, more honest answers for you. The best time is whichever you will actually do consistently.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is my data private?</h3>
+          <p>Completely. All your reflections are saved locally on your device using your browser's localStorage. Nothing is sent to any server. No one can see your answers but you.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Complete Your Daily Wellness Routine</h4>
+          <p>Pair reflection with <a href="/tools/gratitude-journal/">gratitude journaling</a>, <a href="/tools/breathing-exercise/">breathwork</a> and <a href="/tools/affirmation-generator/">affirmations</a> for a powerful daily ritual.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h3>Gratitude Journal</h3>
+          <p>Write 3 things you are grateful for each day. Track your streak.</p>
+          <a href="/tools/gratitude-journal/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Daily Affirmations</h3>
+          <p>Positive affirmations for confidence, abundance and growth.</p>
+          <a href="/tools/affirmation-generator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Breathing Exercise</h3>
+          <p>8 science-based breathing protocols for sleep, focus and calm.</p>
+          <a href="/tools/breathing-exercise/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/zodiac-calculator/">Zodiac Sign Calculator</a>
+          <a href="/tools/breathing-exercise/">Breathing Exercise</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+          <a href="/tools/numerology-compatibility/">Compatibility Calculator</a>
+          <a href="/tools/gratitude-journal/">Gratitude Journal</a>
+          <a href="/tools/affirmation-generator/">Daily Affirmations</a>
+          <a href="/tools/wisdom-mirror/">Wisdom Mirror</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var STORAGE_KEY = 'nex-wisdom-mirror';
+  var questions = [
+    // Self-Awareness
+    { q: "What am I avoiding right now and why?", cat: "Self-Awareness" },
+    { q: "If I could change one thing about today, what would it be?", cat: "Self-Awareness" },
+    { q: "What emotion have I been feeling most this week?", cat: "Self-Awareness" },
+    { q: "What would I do differently if no one was watching?", cat: "Self-Awareness" },
+    { q: "What am I pretending not to know?", cat: "Self-Awareness" },
+    { q: "When did I last feel truly like myself?", cat: "Self-Awareness" },
+    { q: "What pattern keeps repeating in my life?", cat: "Self-Awareness" },
+    { q: "What do I need that I am not asking for?", cat: "Self-Awareness" },
+
+    // Values & Purpose
+    { q: "What would I spend my time on if money was not a concern?", cat: "Values" },
+    { q: "What do I want to be remembered for?", cat: "Values" },
+    { q: "What matters to me more than I admit?", cat: "Values" },
+    { q: "Am I living according to my values or someone else's?", cat: "Values" },
+    { q: "What brings me energy and what drains it?", cat: "Values" },
+    { q: "If I had one year left, what would I change today?", cat: "Values" },
+    { q: "What is one thing I believe that most people around me do not?", cat: "Values" },
+
+    // Relationships
+    { q: "Who in my life do I need to have an honest conversation with?", cat: "Relationships" },
+    { q: "What kind of friend am I being lately?", cat: "Relationships" },
+    { q: "Who do I admire and what quality of theirs do I want to develop?", cat: "Relationships" },
+    { q: "Am I giving the people I love what they actually need?", cat: "Relationships" },
+    { q: "What boundary do I need to set or reinforce?", cat: "Relationships" },
+    { q: "When did I last tell someone how much they mean to me?", cat: "Relationships" },
+    { q: "What do I wish someone would ask me about?", cat: "Relationships" },
+
+    // Growth
+    { q: "What is the hardest lesson I learned this year?", cat: "Growth" },
+    { q: "What fear is currently holding me back?", cat: "Growth" },
+    { q: "What is one small step I can take today toward my biggest goal?", cat: "Growth" },
+    { q: "What would the person I want to become do right now?", cat: "Growth" },
+    { q: "What mistake taught me the most?", cat: "Growth" },
+    { q: "Where am I settling for less than I deserve?", cat: "Growth" },
+    { q: "What skill or habit would change my life the most?", cat: "Growth" },
+    { q: "What am I grateful for that I used to take for granted?", cat: "Growth" },
+
+    // Inner Peace
+    { q: "What can I let go of today?", cat: "Inner Peace" },
+    { q: "What am I worrying about that is outside my control?", cat: "Inner Peace" },
+    { q: "When do I feel most at peace?", cat: "Inner Peace" },
+    { q: "What would I forgive myself for if I could?", cat: "Inner Peace" },
+    { q: "Am I being kind to myself today?", cat: "Inner Peace" },
+    { q: "What is enough for today?", cat: "Inner Peace" },
+    { q: "What do I need to hear right now?", cat: "Inner Peace" },
+
+    // Wisdom
+    { q: "What advice would my 80-year-old self give me?", cat: "Wisdom" },
+    { q: "What do I know now that I wish I knew five years ago?", cat: "Wisdom" },
+    { q: "What is the difference between who I am and who I present to the world?", cat: "Wisdom" },
+    { q: "What is one belief I have outgrown?", cat: "Wisdom" },
+    { q: "If my life is a story, what chapter am I in?", cat: "Wisdom" },
+    { q: "What question am I afraid to ask myself?", cat: "Wisdom" },
+    { q: "What does success actually look like for me - not society's definition?", cat: "Wisdom" }
+  ];
+
+  var currentQuestion = null;
+
+  function getEntries() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
+  }
+
+  function todayKey() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  function getDailyQuestion() {
+    // Deterministic question based on date
+    var today = new Date();
+    var dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+    var index = (dayOfYear + today.getFullYear()) % questions.length;
+    return questions[index];
+  }
+
+  function calcStreak(entries) {
+    if (!entries.length) return 0;
+    var sorted = entries.map(function(e) { return e.date; }).sort().reverse();
+    var streak = 0;
+    var check = new Date();
+    check.setHours(0,0,0,0);
+    if (sorted[0] !== todayKey()) { check.setDate(check.getDate() - 1); }
+    for (var i = 0; i < sorted.length; i++) {
+      var key = check.getFullYear() + '-' + String(check.getMonth()+1).padStart(2,'0') + '-' + String(check.getDate()).padStart(2,'0');
+      if (sorted.indexOf(key) !== -1) { streak++; check.setDate(check.getDate() - 1); } else { break; }
+    }
+    return streak;
+  }
+
+  function updateStats() {
+    var entries = getEntries();
+    var totalWords = 0;
+    entries.forEach(function(e) { totalWords += e.answer.split(/\s+/).filter(function(w){return w;}).length; });
+    document.getElementById('streak-count').textContent = calcStreak(entries);
+    document.getElementById('total-reflections').textContent = entries.length;
+    document.getElementById('total-words').textContent = totalWords;
+  }
+
+  function showQuestion() {
+    var q = currentQuestion || getDailyQuestion();
+    currentQuestion = q;
+    document.getElementById('q-category').textContent = q.cat;
+    document.getElementById('q-text').textContent = q.q;
+    document.getElementById('q-number').textContent = 'Question ' + (questions.indexOf(q) + 1) + ' of ' + questions.length;
+  }
+
+  function newQuestion() {
+    var idx = Math.floor(Math.random() * questions.length);
+    currentQuestion = questions[idx];
+    showQuestion();
+    document.getElementById('answer-input').value = '';
+    document.getElementById('answer-input').focus();
+  }
+
+  function checkToday() {
+    var entries = getEntries();
+    var done = entries.some(function(e) { return e.date === todayKey(); });
+    if (done) {
+      document.getElementById('question-section').style.display = 'none';
+      document.getElementById('today-done').style.display = 'block';
+    } else {
+      document.getElementById('question-section').style.display = 'block';
+      document.getElementById('today-done').style.display = 'none';
+    }
+  }
+
+  function saveReflection() {
+    var answer = document.getElementById('answer-input').value.trim();
+    if (!answer) { alert('Write your reflection before saving.'); return; }
+
+    var entries = getEntries();
+    var today = todayKey();
+    entries = entries.filter(function(e) { return e.date !== today; });
+    entries.push({ date: today, question: currentQuestion.q, category: currentQuestion.cat, answer: answer });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+
+    document.getElementById('answer-input').value = '';
+    checkToday();
+    updateStats();
+    renderPast();
+  }
+
+  function showToday() {
+    var entries = getEntries();
+    var entry = entries.find(function(e) { return e.date === todayKey(); });
+    if (!entry) return;
+    document.getElementById('today-done').style.display = 'none';
+    // Show in question section with edit option
+    currentQuestion = { q: entry.question, cat: entry.category };
+    showQuestion();
+    document.getElementById('answer-input').value = entry.answer;
+    document.getElementById('question-section').style.display = 'block';
+  }
+
+  var pastPage = 0;
+  var PER_PAGE = 5;
+
+  function renderPast() {
+    var entries = getEntries().sort(function(a,b) { return b.date.localeCompare(a.date); });
+    var list = document.getElementById('past-list');
+    list.innerHTML = '';
+    pastPage = 0;
+
+    if (entries.length === 0) {
+      list.innerHTML = '<p class="text-center" style="color:var(--text-muted)">No reflections yet. Answer the question above to begin.</p>';
+      document.getElementById('load-more').style.display = 'none';
+      return;
+    }
+
+    var end = Math.min(PER_PAGE, entries.length);
+    for (var i = 0; i < end; i++) { renderCard(entries[i], list); }
+    document.getElementById('load-more').style.display = entries.length > PER_PAGE ? 'block' : 'none';
+  }
+
+  function renderCard(entry, container) {
+    var div = document.createElement('div');
+    div.className = 'reflection-card';
+    var dateObj = new Date(entry.date + 'T12:00:00');
+    var formatted = dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    div.innerHTML = '<div class="ref-date">' + formatted + ' - ' + entry.category + '</div>' +
+      '<div class="ref-question">"' + entry.question + '"</div>' +
+      '<div class="ref-answer">' + entry.answer.replace(/</g, '&lt;').replace(/\n/g, '<br>') + '</div>';
+    container.appendChild(div);
+  }
+
+  function loadMore() {
+    var entries = getEntries().sort(function(a,b) { return b.date.localeCompare(a.date); });
+    pastPage++;
+    var start = pastPage * PER_PAGE;
+    var end = Math.min(start + PER_PAGE, entries.length);
+    var list = document.getElementById('past-list');
+    for (var i = start; i < end; i++) { renderCard(entries[i], list); }
+    if (end >= entries.length) { document.getElementById('load-more').style.display = 'none'; }
+  }
+
+  // Init
+  showQuestion();
+  updateStats();
+  checkToday();
+  renderPast();
+  </script>
+
+</body>
+</html>

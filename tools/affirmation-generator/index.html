@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Affirmation Generator - Free Positive Affirmations</title>
+  <meta name="description" content="Free daily affirmation generator. Get personalized positive affirmations for confidence, abundance, love, health and spiritual growth. New affirmations every day.">
+  <meta name="keywords" content="daily affirmations, positive affirmations, affirmation generator, morning affirmations, self love affirmations, abundance affirmations, manifestation affirmations">
+  <link rel="canonical" href="https://mynextools.com/tools/affirmation-generator/">
+  <meta property="og:title" content="Daily Affirmation Generator - Free Positive Affirmations">
+  <meta property="og:description" content="Get personalized positive affirmations for confidence, abundance, love and growth. Free, new every day.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/affirmation-generator/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Daily Affirmation Generator",
+    "description": "Free positive affirmation generator with 8 categories. Get personalized affirmations for confidence, abundance, love and spiritual growth.",
+    "url": "https://mynextools.com/tools/affirmation-generator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; margin-bottom: 2rem; }
+    .cat-card { background: var(--bg-card); border: 2px solid var(--border-subtle); border-radius: var(--radius); padding: 1rem; cursor: pointer; transition: all 0.3s; text-align: center; }
+    .cat-card:hover, .cat-card.active { border-color: var(--gold); box-shadow: 0 0 15px rgba(255,215,0,0.12); }
+    .cat-card.active { background: linear-gradient(135deg, rgba(255,215,0,0.06), rgba(255,215,0,0.02)); }
+    .cat-card .cat-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .cat-card .cat-name { font-size: 0.85rem; color: var(--text-secondary); font-weight: 600; }
+
+    .affirmation-display { max-width: 640px; margin: 0 auto; text-align: center; padding: 3rem 2rem; min-height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .affirmation-text { font-family: 'Poppins', sans-serif; font-size: 1.6rem; font-weight: 700; color: var(--white); line-height: 1.5; margin-bottom: 1rem; opacity: 0; transform: translateY(10px); transition: all 0.5s ease; }
+    .affirmation-text.show { opacity: 1; transform: translateY(0); }
+    .affirmation-category-label { font-size: 0.8rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+
+    .generate-btn { display: inline-block; padding: 0.85rem 2.5rem; background: var(--gold); color: #08080C; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s; margin-top: 1rem; }
+    .generate-btn:hover { box-shadow: 0 0 25px rgba(255,215,0,0.3); transform: translateY(-1px); }
+
+    .save-fav { background: none; border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.4rem 1rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.85rem; margin-top: 0.75rem; transition: all 0.2s; }
+    .save-fav:hover { border-color: var(--gold); color: var(--gold); }
+    .save-fav.saved { border-color: var(--gold); color: var(--gold); }
+
+    .favorites-section { max-width: 640px; margin: 2rem auto 0; }
+    .fav-item { display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 0.5rem; }
+    .fav-item p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); flex: 1; }
+    .fav-remove { background: none; border: none; color: var(--text-faint); cursor: pointer; font-size: 1.1rem; padding: 0 0.25rem; }
+    .fav-remove:hover { color: #ff4444; }
+
+    .share-row { display: flex; gap: 0.5rem; justify-content: center; margin-top: 0.75rem; }
+    .share-btn { background: var(--bg-card); border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.4rem 0.75rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.8rem; }
+    .share-btn:hover { border-color: var(--gold); color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/breathing-exercise/">Breathing</a>
+        <a href="/tools/affirmation-generator/" style="color:var(--gold)">Affirmations</a>
+        <a href="/tools/gratitude-journal/">Gratitude</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Daily Affirmation Generator</h1>
+      <p>Choose a category and receive a positive affirmation to start your day. Save your favorites, share them and build a daily practice of intentional thinking.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Choose Your Focus</h2>
+      <p class="text-center" style="color:var(--text-muted);margin-bottom:1.5rem">Select a category or tap "Surprise Me" for a random affirmation.</p>
+
+      <div class="category-grid" id="cat-grid"></div>
+
+      <div class="affirmation-display">
+        <div class="affirmation-category-label" id="aff-cat-label">Select a category above</div>
+        <div class="affirmation-text" id="aff-text">Your affirmation will appear here</div>
+        <button class="generate-btn" onclick="generateAffirmation()">New Affirmation</button>
+        <button class="save-fav" id="fav-btn" onclick="toggleFavorite()" style="display:none">Save to Favorites</button>
+        <div class="share-row" id="share-row" style="display:none">
+          <button class="share-btn" onclick="copyAffirmation()">Copy</button>
+        </div>
+      </div>
+
+      <div class="favorites-section" id="fav-section" style="display:none">
+        <h3 style="margin-bottom:1rem">Your Saved Affirmations</h3>
+        <div id="fav-list"></div>
+      </div>
+
+      <div class="result-box" style="margin-top:2rem;max-width:640px;margin-left:auto;margin-right:auto">
+        <div class="cta-box">
+          <h4>Align Affirmations With Your Life Path</h4>
+          <p>Your life path number reveals your core purpose. Use affirmations that match your numerological blueprint for maximum impact.</p>
+          <a href="/tools/life-path-calculator/" class="btn btn-gold">Calculate Your Life Path</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>The Science of Positive Affirmations</h2>
+        <p>Neuroscience research from Carnegie Mellon University shows that self-affirmation activates the ventromedial prefrontal cortex - the brain region associated with positive self-view and reward. Regular affirmation practice literally changes your neural pathways, making positive thinking more automatic over time.</p>
+
+        <p>A study in Social Cognitive and Affective Neuroscience found that participants who practiced self-affirmation showed increased activity in brain areas associated with self-processing and valuation. This means affirmations are not just "feel good" statements - they measurably change how your brain processes information about yourself.</p>
+
+        <h2>How to Practice Affirmations Effectively</h2>
+        <ol>
+          <li>Choose affirmations that feel believable. If "I am a millionaire" feels false, try "I am becoming more financially aware every day."</li>
+          <li>Repeat your affirmation at least 3 times, ideally in front of a mirror.</li>
+          <li>Practice in the morning when your subconscious mind is most receptive.</li>
+          <li>Feel the emotion behind the words. Affirmations work through emotional resonance, not repetition alone.</li>
+          <li>Combine with breathwork for deeper impact. Try our <a href="/tools/breathing-exercise/">breathing exercise</a> first.</li>
+        </ol>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>Do affirmations actually work?</h3>
+          <p>Yes, when practiced correctly. Research consistently shows that self-affirmation reduces stress, improves problem-solving under pressure and increases openness to behavior change. The key is choosing affirmations that stretch you slightly beyond your current beliefs without feeling completely unrealistic.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How many affirmations should I use per day?</h3>
+          <p>Focus on 1-3 affirmations rather than a long list. Deep engagement with a few affirmations is more effective than skimming through many. Quality of attention matters more than quantity.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can I create my own affirmations?</h3>
+          <p>Absolutely. The most powerful affirmations are personal. Use the ones generated here as starting points, then modify them to match your specific goals and language. Always phrase them in the present tense and as positive statements.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Build a Complete Morning Routine</h4>
+          <p>Combine affirmations with <a href="/tools/gratitude-journal/">gratitude journaling</a> and <a href="/tools/breathing-exercise/">breathwork</a> for a powerful daily ritual.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <h3>Gratitude Journal</h3>
+          <p>Write 3 things you are grateful for each day. Track your streak.</p>
+          <a href="/tools/gratitude-journal/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Breathing Exercise</h3>
+          <p>8 science-based breathing protocols for sleep, focus and calm.</p>
+          <a href="/tools/breathing-exercise/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+          <h3>Wisdom Mirror</h3>
+          <p>Daily self-reflection questions for deeper self-awareness.</p>
+          <a href="/tools/wisdom-mirror/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/zodiac-calculator/">Zodiac Sign Calculator</a>
+          <a href="/tools/breathing-exercise/">Breathing Exercise</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+          <a href="/tools/numerology-compatibility/">Compatibility Calculator</a>
+          <a href="/tools/gratitude-journal/">Gratitude Journal</a>
+          <a href="/tools/affirmation-generator/">Daily Affirmations</a>
+          <a href="/tools/wisdom-mirror/">Wisdom Mirror</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var categories = [
+    { id: 'confidence', name: 'Confidence', icon: '\ud83d\udcaa' },
+    { id: 'abundance', name: 'Abundance', icon: '\u2728' },
+    { id: 'love', name: 'Love', icon: '\ud83d\udc9c' },
+    { id: 'health', name: 'Health', icon: '\ud83c\udf3f' },
+    { id: 'growth', name: 'Growth', icon: '\ud83c\udf31' },
+    { id: 'calm', name: 'Calm', icon: '\ud83e\uddd8' },
+    { id: 'purpose', name: 'Purpose', icon: '\u2b50' },
+    { id: 'surprise', name: 'Surprise Me', icon: '\ud83c\udfb2' }
+  ];
+
+  var affirmations = {
+    confidence: [
+      "I trust myself to make the right decisions for my life.",
+      "I am worthy of everything I desire and more.",
+      "My confidence grows every time I step outside my comfort zone.",
+      "I release the need for approval from others. I approve of myself.",
+      "I have overcome challenges before and I will overcome them again.",
+      "I am capable of achieving anything I set my mind to.",
+      "My voice matters and my ideas are valuable.",
+      "I stand in my power without apology.",
+      "I am becoming more fearless with each passing day.",
+      "I deserve to take up space in this world.",
+      "The only validation I need is my own.",
+      "I choose courage over comfort today.",
+      "I am enough exactly as I am right now.",
+      "My past does not define my potential.",
+      "I radiate confidence, certainty and inner strength."
+    ],
+    abundance: [
+      "Money flows to me easily and frequently.",
+      "I am a magnet for prosperity and opportunity.",
+      "I release all limiting beliefs about money and wealth.",
+      "Abundance is my birthright and I claim it now.",
+      "I am open to receiving wealth from unexpected sources.",
+      "Every dollar I spend comes back to me multiplied.",
+      "I see opportunities where others see obstacles.",
+      "My income is constantly increasing.",
+      "I am grateful for the abundance that is already in my life.",
+      "I deserve financial freedom and I am creating it now.",
+      "Wealth and success come naturally to me.",
+      "I attract money because I provide genuine value.",
+      "I am financially free and it feels wonderful.",
+      "New income streams are opening up for me every day.",
+      "I release scarcity thinking and embrace unlimited possibilities."
+    ],
+    love: [
+      "I am worthy of deep, unconditional love.",
+      "I attract loving, supportive people into my life.",
+      "I love myself fully - flaws, shadows and all.",
+      "My heart is open to giving and receiving love.",
+      "I deserve a relationship that feels like home.",
+      "I release past hurts and open myself to new love.",
+      "I am lovable just as I am.",
+      "Love is all around me and I choose to see it.",
+      "I forgive myself for past mistakes and choose self-compassion.",
+      "My relationships are healthy, balanced and nourishing.",
+      "I attract love by being love.",
+      "I am whole on my own and complete with a partner.",
+      "I deserve someone who shows up for me consistently.",
+      "I set healthy boundaries because I value myself.",
+      "Every day I love myself a little more."
+    ],
+    health: [
+      "My body is healing and getting stronger every day.",
+      "I choose foods that nourish my body and mind.",
+      "I listen to my body's wisdom with respect and patience.",
+      "I am grateful for my body and everything it does for me.",
+      "Every cell in my body vibrates with energy and health.",
+      "I prioritize rest because I know recovery is strength.",
+      "I release tension and invite deep relaxation.",
+      "My body knows how to heal itself and I support that process.",
+      "I move my body with joy, not punishment.",
+      "I choose vitality over comfort in the small decisions that matter.",
+      "My sleep is deep, restorative and healing.",
+      "I breathe deeply and my nervous system finds balance.",
+      "I trust the signals my body sends me.",
+      "Health is my natural state and I return to it now.",
+      "I treat my body like the temple it is."
+    ],
+    growth: [
+      "I am becoming the person I was always meant to be.",
+      "Every challenge is a lesson in disguise.",
+      "I am not who I was yesterday. I am evolving.",
+      "I embrace change because growth requires it.",
+      "I choose progress over perfection every single day.",
+      "My potential is limitless and I am just getting started.",
+      "I am a student of life and every experience teaches me.",
+      "I am proud of how far I have come.",
+      "Failure is not the opposite of success - it is part of it.",
+      "I invest in myself because I am my greatest asset.",
+      "The best version of me is being created right now.",
+      "I am committed to my own transformation.",
+      "I let go of who I was to become who I am.",
+      "I trust the timing of my personal evolution.",
+      "Growth is uncomfortable and I am comfortable with discomfort."
+    ],
+    calm: [
+      "I release what I cannot control and focus on what I can.",
+      "Peace is my natural state. I return to it now.",
+      "I am safe in this moment. Right here, right now.",
+      "I inhale calm and exhale worry.",
+      "My mind is quiet and my heart is at ease.",
+      "I choose serenity over stress in every situation.",
+      "I let go of anxiety and trust the process of life.",
+      "Stillness and peace live within me always.",
+      "I do not need to solve everything today.",
+      "I release the need to rush. Everything happens at the right time.",
+      "I am grounded, centered and at peace with myself.",
+      "I choose to respond with calm instead of react with fear.",
+      "My thoughts do not control me. I observe them and let them pass.",
+      "I give myself permission to slow down.",
+      "Inner peace is not something I find. It is something I create."
+    ],
+    purpose: [
+      "I am here for a reason and my life has meaning.",
+      "I trust that I am on the right path even when I cannot see ahead.",
+      "My purpose unfolds naturally when I follow what lights me up.",
+      "I do not need to have it all figured out. Clarity comes with action.",
+      "I am exactly where I need to be right now.",
+      "The universe supports my purpose and clears the way.",
+      "I contribute something unique that no one else can.",
+      "My work matters, even when no one is watching.",
+      "I align my daily actions with my deepest values.",
+      "I am guided by an inner compass that always knows the way.",
+      "My purpose is not a destination. It is how I show up today.",
+      "I am making a difference in ways I may never fully see.",
+      "I follow my curiosity because it leads to my calling.",
+      "I was not put here to be average. I was put here to be me.",
+      "Everything in my life has prepared me for this moment."
+    ]
+  };
+
+  var activeCategory = null;
+  var currentAffirmation = '';
+  var FAV_KEY = 'nex-affirmation-favorites';
+
+  function getFavorites() {
+    try { return JSON.parse(localStorage.getItem(FAV_KEY)) || []; } catch(e) { return []; }
+  }
+
+  function renderCategories() {
+    var grid = document.getElementById('cat-grid');
+    categories.forEach(function(c) {
+      var div = document.createElement('div');
+      div.className = 'cat-card';
+      div.id = 'cat-' + c.id;
+      div.innerHTML = '<div class="cat-icon">' + c.icon + '</div><div class="cat-name">' + c.name + '</div>';
+      div.onclick = function() { selectCategory(c.id); };
+      grid.appendChild(div);
+    });
+  }
+
+  function selectCategory(id) {
+    activeCategory = id;
+    document.querySelectorAll('.cat-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('cat-' + id).classList.add('active');
+    generateAffirmation();
+  }
+
+  function generateAffirmation() {
+    var cat = activeCategory;
+    if (!cat) { cat = 'surprise'; activeCategory = 'surprise'; document.getElementById('cat-surprise').classList.add('active'); }
+
+    if (cat === 'surprise') {
+      var keys = Object.keys(affirmations);
+      cat = keys[Math.floor(Math.random() * keys.length)];
+    }
+
+    var list = affirmations[cat];
+    var text = list[Math.floor(Math.random() * list.length)];
+
+    // Avoid repeating
+    if (text === currentAffirmation && list.length > 1) {
+      text = list[Math.floor(Math.random() * list.length)];
+    }
+
+    currentAffirmation = text;
+
+    var el = document.getElementById('aff-text');
+    el.classList.remove('show');
+    var catLabel = categories.find(function(c) { return c.id === activeCategory; });
+    document.getElementById('aff-cat-label').textContent = activeCategory === 'surprise' ? cat.charAt(0).toUpperCase() + cat.slice(1) : catLabel.name;
+
+    setTimeout(function() {
+      el.textContent = '"' + text + '"';
+      el.classList.add('show');
+    }, 200);
+
+    document.getElementById('fav-btn').style.display = 'inline-block';
+    document.getElementById('share-row').style.display = 'flex';
+    updateFavBtn();
+  }
+
+  function toggleFavorite() {
+    var favs = getFavorites();
+    var idx = favs.indexOf(currentAffirmation);
+    if (idx !== -1) {
+      favs.splice(idx, 1);
+    } else {
+      favs.push(currentAffirmation);
+    }
+    localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+    updateFavBtn();
+    renderFavorites();
+  }
+
+  function updateFavBtn() {
+    var favs = getFavorites();
+    var btn = document.getElementById('fav-btn');
+    if (favs.indexOf(currentAffirmation) !== -1) {
+      btn.textContent = 'Saved';
+      btn.classList.add('saved');
+    } else {
+      btn.textContent = 'Save to Favorites';
+      btn.classList.remove('saved');
+    }
+  }
+
+  function copyAffirmation() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(currentAffirmation);
+      var btn = document.querySelector('.share-btn');
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+    }
+  }
+
+  function renderFavorites() {
+    var favs = getFavorites();
+    var section = document.getElementById('fav-section');
+    var list = document.getElementById('fav-list');
+
+    if (favs.length === 0) {
+      section.style.display = 'none';
+      return;
+    }
+
+    section.style.display = 'block';
+    list.innerHTML = '';
+    favs.forEach(function(text, i) {
+      var div = document.createElement('div');
+      div.className = 'fav-item';
+      div.innerHTML = '<p>"' + text.replace(/</g, '&lt;') + '"</p><button class="fav-remove" onclick="removeFav(' + i + ')">&times;</button>';
+      list.appendChild(div);
+    });
+  }
+
+  function removeFav(index) {
+    var favs = getFavorites();
+    favs.splice(index, 1);
+    localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+    renderFavorites();
+    updateFavBtn();
+  }
+
+  renderCategories();
+  renderFavorites();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gratitude Journal - Free Daily Gratitude Writing Tool</title>
+  <meta name="description" content="Free online gratitude journal. Write 3 things you are grateful for each day. Track your streak, review past entries and build a lasting gratitude habit.">
+  <meta name="keywords" content="gratitude journal, gratitude practice, daily gratitude, gratitude writing, thankful journal, mindfulness journal, gratitude habit">
+  <link rel="canonical" href="https://mynextools.com/tools/gratitude-journal/">
+  <meta property="og:title" content="Gratitude Journal - Free Daily Gratitude Writing Tool">
+  <meta property="og:description" content="Write 3 things you are grateful for each day. Free, no signup. Track your streak.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/gratitude-journal/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Gratitude Journal",
+    "description": "Free online gratitude journal. Write daily entries, track streaks and build a lasting gratitude practice.",
+    "url": "https://mynextools.com/tools/gratitude-journal/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    .journal-area { max-width: 640px; margin: 0 auto; }
+    .streak-bar { display: flex; align-items: center; justify-content: center; gap: 2rem; margin-bottom: 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); }
+    .streak-item { text-align: center; }
+    .streak-num { font-size: 2rem; font-weight: 800; color: var(--gold); font-family: 'Poppins', sans-serif; }
+    .streak-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .entry-card { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.5rem; }
+    .entry-card h3 { color: var(--gold); font-size: 1rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .entry-card textarea { width: 100%; min-height: 80px; background: var(--bg-input); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.75rem; color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.95rem; resize: vertical; transition: border-color 0.2s; }
+    .entry-card textarea:focus { outline: none; border-color: var(--gold); }
+    .entry-card textarea::placeholder { color: var(--text-faint); }
+
+    .save-btn { display: block; width: 100%; padding: 0.85rem; background: var(--gold); color: #08080C; border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; font-family: 'Poppins', sans-serif; transition: all 0.2s; }
+    .save-btn:hover { box-shadow: 0 0 20px rgba(255,215,0,0.3); }
+    .save-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .past-entries { margin-top: 2rem; }
+    .past-entry { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+    .past-entry .date { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .past-entry ul { list-style: none; padding: 0; }
+    .past-entry li { color: var(--text-secondary); padding: 0.25rem 0; padding-left: 1.25rem; position: relative; }
+    .past-entry li::before { content: "\2727"; position: absolute; left: 0; color: var(--gold); }
+
+    .today-done { text-align: center; padding: 2rem; }
+    .today-done .check { font-size: 3rem; color: var(--gold); margin-bottom: 0.5rem; }
+
+    .toggle-past { background: none; border: 1px solid var(--border-subtle); color: var(--text-muted); padding: 0.5rem 1.25rem; border-radius: var(--radius-sm); cursor: pointer; font-size: 0.9rem; margin-top: 1rem; }
+    .toggle-past:hover { border-color: var(--gold); color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/breathing-exercise/">Breathing</a>
+        <a href="/tools/gratitude-journal/" style="color:var(--gold)">Gratitude</a>
+        <a href="/tools/wisdom-mirror/">Wisdom Mirror</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Gratitude Journal</h1>
+      <p>Write 3 things you are grateful for each day. A simple practice that rewires your brain for positivity, improves sleep and reduces stress. Your entries are saved locally on your device.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="journal-area">
+
+        <div class="streak-bar">
+          <div class="streak-item">
+            <div class="streak-num" id="streak-count">0</div>
+            <div class="streak-label">Day Streak</div>
+          </div>
+          <div class="streak-item">
+            <div class="streak-num" id="total-entries">0</div>
+            <div class="streak-label">Total Entries</div>
+          </div>
+          <div class="streak-item">
+            <div class="streak-num" id="total-gratitudes">0</div>
+            <div class="streak-label">Gratitudes Written</div>
+          </div>
+        </div>
+
+        <div id="entry-form">
+          <div class="entry-card">
+            <h3><span>1.</span> What are you grateful for today?</h3>
+            <textarea id="g1" placeholder="Something that made you smile, a person, a moment..."></textarea>
+          </div>
+          <div class="entry-card">
+            <h3><span>2.</span> What is something good that happened recently?</h3>
+            <textarea id="g2" placeholder="A small win, a kind word, something that went right..."></textarea>
+          </div>
+          <div class="entry-card">
+            <h3><span>3.</span> What is something you often take for granted?</h3>
+            <textarea id="g3" placeholder="Health, a roof, clean water, a friend..."></textarea>
+          </div>
+          <button class="save-btn" id="save-btn" onclick="saveEntry()">Save Today's Gratitude</button>
+        </div>
+
+        <div id="today-done" class="today-done" style="display:none">
+          <div class="check">&#10003;</div>
+          <h3>Today's gratitude is written</h3>
+          <p style="color:var(--text-muted)">Come back tomorrow to continue your streak. Consistency builds the habit.</p>
+          <button class="toggle-past" onclick="showTodayEntry()">See today's entry</button>
+        </div>
+
+        <div class="past-entries" id="past-entries">
+          <h2 class="text-center" style="margin-top:2rem">Past Entries</h2>
+          <div id="past-list"></div>
+          <button class="toggle-past" id="load-more" style="display:none;margin:1rem auto" onclick="loadMore()">Load older entries</button>
+        </div>
+
+        <div class="result-box" style="margin-top:2rem">
+          <div class="cta-box">
+            <h4>Deepen Your Self-Discovery</h4>
+            <p>Gratitude opens the door to deeper awareness. Explore your angel number or life path to understand why you are here.</p>
+            <a href="/tools/angel-number-calculator/" class="btn btn-gold">Find Your Angel Number</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>The Science Behind Gratitude Journaling</h2>
+        <p>Research from UC Davis and the University of Miami found that people who write down things they are grateful for feel 25% happier, exercise 33% more and sleep better. Gratitude rewires your reticular activating system - the part of your brain that filters what you notice - to spot more positivity throughout the day.</p>
+
+        <p>A study published in the Journal of Personality and Social Psychology showed that just 5 minutes of daily gratitude writing for 10 weeks produced measurable increases in optimism, life satisfaction and even immune function. The key is consistency, not length.</p>
+
+        <h2>How to Use This Gratitude Journal</h2>
+        <ol>
+          <li>Write 3 things you are grateful for. They can be big or small.</li>
+          <li>Be specific. "My friend Sarah called to check on me" works better than "friends."</li>
+          <li>Try to find new things each day. This trains your brain to scan for positivity.</li>
+          <li>Come back daily to build your streak. Habits form in 21-66 days.</li>
+          <li>Review past entries when you need a mood boost.</li>
+        </ol>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>What should I write in a gratitude journal?</h3>
+          <p>Anything that brings a sense of thankfulness. It can be as simple as a good cup of coffee or as meaningful as a loved one's health. The most effective entries are specific and personal - "the way sunlight hit the trees on my morning walk" is more powerful than "nature."</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How long does it take to see benefits?</h3>
+          <p>Most people report feeling more positive within the first week. Research shows measurable changes in brain activity after 21 days of consistent practice. The benefits compound over time - the longer you practice, the more automatic positive thinking becomes.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>When is the best time to write?</h3>
+          <p>Morning writing sets a positive tone for the day. Evening writing helps you reflect and sleep better. The best time is whichever you can do consistently. Many people pair it with an existing habit like morning coffee or bedtime routine.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is my data private?</h3>
+          <p>Yes. All your entries are saved locally on your device using your browser's localStorage. Nothing is sent to any server. Your gratitude practice is completely private.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Explore More Wellness Tools</h4>
+          <p>Combine gratitude with breathwork and self-reflection. Try our <a href="/tools/breathing-exercise/">Breathing Exercise</a> or <a href="/tools/wisdom-mirror/">Wisdom Mirror</a> for a complete daily wellness routine.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Breathing Exercise</h3>
+          <p>8 science-based breathing protocols for sleep, focus and calm.</p>
+          <a href="/tools/breathing-exercise/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode divine messages.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+          <h3>Wisdom Mirror</h3>
+          <p>Daily self-reflection questions for deeper self-awareness.</p>
+          <a href="/tools/wisdom-mirror/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/zodiac-calculator/">Zodiac Sign Calculator</a>
+          <a href="/tools/breathing-exercise/">Breathing Exercise</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+          <a href="/tools/numerology-compatibility/">Compatibility Calculator</a>
+          <a href="/tools/gratitude-journal/">Gratitude Journal</a>
+          <a href="/tools/affirmation-generator/">Daily Affirmations</a>
+          <a href="/tools/wisdom-mirror/">Wisdom Mirror</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var STORAGE_KEY = 'nex-gratitude-journal';
+
+  function getEntries() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
+  }
+
+  function todayKey() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+  }
+
+  function calcStreak(entries) {
+    if (!entries.length) return 0;
+    var sorted = entries.map(function(e) { return e.date; }).sort().reverse();
+    var streak = 0;
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    var check = new Date(today);
+
+    // If today is not yet written, start checking from yesterday
+    if (sorted[0] !== todayKey()) {
+      check.setDate(check.getDate() - 1);
+    }
+
+    for (var i = 0; i < sorted.length; i++) {
+      var key = check.getFullYear() + '-' + String(check.getMonth()+1).padStart(2,'0') + '-' + String(check.getDate()).padStart(2,'0');
+      if (sorted.indexOf(key) !== -1) {
+        streak++;
+        check.setDate(check.getDate() - 1);
+      } else {
+        break;
+      }
+    }
+    return streak;
+  }
+
+  function updateStats() {
+    var entries = getEntries();
+    var streak = calcStreak(entries);
+    var totalGratitudes = 0;
+    entries.forEach(function(e) { totalGratitudes += e.items.length; });
+
+    document.getElementById('streak-count').textContent = streak;
+    document.getElementById('total-entries').textContent = entries.length;
+    document.getElementById('total-gratitudes').textContent = totalGratitudes;
+  }
+
+  function checkToday() {
+    var entries = getEntries();
+    var today = todayKey();
+    var done = entries.some(function(e) { return e.date === today; });
+
+    if (done) {
+      document.getElementById('entry-form').style.display = 'none';
+      document.getElementById('today-done').style.display = 'block';
+    } else {
+      document.getElementById('entry-form').style.display = 'block';
+      document.getElementById('today-done').style.display = 'none';
+    }
+  }
+
+  function saveEntry() {
+    var g1 = document.getElementById('g1').value.trim();
+    var g2 = document.getElementById('g2').value.trim();
+    var g3 = document.getElementById('g3').value.trim();
+
+    if (!g1 && !g2 && !g3) { alert('Write at least one thing you are grateful for.'); return; }
+
+    var items = [];
+    if (g1) items.push(g1);
+    if (g2) items.push(g2);
+    if (g3) items.push(g3);
+
+    var entries = getEntries();
+    var today = todayKey();
+
+    // Remove existing entry for today if re-saving
+    entries = entries.filter(function(e) { return e.date !== today; });
+    entries.push({ date: today, items: items });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+
+    document.getElementById('g1').value = '';
+    document.getElementById('g2').value = '';
+    document.getElementById('g3').value = '';
+
+    checkToday();
+    updateStats();
+    renderPast();
+  }
+
+  function showTodayEntry() {
+    var entries = getEntries();
+    var today = todayKey();
+    var entry = entries.find(function(e) { return e.date === today; });
+    if (entry) {
+      document.getElementById('entry-form').style.display = 'none';
+      document.getElementById('today-done').style.display = 'none';
+      // Show as first past entry
+      var list = document.getElementById('past-list');
+      list.innerHTML = '';
+      renderEntryCard(entry, list);
+      // Show "write again" option
+      var btn = document.createElement('button');
+      btn.className = 'toggle-past';
+      btn.textContent = 'Edit today\'s entry';
+      btn.onclick = function() {
+        document.getElementById('g1').value = entry.items[0] || '';
+        document.getElementById('g2').value = entry.items[1] || '';
+        document.getElementById('g3').value = entry.items[2] || '';
+        document.getElementById('entry-form').style.display = 'block';
+        document.getElementById('today-done').style.display = 'none';
+      };
+      list.appendChild(btn);
+    }
+  }
+
+  var pastPage = 0;
+  var ENTRIES_PER_PAGE = 7;
+
+  function renderEntryCard(entry, container) {
+    var div = document.createElement('div');
+    div.className = 'past-entry';
+    var dateObj = new Date(entry.date + 'T12:00:00');
+    var formatted = dateObj.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    var html = '<div class="date">' + formatted + '</div><ul>';
+    entry.items.forEach(function(item) {
+      html += '<li>' + item.replace(/</g, '&lt;') + '</li>';
+    });
+    html += '</ul>';
+    div.innerHTML = html;
+    container.appendChild(div);
+  }
+
+  function renderPast() {
+    var entries = getEntries().sort(function(a, b) { return b.date.localeCompare(a.date); });
+    var list = document.getElementById('past-list');
+    list.innerHTML = '';
+    pastPage = 0;
+
+    if (entries.length === 0) {
+      list.innerHTML = '<p class="text-center" style="color:var(--text-muted)">No entries yet. Start writing above.</p>';
+      document.getElementById('load-more').style.display = 'none';
+      return;
+    }
+
+    var end = Math.min(ENTRIES_PER_PAGE, entries.length);
+    for (var i = 0; i < end; i++) {
+      renderEntryCard(entries[i], list);
+    }
+
+    document.getElementById('load-more').style.display = entries.length > ENTRIES_PER_PAGE ? 'block' : 'none';
+  }
+
+  function loadMore() {
+    var entries = getEntries().sort(function(a, b) { return b.date.localeCompare(a.date); });
+    pastPage++;
+    var start = pastPage * ENTRIES_PER_PAGE;
+    var end = Math.min(start + ENTRIES_PER_PAGE, entries.length);
+    var list = document.getElementById('past-list');
+
+    for (var i = start; i < end; i++) {
+      renderEntryCard(entries[i], list);
+    }
+
+    if (end >= entries.length) {
+      document.getElementById('load-more').style.display = 'none';
+    }
+  }
+
+  // Init
+  updateStats();
+  checkToday();
+  renderPast();
+  </script>
+
+</body>
+</html>
