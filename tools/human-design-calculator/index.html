@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human Design Calculator - Discover Your Type Free</title>
+  <meta name="description" content="Free Human Design type quiz. Discover if you are a Generator, Manifestor, Projector, Reflector or Manifesting Generator. Learn your strategy and authority.">
+  <meta name="keywords" content="human design calculator, human design type test, human design chart free, human design types, human design strategy, human design authority">
+  <link rel="canonical" href="https://nextools.co/tools/human-design-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .quiz-option {
+      display: block;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      border: 2px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      background: var(--white);
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: inherit;
+      line-height: 1.5;
+    }
+    .quiz-option:hover { border-color: var(--purple-mid); background: rgba(74,45,138,0.03); }
+    .quiz-option.selected { border-color: var(--purple-mid); background: rgba(74,45,138,0.08); font-weight: 600; }
+    .quiz-progress { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+    .quiz-dot {
+      width: 2.5rem; height: 4px; border-radius: 2px; background: var(--gray-300); transition: background var(--transition);
+    }
+    .quiz-dot.active { background: var(--purple-mid); }
+    .quiz-dot.done { background: var(--gold); }
+    .quiz-step { display: none; }
+    .quiz-step.active { display: block; animation: fadeIn 0.3s ease; }
+    .type-badge {
+      display: inline-block; padding: 0.5rem 1.5rem; border-radius: 20px;
+      font-size: 0.85rem; font-weight: 600; margin: 0.25rem;
+    }
+    .badge-generator { background: #E8F5E9; color: #2E7D32; }
+    .badge-mg { background: #FFF3E0; color: #E65100; }
+    .badge-projector { background: #E3F2FD; color: #1565C0; }
+    .badge-manifestor { background: #FCE4EC; color: #C62828; }
+    .badge-reflector { background: #F3E5F5; color: #6A1B9A; }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Human Design Type Calculator","description":"Free Human Design type quiz. Discover your type, strategy and authority.","url":"https://nextools.co/tools/human-design-calculator/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/" style="color:var(--gold)">Human Design</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Human Design Type Finder</h1>
+      <p>Discover your Human Design type through this quick quiz. Learn your strategy, authority and how you are designed to make decisions and interact with the world.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Quick Human Design Type Quiz</h2>
+        <p class="text-center" style="color:var(--gray-600);margin-bottom:1.5rem">Answer 7 questions to discover your likely Human Design type. For a precise chart, you need your exact birth time and location.</p>
+
+        <!-- Progress -->
+        <div class="quiz-progress" id="progress">
+          <div class="quiz-dot active"></div>
+          <div class="quiz-dot"></div>
+          <div class="quiz-dot"></div>
+          <div class="quiz-dot"></div>
+          <div class="quiz-dot"></div>
+          <div class="quiz-dot"></div>
+          <div class="quiz-dot"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-step active" data-step="1">
+          <h3>1. How do you typically start new projects?</h3>
+          <button class="quiz-option" data-scores="M3,MG2,G1,P0,R0" onclick="selectOption(this)">I feel a strong urge and just go for it, often without waiting for anyone</button>
+          <button class="quiz-option" data-scores="G3,MG3,M1,P0,R0" onclick="selectOption(this)">I wait until something excites me, then I have tons of energy for it</button>
+          <button class="quiz-option" data-scores="P3,R1,G0,M0,MG0" onclick="selectOption(this)">I wait to be invited or recognized before stepping in</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">I observe and reflect for a long time before deciding</button>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-step" data-step="2">
+          <h3>2. How would you describe your energy levels?</h3>
+          <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Consistent, strong energy that lasts all day when I love what I do</button>
+          <button class="quiz-option" data-scores="M3,MG1,G0,P0,R0" onclick="selectOption(this)">Intense bursts of energy, then I need to rest and recharge</button>
+          <button class="quiz-option" data-scores="P3,R1,G0,M0,MG0" onclick="selectOption(this)">My energy fluctuates depending on who I am around</button>
+          <button class="quiz-option" data-scores="R3,P2,G0,M0,MG0" onclick="selectOption(this)">I am deeply affected by the environment and need lots of alone time</button>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-step" data-step="3">
+          <h3>3. How do you make important decisions?</h3>
+          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">I go with my gut feeling - a strong yes or no response in my body</button>
+          <button class="quiz-option" data-scores="M3,MG2,G0,P0,R0" onclick="selectOption(this)">I feel an inner knowing and act on it, sometimes impulsively</button>
+          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">I need time to think and talk it through with others before deciding</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">I wait a full lunar cycle or longer, letting clarity emerge slowly</button>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-step" data-step="4">
+          <h3>4. In social situations, you tend to...</h3>
+          <button class="quiz-option" data-scores="M3,MG1,G0,P0,R0" onclick="selectOption(this)">Take charge and initiate conversations and activities</button>
+          <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Respond enthusiastically when someone engages me</button>
+          <button class="quiz-option" data-scores="P3,R1,G0,M0,MG0" onclick="selectOption(this)">Guide and advise others when they ask for my input</button>
+          <button class="quiz-option" data-scores="R3,P2,G0,M0,MG0" onclick="selectOption(this)">Mirror and amplify the energy of the group</button>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="quiz-step" data-step="5">
+          <h3>5. What frustrates you most?</h3>
+          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">Doing work I do not love or feeling stuck in the wrong job</button>
+          <button class="quiz-option" data-scores="M3,MG1,G0,P0,R0" onclick="selectOption(this)">Being controlled or having to ask permission</button>
+          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">Not being seen, valued or recognized for my expertise</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">Feeling invisible or overwhelmed by others' emotions</button>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="quiz-step" data-step="6">
+          <h3>6. When it comes to work, you are best at...</h3>
+          <button class="quiz-option" data-scores="G3,MG2,M0,P0,R0" onclick="selectOption(this)">Building and creating - I have endless energy for the right work</button>
+          <button class="quiz-option" data-scores="MG3,G2,M1,P0,R0" onclick="selectOption(this)">Multitasking and finding shortcuts - I am efficient and fast</button>
+          <button class="quiz-option" data-scores="P3,R0,G0,M0,MG0" onclick="selectOption(this)">Managing and guiding others - I see potential and systems</button>
+          <button class="quiz-option" data-scores="M3,MG0,G0,P0,R0" onclick="selectOption(this)">Initiating new things and making an impact on my terms</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">Evaluating and reflecting - I see what others miss</button>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="quiz-step" data-step="7">
+          <h3>7. When you sleep, you...</h3>
+          <button class="quiz-option" data-scores="G3,MG3,M0,P0,R0" onclick="selectOption(this)">Usually fall asleep easily, especially after a physically active day</button>
+          <button class="quiz-option" data-scores="M2,P2,R2,MG1,G0" onclick="selectOption(this)">Need to wind down in bed before falling asleep - my mind races</button>
+          <button class="quiz-option" data-scores="P3,M2,R1,G0,MG0" onclick="selectOption(this)">Sleep better when I go to bed before I am completely exhausted</button>
+          <button class="quiz-option" data-scores="R3,P1,G0,M0,MG0" onclick="selectOption(this)">My sleep quality varies a lot depending on the lunar cycle or environment</button>
+        </div>
+
+        <!-- Results -->
+        <div id="result-box" class="result-box" style="display:none">
+          <div class="result-title" id="result-type" style="font-size:1.8rem"></div>
+          <div id="result-badge" style="margin:1rem 0"></div>
+          <div class="result-description" id="result-desc"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Get Your Precise Human Design Chart</h4>
+            <p>This quiz gives you a likely type. For your exact chart with all 64 gates, channels and profile lines, you need your exact birth time. Get our complete Human Design guide with chart reading instructions.</p>
+            <a href="https://gumroad.com/nextools" class="btn btn-gold" target="_blank" rel="noopener">Explore Human Design Products</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Also Try Your Destiny Matrix</h4>
+            <p>Combine Human Design with a Destiny Matrix reading for a complete spiritual profile.</p>
+            <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Destiny Matrix Calculator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is Human Design?</h2>
+        <p>Human Design is a system of self-knowledge that combines astrology, the I Ching, Kabbalah, the Hindu-Brahmin chakra system and quantum physics into a single, unified framework. Created by Ra Uru Hu in 1987, it uses your exact birth date, time and location to generate a unique "BodyGraph" chart.</p>
+
+        <h2>The 5 Human Design Types</h2>
+
+        <h3>Generator (about 37% of population)</h3>
+        <p>Generators are the life force of the planet. They have sustainable, powerful energy for work they love. Their strategy is to <strong>wait to respond</strong> rather than initiating. When Generators follow their gut response (sacral authority), they find deep satisfaction.</p>
+
+        <h3>Manifesting Generator (about 33%)</h3>
+        <p>Manifesting Generators combine the initiating power of Manifestors with the sustained energy of Generators. They are fast, efficient multi-taskers who skip steps and find shortcuts. Strategy: <strong>wait to respond, then inform</strong> before acting.</p>
+
+        <h3>Projector (about 20%)</h3>
+        <p>Projectors are natural guides and managers who see others deeply. They do not have consistent energy for work, but excel at directing others' energy. Strategy: <strong>wait for the invitation</strong>. When recognized, Projectors experience success.</p>
+
+        <h3>Manifestor (about 8%)</h3>
+        <p>Manifestors are the initiators and trailblazers. They have the unique ability to start things and make an impact independently. Strategy: <strong>inform before acting</strong>. When Manifestors inform, they find peace.</p>
+
+        <h3>Reflector (about 1%)</h3>
+        <p>Reflectors are the rarest type with no defined centers. They mirror and amplify the energy around them. Strategy: <strong>wait a full lunar cycle</strong> (28 days) before making major decisions. Reflectors experience surprise and delight when aligned.</p>
+
+        <h2>Human Design Authority Types</h2>
+        <p>Your authority is how you are designed to make correct decisions:</p>
+        <ul>
+          <li><strong>Sacral</strong> - Gut response (Generators/MGs)</li>
+          <li><strong>Emotional (Solar Plexus)</strong> - Wait for emotional clarity</li>
+          <li><strong>Splenic</strong> - Instant intuitive knowing</li>
+          <li><strong>Ego/Heart</strong> - Willpower and commitment</li>
+          <li><strong>Self-Projected</strong> - Talk it out to hear your truth</li>
+          <li><strong>Mental/Environmental</strong> - Discuss with trusted others</li>
+          <li><strong>Lunar</strong> - Wait 28 days (Reflectors only)</li>
+        </ul>
+
+        <h2>Human Design Strategy</h2>
+        <p>Your strategy is the way you are designed to interact with life. Following your strategy reduces resistance (what Human Design calls "not-self" behavior) and aligns you with your true nature. The key strategies are: respond (Generators), inform (Manifestors), wait for invitation (Projectors), and wait a lunar cycle (Reflectors).</p>
+
+        <h2>FAQ</h2>
+        <h3>Do I need my exact birth time for Human Design?</h3>
+        <p>For a precise BodyGraph chart, yes - even a few minutes can change your chart. This quiz gives you a likely type without needing birth time. For your full chart, visit <a href="https://www.jovianarchive.com" target="_blank" rel="noopener">Jovian Archive</a> or <a href="https://www.mybodygraph.com" target="_blank" rel="noopener">MyBodyGraph</a>.</p>
+
+        <h3>Can my Human Design type change?</h3>
+        <p>No. Your Human Design type is determined at birth and remains constant throughout your life. However, your understanding and embodiment of your type deepens over time.</p>
+
+        <h3>What is the difference between Human Design and the Destiny Matrix?</h3>
+        <p>Human Design requires exact birth time/location and maps your energy centers. The <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a> uses only your birthdate and works with 22 Arcana energies. They complement each other beautifully.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Explore More Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-gold">Destiny Matrix</a>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm" style="margin-left:0.5rem">Angel Numbers</a>
+          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm" style="margin-left:0.5rem">Life Path</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/human-design-calculator/">Human Design</a><a href="/tools/life-path-calculator/">Life Path</a><a href="/tools/soul-urge-calculator/">Soul Urge</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/what-is-destiny-matrix/">What is Destiny Matrix?</a><a href="/blog/angel-number-111-meaning/">Angel Number 111</a><a href="/blog/human-design-types-explained/">HD Types Explained</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://gumroad.com/nextools" target="_blank" rel="noopener">Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var currentStep = 1;
+  var totalSteps = 7;
+  var scores = { G: 0, MG: 0, M: 0, P: 0, R: 0 };
+
+  var typeData = {
+    G: {
+      name: "Generator",
+      badge: "badge-generator",
+      pct: "~37%",
+      desc: "You are a Generator - the life force of the planet! You have powerful, sustainable energy for work that lights you up. When you are doing what you love, you can work tirelessly and feel deeply satisfied.",
+      strategy: "Wait to Respond",
+      strategyDesc: "Do not initiate. Instead, wait for life to bring opportunities to you, then listen to your gut response (sacral authority). A strong 'uh-huh' (yes) or 'uh-uh' (no) in your body tells you the truth.",
+      notSelf: "Frustration - When you initiate instead of responding, or do work that does not light you up",
+      signature: "Satisfaction - The deep fulfillment that comes from doing work your sacral says YES to",
+      famous: "Albert Einstein, Dalai Lama, Oprah Winfrey, Mozart"
+    },
+    MG: {
+      name: "Manifesting Generator",
+      badge: "badge-mg",
+      pct: "~33%",
+      desc: "You are a Manifesting Generator - the fastest, most efficient type! You combine the Generator's sustainable energy with the Manifestor's initiating power. You are a multi-passionate doer who finds shortcuts others miss.",
+      strategy: "Wait to Respond, Then Inform",
+      strategyDesc: "Like a Generator, wait for something to respond to. But once your sacral lights up, inform the people around you before you leap into action. You move fast - informing prevents resistance.",
+      notSelf: "Frustration and Anger - A mix of both Generator and Manifestor shadow emotions",
+      signature: "Satisfaction and Peace - The combined fulfillment of doing meaningful work on your own terms",
+      famous: "Tony Robbins, Angelina Jolie, Jimi Hendrix, Mother Teresa"
+    },
+    P: {
+      name: "Projector",
+      badge: "badge-projector",
+      pct: "~20%",
+      desc: "You are a Projector - a natural guide, manager and advisor. You have the rare gift of seeing deeply into others and understanding how to direct their energy. Your wisdom is your superpower.",
+      strategy: "Wait for the Invitation",
+      strategyDesc: "Do not force your guidance on others. Wait to be recognized and invited into major life areas (career, relationships, where you live). When invited, share your wisdom - it will be received and valued.",
+      notSelf: "Bitterness - When you offer guidance that is not recognized or you try to keep up with Generators' energy",
+      signature: "Success - The recognition and appreciation that comes when your guidance is truly valued",
+      famous: "Barack Obama, Princess Diana, Marilyn Monroe, Nelson Mandela"
+    },
+    M: {
+      name: "Manifestor",
+      badge: "badge-manifestor",
+      pct: "~8%",
+      desc: "You are a Manifestor - the initiator and trailblazer! You have the unique ability to start things, make an impact and bring new things into the world. You are independent and do not need anyone's permission.",
+      strategy: "Inform Before Acting",
+      strategyDesc: "You have the power to just do it. But informing the people who will be affected by your actions reduces resistance and creates peace. It is not asking permission - it is keeping people in the loop.",
+      notSelf: "Anger - When you feel controlled, constrained or like you need to ask permission",
+      signature: "Peace - The calm that comes from initiating freely while keeping others informed",
+      famous: "Maya Angelou, Johnny Depp, Al Gore, Jack Nicholson"
+    },
+    R: {
+      name: "Reflector",
+      badge: "badge-reflector",
+      pct: "~1%",
+      desc: "You are a Reflector - the rarest type in Human Design! With no defined centers, you are a mirror that reflects the health and truth of your community. You experience life differently than anyone else.",
+      strategy: "Wait a Lunar Cycle (28 Days)",
+      strategyDesc: "For major decisions, wait a full 28-day lunar cycle. As the Moon moves through your chart, different perspectives emerge. By the end of the cycle, you will have complete clarity. For small decisions, trust your environment.",
+      notSelf: "Disappointment - When you rush decisions or let others pressure you into acting before you are ready",
+      signature: "Surprise and Delight - The wonder that comes from seeing life through constantly shifting perspectives",
+      famous: "Sandra Bullock, Fyodor Dostoevsky, Uri Geller"
+    }
+  };
+
+  function selectOption(btn) {
+    // Remove previous selection in this step
+    var step = btn.closest('.quiz-step');
+    step.querySelectorAll('.quiz-option').forEach(function(o) { o.classList.remove('selected'); });
+    btn.classList.add('selected');
+
+    // Parse scores
+    var scoreStr = btn.getAttribute('data-scores');
+    var pairs = scoreStr.split(',');
+    var stepScores = {};
+    pairs.forEach(function(p) {
+      var match = p.match(/^([A-Z]+)(\d+)$/);
+      if (match) stepScores[match[1]] = parseInt(match[2]);
+    });
+
+    // Store on step element
+    step.setAttribute('data-selected-scores', JSON.stringify(stepScores));
+
+    // Auto-advance after short delay
+    setTimeout(function() { nextStep(); }, 300);
+  }
+
+  function nextStep() {
+    if (currentStep >= totalSteps) {
+      showResults();
+      return;
+    }
+
+    // Update progress
+    var dots = document.querySelectorAll('.quiz-dot');
+    dots[currentStep - 1].classList.remove('active');
+    dots[currentStep - 1].classList.add('done');
+    dots[currentStep].classList.add('active');
+
+    // Hide current, show next
+    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.remove('active');
+    currentStep++;
+    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.add('active');
+  }
+
+  function showResults() {
+    // Tally scores
+    scores = { G: 0, MG: 0, M: 0, P: 0, R: 0 };
+    document.querySelectorAll('.quiz-step').forEach(function(step) {
+      var raw = step.getAttribute('data-selected-scores');
+      if (raw) {
+        var s = JSON.parse(raw);
+        for (var key in s) { if (scores.hasOwnProperty(key)) scores[key] += s[key]; }
+      }
+    });
+
+    // Find winner
+    var maxType = 'G', maxScore = 0;
+    for (var t in scores) {
+      if (scores[t] > maxScore) { maxScore = scores[t]; maxType = t; }
+    }
+
+    var type = typeData[maxType];
+
+    // Hide last step + progress
+    document.querySelector('.quiz-step[data-step="' + currentStep + '"]').classList.remove('active');
+    document.getElementById('progress').style.display = 'none';
+
+    // Show result
+    document.getElementById('result-type').textContent = type.name;
+    document.getElementById('result-badge').innerHTML = '<span class="type-badge ' + type.badge + '">' + type.name + ' - ' + type.pct + ' of population</span>';
+    document.getElementById('result-desc').textContent = type.desc;
+
+    var details = '';
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--purple-deep)">Your Strategy: ' + type.strategy + '</h3>';
+    details += '<p>' + type.strategyDesc + '</p>';
+    details += '<p><strong>Not-Self Theme:</strong> ' + type.notSelf + '</p>';
+    details += '<p><strong>Signature Theme:</strong> ' + type.signature + '</p>';
+    details += '<p><strong>Famous ' + type.name + 's:</strong> ' + type.famous + '</p>';
+
+    details += '<h3 style="margin-top:1.5rem;margin-bottom:0.75rem;color:var(--purple-deep)">Your Scores</h3>';
+    details += '<table style="width:100%;border-collapse:collapse">';
+    var order = ['G','MG','P','M','R'];
+    order.forEach(function(k) {
+      var pct = Math.round((scores[k] / (maxScore || 1)) * 100);
+      details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.5rem 0;font-weight:600">' + typeData[k].name + '</td>';
+      details += '<td style="padding:0.5rem 0"><div style="background:var(--gray-200);border-radius:4px;height:8px;width:100%"><div style="background:var(--purple-mid);border-radius:4px;height:8px;width:' + pct + '%"></div></div></td>';
+      details += '<td style="padding:0.5rem 0 0.5rem 0.75rem;width:3rem;text-align:right">' + scores[k] + '</td></tr>';
+    });
+    details += '</table>';
+    details += '<p style="margin-top:1rem;font-size:0.85rem;color:var(--gray-600)"><em>Note: This quiz estimates your type based on behavioral patterns. For your exact Human Design chart, you need your precise birth time and location.</em></p>';
+
+    document.getElementById('result-details').innerHTML = details;
+
+    var box = document.getElementById('result-box');
+    box.style.display = 'block';
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>

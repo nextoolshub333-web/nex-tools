@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soul Urge Number Calculator - Discover Your Heart's Desire Free</title>
+  <meta name="description" content="Free Soul Urge number calculator. Discover your deepest desires, inner motivations and heart's true calling through the vowels in your birth name.">
+  <meta name="keywords" content="soul urge number calculator, heart desire number, soul urge numerology, soul number calculator free">
+  <link rel="canonical" href="https://nextools.co/tools/soul-urge-calculator/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Soul Urge Number Calculator","description":"Free Soul Urge (Heart's Desire) number calculator based on your full birth name.","url":"https://nextools.co/tools/soul-urge-calculator/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Soul Urge Number Calculator</h1>
+      <p>Your Soul Urge (Heart's Desire) number reveals your innermost desires, motivations and what truly makes your soul sing. Calculated from the vowels in your full birth name.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Enter Your Full Birth Name</h2>
+        <p class="text-center" style="color:var(--gray-600);margin-bottom:2rem">Use the name exactly as it appears on your birth certificate. Include first, middle and last names.</p>
+
+        <div class="calc-input-group">
+          <label for="first-name">First Name</label>
+          <input type="text" id="first-name" placeholder="e.g. Sarah">
+        </div>
+        <div class="calc-input-group">
+          <label for="middle-name">Middle Name (optional)</label>
+          <input type="text" id="middle-name" placeholder="e.g. Marie">
+        </div>
+        <div class="calc-input-group">
+          <label for="last-name">Last Name</label>
+          <input type="text" id="last-name" placeholder="e.g. Johnson">
+        </div>
+
+        <button class="calc-btn" onclick="calculateSoulUrge()">Reveal My Soul Urge</button>
+
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-number"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Complete Your Numerology Profile</h4>
+            <p>Your Soul Urge is just one piece. Get your Life Path, Expression number, personal year and full compatibility reading.</p>
+            <a href="https://gumroad.com/nextools/l/angel-numbers-guide" class="btn btn-gold" target="_blank" rel="noopener">Get Full Report - $14.99</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Try Your Destiny Matrix Too</h4>
+            <p>Discover your life purpose through 22 Arcana energies - a completely different system that complements numerology.</p>
+            <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Destiny Matrix Calculator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is the Soul Urge Number?</h2>
+        <p>The Soul Urge number (also called the Heart's Desire number) is one of the five core numbers in your numerology chart. It reveals your deepest inner motivations - what you truly want at a soul level, often even when you are not consciously aware of it.</p>
+        <p>While your Life Path number shows your external journey, your Soul Urge reveals the internal fire that drives you. It answers the question: What does my heart truly long for?</p>
+
+        <h2>How is the Soul Urge Calculated?</h2>
+        <p>The Soul Urge uses only the <strong>vowels</strong> (A, E, I, O, U) from your full birth name. Each vowel has a numerological value:</p>
+        <ul>
+          <li>A = 1, E = 5, I = 9, O = 6, U = 3</li>
+        </ul>
+        <p>Add all the vowel values together and reduce to a single digit (or master number 11, 22, 33). The letter Y is treated as a vowel when it is the only vowel sound in a syllable (like in "Lynn" or "Bryce").</p>
+
+        <h2>Soul Urge vs Life Path vs Expression</h2>
+        <ul>
+          <li><strong>Soul Urge (vowels)</strong> - What you secretly desire</li>
+          <li><strong><a href="/tools/life-path-calculator/">Life Path (birthday)</a></strong> - Your life's journey and purpose</li>
+          <li><strong>Expression (all letters)</strong> - Your natural talents and abilities</li>
+        </ul>
+        <p>Together, these three numbers paint a complete picture of who you are at a soul level.</p>
+
+        <h2>FAQ</h2>
+        <h3>Should I use my married name or birth name?</h3>
+        <p>Always use your full birth name (as on your birth certificate) for the Soul Urge calculation. Your birth name carries your original soul vibration.</p>
+
+        <h3>What about the letter Y?</h3>
+        <p>Y is counted as a vowel when it provides the vowel sound in a syllable (Bryce, Yvonne, Sally). Our calculator handles Y as a consonant by default. If Y is the primary vowel sound in your name, you may want to try both ways.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Explore All Your Numbers</h4>
+          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Life Path Calculator</a>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm" style="margin-left:0.5rem">Angel Number</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/human-design-calculator/">Human Design</a><a href="/tools/life-path-calculator/">Life Path</a><a href="/tools/soul-urge-calculator/">Soul Urge</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/what-is-destiny-matrix/">What is Destiny Matrix?</a><a href="/blog/angel-number-111-meaning/">Angel Number 111</a><a href="/blog/human-design-types-explained/">Human Design Types</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://gumroad.com/nextools" target="_blank" rel="noopener">Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var soulUrges = {
+    1: { title: "Independence & Achievement", desc: "Your soul craves independence, originality and the freedom to lead. Deep down, you want to be first, to pioneer new paths and to achieve things on your own terms. You are driven by a need to stand out and make your unique mark.", desire: "To be independent, original and a leader in your field", strengths: "Self-reliance, ambition, innovation, courage", challenges: "Fear of dependence, difficulty asking for help, ego", love: "You need a partner who admires your independence without trying to control you" },
+    2: { title: "Love & Partnership", desc: "Your soul yearns for deep, harmonious partnership and emotional connection. More than anything, you want to love and be loved. You crave peace, balance and the comfort of knowing someone truly understands you.", desire: "To find perfect love, harmony and deep emotional connection", strengths: "Empathy, cooperation, intuition, diplomacy", challenges: "Codependency, people-pleasing, fear of being alone", love: "Partnership is your life's central theme. You bloom in committed, balanced relationships" },
+    3: { title: "Creative Expression", desc: "Your soul burns with the need to create and express. You want to be seen, heard and appreciated for your unique creative gifts. Joy, beauty and self-expression are not luxuries for you - they are necessities.", desire: "To express yourself creatively and inspire others through beauty and joy", strengths: "Creativity, charisma, optimism, artistic vision", challenges: "Scattered focus, seeking approval, emotional volatility", love: "You need a partner who celebrates your creativity and matches your enthusiasm for life" },
+    4: { title: "Stability & Order", desc: "Your soul craves security, structure and a solid foundation. You want to build something lasting and meaningful. Deep down, you need to feel that your life has order, purpose and tangible results.", desire: "To create lasting stability, security and a structured, meaningful life", strengths: "Discipline, reliability, practical wisdom, perseverance", challenges: "Rigidity, fear of change, workaholism, controlling tendencies", love: "You build relationships brick by brick. Loyalty and dependability are your love languages" },
+    5: { title: "Freedom & Experience", desc: "Your soul is restless and hungry for experience. You crave freedom, adventure and the thrill of the new. Deep down, you want to taste everything life has to offer without being tied down by routine.", desire: "To experience total freedom, adventure and the full spectrum of life", strengths: "Adaptability, courage, magnetism, resourcefulness", challenges: "Commitment fears, excess, restlessness, escapism", love: "You need a partner who is your adventure companion, not your anchor" },
+    6: { title: "Love & Service", desc: "Your soul desires to nurture, heal and create beauty in the world. You want to be needed and to make life better for those you love. Home, family and service fill your deepest longings.", desire: "To love, nurture and create a beautiful, harmonious life for yourself and others", strengths: "Compassion, responsibility, aesthetic sense, devotion", challenges: "Over-giving, martyrdom, perfectionism, self-neglect", love: "You love deeply and completely. Remember that receiving love is as important as giving it" },
+    7: { title: "Truth & Understanding", desc: "Your soul hungers for truth, knowledge and spiritual understanding. You want to penetrate beneath the surface and understand the deeper meaning of existence. Solitude and contemplation feed your spirit.", desire: "To understand the deeper truths of life, to find wisdom and spiritual connection", strengths: "Analytical mind, intuition, spiritual depth, intellectual rigor", challenges: "Isolation, emotional walls, overthinking, distrust", love: "You need intellectual and spiritual compatibility above all else" },
+    8: { title: "Power & Achievement", desc: "Your soul craves material mastery, influence and recognition. You want to achieve big things and be acknowledged for your accomplishments. Power, status and financial freedom drive you deeply.", desire: "To achieve material success, power and recognition for your accomplishments", strengths: "Business acumen, leadership, resilience, strategic vision", challenges: "Materialism, power struggles, burnout, emotional neglect", love: "You need a partner who is your equal in ambition and strength" },
+    9: { title: "Universal Love & Service", desc: "Your soul yearns to serve humanity and make the world a better place. You feel things deeply and have a natural compassion that extends beyond your personal circle. Your desires are big - global, even.", desire: "To serve humanity, create positive change and express universal love", strengths: "Compassion, wisdom, generosity, vision, artistry", challenges: "Savior complex, difficulty with personal boundaries, idealism", love: "You love broadly and deeply. Finding someone who shares your humanitarian vision is key" },
+    11: { title: "Spiritual Illumination", desc: "Master Soul Urge 11: Your soul craves spiritual awakening and the ability to illuminate truth for others. You have heightened intuition and a deep desire to inspire. This is the soul of a spiritual messenger.", desire: "To achieve spiritual enlightenment and inspire others through your intuitive gifts", strengths: "Psychic ability, inspiration, spiritual vision, sensitivity", challenges: "Nervous energy, self-doubt, overwhelming sensitivity", love: "You seek a transcendent, soul-deep connection that goes beyond the physical" },
+    22: { title: "Master Building", desc: "Master Soul Urge 22: Your soul desires to build something monumental that serves humanity. You combine spiritual vision with practical power. Your deepest drive is to leave a lasting, positive legacy.", desire: "To manifest a grand vision that benefits humanity on a massive scale", strengths: "Visionary leadership, practical mastery, enormous potential", challenges: "Paralyzing pressure, fear of not living up to potential", love: "You need a partner who believes in your vision as deeply as you do" },
+    33: { title: "Master Healing", desc: "Master Soul Urge 33: Your soul desires to heal and uplift humanity through pure, unconditional love. This is the rarest and most spiritually advanced soul urge. Compassion flows from you naturally.", desire: "To heal the world through unconditional love and spiritual teaching", strengths: "Healing presence, unconditional love, spiritual mastery", challenges: "Self-sacrifice, emotional overwhelm, savior complex", love: "Your love is a healing force. You attract souls who need transformation" }
+  };
+
+  var vowelValues = { a:1, e:5, i:9, o:6, u:3 };
+
+  function calculateSoulUrge() {
+    var first = document.getElementById('first-name').value.trim().toLowerCase();
+    var middle = document.getElementById('middle-name').value.trim().toLowerCase();
+    var last = document.getElementById('last-name').value.trim().toLowerCase();
+
+    if (!first || !last) {
+      alert('Please enter at least your first and last name.');
+      return;
+    }
+
+    var fullName = first + middle + last;
+    var sum = 0;
+    var vowelBreakdown = [];
+
+    for (var i = 0; i < fullName.length; i++) {
+      var ch = fullName[i];
+      if (vowelValues[ch]) {
+        sum += vowelValues[ch];
+        vowelBreakdown.push(ch.toUpperCase() + '=' + vowelValues[ch]);
+      }
+    }
+
+    if (sum === 0) {
+      alert('No vowels found. Please check your name.');
+      return;
+    }
+
+    // Reduce preserving master numbers
+    var soulUrge = sum;
+    while (soulUrge > 9 && soulUrge !== 11 && soulUrge !== 22 && soulUrge !== 33) {
+      var newSum = 0, s = String(soulUrge);
+      for (var j = 0; j < s.length; j++) newSum += parseInt(s[j]);
+      soulUrge = newSum;
+    }
+
+    var su = soulUrges[soulUrge];
+    document.getElementById('result-number').textContent = soulUrge;
+    document.getElementById('result-title').textContent = 'Soul Urge ' + soulUrge + ' - ' + su.title;
+    document.getElementById('result-desc').textContent = su.desc;
+
+    var details = '<h3 style="margin-bottom:0.75rem;color:var(--purple-deep)">Your Soul Urge Profile</h3>';
+    details += '<p><strong>Deepest Desire:</strong> ' + su.desire + '</p>';
+    details += '<p><strong>Core Strengths:</strong> ' + su.strengths + '</p>';
+    details += '<p><strong>Growth Areas:</strong> ' + su.challenges + '</p>';
+    details += '<p><strong>Love:</strong> ' + su.love + '</p>';
+    details += '<h3 style="margin-top:1.5rem;margin-bottom:0.75rem;color:var(--purple-deep)">Calculation</h3>';
+    details += '<p>Vowels found: ' + vowelBreakdown.join(' + ') + ' = ' + sum + '</p>';
+    details += '<p>Reduced to: <strong>' + soulUrge + '</strong></p>';
+
+    document.getElementById('result-details').innerHTML = details;
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>

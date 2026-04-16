@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel Number Calculator - Find Your Personal Angel Number Free</title>
+  <meta name="description" content="Free angel number calculator. Discover your personal angel number from your birthday, learn its meaning and decode the divine messages the universe sends you.">
+  <meta name="keywords" content="angel number calculator, what is my angel number, angel number meaning, find my angel number, personal angel number">
+  <link rel="canonical" href="https://nextools.co/tools/angel-number-calculator/">
+  <meta property="og:title" content="Angel Number Calculator - Find Your Personal Angel Number Free">
+  <meta property="og:description" content="Calculate your personal angel number instantly. Free, no signup required.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Angel Number Calculator",
+    "description": "Free online angel number calculator. Find your personal angel number from your date of birth.",
+    "url": "https://nextools.co/tools/angel-number-calculator/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/" style="color:var(--gold)">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Angel Number Calculator</h1>
+      <p>Discover your personal angel number and the divine messages the universe is sending you. Free, instant, no signup.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Find Your Angel Number</h2>
+        <p class="text-center" style="color:var(--gray-600);margin-bottom:2rem">Enter your full date of birth to calculate your personal angel number.</p>
+
+        <div class="calc-input-group">
+          <label for="birth-day">Day of Birth</label>
+          <input type="number" id="birth-day" min="1" max="31" placeholder="e.g. 15">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-month">Month of Birth</label>
+          <input type="number" id="birth-month" min="1" max="12" placeholder="e.g. 7">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-year">Year of Birth</label>
+          <input type="number" id="birth-year" min="1920" max="2026" placeholder="e.g. 1990">
+        </div>
+
+        <button class="calc-btn" onclick="calculateAngelNumber()">Reveal My Angel Number</button>
+
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-number"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Go Deeper with Your Angel Numbers</h4>
+            <p>Get the complete Angel Numbers Guide with detailed meanings, action steps and a personal reflection journal for all numbers 111-999.</p>
+            <a href="https://gumroad.com/nextools/l/angel-numbers-guide" class="btn btn-gold" target="_blank" rel="noopener">Get the Full Guide - $14.99</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Free Angel Numbers Starter Kit</h4>
+            <p>Quick-reference PDF with meanings for all major angel numbers. Completely free.</p>
+            <a href="https://gumroad.com/nextools/l/angel-numbers-starter-kit" class="btn btn-purple btn-sm" target="_blank" rel="noopener">Download Free</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO Content -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is an Angel Number?</h2>
+        <p>Angel numbers are repeating number sequences (like 111, 222, 333) that carry spiritual meaning and divine guidance. Many people believe these numbers are messages from guardian angels, spirit guides or the universe itself. When you keep seeing the same numbers repeatedly, it is not coincidence - it is communication.</p>
+
+        <h2>How to Calculate Your Personal Angel Number</h2>
+        <p>Your personal angel number is derived from your date of birth by adding all digits together and reducing to a single digit (or master number 11, 22, 33). This number reveals your core spiritual vibration and the primary messages the universe has for you.</p>
+        <p>For example, if you were born on July 15, 1990: 0+7+1+5+1+9+9+0 = 32 = 3+2 = 5. Your angel number would be 5.</p>
+
+        <h2>Common Angel Numbers and Their Meanings</h2>
+        <ul>
+          <li><strong><a href="/blog/angel-number-111-meaning/">111</a></strong> - New beginnings, manifestation, alignment</li>
+          <li><strong><a href="/blog/angel-number-222-meaning/">222</a></strong> - Balance, trust, partnership</li>
+          <li><strong><a href="/blog/angel-number-333-meaning/">333</a></strong> - Creativity, growth, ascended masters</li>
+          <li><strong><a href="/blog/angel-number-444-meaning/">444</a></strong> - Protection, stability, angels are near</li>
+          <li><strong><a href="/blog/angel-number-555-meaning/">555</a></strong> - Major change, transformation, freedom</li>
+          <li><strong><a href="/blog/angel-number-666-meaning/">666</a></strong> - Balance, healing, refocus on spirit</li>
+          <li><strong><a href="/blog/angel-number-777-meaning/">777</a></strong> - Spiritual awakening, luck, divine guidance</li>
+          <li><strong><a href="/blog/angel-number-888-meaning/">888</a></strong> - Abundance, prosperity, infinite flow</li>
+          <li><strong><a href="/blog/angel-number-999-meaning/">999</a></strong> - Completion, endings, soul mission</li>
+        </ul>
+
+        <h2>What to Do When You See Angel Numbers</h2>
+        <p>When you notice an angel number, pause and pay attention. Consider what you were thinking about at that moment. The number's meaning often relates directly to your current thoughts, questions or life situation. Keep a journal of when and where you see these numbers to track the patterns.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Can I have more than one angel number?</h3>
+        <p>Yes! While your personal angel number (from your birth date) stays constant, you may receive different angel number messages at different times in your life. Each carries its own unique guidance.</p>
+
+        <h3>Why do I keep seeing the same number everywhere?</h3>
+        <p>Repeatedly seeing the same number is a sign that the message behind that number is especially important for you right now. The more frequently you see it, the more urgent the message. Check our <a href="/blog/">angel number guides</a> for detailed meanings.</p>
+
+        <h3>Is the angel number calculator accurate?</h3>
+        <p>The calculation is based on established numerology methods. The key is entering your correct birth date. The meanings are based on centuries of numerological tradition and modern spiritual interpretation.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Explore More Spiritual Tools</h4>
+          <p>Combine your angel number reading with a <a href="/tools/destiny-matrix-calculator/">Destiny Matrix chart</a> or <a href="/tools/life-path-calculator/">Life Path calculation</a> for a complete spiritual profile.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Calculators</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9878;</div>
+          <h3>Destiny Matrix Calculator</h3>
+          <p>Discover your life purpose through the 22 Arcana energies in your birth chart.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128737;</div>
+          <h3>Life Path Number</h3>
+          <p>Calculate your Life Path number and understand your soul's journey.</p>
+          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128156;</div>
+          <h3>Soul Urge Number</h3>
+          <p>Reveal your deepest desires through the vowels in your name.</p>
+          <a href="/tools/soul-urge-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://gumroad.com/nextools" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var angelMeanings = {
+    1: {
+      title: "The Leader",
+      desc: "You are a born leader and pioneer. Your angel number 1 signals independence, ambition and the power to create your own reality. The universe encourages you to trust your instincts and take bold action.",
+      message: "Trust yourself. You have the power to manifest anything you set your mind to. Your angels are supporting your new beginnings.",
+      repeating: "111 - Powerful manifestation energy. Your thoughts are becoming reality faster than usual. Focus only on what you want.",
+      love: "Independence within partnership. You attract strong, self-assured partners.",
+      career: "Leadership roles, entrepreneurship, innovation. You thrive when you set the direction."
+    },
+    2: {
+      title: "The Peacemaker",
+      desc: "Your angel number 2 represents harmony, balance and partnership. You are a natural mediator with deep empathy. The universe asks you to trust in divine timing and nurture your relationships.",
+      message: "Be patient. Everything is unfolding in perfect divine timing. Your partnerships are blessed.",
+      repeating: "222 - A sign of balance and trust. Keep faith in your path. Partnerships and collaborations are divinely supported.",
+      love: "Deep, soulful connections. You are meant for committed, balanced partnership.",
+      career: "Counseling, diplomacy, teamwork. You excel in roles that bring people together."
+    },
+    3: {
+      title: "The Creative",
+      desc: "Angel number 3 vibrates with creativity, self-expression and joy. You are a natural communicator with artistic gifts. The universe wants you to express yourself fully and share your creative vision.",
+      message: "Create freely. Your creative expression is your spiritual practice. Joy is your compass.",
+      repeating: "333 - The Ascended Masters are with you. Express yourself boldly. Your creativity is divinely inspired.",
+      love: "Playful, expressive love. You need a partner who celebrates your creative spirit.",
+      career: "Arts, writing, speaking, entertainment. Anything that lets your creative light shine."
+    },
+    4: {
+      title: "The Builder",
+      desc: "Your angel number 4 represents stability, hard work and solid foundations. You are practical and reliable. The universe supports your efforts to build something lasting and meaningful.",
+      message: "Keep building. Your hard work is creating a foundation that will support you for years to come. Angels surround you with protection.",
+      repeating: "444 - Your angels are right beside you. You are protected and supported. Keep going with confidence.",
+      love: "Stable, committed love. You build lasting relationships through loyalty and devotion.",
+      career: "Engineering, architecture, management, finance. You create structures that stand the test of time."
+    },
+    5: {
+      title: "The Adventurer",
+      desc: "Angel number 5 pulses with freedom, change and adventure. You are meant to experience life fully. The universe encourages you to embrace change as your greatest teacher.",
+      message: "Embrace change. Major shifts are coming, and they are all for your highest good. Stay flexible and open.",
+      repeating: "555 - Massive transformation is underway. Release what no longer serves you. Freedom is calling.",
+      love: "Exciting, dynamic love. You need a partner who matches your appetite for adventure.",
+      career: "Travel, sales, media, entrepreneurship. Variety and freedom fuel your success."
+    },
+    6: {
+      title: "The Nurturer",
+      desc: "Your angel number 6 resonates with love, family and responsibility. You are a natural caretaker with a beautiful heart. The universe asks you to balance giving with receiving.",
+      message: "Nurture yourself too. Your caring nature is a gift, but remember to fill your own cup. Home and family are blessed.",
+      repeating: "666 - Not a bad omen! It is a call to refocus on spiritual growth and balance. Release material worry.",
+      love: "Deeply nurturing love. You create beautiful homes and relationships full of warmth.",
+      career: "Healthcare, teaching, counseling, interior design. Roles where your caring nature shines."
+    },
+    7: {
+      title: "The Seeker",
+      desc: "Angel number 7 carries the energy of spiritual awakening, inner wisdom and deep understanding. You are a natural philosopher and truth-seeker. The universe guides you inward.",
+      message: "Go deeper. Your spiritual journey is accelerating. Trust your intuition - it is divinely guided.",
+      repeating: "777 - You are in complete alignment with the universe. Spiritual gifts are awakening. Keep following your inner guidance.",
+      love: "Soulful, intellectual connections. You need a partner who values depth and spiritual growth.",
+      career: "Research, spirituality, psychology, technology. Fields that reward deep thinking and insight."
+    },
+    8: {
+      title: "The Achiever",
+      desc: "Your angel number 8 vibrates with abundance, power and material mastery. You have the natural ability to attract wealth and success. The universe supports your prosperity.",
+      message: "Abundance is your birthright. Financial and material blessings are flowing to you. Stay aligned with integrity.",
+      repeating: "888 - Major abundance incoming. Financial breakthroughs, promotions, windfalls. The universe is rewarding your efforts.",
+      love: "Powerful, equal partnerships. You attract partners who match your ambition and drive.",
+      career: "Finance, business, management, real estate. You are naturally gifted at creating wealth."
+    },
+    9: {
+      title: "The Humanitarian",
+      desc: "Angel number 9 represents completion, wisdom and service to humanity. You are an old soul with deep compassion. The universe calls you to share your gifts with the world.",
+      message: "Your soul mission is service. Endings are new beginnings in disguise. Share your wisdom generously.",
+      repeating: "999 - A major life chapter is completing. Release with gratitude and trust what comes next. Your soul mission is calling.",
+      love: "Compassionate, unconditional love. You are drawn to deep, meaningful relationships that transcend the ordinary.",
+      career: "Humanitarian work, teaching, healing, arts. Your purpose involves serving the greater good."
+    },
+    11: {
+      title: "The Intuitive (Master Number)",
+      desc: "Master number 11 is the most intuitive of all numbers. You have heightened psychic sensitivity and spiritual awareness. You are a spiritual messenger meant to inspire and enlighten others.",
+      message: "You are a lightworker. Your intuition is your superpower. Trust the visions and feelings that come to you - they are divinely inspired.",
+      repeating: "1111 - The ultimate wake-up call. A portal of manifestation is open. Pay close attention to your thoughts - they are creating your reality.",
+      love: "Deeply spiritual, twin-flame connections. Your relationships are catalysts for spiritual growth.",
+      career: "Spiritual teaching, counseling, arts, innovation. You inspire others through your vision."
+    },
+    22: {
+      title: "The Master Builder (Master Number)",
+      desc: "Master number 22 combines spiritual vision with practical mastery. You have the rare ability to turn dreams into reality on a grand scale. You are here to build something that serves humanity.",
+      message: "Dream big and build bigger. You have the power to create lasting impact. Your vision can change the world.",
+      repeating: "2222 - Your master plan is being supported by the universe. Think big. Build for generations.",
+      love: "Partners who share your vision. Your relationships support your larger mission.",
+      career: "Architecture, global business, philanthropy, politics. You build empires and legacies."
+    },
+    33: {
+      title: "The Master Teacher (Master Number)",
+      desc: "Master number 33 is the most spiritually evolved number. You are a master healer and teacher whose presence alone uplifts others. Your compassion is boundless and your wisdom is deep.",
+      message: "Your love heals. You are here to teach through compassion and example. The world needs your light.",
+      repeating: "3333 - Ascended Masters are working directly through you. Your healing presence is needed now more than ever.",
+      love: "Unconditional, healing love. Your relationships are spiritual sanctuaries.",
+      career: "Healing, spiritual leadership, counseling, education. You teach by embodying love."
+    }
+  };
+
+  function calculateAngelNumber() {
+    var day = parseInt(document.getElementById('birth-day').value);
+    var month = parseInt(document.getElementById('birth-month').value);
+    var year = parseInt(document.getElementById('birth-year').value);
+
+    if (!day || !month || !year || day < 1 || day > 31 || month < 1 || month > 12 || year < 1920 || year > 2026) {
+      alert('Please enter a valid date of birth.');
+      return;
+    }
+
+    // Sum all digits
+    var dateStr = String(month).padStart(2,'0') + String(day).padStart(2,'0') + String(year);
+    var sum = 0;
+    for (var i = 0; i < dateStr.length; i++) {
+      sum += parseInt(dateStr[i]);
+    }
+
+    // Reduce but preserve master numbers (11, 22, 33)
+    while (sum > 9 && sum !== 11 && sum !== 22 && sum !== 33) {
+      var newSum = 0;
+      var s = String(sum);
+      for (var j = 0; j < s.length; j++) {
+        newSum += parseInt(s[j]);
+      }
+      sum = newSum;
+    }
+
+    var angelNum = sum;
+    var meaning = angelMeanings[angelNum];
+
+    document.getElementById('result-number').textContent = angelNum;
+    document.getElementById('result-title').textContent = 'Angel Number ' + angelNum + ' - ' + meaning.title;
+    document.getElementById('result-desc').textContent = meaning.desc;
+
+    var details = '';
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--purple-deep)">Your Divine Message</h3>';
+    details += '<p><strong>Message from your angels:</strong> ' + meaning.message + '</p>';
+    details += '<p><strong>When you see ' + meaning.repeating.split(' - ')[0] + ':</strong> ' + meaning.repeating.split(' - ')[1] + '</p>';
+    details += '<p><strong>Love & Relationships:</strong> ' + meaning.love + '</p>';
+    details += '<p><strong>Career & Purpose:</strong> ' + meaning.career + '</p>';
+
+    document.getElementById('result-details').innerHTML = details;
+
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>

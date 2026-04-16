@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Path Number Calculator - Free Numerology Calculator</title>
+  <meta name="description" content="Free Life Path number calculator. Calculate your numerology Life Path number from your birthday and discover your soul's purpose, strengths and challenges.">
+  <meta name="keywords" content="life path number calculator, numerology calculator free, life path number, numerology life path, calculate life path number">
+  <link rel="canonical" href="https://nextools.co/tools/life-path-calculator/">
+  <meta property="og:title" content="Life Path Number Calculator - Free Numerology">
+  <meta property="og:description" content="Calculate your Life Path number instantly and discover your soul's journey.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Life Path Number Calculator","description":"Free numerology Life Path calculator based on date of birth.","url":"https://nextools.co/tools/life-path-calculator/","applicationCategory":"LifestyleApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/tools/life-path-calculator/" style="color:var(--gold)">Life Path</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Life Path Number Calculator</h1>
+      <p>Your Life Path number is the most important number in numerology. It reveals your soul's purpose, natural talents, challenges and the path your life is meant to follow.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Calculate Your Life Path Number</h2>
+        <p class="text-center" style="color:var(--gray-600);margin-bottom:2rem">Enter your date of birth for an instant, detailed reading.</p>
+
+        <div class="calc-input-group">
+          <label for="birth-day">Day</label>
+          <input type="number" id="birth-day" min="1" max="31" placeholder="e.g. 15">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-month">Month</label>
+          <input type="number" id="birth-month" min="1" max="12" placeholder="e.g. 7">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-year">Year</label>
+          <input type="number" id="birth-year" min="1920" max="2026" placeholder="e.g. 1990">
+        </div>
+
+        <button class="calc-btn" onclick="calculateLifePath()">Calculate My Life Path</button>
+
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-number"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Want Your Complete Numerology Profile?</h4>
+            <p>Your Life Path is just the beginning. Get your Soul Urge, Expression number, personal year forecast and compatibility analysis.</p>
+            <a href="https://gumroad.com/nextools/l/angel-numbers-guide" class="btn btn-gold" target="_blank" rel="noopener">Get Full Numerology Report - $14.99</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Also Try Your Destiny Matrix</h4>
+            <p>Go beyond numerology. The Destiny Matrix reveals your life purpose through 22 Arcana energies.</p>
+            <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Destiny Matrix Calculator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is a Life Path Number?</h2>
+        <p>The Life Path number is the foundation of your numerology chart. Calculated from your complete date of birth, it represents the core of who you are, your natural abilities, the challenges you will face, and the overall direction of your life journey.</p>
+        <p>Think of it as a blueprint for your life. While you always have free will, your Life Path number reveals the themes, lessons and opportunities that will consistently appear throughout your experience.</p>
+
+        <h2>How is the Life Path Number Calculated?</h2>
+        <p>The Life Path is calculated by reducing each component of your birth date (month, day, year) to a single digit, then adding those three digits together and reducing again. Master numbers (11, 22, 33) are preserved and not reduced further.</p>
+        <p><strong>Example:</strong> Born March 15, 1990</p>
+        <ul>
+          <li>Month: 3 (March = 3)</li>
+          <li>Day: 1+5 = 6</li>
+          <li>Year: 1+9+9+0 = 19 = 1+9 = 10 = 1+0 = 1</li>
+          <li>Life Path: 3+6+1 = 10 = 1+0 = <strong>1</strong></li>
+        </ul>
+
+        <h2>Life Path Number Compatibility</h2>
+        <p>Life Path numbers reveal natural compatibility between people. Some numbers harmonize naturally, while others create dynamic tension that drives growth. Use both partners' Life Path numbers to understand your relationship dynamics.</p>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is the rarest Life Path number?</h3>
+        <p>Life Path 33 is the rarest, followed by 22 and 11 (master numbers). Among single digits, Life Path 9 tends to be less common.</p>
+
+        <h3>Can my Life Path number change?</h3>
+        <p>No. Your Life Path number is derived from your birth date and remains constant throughout your life. However, your personal year number changes annually, bringing different energies each year.</p>
+
+        <h3>What is the difference between Life Path and angel numbers?</h3>
+        <p>Your Life Path number is permanent (based on your birthday) and describes your core personality and purpose. <a href="/tools/angel-number-calculator/">Angel numbers</a> are repeating sequences you notice in daily life that carry timely spiritual messages.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Complete Your Spiritual Profile</h4>
+          <p>Combine your Life Path with a <a href="/tools/soul-urge-calculator/">Soul Urge reading</a> and <a href="/tools/destiny-matrix-calculator/">Destiny Matrix chart</a> for a complete picture.</p>
+          <a href="/" class="btn btn-gold">All Free Calculators</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Calculators</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9878;</div>
+          <h3>Destiny Matrix Calculator</h3>
+          <p>Discover your life purpose through the 22 Arcana energies.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128140;</div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and divine messages.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128156;</div>
+          <h3>Soul Urge Number</h3>
+          <p>Reveal your deepest desires through your name.</p>
+          <a href="/tools/soul-urge-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/human-design-calculator/">Human Design</a><a href="/tools/life-path-calculator/">Life Path</a><a href="/tools/soul-urge-calculator/">Soul Urge</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/what-is-destiny-matrix/">What is Destiny Matrix?</a><a href="/blog/angel-number-111-meaning/">Angel Number 111</a><a href="/blog/human-design-types-explained/">Human Design Types</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://gumroad.com/nextools" target="_blank" rel="noopener">Digital Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">All Articles</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var lifePaths = {
+    1: { title: "The Leader", desc: "You are a born leader, innovator and independent thinker. Life Path 1 people are driven to forge their own path and pioneer new ideas. You have strong willpower and the courage to stand alone when necessary.", strengths: "Independence, ambition, originality, courage, determination", challenges: "Stubbornness, ego, isolation, impatience", career: "Entrepreneur, CEO, inventor, freelancer, anything self-directed", love: "You need a partner who respects your independence. Compatible with 3, 5, 7." },
+    2: { title: "The Diplomat", desc: "You are a natural peacemaker, mediator and partner. Life Path 2 people have deep sensitivity and intuition. You thrive in collaboration and have the gift of bringing harmony to any situation.", strengths: "Diplomacy, intuition, patience, cooperation, sensitivity", challenges: "Over-sensitivity, indecision, codependency, self-doubt", career: "Counselor, mediator, healer, teacher, musician", love: "Deep, committed partnerships are essential. Compatible with 4, 6, 8." },
+    3: { title: "The Communicator", desc: "You are a creative force with a gift for self-expression. Life Path 3 people are natural entertainers, artists and communicators. Joy, humor and inspiration flow through everything you do.", strengths: "Creativity, humor, optimism, communication, artistic talent", challenges: "Scattered energy, superficiality, mood swings, escapism", career: "Writer, artist, actor, speaker, social media, design", love: "You need a playful, stimulating partner. Compatible with 1, 5, 7." },
+    4: { title: "The Builder", desc: "You are the foundation upon which great things are built. Life Path 4 people are practical, disciplined and incredibly hardworking. You bring order to chaos and create lasting structures.", strengths: "Reliability, discipline, organization, practicality, loyalty", challenges: "Rigidity, stubbornness, overwork, missing the big picture", career: "Engineer, accountant, manager, architect, project manager", love: "Stable, loyal partnerships. You build love that lasts. Compatible with 2, 6, 8." },
+    5: { title: "The Freedom Seeker", desc: "You are a dynamic, adventurous spirit who craves freedom and variety. Life Path 5 people are natural explorers who learn through direct experience. Change energizes rather than frightens you.", strengths: "Adaptability, curiosity, versatility, charisma, courage", challenges: "Restlessness, excess, commitment issues, impatience", career: "Travel, journalism, sales, marketing, entertainment", love: "You need freedom within partnership. Compatible with 1, 3, 7." },
+    6: { title: "The Nurturer", desc: "You are a natural caretaker with a deep sense of responsibility toward family and community. Life Path 6 people radiate warmth, love and a desire to make the world more beautiful.", strengths: "Love, responsibility, nurturing, beauty, service", challenges: "Over-giving, martyrdom, perfectionism, control", career: "Healthcare, teaching, counseling, design, hospitality", love: "You give deeply in love. Find balance between giving and receiving. Compatible with 2, 4, 8." },
+    7: { title: "The Seeker", desc: "You are a deep thinker and spiritual seeker driven to understand the mysteries of life. Life Path 7 people have powerful analytical minds and strong intuition. Solitude fuels your wisdom.", strengths: "Wisdom, analysis, intuition, spirituality, research", challenges: "Isolation, overthinking, skepticism, emotional detachment", career: "Researcher, analyst, scientist, philosopher, spiritual teacher", love: "You need intellectual and spiritual depth. Compatible with 1, 3, 5." },
+    8: { title: "The Powerhouse", desc: "You are a natural leader in the material world with an innate understanding of money, power and business. Life Path 8 people are ambitious achievers who attract abundance naturally.", strengths: "Ambition, business acumen, authority, abundance, resilience", challenges: "Workaholism, materialism, power struggles, burnout", career: "Executive, investor, banker, lawyer, entrepreneur", love: "You need an equal partner. Power imbalances destroy your relationships. Compatible with 2, 4, 6." },
+    9: { title: "The Humanitarian", desc: "You are a wise, compassionate old soul with a global perspective. Life Path 9 people are natural humanitarians driven to make the world better. You see the bigger picture and act from deep wisdom.", strengths: "Compassion, wisdom, generosity, idealism, global vision", challenges: "Martyrdom, aloofness, unresolved past, difficulty letting go", career: "Non-profit, arts, healing, international work, teaching", love: "You love deeply but need to avoid losing yourself. Compatible with 3, 6, 9." },
+    11: { title: "The Intuitive Master", desc: "Master number 11 amplifies the energy of 2 with heightened spiritual awareness. You are a visionary and spiritual messenger with psychic abilities. Your sensitivity is both your gift and your challenge.", strengths: "Psychic ability, vision, inspiration, sensitivity, spiritual leadership", challenges: "Anxiety, self-doubt, nervous energy, overwhelming sensitivity", career: "Spiritual teacher, artist, inventor, counselor, healer", love: "Twin flame connections. Your relationships are spiritually transformative." },
+    22: { title: "The Master Builder", desc: "Master number 22 amplifies the energy of 4 with visionary power. You have the rare ability to manifest large-scale dreams into reality. You are here to build something that benefits humanity.", strengths: "Visionary leadership, practical mastery, large-scale building, discipline", challenges: "Enormous pressure, perfectionism, burnout, fear of failure", career: "Architect, global business leader, politician, humanitarian leader", love: "You need a partner who supports your massive vision." },
+    33: { title: "The Master Teacher", desc: "Master number 33 is the most spiritually advanced Life Path. You are a master healer and teacher who uplifts humanity through pure love and compassion. This is the rarest Life Path number.", strengths: "Unconditional love, spiritual mastery, healing, teaching, selflessness", challenges: "Self-sacrifice, savior complex, emotional overwhelm", career: "Spiritual leader, healer, teacher, humanitarian, counselor", love: "Your love is healing and transformative. You attract souls who need guidance." }
+  };
+
+  function reduceToLifePath(n) {
+    while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+      var sum = 0, s = String(n);
+      for (var i = 0; i < s.length; i++) sum += parseInt(s[i]);
+      n = sum;
+    }
+    return n;
+  }
+
+  function calculateLifePath() {
+    var day = parseInt(document.getElementById('birth-day').value);
+    var month = parseInt(document.getElementById('birth-month').value);
+    var year = parseInt(document.getElementById('birth-year').value);
+
+    if (!day || !month || !year || day < 1 || day > 31 || month < 1 || month > 12 || year < 1920 || year > 2026) {
+      alert('Please enter a valid date of birth.');
+      return;
+    }
+
+    // Standard numerology: reduce each component, then sum
+    var dayReduced = reduceToLifePath(day);
+    var monthReduced = reduceToLifePath(month);
+    var yearReduced = reduceToLifePath(year);
+    var lifePath = reduceToLifePath(dayReduced + monthReduced + yearReduced);
+
+    var lp = lifePaths[lifePath];
+    document.getElementById('result-number').textContent = lifePath;
+    document.getElementById('result-title').textContent = 'Life Path ' + lifePath + ' - ' + lp.title;
+    document.getElementById('result-desc').textContent = lp.desc;
+
+    var details = '<h3 style="margin-bottom:0.75rem;color:var(--purple-deep)">Your Life Path Profile</h3>';
+    details += '<p><strong>Core Strengths:</strong> ' + lp.strengths + '</p>';
+    details += '<p><strong>Growth Challenges:</strong> ' + lp.challenges + '</p>';
+    details += '<p><strong>Ideal Careers:</strong> ' + lp.career + '</p>';
+    details += '<p><strong>Love & Compatibility:</strong> ' + lp.love + '</p>';
+
+    details += '<h3 style="margin-top:1.5rem;margin-bottom:0.75rem;color:var(--purple-deep)">Your Calculation Breakdown</h3>';
+    details += '<p>Month: ' + month + ' = ' + monthReduced + '</p>';
+    details += '<p>Day: ' + day + ' = ' + dayReduced + '</p>';
+    details += '<p>Year: ' + year + ' = ' + yearReduced + '</p>';
+    details += '<p><strong>Life Path: ' + monthReduced + ' + ' + dayReduced + ' + ' + yearReduced + ' = ' + lifePath + '</strong></p>';
+
+    document.getElementById('result-details').innerHTML = details;
+
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>

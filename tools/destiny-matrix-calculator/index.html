@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Destiny Matrix Calculator - Discover Your Life Purpose</title>
+  <meta name="description" content="Free Destiny Matrix calculator. Enter your birthdate to reveal your life purpose, talents, karmic lessons, love compatibility and financial energy based on the 22 Arcana system.">
+  <meta name="keywords" content="destiny matrix calculator, destiny matrix chart free, destiny matrix meaning, destiny matrix compatibility, destiny matrix numbers">
+  <link rel="canonical" href="https://nextools.co/tools/destiny-matrix-calculator/">
+  <meta property="og:title" content="Free Destiny Matrix Calculator - Discover Your Life Purpose">
+  <meta property="og:description" content="Calculate your Destiny Matrix chart for free. Reveal life purpose, talents, karmic lessons and compatibility.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Destiny Matrix Calculator",
+    "description": "Free online Destiny Matrix calculator based on date of birth. Discover your life purpose, talents, karmic debts and compatibility.",
+    "url": "https://nextools.co/tools/destiny-matrix-calculator/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/" style="color:var(--gold)">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Destiny Matrix Calculator</h1>
+      <p>Discover your life purpose, hidden talents, karmic lessons and compatibility - all from your date of birth. Based on the 22 Major Arcana energies.</p>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Enter Your Date of Birth</h2>
+        <p class="text-center" style="color:var(--gray-600);margin-bottom:2rem">Your birthdate holds the key to your Destiny Matrix chart. All calculations happen instantly in your browser.</p>
+
+        <div class="calc-input-group">
+          <label for="birth-day">Day</label>
+          <input type="number" id="birth-day" min="1" max="31" placeholder="e.g. 15">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-month">Month</label>
+          <input type="number" id="birth-month" min="1" max="12" placeholder="e.g. 7">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-year">Year</label>
+          <input type="number" id="birth-year" min="1920" max="2026" placeholder="e.g. 1990">
+        </div>
+
+        <button class="calc-btn" onclick="calculateDestinyMatrix()">Reveal My Destiny Matrix</button>
+
+        <!-- Results -->
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-core"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+
+          <div style="text-align:left;margin-top:1.5rem" id="result-details"></div>
+
+          <!-- Affiliate CTA 1 -->
+          <div class="cta-box">
+            <h4>Want a Deeper Destiny Matrix Reading?</h4>
+            <p>Get a personalized, professional reading that covers all 22 energies in your chart - including your love line, money line and karmic debts.</p>
+            <a href="https://gumroad.com/nextools/l/angel-numbers-guide" class="btn btn-gold" target="_blank" rel="noopener">Get Your Full Destiny Report - $14.99</a>
+          </div>
+
+          <!-- Gumroad CTA -->
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Free Angel Numbers Starter Kit</h4>
+            <p>Download our free PDF guide with meanings for all major angel numbers, reflection prompts and action steps.</p>
+            <a href="https://gumroad.com/nextools/l/angel-numbers-starter-kit" class="btn btn-purple btn-sm" target="_blank" rel="noopener">Download Free Guide</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Destiny Matrix - SEO Content -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is the Destiny Matrix?</h2>
+        <p>The Destiny Matrix (also known as the Matrix of Destiny or Destiny Chart) is a self-knowledge system that uses your date of birth to calculate 22 energies that shape your life. Each energy corresponds to one of the 22 Major Arcana of the Tarot, but the Destiny Matrix is not fortune-telling - it is a structured map of your innate potential, challenges and life lessons.</p>
+
+        <h2>How Does the Destiny Matrix Calculator Work?</h2>
+        <p>The calculation is based on reducing your birth date components (day, month, year) to numbers between 1 and 22. These numbers are then placed in specific positions on the matrix chart, each representing a different life area:</p>
+        <ul>
+          <li><strong>Core Energy (Center)</strong> - Your fundamental life purpose and primary energy</li>
+          <li><strong>Personal Zone</strong> - Your talents, comfort zone and natural abilities</li>
+          <li><strong>Social Zone</strong> - How you interact with others and your social gifts</li>
+          <li><strong>Spiritual Zone</strong> - Your karmic lessons and spiritual growth path</li>
+          <li><strong>Love Line</strong> - Your relationship patterns and romantic energy</li>
+          <li><strong>Money Line</strong> - Your financial talents and wealth potential</li>
+        </ul>
+
+        <h2>The 22 Destiny Matrix Energies</h2>
+        <p>Each number from 1 to 22 carries a unique energy with both a positive (light) and negative (shadow) expression. Understanding your numbers helps you activate your strengths and work through your challenges.</p>
+
+        <h2>Destiny Matrix vs Traditional Numerology</h2>
+        <p>While traditional numerology reduces everything to single digits (1-9), the Destiny Matrix works with 22 energies, providing a much more detailed and nuanced reading. It also maps these energies across specific life areas, giving you actionable insights rather than general personality traits.</p>
+
+        <h2>How to Read Your Results</h2>
+        <p>After entering your birthdate above, you will receive your core energy number and a detailed breakdown of what it means. For the most accurate reading, make sure you enter your exact date of birth. The calculator processes everything instantly in your browser - no data is stored or sent anywhere.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Go Deeper with Professional Guidance</h4>
+          <p>Our calculator gives you a starting point. For a complete chart reading covering all 22 positions, relationship compatibility and personalized guidance, explore our premium resources.</p>
+          <a href="https://gumroad.com/nextools" class="btn btn-gold" target="_blank" rel="noopener">Explore Full Readings</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is the Destiny Matrix calculator really free?</h3>
+        <p>Yes, 100% free. No signup required. The calculator runs entirely in your browser.</p>
+
+        <h3>How accurate is the Destiny Matrix?</h3>
+        <p>The Destiny Matrix is a self-knowledge tool, not a prediction system. Many people find the descriptions highly resonant with their life experiences. The accuracy of your reading depends on entering the correct birth date.</p>
+
+        <h3>Can I calculate my Destiny Matrix compatibility?</h3>
+        <p>Yes! Simply calculate both partners' core energies and compare them. We are working on a dedicated compatibility calculator - check back soon or <a href="/">explore our other tools</a>.</p>
+
+        <h3>What is the difference between Destiny Matrix and Human Design?</h3>
+        <p>Both use your birth data but in different ways. The Destiny Matrix focuses on 22 Arcana energies from your birthdate alone, while <a href="/tools/human-design-calculator/">Human Design</a> requires exact birth time and location and maps your energetic centers. Try both to get a complete picture!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Calculators</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#128140;</div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode the messages from your guardian angels.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#9883;</div>
+          <h3>Human Design Calculator</h3>
+          <p>Discover your Human Design type, strategy and inner authority.</p>
+          <a href="/tools/human-design-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">&#128737;</div>
+          <h3>Life Path Calculator</h3>
+          <p>Calculate your Life Path number and understand your soul's journey.</p>
+          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+        </div>
+        <div class="footer-col">
+          <h4>Popular Guides</h4>
+          <a href="/blog/what-is-destiny-matrix/">What is Destiny Matrix?</a>
+          <a href="/blog/angel-number-111-meaning/">Angel Number 111</a>
+          <a href="/blog/angel-number-222-meaning/">Angel Number 222</a>
+          <a href="/blog/human-design-types-explained/">Human Design Types</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://gumroad.com/nextools" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  // Destiny Matrix Calculator Logic
+  // Reduces a number to 1-22 range (Arcana system)
+  function reduceToArcana(n) {
+    if (n <= 22) return n;
+    // Sum digits until <= 22
+    while (n > 22) {
+      var sum = 0;
+      var s = String(n);
+      for (var i = 0; i < s.length; i++) sum += parseInt(s[i]);
+      n = sum;
+    }
+    return n;
+  }
+
+  // The 22 Destiny Matrix Energies
+  var energies = {
+    1: {
+      name: "The Magician",
+      title: "Leadership & Willpower",
+      desc: "You are a natural leader with strong willpower and initiative. Your core energy drives you to take action, start new projects and inspire others. You have the power to manifest your ideas into reality.",
+      strengths: "Initiative, leadership, confidence, creativity, independence",
+      shadow: "Manipulation, ego, domination, impatience",
+      love: "You need a partner who respects your independence and matches your energy. Avoid controlling relationships.",
+      money: "Entrepreneurship suits you. You generate wealth through bold ideas and decisive action."
+    },
+    2: {
+      name: "The High Priestess",
+      title: "Intuition & Inner Wisdom",
+      desc: "Your core energy is deep intuition and inner knowing. You have a natural gift for understanding hidden truths and reading between the lines. Trust your gut - it rarely leads you wrong.",
+      strengths: "Intuition, empathy, patience, mystery, wisdom",
+      shadow: "Secrecy, passivity, manipulation through emotions",
+      love: "Deep emotional connections are essential. You need a partner who values depth over surface-level interaction.",
+      money: "Wealth comes through helping others - counseling, healing, teaching or creative arts."
+    },
+    3: {
+      name: "The Empress",
+      title: "Creativity & Abundance",
+      desc: "You radiate creative energy and natural abundance. Your presence nurtures growth in everything around you. You are meant to create - whether that is art, businesses, families or beautiful experiences.",
+      strengths: "Creativity, nurturing, beauty, abundance, sensuality",
+      shadow: "Overindulgence, possessiveness, creative blocks from self-doubt",
+      love: "You give generously in love and need a partner who appreciates and reciprocates your care.",
+      money: "Creative industries, beauty, food, fashion - anything that creates beauty generates wealth for you."
+    },
+    4: {
+      name: "The Emperor",
+      title: "Structure & Authority",
+      desc: "Your energy is about building lasting structures and systems. You bring order to chaos and have natural authority. People look to you for stability and direction.",
+      strengths: "Organization, discipline, protection, reliability, strategic thinking",
+      shadow: "Rigidity, control, stubbornness, emotional suppression",
+      love: "You need stability in relationships. You are a devoted partner but must allow vulnerability.",
+      money: "Business, management, real estate, law - structured fields where discipline pays off."
+    },
+    5: {
+      name: "The Hierophant",
+      title: "Teaching & Tradition",
+      desc: "You are a natural teacher and guide. Your energy connects tradition with personal truth. You find meaning in shared wisdom and have the gift of making complex ideas accessible.",
+      strengths: "Teaching, mentoring, spiritual depth, tradition, bridge-building",
+      shadow: "Dogmatism, rigidity, preaching, resisting change",
+      love: "Shared values and spiritual alignment are non-negotiable for you in relationships.",
+      money: "Education, coaching, counseling, publishing - anything that shares knowledge and wisdom."
+    },
+    6: {
+      name: "The Lovers",
+      title: "Love & Choice",
+      desc: "Your core energy revolves around love, relationships and the power of choice. You are here to learn about partnership, harmony and making heart-centered decisions.",
+      strengths: "Love, harmony, partnership, beauty, decisive heart",
+      shadow: "Codependency, indecision, jealousy, fear of commitment",
+      love: "Love is your primary life theme. Finding balanced, equal partnership is your soul's mission.",
+      money: "Partnerships and collaborations multiply your wealth. Solo ventures feel draining."
+    },
+    7: {
+      name: "The Chariot",
+      title: "Victory & Determination",
+      desc: "You are driven by a powerful will to succeed and overcome obstacles. Your energy propels you forward through any challenge. Victory is your natural state when you stay focused.",
+      strengths: "Determination, courage, focus, ambition, victory",
+      shadow: "Aggression, burnout, inability to rest, winning at all costs",
+      love: "You need a partner who supports your ambitions. Avoid relationships that slow you down.",
+      money: "Competitive fields, sports, sales, entrepreneurship - anywhere that rewards drive and persistence."
+    },
+    8: {
+      name: "Strength",
+      title: "Inner Power & Courage",
+      desc: "Your energy is about mastering inner strength rather than external force. You have remarkable resilience and the ability to transform challenges into growth through patience and courage.",
+      strengths: "Resilience, patience, courage, gentle power, self-mastery",
+      shadow: "Suppressed anger, martyrdom, over-giving, burnout",
+      love: "You attract partners who need healing. Learn to balance giving with receiving.",
+      money: "Healthcare, wellness, veterinary, social work - fields where inner strength serves others."
+    },
+    9: {
+      name: "The Hermit",
+      title: "Wisdom & Solitude",
+      desc: "You carry the energy of the wise sage. Solitude is not loneliness for you - it is where you find your deepest insights. You are meant to go deep, reflect and then share your wisdom.",
+      strengths: "Wisdom, introspection, research, independence, spiritual depth",
+      shadow: "Isolation, detachment, overthinking, elitism",
+      love: "You need significant alone time. Find a partner who understands and respects your need for space.",
+      money: "Research, writing, consulting, philosophy - independent work that rewards deep thinking."
+    },
+    10: {
+      name: "Wheel of Fortune",
+      title: "Cycles & Destiny",
+      desc: "Your life moves in powerful cycles of change. You are naturally lucky and adaptable. Understanding and flowing with life's rhythms is your superpower.",
+      strengths: "Adaptability, luck, timing, optimism, understanding cycles",
+      shadow: "Gambling, restlessness, passivity, fatalism",
+      love: "Your relationships go through intense phases. Embrace change together rather than resisting it.",
+      money: "Timing is everything for you. Investments, trends, seasonal businesses suit your cyclical energy."
+    },
+    11: {
+      name: "Justice",
+      title: "Truth & Balance",
+      desc: "You are driven by fairness, truth and cosmic balance. Your energy demands honesty in all things. You have a natural talent for seeing all sides of a situation.",
+      strengths: "Fairness, logic, truth, balance, analytical thinking",
+      shadow: "Judgmentalism, coldness, perfectionism, paralysis by analysis",
+      love: "Equality in partnership is essential. Any imbalance becomes intolerable for you.",
+      money: "Law, justice, mediation, accounting - fields that require precision and fairness."
+    },
+    12: {
+      name: "The Hanged Man",
+      title: "Sacrifice & New Perspectives",
+      desc: "Your energy teaches you to see the world from completely different angles. Surrendering control paradoxically gives you power. Your greatest breakthroughs come from letting go.",
+      strengths: "New perspectives, patience, surrender, spiritual insight, selflessness",
+      shadow: "Victimhood, martyrdom, stagnation, indecision",
+      love: "You learn the most about yourself through relationships. Self-sacrifice must have limits.",
+      money: "Non-profit, art, therapy, innovation - unconventional paths that require seeing differently."
+    },
+    13: {
+      name: "Death (Transformation)",
+      title: "Rebirth & Deep Change",
+      desc: "Your core energy is transformation. You have the rare ability to completely reinvent yourself. Endings are not losses for you - they are doorways to your next evolution.",
+      strengths: "Transformation, rebirth, letting go, intensity, depth",
+      shadow: "Destructiveness, fear of change, holding on too long, extremes",
+      love: "Your relationships are intense and transformative. Both partners evolve significantly together.",
+      money: "Crisis management, transformation coaching, psychology, surgery - fields of deep change."
+    },
+    14: {
+      name: "Temperance",
+      title: "Harmony & Alchemy",
+      desc: "You are a natural alchemist who blends opposites into harmony. Your energy finds the middle path and creates balance from extremes. Moderation and patience are your superpowers.",
+      strengths: "Balance, patience, harmony, alchemy, healing",
+      shadow: "Indecision, people-pleasing, avoiding conflict, boredom",
+      love: "You create harmonious partnerships naturally. Be careful not to lose yourself in the process.",
+      money: "Healing, diplomacy, mixology, chemistry, design - anything that blends elements beautifully."
+    },
+    15: {
+      name: "The Devil",
+      title: "Power & Liberation",
+      desc: "Your energy is about understanding power, desire and material reality. You have incredible magnetism and the ability to manifest material abundance. The lesson is using power wisely.",
+      strengths: "Magnetism, ambition, material mastery, charisma, intensity",
+      shadow: "Addiction, materialism, manipulation, obsession, control",
+      love: "Intense, passionate relationships. Learn to distinguish love from obsession.",
+      money: "Finance, luxury goods, entertainment, psychology - fields where understanding desire creates wealth."
+    },
+    16: {
+      name: "The Tower",
+      title: "Breakthrough & Revolution",
+      desc: "Your energy destroys what is false to reveal what is true. You are a catalyst for sudden, necessary change. What feels like destruction is actually liberation.",
+      strengths: "Breakthroughs, courage, truth, liberation, innovation",
+      shadow: "Chaos, destruction, instability, shocking others, recklessness",
+      love: "Your relationships can be volatile but deeply honest. Stability comes through radical authenticity.",
+      money: "Technology, disruption, startups, demolition, emergency services - revolutionary fields."
+    },
+    17: {
+      name: "The Star",
+      title: "Hope & Inspiration",
+      desc: "You radiate hope and inspiration. Your energy uplifts everyone around you. You are a natural healer and visionary who sees beauty and possibility where others see darkness.",
+      strengths: "Hope, inspiration, healing, vision, authenticity",
+      shadow: "Naivety, disconnection from reality, dreaminess, vulnerability",
+      love: "You bring light to your relationships. Find a partner who protects your sensitivity.",
+      money: "Arts, healing, social media, inspiration - anywhere your authentic light can shine."
+    },
+    18: {
+      name: "The Moon",
+      title: "Mystery & Subconscious",
+      desc: "Your energy connects to the deep subconscious and the world of dreams. You have powerful intuition and psychic sensitivity. Navigating uncertainty is your unique gift.",
+      strengths: "Intuition, psychic ability, emotional depth, dreams, mystery",
+      shadow: "Anxiety, illusion, deception, fear, confusion",
+      love: "Deep emotional and psychic bonds. You need a partner who can handle emotional complexity.",
+      money: "Psychology, art, night work, water-related fields, mystical services."
+    },
+    19: {
+      name: "The Sun",
+      title: "Joy & Vitality",
+      desc: "Pure positive energy radiates from your core. You are meant to shine, celebrate life and bring warmth to everyone around you. Success comes naturally when you follow your joy.",
+      strengths: "Joy, vitality, success, warmth, confidence, inner child",
+      shadow: "Arrogance, superficiality, burnout from always being 'on'",
+      love: "You bring sunshine to relationships. Find someone who matches your optimism and energy.",
+      money: "Entertainment, children's services, sports, sales, public speaking - fields of joy and visibility."
+    },
+    20: {
+      name: "Judgement",
+      title: "Awakening & Calling",
+      desc: "Your energy carries a profound sense of calling and purpose. You are here to awaken - both yourself and others. Major life transitions are your catalysts for growth.",
+      strengths: "Purpose, awakening, transformation, judgment, calling",
+      shadow: "Self-righteousness, harsh judgment, inability to forgive, living in the past",
+      love: "Relationships that support mutual growth and awakening. Past-life connections are common.",
+      money: "Music, counseling, ministry, social reform - fields that answer a calling."
+    },
+    21: {
+      name: "The World",
+      title: "Completion & Mastery",
+      desc: "You carry the energy of completion and worldly success. You are meant to achieve mastery and share your gifts globally. Travel, cultural exchange and integration are your themes.",
+      strengths: "Mastery, completion, worldliness, integration, achievement",
+      shadow: "Burnout, inability to finish, scattered energy, restlessness",
+      love: "You need a worldly, accomplished partner. Long-distance or cross-cultural relationships are common.",
+      money: "International business, travel, diplomacy, entertainment - global-scale ventures."
+    },
+    22: {
+      name: "The Fool",
+      title: "Freedom & New Beginnings",
+      desc: "The highest energy in the Destiny Matrix. You carry pure potential and the courage to take leaps of faith. Your path is unconventional and your spirit is free. Trust the journey.",
+      strengths: "Freedom, spontaneity, trust, potential, courage, innocence",
+      shadow: "Irresponsibility, foolishness, fear of commitment, chaos",
+      love: "You need freedom in love. A partner who tries to cage you will lose you.",
+      money: "Innovation, startups, travel, creative arts - anything that requires a leap of faith."
+    }
+  };
+
+  function calculateDestinyMatrix() {
+    var day = parseInt(document.getElementById('birth-day').value);
+    var month = parseInt(document.getElementById('birth-month').value);
+    var year = parseInt(document.getElementById('birth-year').value);
+
+    if (!day || !month || !year || day < 1 || day > 31 || month < 1 || month > 12 || year < 1920 || year > 2026) {
+      alert('Please enter a valid date of birth.');
+      return;
+    }
+
+    // Core calculations
+    var dayEnergy = reduceToArcana(day);
+    var monthEnergy = reduceToArcana(month);
+    var yearEnergy = reduceToArcana(reduceToArcana(year));
+
+    // Core energy = sum of all three, reduced
+    var coreRaw = dayEnergy + monthEnergy + yearEnergy;
+    var coreEnergy = reduceToArcana(coreRaw);
+
+    // Personal zone
+    var personalZone = reduceToArcana(dayEnergy + monthEnergy);
+
+    // Social zone
+    var socialZone = reduceToArcana(monthEnergy + yearEnergy);
+
+    // Spiritual zone
+    var spiritualZone = reduceToArcana(dayEnergy + yearEnergy);
+
+    // Love line
+    var loveLine = reduceToArcana(coreEnergy + personalZone);
+
+    // Money line
+    var moneyLine = reduceToArcana(coreEnergy + socialZone);
+
+    // Display results
+    var energy = energies[coreEnergy];
+    document.getElementById('result-core').textContent = coreEnergy;
+    document.getElementById('result-title').textContent = energy.name + ' - ' + energy.title;
+    document.getElementById('result-desc').textContent = energy.desc;
+
+    var details = '<h3 style="margin-bottom:1rem;color:var(--purple-deep)">Your Destiny Matrix Chart</h3>';
+    details += '<table style="width:100%;border-collapse:collapse;margin-bottom:1.5rem">';
+    details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.75rem 0;font-weight:600">Core Energy</td><td style="padding:0.75rem 0">' + coreEnergy + ' - ' + energies[coreEnergy].name + '</td></tr>';
+    details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.75rem 0;font-weight:600">Personal Zone</td><td style="padding:0.75rem 0">' + personalZone + ' - ' + energies[personalZone].name + '</td></tr>';
+    details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.75rem 0;font-weight:600">Social Zone</td><td style="padding:0.75rem 0">' + socialZone + ' - ' + energies[socialZone].name + '</td></tr>';
+    details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.75rem 0;font-weight:600">Spiritual Zone</td><td style="padding:0.75rem 0">' + spiritualZone + ' - ' + energies[spiritualZone].name + '</td></tr>';
+    details += '<tr style="border-bottom:1px solid var(--gray-200)"><td style="padding:0.75rem 0;font-weight:600">Love Line</td><td style="padding:0.75rem 0">' + loveLine + ' - ' + energies[loveLine].name + '</td></tr>';
+    details += '<tr><td style="padding:0.75rem 0;font-weight:600">Money Line</td><td style="padding:0.75rem 0">' + moneyLine + ' - ' + energies[moneyLine].name + '</td></tr>';
+    details += '</table>';
+
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--purple-deep)">Core Energy Deep Dive</h3>';
+    details += '<p><strong>Strengths:</strong> ' + energy.strengths + '</p>';
+    details += '<p><strong>Shadow Side:</strong> ' + energy.shadow + '</p>';
+    details += '<p><strong>Love & Relationships:</strong> ' + energy.love + '</p>';
+    details += '<p><strong>Money & Career:</strong> ' + energy.money + '</p>';
+
+    document.getElementById('result-details').innerHTML = details;
+
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>
