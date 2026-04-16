@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numerology Compatibility Calculator - Free Love & Relationship Match</title>
+  <meta name="description" content="Free numerology compatibility calculator. Enter two birthdays to discover your love compatibility, relationship strengths and challenges based on Life Path numbers.">
+  <meta name="keywords" content="numerology compatibility, life path compatibility, love compatibility calculator, relationship compatibility, numerology love match">
+  <link rel="canonical" href="https://mynextools.com/tools/numerology-compatibility/">
+  <meta property="og:title" content="Numerology Compatibility Calculator - Free Love & Relationship Match">
+  <meta property="og:description" content="Calculate love compatibility based on Life Path numbers. Free, instant results.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/numerology-compatibility/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Numerology Compatibility Calculator",
+    "description": "Free numerology compatibility calculator. Discover your love match based on Life Path numbers.",
+    "url": "https://mynextools.com/tools/numerology-compatibility/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .person-col { background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+    .person-col h3 { color: var(--gold); margin-bottom: 1rem; text-align: center; }
+    .compat-meter { width: 100%; height: 16px; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden; margin: 1rem 0; }
+    .compat-fill { height: 100%; border-radius: 8px; transition: width 1.5s ease; }
+    .compat-high { background: linear-gradient(90deg, #4CAF50, #8BC34A); }
+    .compat-med { background: linear-gradient(90deg, #FFD700, #FFA000); }
+    .compat-low { background: linear-gradient(90deg, #FF5722, #F44336); }
+    .compat-score { font-size: 2.5rem; font-weight: 800; text-align: center; margin: 0.5rem 0; }
+    .compat-label { text-align: center; font-size: 1.1rem; color: var(--text-muted); }
+    .match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .match-card { background: var(--card-bg); padding: 1rem; border-radius: 8px; text-align: center; }
+    .match-card small { color: var(--text-muted); display: block; margin-bottom: 0.25rem; }
+    .match-card strong { color: var(--gold); font-size: 1.1rem; }
+    @media (max-width: 600px) {
+      .two-col { grid-template-columns: 1fr; }
+      .match-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/numerology-compatibility/" style="color:var(--gold)">Compatibility</a>
+        <a href="/tools/zodiac-calculator/">Zodiac</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Numerology Compatibility Calculator</h1>
+      <p>Discover your love compatibility based on Life Path numbers. Enter two birthdays and reveal the strengths, challenges and potential of your relationship.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <div class="two-col">
+          <div class="person-col">
+            <h3>Person 1</h3>
+            <div class="calc-input-group">
+              <label for="p1-day">Day</label>
+              <input type="number" id="p1-day" min="1" max="31" placeholder="e.g. 15">
+            </div>
+            <div class="calc-input-group">
+              <label for="p1-month">Month</label>
+              <input type="number" id="p1-month" min="1" max="12" placeholder="e.g. 7">
+            </div>
+            <div class="calc-input-group">
+              <label for="p1-year">Year</label>
+              <input type="number" id="p1-year" min="1920" max="2026" placeholder="e.g. 1990">
+            </div>
+          </div>
+          <div class="person-col">
+            <h3>Person 2</h3>
+            <div class="calc-input-group">
+              <label for="p2-day">Day</label>
+              <input type="number" id="p2-day" min="1" max="31" placeholder="e.g. 22">
+            </div>
+            <div class="calc-input-group">
+              <label for="p2-month">Month</label>
+              <input type="number" id="p2-month" min="1" max="12" placeholder="e.g. 3">
+            </div>
+            <div class="calc-input-group">
+              <label for="p2-year">Year</label>
+              <input type="number" id="p2-year" min="1920" max="2026" placeholder="e.g. 1992">
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:1.5rem">
+          <button class="calc-btn" onclick="calculateCompatibility()">Reveal Our Compatibility</button>
+        </div>
+
+        <div id="result-box" class="result-box">
+          <div class="match-grid" id="match-grid"></div>
+          <div class="compat-score" id="compat-score"></div>
+          <div class="compat-label" id="compat-label"></div>
+          <div class="compat-meter"><div class="compat-fill" id="compat-fill" style="width:0%"></div></div>
+          <div class="result-description" id="result-desc" style="margin-top:1.5rem"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box" style="margin-top:1.5rem">
+            <h4>Get Your Complete Compatibility Report</h4>
+            <p>Go beyond the basics. Get a detailed PDF with your full numerology compatibility analysis, communication tips and relationship growth strategies.</p>
+            <a href="https://nextools.gumroad.com/l/angel-numbers-guide" class="btn btn-gold" target="_blank" rel="noopener">Get Full Compatibility Report</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Explore Your Individual Profiles</h4>
+            <p>Dive deeper into each person's spiritual blueprint.</p>
+            <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Life Path Calculator</a>
+            <a href="/tools/zodiac-calculator/" class="btn btn-purple btn-sm" style="margin-left:0.5rem">Zodiac Sign</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>How Numerology Compatibility Works</h2>
+        <p>Numerology compatibility is based on Life Path numbers - the most important number in your numerological chart. By comparing two Life Path numbers, we can reveal the natural dynamics, strengths and potential challenges in any relationship.</p>
+        <p>Your Life Path number is calculated by reducing your full date of birth to a single digit (or master number 11, 22, 33). Each number combination creates a unique relationship dynamic.</p>
+
+        <h2>What Your Compatibility Score Means</h2>
+        <ul>
+          <li><strong>90-100% - Soulmate Connection:</strong> You naturally understand each other. Communication flows easily and you share deep values.</li>
+          <li><strong>70-89% - Strong Match:</strong> A solid foundation with room to grow. Your differences complement rather than clash.</li>
+          <li><strong>50-69% - Growth Partnership:</strong> Requires effort but offers significant personal growth. Your challenges become teachers.</li>
+          <li><strong>Below 50% - Challenge Match:</strong> Strong attraction is possible but lasting harmony requires conscious work and compromise.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>Is numerology compatibility accurate?</h3>
+          <p>Numerology reveals natural tendencies and dynamics between two people. It is a framework for understanding, not a definitive prediction. Many highly compatible couples have "challenging" numbers and vice versa. Use it as a tool for insight, not a verdict.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can incompatible numbers still work?</h3>
+          <p>Absolutely. Numerology shows natural dynamics, but every relationship depends on communication, commitment and growth. Some of the strongest relationships come from "challenging" number pairs because both partners actively work on understanding each other.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Does this work for friendships and business partnerships?</h3>
+          <p>Yes! Numerology compatibility applies to all relationships - romantic, platonic, family and business. The dynamics between Life Path numbers affect how any two people communicate, collaborate and grow together.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Complete Your Spiritual Profile</h4>
+          <p>Combine your compatibility reading with your individual <a href="/tools/angel-number-calculator/">angel number</a>, <a href="/tools/destiny-matrix-calculator/">destiny matrix</a> and <a href="/tools/zodiac-calculator/">zodiac sign</a> for the complete picture.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Calculators</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9878;</div>
+          <h3>Destiny Matrix Calculator</h3>
+          <p>Discover your life purpose through the 22 Arcana energies.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode divine messages.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3>Breathing Exercise</h3>
+          <p>8 science-based breathing protocols for calm and focus.</p>
+          <a href="/tools/breathing-exercise/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/zodiac-calculator/">Zodiac Sign Calculator</a>
+          <a href="/tools/breathing-exercise/">Breathing Exercise</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+          <a href="/tools/numerology-compatibility/">Compatibility Calculator</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var lifePathNames = {
+    1: "The Leader", 2: "The Peacemaker", 3: "The Creative",
+    4: "The Builder", 5: "The Adventurer", 6: "The Nurturer",
+    7: "The Seeker", 8: "The Achiever", 9: "The Humanitarian",
+    11: "The Intuitive", 22: "The Master Builder", 33: "The Master Teacher"
+  };
+
+  // Compatibility matrix: [score, type, description, strengths, challenges, advice]
+  var compatData = {};
+  function addCompat(a, b, score, type, desc, strengths, challenges, advice) {
+    var key = Math.min(a,b) + '-' + Math.max(a,b);
+    compatData[key] = { score: score, type: type, desc: desc, strengths: strengths, challenges: challenges, advice: advice };
+  }
+
+  // Core compatibility data (simplified - covering all main combinations)
+  addCompat(1,1,75,"Dynamic Duo","Two leaders together create a powerhouse but must learn to share the spotlight.","Mutual respect, ambition, independence, shared drive","Power struggles, ego clashes, competition","Take turns leading. Celebrate each other's wins as your own.");
+  addCompat(1,2,85,"Perfect Balance","The leader and the diplomat - a classic complementary match. What one lacks, the other provides.","Natural balance, mutual support, leader-supporter dynamic","1 can be too dominant, 2 may feel overshadowed","1: slow down and listen. 2: speak up about your needs.");
+  addCompat(1,3,80,"Creative Spark","A vibrant, exciting combination full of energy and ideas.","Creativity, enthusiasm, social energy, mutual inspiration","Scattered focus, superficiality risk, 3 needs attention","Channel your combined energy into shared creative projects.");
+  addCompat(1,4,55,"Different Rhythms","The pioneer and the planner - challenging but productive when aligned.","Complementary skills, 1 starts and 4 finishes, stability","Pace conflicts, 1 too fast for 4, 4 too rigid for 1","Agree on goals together, then let each person approach their way.");
+  addCompat(1,5,90,"Adventure Partners","Both love freedom and excitement - a thrilling, dynamic match.","Adventure, passion, independence, never boring","Both avoid commitment, recklessness, lack of grounding","Build a shared adventure list. Freedom WITH connection, not freedom FROM it.");
+  addCompat(1,6,65,"Leader & Nurturer","Complementary but requires understanding of different priorities.","1 provides direction, 6 provides warmth, strong family potential","1 focuses outward, 6 focuses on home, different priorities","Create rituals that honor both ambition (1) and connection (6).");
+  addCompat(1,7,60,"Fire & Mystery","Intellectual attraction but emotional distance is a risk.","Mental stimulation, respect for independence, deep conversations","Emotional disconnect, 1 too action-oriented, 7 too internal","Schedule both stimulating debates AND quiet together time.");
+  addCompat(1,8,85,"Power Couple","Two ambitious forces that can build empires together.","Shared ambition, mutual respect, material success, power","Competition, work-life imbalance, who is in charge","Define roles clearly. You are partners, not competitors.");
+  addCompat(1,9,70,"Visionary Match","Both are leaders in different realms - action vs. humanitarian vision.","Inspiration, vision, idealism, complementary leadership","Different values around money and service, ego","Unite your visions. 1 executes what 9 dreams.");
+  addCompat(2,2,80,"Soul Harmony","Two sensitive souls creating a deeply nurturing relationship.","Empathy, emotional depth, harmony, loyalty","Over-sensitivity, avoiding conflict, codependency","Practice healthy conflict. Harmony without honesty is not real.");
+  addCompat(2,3,85,"Joy & Grace","The diplomat and the entertainer - a light, joyful combination.","Fun, social ease, emotional expression, creativity","2 too serious for 3, 3 too scattered for 2","2 brings depth to 3's fun. 3 brings lightness to 2's intensity.");
+  addCompat(2,4,75,"Steady & Sweet","A reliable, stable combination built on trust and routine.","Security, loyalty, shared domestic values, trust","Predictability, emotional suppression, routine trap","Keep dating each other. Stability does not have to mean stagnation.");
+  addCompat(2,5,45,"Opposites Test","The homebody and the wanderer - genuine attraction but major challenges.","Excitement, growth through difference, magnetic pull","2 needs security, 5 needs freedom, fundamentally different rhythms","Only works if 5 commits to showing up and 2 allows breathing room.");
+  addCompat(2,6,95,"Soulmate Energy","One of the highest compatibility matches. Deep love, family, nurturing.","Natural harmony, shared values, emotional safety, devotion","Codependency risk, smothering, avoiding outside world","Maintain individual identities. Your love is a home, not a prison.");
+  addCompat(2,7,70,"Depth & Intuition","Both are introspective - can create deep understanding or lonely silence.","Spiritual connection, intellectual depth, quiet intimacy","Communication gaps, emotional withdrawal, overthinking","2: give 7 space without taking it personally. 7: share your inner world.");
+  addCompat(2,8,65,"Heart & Ambition","The sensitive soul and the powerhouse - challenging but rewarding.","2 softens 8, 8 protects 2, complementary strengths","8 too focused on work, 2 feels neglected, different languages","8: schedule real quality time. 2: express appreciation for 8's provision.");
+  addCompat(2,9,75,"Gentle Wisdom","Both are giving, compassionate people who understand sacrifice.","Shared compassion, emotional intelligence, service orientation","Both give too much, who receives? Boundary issues","Take turns receiving. Your generosity must include yourselves.");
+  addCompat(3,3,70,"Double Fun","Two creatives together - exciting but chaotic.","Endless fun, creativity, social life, humor","No one handles responsibilities, scattered energy, drama","Assign practical roles. Someone has to pay the bills.");
+  addCompat(3,4,50,"Fun vs. Structure","The artist and the accountant - difficult but potentially grounding.","3 brings joy to 4's life, 4 brings structure to 3's chaos","Fundamental rhythm clash, 3 feels restricted, 4 feels overwhelmed","Appreciate what the other brings. 3: structure is love. 4: play is health.");
+  addCompat(3,5,85,"Party of Two","Both love life, socializing and adventure - a vibrant match.","Energy, spontaneity, social life, passion, humor","Lack of depth, avoiding serious topics, burnout","Go deep together sometimes. Surface-level fun needs roots to last.");
+  addCompat(3,6,80,"Creative Home","The performer and the nurturer - a warm, expressive combination.","Creative expression, warmth, family, artistic home","3 needs audience beyond home, 6 can be controlling","6: let 3 shine publicly. 3: come home to 6's warmth.");
+  addCompat(3,7,55,"Light & Shadow","The extrovert and the introvert - magnetic but exhausting.","Intellectual curiosity, different perspectives, growth","Social needs clash, 3 too loud for 7, 7 too quiet for 3","Negotiate social time. 3 goes out, 7 stays home, both are happy.");
+  addCompat(3,8,70,"Stage & Boardroom","Creative energy meets business power - productive combination.","3 handles creativity, 8 handles business, mutual admiration","8 too controlling, 3 too scattered, money disagreements","Build something together where both talents shine.");
+  addCompat(3,9,80,"Creative Visionaries","Both are idealistic, creative and generous - a deeply inspired match.","Shared creativity, humanitarian values, artistic expression","Both avoid practical matters, too idealistic, scattered","Ground your shared vision in specific, actionable goals.");
+  addCompat(4,4,65,"Double Foundation","Extremely stable but can become rigid and boring.","Security, reliability, shared values, trust","Rigidity, boredom, resistance to change, stubbornness","Schedule adventure. Your foundation is so strong - take risks from it.");
+  addCompat(4,5,40,"Stability vs. Freedom","One of the most challenging combinations. Opposite needs.","Growth through friction, what one lacks the other has","4 needs routine, 5 needs variety, constant friction","Only works with deep respect. 4 must loosen; 5 must commit to some structure.");
+  addCompat(4,6,90,"Rock Solid","Two devoted, family-oriented numbers that build lasting love.","Shared values, stability, family focus, reliability, trust","Predictability, controlling tendencies, risk-averse","Dream together about the future. Your stability gives you permission to dream big.");
+  addCompat(4,7,75,"Mind & Method","The builder and the thinker - a quiet but deep connection.","Intellectual respect, shared introversion, quality over quantity","Emotional distance, workaholic tendencies, isolation","Create space for emotional expression. Thinking is not the same as feeling.");
+  addCompat(4,8,85,"Empire Builders","Both are practical, ambitious and goal-oriented. A power match.","Shared ambition, material success, mutual respect, strategy","All work no play, competition, emotional neglect","Schedule fun and romance deliberately. Your success means nothing without joy.");
+  addCompat(4,9,55,"Earth & Ether","The practical builder and the dreamy humanitarian - very different worlds.","4 grounds 9's dreams, 9 inspires 4 to think bigger","Different priorities, money vs. meaning, frustration","4: respect 9's idealism. 9: respect 4's practical concerns. Meet in the middle.");
+  addCompat(5,5,75,"Double Adventure","Two freedom-lovers together - exciting but unstable.","Passion, adventure, spontaneity, never boring","No anchor, commitment issues, chaos, burnout","Create one shared anchor point (home, ritual, tradition) to stabilize your wildness.");
+  addCompat(5,6,50,"Wanderer & Nester","The free spirit and the homemaker - genuine but difficult attraction.","Magnetic attraction, complementary energies, growth potential","5 feels trapped, 6 feels abandoned, core needs clash","5 must come home regularly. 6 must let 5 roam. Neither can change the other.");
+  addCompat(5,7,80,"Explorer & Philosopher","Both seek truth and meaning - in the world (5) and within (7).","Intellectual connection, respect for space, deep conversations","5 too restless for 7, 7 too withdrawn for 5","Travel together (5's dream) to meaningful places (7's dream).");
+  addCompat(5,8,65,"Freedom & Power","Both are dynamic but want different things from life.","Energy, drive, magnetic attraction, bold moves","Power struggle, 5 resists control, 8 demands structure","Equal partnership with clear domains. Neither leads the other.");
+  addCompat(5,9,75,"Adventure & Purpose","Both are broad-minded and freedom-loving with humanitarian hearts.","Shared idealism, adventure, open-mindedness, cultural richness","Both avoid detail, impractical, scattered energy","Travel with purpose. Combine 5's adventure with 9's humanitarian vision.");
+  addCompat(6,6,85,"Double Devotion","Two nurturers creating the warmest, most loving home.","Unconditional love, family values, devotion, warmth","Codependency, smothering, competitive nurturing","Maintain friends and hobbies outside the relationship. Love needs oxygen.");
+  addCompat(6,7,55,"Heart & Mind","The emotional nurturer and the detached thinker - deeply different.","Growth opportunity, 6 opens 7's heart, 7 expands 6's mind","6 feels rejected by 7's distance, 7 feels smothered by 6's needs","6: give 7 alone time without guilt. 7: express feelings even when awkward.");
+  addCompat(6,8,80,"Love & Power","The devoted partner and the ambitious achiever - strong if balanced.","Security, shared goal of prosperous family, loyalty","8 prioritizes work, 6 prioritizes home, resentment builds","8: show up at home. 6: appreciate what 8 builds for the family.");
+  addCompat(6,9,85,"Compassion Squared","Both are giving, humanitarian and devoted. A deeply caring match.","Shared compassion, service orientation, emotional depth","Both give too much, boundary issues, martyrdom","Set boundaries together. Your relationship must come before saving others.");
+  addCompat(7,7,70,"Twin Seekers","Two deep thinkers in quiet companionship.","Intellectual depth, spiritual connection, mutual respect for space","Emotional drought, isolation from world, overthinking","Force yourselves into the world together. Schedule social activities.");
+  addCompat(7,8,60,"Philosopher & CEO","The inner world meets the outer world - challenging but complementary.","7 provides wisdom, 8 provides strategy, mutual respect","Different values, 7 values truth, 8 values success","Combine 7's insight with 8's execution for meaningful projects.");
+  addCompat(7,9,80,"Wisdom & Compassion","Both are old souls drawn to meaning and purpose.","Spiritual depth, wisdom, shared humanitarian values, maturity","Both can be distant, intellectual rather than emotional","Ground your shared wisdom in daily acts of love and presence.");
+  addCompat(8,8,70,"Double Power","Two powerhouses together - exhilarating or explosive.","Shared ambition, material success, mutual respect, drive","Power struggle, competition, workaholism, control","Clear roles and territories. Take turns being the boss.");
+  addCompat(8,9,60,"Money & Meaning","The materialist and the humanitarian - fundamentally different values.","8 provides resources, 9 provides purpose, complementary","Money disagreements, different priorities, judgment","8: fund 9's causes. 9: appreciate 8's provision. Meet in impact.");
+  addCompat(9,9,75,"Twin Humanitarians","Two old souls with shared vision for a better world.","Shared idealism, compassion, wisdom, spiritual depth","Both avoid the mundane, who handles logistics, impractical","Delegate the practical stuff and focus your shared energy on what matters.");
+
+  // Master number combos (simplified)
+  addCompat(1,11,90,"Leader & Visionary","The action-taker and the spiritual messenger. Powerful alignment.","Shared leadership, vision meets action, inspiration","11 too sensitive for 1's bluntness, intensity overload","1: be gentle with 11's sensitivity. 11: appreciate 1's directness.");
+  addCompat(2,11,88,"Soul Partners","11 amplifies 2's natural gifts. Deep spiritual connection.","Intuition, emotional depth, spiritual partnership","Overwhelming sensitivity, emotional floods","Ground yourselves daily. Meditation, nature, practical routines.");
+  addCompat(1,22,85,"Pioneer & Architect","The starter and the master builder. Unstoppable when aligned.","Vision + execution, leadership + planning, empire potential","22 plans too long for 1, 1 starts before 22 is ready","1 scouts ahead, 22 builds the foundation. Respect the timeline.");
+  addCompat(4,22,92,"Foundation Masters","Both builders - 22 on a grand scale, 4 on a practical one.","Shared values, incredible building power, lasting legacy","22 frustrated by 4's small thinking, 4 overwhelmed by 22's vision","22 provides the blueprint, 4 lays every brick. Perfect division.");
+  addCompat(6,33,95,"Love Masters","The nurturer and the master teacher. Highest love vibration possible.","Unconditional love, healing, service, spiritual depth","Overwhelm from feeling everything, boundary dissolution","Your love is meant to serve others. Channel it outward together.");
+  addCompat(11,22,88,"Master Pair","Visionary meets builder. Can change the world together.","Spiritual vision + practical mastery, rare combined energy","Both carry intense energy, burnout risk, pressure","Support each other's missions. You do not need to merge - align.");
+  addCompat(11,33,90,"Spiritual Masters","Two master numbers together. Intense, purposeful, transformative.","Spiritual depth, teaching, healing, global impact","Overwhelming intensity, losing touch with reality","Stay grounded. Eat well, sleep well, exercise. Your gifts need a healthy body.");
+  addCompat(22,33,88,"Builder & Teacher","The architect and the healer. Creating systems that serve humanity.","Purpose-driven partnership, legacy, impact","22 too pragmatic for 33, 33 too idealistic for 22","22 builds what 33 envisions. Teaching through creation.");
+
+  function calcLifePath(day, month, year) {
+    var dateStr = String(month).padStart(2,'0') + String(day).padStart(2,'0') + String(year);
+    var sum = 0;
+    for (var i = 0; i < dateStr.length; i++) sum += parseInt(dateStr[i]);
+    while (sum > 9 && sum !== 11 && sum !== 22 && sum !== 33) {
+      var newSum = 0;
+      var s = String(sum);
+      for (var j = 0; j < s.length; j++) newSum += parseInt(s[j]);
+      sum = newSum;
+    }
+    return sum;
+  }
+
+  function getCompat(a, b) {
+    var key = Math.min(a,b) + '-' + Math.max(a,b);
+    if (compatData[key]) return compatData[key];
+    // Fallback for master numbers not explicitly defined
+    var a2 = a > 9 ? (a === 11 ? 2 : a === 22 ? 4 : 6) : a;
+    var b2 = b > 9 ? (b === 11 ? 2 : b === 22 ? 4 : 6) : b;
+    key = Math.min(a2,b2) + '-' + Math.max(a2,b2);
+    if (compatData[key]) {
+      var d = Object.assign({}, compatData[key]);
+      d.score = Math.min(100, d.score + 5); // Master numbers add energy
+      return d;
+    }
+    return { score: 70, type: "Unique Pairing", desc: "A rare combination with its own special dynamic.", strengths: "Unique perspective, growth potential", challenges: "No established pattern - you write your own rules", advice: "Explore each other's worlds with curiosity and openness." };
+  }
+
+  function calculateCompatibility() {
+    var p1d = parseInt(document.getElementById('p1-day').value);
+    var p1m = parseInt(document.getElementById('p1-month').value);
+    var p1y = parseInt(document.getElementById('p1-year').value);
+    var p2d = parseInt(document.getElementById('p2-day').value);
+    var p2m = parseInt(document.getElementById('p2-month').value);
+    var p2y = parseInt(document.getElementById('p2-year').value);
+
+    if (!p1d || !p1m || !p1y || !p2d || !p2m || !p2y) {
+      alert('Please enter complete birth dates for both people.');
+      return;
+    }
+
+    var lp1 = calcLifePath(p1d, p1m, p1y);
+    var lp2 = calcLifePath(p2d, p2m, p2y);
+    var compat = getCompat(lp1, lp2);
+
+    // Match grid
+    var grid = document.getElementById('match-grid');
+    grid.innerHTML = '<div class="match-card"><small>Person 1 Life Path</small><strong>' + lp1 + '</strong><br><small>' + (lifePathNames[lp1] || '') + '</small></div>' +
+      '<div class="match-card"><small>Person 2 Life Path</small><strong>' + lp2 + '</strong><br><small>' + (lifePathNames[lp2] || '') + '</small></div>';
+
+    // Score
+    var scoreEl = document.getElementById('compat-score');
+    var cls = compat.score >= 80 ? 'color:#4CAF50' : compat.score >= 60 ? 'color:#FFD700' : 'color:#FF5722';
+    scoreEl.innerHTML = '<span style="' + cls + '">' + compat.score + '%</span>';
+    document.getElementById('compat-label').textContent = compat.type;
+
+    // Meter
+    var fill = document.getElementById('compat-fill');
+    var fillCls = compat.score >= 80 ? 'compat-fill compat-high' : compat.score >= 60 ? 'compat-fill compat-med' : 'compat-fill compat-low';
+    fill.className = fillCls;
+    setTimeout(function() { fill.style.width = compat.score + '%'; }, 100);
+
+    // Description
+    document.getElementById('result-desc').textContent = compat.desc;
+
+    // Details
+    var details = '';
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--gold)">Your Relationship Blueprint</h3>';
+    details += '<p><strong>Strengths:</strong> ' + compat.strengths + '</p>';
+    details += '<p><strong>Challenges:</strong> ' + compat.challenges + '</p>';
+    details += '<p><strong>Advice:</strong> ' + compat.advice + '</p>';
+    document.getElementById('result-details').innerHTML = details;
+
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>

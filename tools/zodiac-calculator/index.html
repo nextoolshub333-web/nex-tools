@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zodiac Sign Calculator - Find Your Sun, Moon & Rising Signs Free</title>
+  <meta name="description" content="Free zodiac sign calculator. Discover your Sun sign, element, ruling planet and today's horoscope based on your birthday. Instant results, no signup.">
+  <meta name="keywords" content="zodiac sign calculator, what is my zodiac sign, horoscope calculator, sun sign, astrology calculator, birth chart">
+  <link rel="canonical" href="https://mynextools.com/tools/zodiac-calculator/">
+  <meta property="og:title" content="Zodiac Sign Calculator - Find Your Sun, Moon & Rising Signs Free">
+  <meta property="og:description" content="Discover your zodiac sign, element and ruling planet. Free, instant results.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/zodiac-calculator/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Zodiac Sign Calculator",
+    "description": "Free zodiac sign calculator. Find your Sun sign, element, ruling planet and daily horoscope from your birthday.",
+    "url": "https://mynextools.com/tools/zodiac-calculator/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/tools/zodiac-calculator/" style="color:var(--gold)">Zodiac</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Zodiac Sign Calculator</h1>
+      <p>Discover your Sun sign, element, ruling planet and what the stars reveal about your personality. Free, instant, no signup.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Find Your Zodiac Sign</h2>
+        <p class="text-center" style="color:var(--text-muted);margin-bottom:2rem">Enter your date of birth to reveal your complete zodiac profile.</p>
+
+        <div class="calc-input-group">
+          <label for="birth-day">Day of Birth</label>
+          <input type="number" id="birth-day" min="1" max="31" placeholder="e.g. 15">
+        </div>
+        <div class="calc-input-group">
+          <label for="birth-month">Month of Birth</label>
+          <input type="number" id="birth-month" min="1" max="12" placeholder="e.g. 7">
+        </div>
+
+        <button class="calc-btn" onclick="calculateZodiac()">Reveal My Zodiac Sign</button>
+
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-symbol"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Go Deeper with Astrology</h4>
+            <p>Get a personalized video Moon Reading based on your exact birth chart. Discover hidden talents, ideal career path and what the universe has planned for you.</p>
+            <a href="https://a967dlko2h36yv6iin7frmwa7g.hop.clickbank.net/?&traffic_source=website&traffic_type=organic&campaign=mynextoolsZODIAC" class="btn btn-gold" target="_blank" rel="noopener">Get Your Free Moon Reading</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+            <h4>Combine with Your Angel Number</h4>
+            <p>Your zodiac sign and angel number together create a powerful spiritual profile.</p>
+            <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Calculate Angel Number</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is a Zodiac Sign?</h2>
+        <p>Your zodiac sign (also called Sun sign) is determined by the position of the Sun at the time of your birth. There are 12 zodiac signs, each spanning about 30 days. Your sign reveals core personality traits, strengths, challenges and how you relate to others.</p>
+
+        <h2>The 12 Zodiac Signs</h2>
+        <p>The zodiac is divided into four elements, each containing three signs:</p>
+        <ul>
+          <li><strong>Fire Signs (Aries, Leo, Sagittarius)</strong> - Passionate, energetic, courageous. Natural leaders who inspire others.</li>
+          <li><strong>Earth Signs (Taurus, Virgo, Capricorn)</strong> - Grounded, practical, reliable. Builders who create lasting value.</li>
+          <li><strong>Air Signs (Gemini, Libra, Aquarius)</strong> - Intellectual, social, innovative. Thinkers who connect ideas and people.</li>
+          <li><strong>Water Signs (Cancer, Scorpio, Pisces)</strong> - Intuitive, emotional, deep. Healers who feel the world deeply.</li>
+        </ul>
+
+        <h2>Zodiac Compatibility</h2>
+        <p>Generally, signs of the same element get along well. Fire and Air signs energize each other, while Earth and Water signs nurture each other. But true compatibility depends on the full birth chart, including Moon sign, Venus placement and more.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>What if I was born on a cusp?</h3>
+          <p>If your birthday falls within 2-3 days of a sign change, you were born "on the cusp." You may feel traits of both signs, but your Sun sign is determined by the exact position of the Sun. Our calculator uses the standard dates, but the exact cusp can shift by a day depending on the year.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What is the difference between Sun sign and Moon sign?</h3>
+          <p>Your Sun sign represents your core identity and ego. Your Moon sign (determined by the Moon's position at birth) reveals your emotional nature and inner world. Together they paint a more complete picture of who you are.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How accurate is zodiac astrology?</h3>
+          <p>Your Sun sign is just one piece of a complex birth chart. For a full reading, astrologers also consider your Moon sign, Rising sign and the positions of all planets. Think of your Sun sign as the foundation of your astrological identity.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Explore More Spiritual Tools</h4>
+          <p>Combine your zodiac reading with a <a href="/tools/life-path-calculator/">Life Path calculation</a> or <a href="/tools/destiny-matrix-calculator/">Destiny Matrix chart</a> for complete self-discovery.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Calculators</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9878;</div>
+          <h3>Destiny Matrix Calculator</h3>
+          <p>Discover your life purpose through the 22 Arcana energies in your birth chart.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode divine messages.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Human Design</h3>
+          <p>Discover your Human Design type and decision-making strategy.</p>
+          <a href="/tools/human-design-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/zodiac-calculator/">Zodiac Sign Calculator</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+          <a href="/tools/breathing-exercise/">Breathing Exercise</a>
+          <a href="/tools/numerology-compatibility/">Compatibility Calculator</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var zodiacSigns = {
+    aries: {
+      name: "Aries", symbol: "\u2648", dates: "March 21 - April 19",
+      element: "Fire", quality: "Cardinal", ruler: "Mars",
+      desc: "You are a bold pioneer, a natural leader who charges into life headfirst. Aries energy is pure fire - courageous, competitive and endlessly enthusiastic. You inspire others with your fearless approach to challenges.",
+      strengths: "Courageous, determined, confident, enthusiastic, optimistic, honest, passionate",
+      challenges: "Impatient, moody, short-tempered, impulsive, aggressive",
+      love: "Passionate and direct in love. You fall hard and fast. You need a partner who can match your energy and keep things exciting. Boredom is your biggest relationship enemy.",
+      career: "Born entrepreneur and leader. You thrive in competitive environments - sales, athletics, military, emergency services, startups. You need autonomy and a challenge.",
+      bestMatch: "Leo, Sagittarius, Gemini, Aquarius",
+      luckyNumbers: "1, 8, 17",
+      bodyPart: "Head and face"
+    },
+    taurus: {
+      name: "Taurus", symbol: "\u2649", dates: "April 20 - May 20",
+      element: "Earth", quality: "Fixed", ruler: "Venus",
+      desc: "You are the embodiment of patience and persistence. Taurus energy is grounded, sensual and deeply connected to the physical world. You build beautiful, lasting things through sheer determination.",
+      strengths: "Reliable, patient, practical, devoted, responsible, stable",
+      challenges: "Stubborn, possessive, uncompromising, materialistic",
+      love: "Deeply loyal and sensual. You want a love that lasts forever - comfort, security and physical affection are essential. You take your time choosing a partner, but once committed, you are unshakable.",
+      career: "Finance, real estate, agriculture, cooking, art, music. You excel where patience and an eye for quality matter. You build wealth slowly and steadily.",
+      bestMatch: "Virgo, Capricorn, Cancer, Pisces",
+      luckyNumbers: "2, 6, 9",
+      bodyPart: "Throat and neck"
+    },
+    gemini: {
+      name: "Gemini", symbol: "\u264A", dates: "May 21 - June 20",
+      element: "Air", quality: "Mutable", ruler: "Mercury",
+      desc: "You are a curious mind in constant motion. Gemini energy is quick, versatile and endlessly fascinated by the world. You can talk to anyone about anything and see every side of every story.",
+      strengths: "Gentle, affectionate, curious, adaptable, quick learner, witty",
+      challenges: "Nervous, inconsistent, indecisive, scattered",
+      love: "Communication is everything. You need mental stimulation as much as physical chemistry. A partner who can keep up with your conversations and match your curiosity wins your heart.",
+      career: "Writing, journalism, teaching, sales, technology, social media. Anything that lets you learn, communicate and juggle multiple projects.",
+      bestMatch: "Libra, Aquarius, Aries, Leo",
+      luckyNumbers: "5, 7, 14",
+      bodyPart: "Arms, hands and lungs"
+    },
+    cancer: {
+      name: "Cancer", symbol: "\u264B", dates: "June 21 - July 22",
+      element: "Water", quality: "Cardinal", ruler: "Moon",
+      desc: "You are a protector with the deepest heart in the zodiac. Cancer energy is nurturing, intuitive and fiercely loyal. You create safe spaces where others can be vulnerable, and your emotional intelligence is unmatched.",
+      strengths: "Tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive",
+      challenges: "Moody, pessimistic, suspicious, manipulative, insecure",
+      love: "Home and family are everything. You love deeply and want to create a beautiful nest with your partner. You need emotional security above all else.",
+      career: "Healthcare, childcare, real estate, cooking, psychology, social work. Roles where your caring nature and intuition guide others.",
+      bestMatch: "Scorpio, Pisces, Taurus, Virgo",
+      luckyNumbers: "2, 3, 15",
+      bodyPart: "Chest and stomach"
+    },
+    leo: {
+      name: "Leo", symbol: "\u264C", dates: "July 23 - August 22",
+      element: "Fire", quality: "Fixed", ruler: "Sun",
+      desc: "You are the star of the zodiac, radiating warmth, creativity and confidence. Leo energy is dramatic, generous and magnetic. You light up every room and inspire others to shine alongside you.",
+      strengths: "Creative, passionate, generous, warm-hearted, cheerful, humorous",
+      challenges: "Arrogant, stubborn, self-centered, lazy, inflexible",
+      love: "Grand, romantic gestures define your love style. You want to be adored and you adore in return. Loyalty is non-negotiable. A partner who celebrates you and lets you celebrate them is perfect.",
+      career: "Entertainment, leadership, politics, education, luxury brands. Anywhere you can express creativity and be recognized for your brilliance.",
+      bestMatch: "Aries, Sagittarius, Gemini, Libra",
+      luckyNumbers: "1, 3, 10",
+      bodyPart: "Heart and spine"
+    },
+    virgo: {
+      name: "Virgo", symbol: "\u264D", dates: "August 23 - September 22",
+      element: "Earth", quality: "Mutable", ruler: "Mercury",
+      desc: "You are the master of detail and devotion. Virgo energy is analytical, helpful and deeply caring in practical ways. You make the world better through quiet, consistent effort and an eye for what needs improving.",
+      strengths: "Loyal, analytical, kind, hardworking, practical, methodical",
+      challenges: "Shyness, worry, overly critical, perfectionist",
+      love: "You show love through acts of service. You notice the small things and remember every detail. You need a partner who appreciates your thoughtfulness and does not mistake your analysis for criticism.",
+      career: "Healthcare, research, editing, accounting, nutrition, veterinary science. Fields that reward precision, care and analytical thinking.",
+      bestMatch: "Taurus, Capricorn, Cancer, Scorpio",
+      luckyNumbers: "5, 14, 23",
+      bodyPart: "Digestive system"
+    },
+    libra: {
+      name: "Libra", symbol: "\u264E", dates: "September 23 - October 22",
+      element: "Air", quality: "Cardinal", ruler: "Venus",
+      desc: "You are the peacemaker and beauty-seeker of the zodiac. Libra energy is harmonious, diplomatic and deeply fair-minded. You create balance wherever you go and see the beauty in everything.",
+      strengths: "Cooperative, diplomatic, gracious, fair-minded, social",
+      challenges: "Indecisive, avoids confrontation, carries grudges, self-pity",
+      love: "Partnership is your natural state. You believe in soulmates and strive for a relationship that is both beautiful and balanced. You give endlessly and need that generosity returned.",
+      career: "Law, design, diplomacy, art, counseling, fashion. Anywhere that beauty, fairness and human connection intersect.",
+      bestMatch: "Gemini, Aquarius, Leo, Sagittarius",
+      luckyNumbers: "4, 6, 13",
+      bodyPart: "Kidneys and lower back"
+    },
+    scorpio: {
+      name: "Scorpio", symbol: "\u264F", dates: "October 23 - November 21",
+      element: "Water", quality: "Fixed", ruler: "Pluto / Mars",
+      desc: "You are the most intense and transformative sign in the zodiac. Scorpio energy is deep, magnetic and unafraid of the dark. You see through facades and seek truth at every level.",
+      strengths: "Resourceful, brave, passionate, stubborn, a true friend, strategic",
+      challenges: "Distrusting, jealous, secretive, violent, manipulative",
+      love: "All-or-nothing love. You want to merge completely with your partner - body, mind and soul. Loyalty and honesty are absolute requirements. Betrayal is never forgiven.",
+      career: "Psychology, research, surgery, detective work, finance, crisis management. You thrive where intensity, secrecy and transformation are needed.",
+      bestMatch: "Cancer, Pisces, Virgo, Capricorn",
+      luckyNumbers: "8, 11, 18",
+      bodyPart: "Reproductive organs"
+    },
+    sagittarius: {
+      name: "Sagittarius", symbol: "\u2650", dates: "November 22 - December 21",
+      element: "Fire", quality: "Mutable", ruler: "Jupiter",
+      desc: "You are the explorer and philosopher of the zodiac. Sagittarius energy is optimistic, adventurous and endlessly curious about meaning. You chase horizons and find wisdom in every journey.",
+      strengths: "Generous, idealistic, great sense of humor, adventurous, open-minded",
+      challenges: "Promises more than can deliver, impatient, blunt, restless",
+      love: "Freedom-loving but deeply loyal when you find the right person. You need a partner who is also a best friend and adventure companion. Routine kills your spark.",
+      career: "Travel, education, publishing, philosophy, outdoor sports, international business. Any field that expands horizons and feeds your need for meaning.",
+      bestMatch: "Aries, Leo, Libra, Aquarius",
+      luckyNumbers: "3, 7, 9",
+      bodyPart: "Hips and thighs"
+    },
+    capricorn: {
+      name: "Capricorn", symbol: "\u2651", dates: "December 22 - January 19",
+      element: "Earth", quality: "Cardinal", ruler: "Saturn",
+      desc: "You are the ambitious architect of the zodiac. Capricorn energy is disciplined, strategic and built for the long game. You climb mountains that others will not even attempt, and you always reach the summit.",
+      strengths: "Responsible, disciplined, self-control, good managers, ambitious",
+      challenges: "Know-it-all, unforgiving, condescending, pessimistic",
+      love: "You approach love like everything else - seriously and with long-term vision. You want a partner who is equally ambitious and understands that your drive does not mean you lack feeling.",
+      career: "Management, finance, engineering, government, architecture. You build empires through patience, strategy and relentless effort.",
+      bestMatch: "Taurus, Virgo, Scorpio, Pisces",
+      luckyNumbers: "4, 8, 13",
+      bodyPart: "Knees, bones and teeth"
+    },
+    aquarius: {
+      name: "Aquarius", symbol: "\u2652", dates: "January 20 - February 18",
+      element: "Air", quality: "Fixed", ruler: "Uranus / Saturn",
+      desc: "You are the visionary rebel of the zodiac. Aquarius energy is innovative, humanitarian and unapologetically original. You see the future before anyone else and fight for a world that is fair and free.",
+      strengths: "Progressive, original, independent, humanitarian, intellectual",
+      challenges: "Runs from emotional expression, temperamental, uncompromising, aloof",
+      love: "Friendship is the foundation of love for you. You need intellectual connection and shared values. You love humanity deeply but can struggle with intimate one-on-one vulnerability.",
+      career: "Technology, science, activism, nonprofit, aviation, futurism. Anywhere innovation and social progress intersect.",
+      bestMatch: "Gemini, Libra, Aries, Sagittarius",
+      luckyNumbers: "4, 7, 11",
+      bodyPart: "Ankles and circulatory system"
+    },
+    pisces: {
+      name: "Pisces", symbol: "\u2653", dates: "February 19 - March 20",
+      element: "Water", quality: "Mutable", ruler: "Neptune / Jupiter",
+      desc: "You are the dreamer and mystic of the zodiac. Pisces energy is compassionate, artistic and deeply connected to the unseen world. You feel everything and channel those feelings into profound creativity.",
+      strengths: "Compassionate, artistic, intuitive, gentle, wise, musical",
+      challenges: "Fearful, overly trusting, sad, desire to escape reality",
+      love: "Deeply romantic and spiritual. You want a love that transcends the ordinary - a soulmate connection that feels fated. You give yourself completely and need a partner who treasures that gift.",
+      career: "Arts, music, healing, spirituality, film, photography, social work. Anywhere your creativity and compassion can flow freely.",
+      bestMatch: "Cancer, Scorpio, Taurus, Capricorn",
+      luckyNumbers: "3, 9, 12",
+      bodyPart: "Feet and immune system"
+    }
+  };
+
+  function getZodiacSign(day, month) {
+    if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return "aries";
+    if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return "taurus";
+    if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return "gemini";
+    if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return "cancer";
+    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return "leo";
+    if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return "virgo";
+    if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return "libra";
+    if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return "scorpio";
+    if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return "sagittarius";
+    if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return "capricorn";
+    if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return "aquarius";
+    return "pisces";
+  }
+
+  function calculateZodiac() {
+    var day = parseInt(document.getElementById('birth-day').value);
+    var month = parseInt(document.getElementById('birth-month').value);
+
+    if (!day || !month || day < 1 || day > 31 || month < 1 || month > 12) {
+      alert('Please enter a valid date of birth.');
+      return;
+    }
+
+    var signKey = getZodiacSign(day, month);
+    var sign = zodiacSigns[signKey];
+
+    document.getElementById('result-symbol').textContent = sign.symbol;
+    document.getElementById('result-title').textContent = sign.name + ' (' + sign.dates + ')';
+    document.getElementById('result-desc').textContent = sign.desc;
+
+    var details = '';
+    details += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1.5rem">';
+    details += '<div style="background:var(--card-bg);padding:0.75rem;border-radius:8px;text-align:center"><small style="color:var(--text-muted)">Element</small><br><strong style="color:var(--gold)">' + sign.element + '</strong></div>';
+    details += '<div style="background:var(--card-bg);padding:0.75rem;border-radius:8px;text-align:center"><small style="color:var(--text-muted)">Quality</small><br><strong style="color:var(--gold)">' + sign.quality + '</strong></div>';
+    details += '<div style="background:var(--card-bg);padding:0.75rem;border-radius:8px;text-align:center"><small style="color:var(--text-muted)">Ruling Planet</small><br><strong style="color:var(--gold)">' + sign.ruler + '</strong></div>';
+    details += '<div style="background:var(--card-bg);padding:0.75rem;border-radius:8px;text-align:center"><small style="color:var(--text-muted)">Lucky Numbers</small><br><strong style="color:var(--gold)">' + sign.luckyNumbers + '</strong></div>';
+    details += '</div>';
+
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--gold)">Your Zodiac Profile</h3>';
+    details += '<p><strong>Strengths:</strong> ' + sign.strengths + '</p>';
+    details += '<p><strong>Challenges:</strong> ' + sign.challenges + '</p>';
+    details += '<p><strong>Love & Relationships:</strong> ' + sign.love + '</p>';
+    details += '<p><strong>Career & Purpose:</strong> ' + sign.career + '</p>';
+    details += '<p><strong>Best Matches:</strong> ' + sign.bestMatch + '</p>';
+    details += '<p><strong>Body Area:</strong> ' + sign.bodyPart + '</p>';
+
+    document.getElementById('result-details').innerHTML = details;
+
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+
+</body>
+</html>

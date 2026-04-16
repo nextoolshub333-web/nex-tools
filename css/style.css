@@ -135,13 +135,15 @@ a:hover { color: var(--gold-soft); }
   transition: all var(--transition);
   text-decoration: none;
 }
-.btn-gold {
+.btn-gold,
+.article-content .btn-gold {
   background: var(--gold);
-  color: #08080C;
+  color: #08080C !important;
 }
-.btn-gold:hover {
+.btn-gold:hover,
+.article-content .btn-gold:hover {
   background: #e6c200;
-  color: #08080C;
+  color: #08080C !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 24px rgba(255,215,0,0.35);
 }

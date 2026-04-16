@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breathing Exercise Timer - 8 Science-Based Protocols Free</title>
+  <meta name="description" content="Free interactive breathing exercise timer. 8 science-based protocols for sleep, focus, calm, energy and more. Guided visual timer with customizable rounds.">
+  <meta name="keywords" content="breathing exercise, box breathing, 4-7-8 breathing, breathing timer, meditation breathing, breathing technique, calm breathing">
+  <link rel="canonical" href="https://mynextools.com/tools/breathing-exercise/">
+  <meta property="og:title" content="Breathing Exercise Timer - 8 Science-Based Protocols Free">
+  <meta property="og:description" content="Interactive breathing timer with 8 protocols. Free, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/breathing-exercise/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Breathing Exercise Timer",
+    "description": "Free interactive breathing exercise timer with 8 science-based protocols for sleep, focus, calm and energy.",
+    "url": "https://mynextools.com/tools/breathing-exercise/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <style>
+    .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .protocol-card { background: var(--card-bg); border: 2px solid var(--border); border-radius: var(--radius); padding: 1.25rem; cursor: pointer; transition: all 0.3s ease; text-align: center; }
+    .protocol-card:hover, .protocol-card.active { border-color: var(--gold); box-shadow: 0 0 20px rgba(255,215,0,0.15); }
+    .protocol-card.active { background: linear-gradient(135deg, rgba(255,215,0,0.08), rgba(255,215,0,0.02)); }
+    .protocol-card h4 { color: var(--gold); margin-bottom: 0.25rem; font-size: 1rem; }
+    .protocol-card p { color: var(--text-muted); font-size: 0.8rem; margin: 0; }
+    .protocol-card .proto-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+    .breath-circle-wrap { display: flex; justify-content: center; align-items: center; margin: 2rem 0; }
+    .breath-circle { width: 220px; height: 220px; border-radius: 50%; border: 3px solid var(--gold); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: transform 4s ease-in-out, box-shadow 4s ease-in-out; position: relative; }
+    .breath-circle.inhale { transform: scale(1.3); box-shadow: 0 0 60px rgba(255,215,0,0.4); }
+    .breath-circle.hold { transform: scale(1.3); box-shadow: 0 0 40px rgba(255,215,0,0.25); }
+    .breath-circle.exhale { transform: scale(1); box-shadow: 0 0 10px rgba(255,215,0,0.1); }
+    .breath-phase { font-size: 1.2rem; color: var(--gold); font-weight: 700; text-transform: uppercase; }
+    .breath-timer { font-size: 3rem; color: var(--white); font-weight: 800; }
+    .breath-round { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem; }
+
+    .controls { display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0; flex-wrap: wrap; }
+    .controls select, .controls button { padding: 0.6rem 1.5rem; border-radius: var(--radius); font-size: 0.95rem; border: 2px solid var(--border); background: var(--card-bg); color: var(--white); cursor: pointer; }
+    .controls button.start-btn { background: var(--gold); color: #08080C; border-color: var(--gold); font-weight: 700; }
+    .controls button.stop-btn { background: transparent; border-color: #ff4444; color: #ff4444; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/breathing-exercise/" style="color:var(--gold)">Breathing</a>
+        <a href="/tools/zodiac-calculator/">Zodiac</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Breathing Exercise Timer</h1>
+      <p>8 science-based breathing protocols for sleep, focus, calm and energy. Choose your goal, press start and breathe along with the visual guide.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center">Choose Your Breathing Protocol</h2>
+      <p class="text-center" style="color:var(--text-muted);margin-bottom:2rem">Select a technique based on what you need right now.</p>
+
+      <div class="protocol-grid" id="protocol-grid"></div>
+
+      <div class="breath-circle-wrap">
+        <div class="breath-circle" id="breath-circle">
+          <div class="breath-phase" id="breath-phase">Select a protocol</div>
+          <div class="breath-timer" id="breath-timer">--</div>
+          <div class="breath-round" id="breath-round"></div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <select id="rounds-select">
+          <option value="3">3 rounds</option>
+          <option value="5" selected>5 rounds</option>
+          <option value="8">8 rounds</option>
+          <option value="10">10 rounds</option>
+        </select>
+        <button class="start-btn" id="start-btn" onclick="startBreathing()">Start</button>
+        <button class="stop-btn" id="stop-btn" onclick="stopBreathing()" style="display:none">Stop</button>
+      </div>
+
+      <div id="result-box" class="result-box" style="display:none;margin-top:2rem">
+        <div class="result-title" id="session-title"></div>
+        <div class="result-description" id="session-desc"></div>
+
+        <div class="cta-box" style="margin-top:1.5rem">
+          <h4>Master Your Breath</h4>
+          <p>Get the complete breathing guide with all 8 protocols, progress tracking and advanced techniques for peak performance.</p>
+          <a href="https://nextools.gumroad.com/l/breathing-guide" class="btn btn-gold" target="_blank" rel="noopener">Get the Full Breathing Guide</a>
+        </div>
+
+        <div class="cta-box" style="margin-top:1rem;background:linear-gradient(135deg,rgba(45,27,105,0.05),rgba(107,77,171,0.08));border-color:var(--purple-light)">
+          <h4>Discover Your Spiritual Profile</h4>
+          <p>Breathing is the bridge between body and spirit. Explore your angel number or life path for deeper self-knowledge.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Angel Number Calculator</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>The Science of Breathing Exercises</h2>
+        <p>Controlled breathing directly activates your parasympathetic nervous system - the "rest and digest" mode that counteracts stress. Research published in the journal Frontiers in Human Neuroscience shows that slow, controlled breathing reduces cortisol levels, lowers blood pressure and improves heart rate variability.</p>
+
+        <h2>How to Use the Breathing Timer</h2>
+        <ol>
+          <li>Choose a protocol based on your current need (sleep, focus, calm, energy)</li>
+          <li>Select the number of rounds (start with 3 if you are new to breathwork)</li>
+          <li>Follow the visual circle - it expands on inhale and contracts on exhale</li>
+          <li>Breathe through your nose for inhale and mouth for exhale (unless otherwise noted)</li>
+          <li>Practice daily for best results. Consistency matters more than duration.</li>
+        </ol>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>Which breathing technique is best for beginners?</h3>
+          <p>Start with Box Breathing (4-4-4-4). It is simple, balanced and used by everyone from Navy SEALs to meditation teachers. Once comfortable, try the 4-7-8 technique for deeper relaxation.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How often should I practice?</h3>
+          <p>Daily practice for 3-5 minutes produces noticeable results within a week. Many people practice in the morning for focus, during the day for stress relief and before bed for sleep. Even one session helps.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can breathing exercises help with anxiety?</h3>
+          <p>Yes. Extended exhale breathing (where exhale is longer than inhale) activates the vagus nerve and triggers your body's calming response. The 4-7-8 and Calm techniques are specifically designed for anxiety reduction.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Explore More Wellness Tools</h4>
+          <p>Combine breathwork with spiritual self-discovery. Try our <a href="/tools/zodiac-calculator/">Zodiac Calculator</a> or <a href="/tools/human-design-calculator/">Human Design quiz</a> for a complete wellness profile.</p>
+          <a href="/" class="btn btn-gold">See All Free Tools</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">&#9878;</div>
+          <h3>Destiny Matrix Calculator</h3>
+          <p>Discover your life purpose through the 22 Arcana energies.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode divine messages.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Zodiac Calculator</h3>
+          <p>Discover your Sun sign, element and ruling planet.</p>
+          <a href="/tools/zodiac-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Free Tools</h4>
+          <a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a>
+          <a href="/tools/angel-number-calculator/">Angel Number Calculator</a>
+          <a href="/tools/human-design-calculator/">Human Design Calculator</a>
+          <a href="/tools/zodiac-calculator/">Zodiac Sign Calculator</a>
+          <a href="/tools/breathing-exercise/">Breathing Exercise</a>
+          <a href="/tools/life-path-calculator/">Life Path Calculator</a>
+          <a href="/tools/soul-urge-calculator/">Soul Urge Calculator</a>
+          <a href="/tools/numerology-compatibility/">Compatibility Calculator</a>
+        </div>
+        <div class="footer-col">
+          <h4>Angel Number Guides</h4>
+          <a href="/blog/angel-number-111-meaning/">111 Meaning</a>
+          <a href="/blog/angel-number-222-meaning/">222 Meaning</a>
+          <a href="/blog/angel-number-333-meaning/">333 Meaning</a>
+          <a href="/blog/angel-number-444-meaning/">444 Meaning</a>
+          <a href="/blog/angel-number-555-meaning/">555 Meaning</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Digital Products</a>
+          <a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a>
+          <a href="/blog/">All Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NexTools. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  var protocols = [
+    { id: "box", name: "Box Breathing", icon: "\u25fb", desc: "Focus & Clarity", inhale: 4, hold1: 4, exhale: 4, hold2: 4, best: "Stress, focus, pre-performance" },
+    { id: "478", name: "4-7-8 Breathing", icon: "\ud83c\udf19", desc: "Deep Sleep", inhale: 4, hold1: 7, exhale: 8, hold2: 0, best: "Insomnia, anxiety, deep relaxation" },
+    { id: "calm", name: "Calm Breathing", icon: "\ud83c\udf3f", desc: "Anxiety Relief", inhale: 4, hold1: 0, exhale: 6, hold2: 0, best: "Anxiety, panic, daily stress" },
+    { id: "energy", name: "Energizing Breath", icon: "\u26a1", desc: "Morning Boost", inhale: 6, hold1: 2, exhale: 4, hold2: 0, best: "Morning energy, pre-workout, fatigue" },
+    { id: "coherent", name: "Coherent Breathing", icon: "\ud83d\udc9a", desc: "Heart Balance", inhale: 5, hold1: 0, exhale: 5, hold2: 0, best: "HRV improvement, emotional balance" },
+    { id: "relaxing", name: "Progressive Relaxation", icon: "\ud83e\uddd8", desc: "Deep Calm", inhale: 4, hold1: 2, exhale: 8, hold2: 2, best: "Bedtime, deep relaxation, muscle tension" },
+    { id: "power", name: "Power Breathing", icon: "\ud83d\udd25", desc: "Peak Performance", inhale: 3, hold1: 3, exhale: 3, hold2: 3, best: "Sports, presentations, interviews" },
+    { id: "square", name: "Triangle Breathing", icon: "\u25b3", desc: "Balance & Ground", inhale: 4, hold1: 4, exhale: 4, hold2: 0, best: "Grounding, meditation prep, mid-day reset" }
+  ];
+
+  var activeProtocol = null;
+  var running = false;
+  var timer = null;
+  var currentRound = 0;
+  var totalRounds = 5;
+
+  function renderProtocols() {
+    var grid = document.getElementById('protocol-grid');
+    grid.innerHTML = '';
+    protocols.forEach(function(p) {
+      var card = document.createElement('div');
+      card.className = 'protocol-card';
+      card.id = 'proto-' + p.id;
+      card.innerHTML = '<div class="proto-icon">' + p.icon + '</div><h4>' + p.name + '</h4><p>' + p.desc + '</p>';
+      card.onclick = function() { selectProtocol(p.id); };
+      grid.appendChild(card);
+    });
+  }
+
+  function selectProtocol(id) {
+    if (running) return;
+    activeProtocol = protocols.find(function(p) { return p.id === id; });
+    document.querySelectorAll('.protocol-card').forEach(function(c) { c.classList.remove('active'); });
+    document.getElementById('proto-' + id).classList.add('active');
+
+    var pattern = activeProtocol.inhale + '-';
+    if (activeProtocol.hold1 > 0) pattern += activeProtocol.hold1 + '-';
+    pattern += activeProtocol.exhale;
+    if (activeProtocol.hold2 > 0) pattern += '-' + activeProtocol.hold2;
+
+    document.getElementById('breath-phase').textContent = 'Ready';
+    document.getElementById('breath-timer').textContent = pattern;
+    document.getElementById('breath-round').textContent = activeProtocol.best;
+  }
+
+  function startBreathing() {
+    if (!activeProtocol) { alert('Please select a breathing protocol first.'); return; }
+    if (running) return;
+
+    running = true;
+    currentRound = 0;
+    totalRounds = parseInt(document.getElementById('rounds-select').value);
+    document.getElementById('start-btn').style.display = 'none';
+    document.getElementById('stop-btn').style.display = 'inline-block';
+    document.getElementById('result-box').style.display = 'none';
+
+    runRound();
+  }
+
+  function runRound() {
+    if (!running) return;
+    currentRound++;
+    if (currentRound > totalRounds) {
+      finishSession();
+      return;
+    }
+    document.getElementById('breath-round').textContent = 'Round ' + currentRound + ' of ' + totalRounds;
+    runPhase('inhale', activeProtocol.inhale, function() {
+      if (activeProtocol.hold1 > 0) {
+        runPhase('hold', activeProtocol.hold1, function() {
+          runPhase('exhale', activeProtocol.exhale, function() {
+            if (activeProtocol.hold2 > 0) {
+              runPhase('hold', activeProtocol.hold2, function() { runRound(); });
+            } else {
+              runRound();
+            }
+          });
+        });
+      } else {
+        runPhase('exhale', activeProtocol.exhale, function() {
+          if (activeProtocol.hold2 > 0) {
+            runPhase('hold', activeProtocol.hold2, function() { runRound(); });
+          } else {
+            runRound();
+          }
+        });
+      }
+    });
+  }
+
+  function runPhase(phase, duration, callback) {
+    if (!running) return;
+    var circle = document.getElementById('breath-circle');
+    var phaseEl = document.getElementById('breath-phase');
+    var timerEl = document.getElementById('breath-timer');
+
+    circle.className = 'breath-circle ' + phase;
+    var label = phase === 'hold' ? 'Hold' : phase === 'inhale' ? 'Breathe In' : 'Breathe Out';
+    phaseEl.textContent = label;
+    circle.style.transition = 'transform ' + duration + 's ease-in-out, box-shadow ' + duration + 's ease-in-out';
+
+    var remaining = duration;
+    timerEl.textContent = remaining;
+    timer = setInterval(function() {
+      remaining--;
+      if (remaining <= 0) {
+        clearInterval(timer);
+        callback();
+      } else {
+        timerEl.textContent = remaining;
+      }
+    }, 1000);
+  }
+
+  function stopBreathing() {
+    running = false;
+    clearInterval(timer);
+    var circle = document.getElementById('breath-circle');
+    circle.className = 'breath-circle';
+    circle.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    document.getElementById('breath-phase').textContent = 'Stopped';
+    document.getElementById('breath-timer').textContent = '--';
+    document.getElementById('breath-round').textContent = '';
+    document.getElementById('start-btn').style.display = 'inline-block';
+    document.getElementById('stop-btn').style.display = 'none';
+  }
+
+  function finishSession() {
+    running = false;
+    clearInterval(timer);
+    var circle = document.getElementById('breath-circle');
+    circle.className = 'breath-circle';
+    circle.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    document.getElementById('breath-phase').textContent = 'Complete';
+    document.getElementById('breath-timer').textContent = '\u2713';
+    document.getElementById('breath-round').textContent = totalRounds + ' rounds completed';
+    document.getElementById('start-btn').style.display = 'inline-block';
+    document.getElementById('stop-btn').style.display = 'none';
+
+    var totalSeconds = 0;
+    var p = activeProtocol;
+    var cycleTime = p.inhale + p.hold1 + p.exhale + p.hold2;
+    totalSeconds = cycleTime * totalRounds;
+    var mins = Math.floor(totalSeconds / 60);
+    var secs = totalSeconds % 60;
+
+    document.getElementById('session-title').textContent = 'Session Complete - ' + activeProtocol.name;
+    document.getElementById('session-desc').textContent = 'You completed ' + totalRounds + ' rounds (' + mins + 'm ' + secs + 's). Your nervous system is now in a more regulated state. For lasting benefits, practice daily.';
+
+    var box = document.getElementById('result-box');
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  renderProtocols();
+  </script>
+
+</body>
+</html>
