@@ -64,10 +64,44 @@
 
     /* Bodygraph */
     .bodygraph-wrap {
-      max-width:480px; margin:0 auto 2rem; background:var(--bg-card); border:1px solid var(--border-subtle);
-      border-radius:var(--radius); padding:1.5rem; text-align:center;
+      max-width:560px; margin:0 auto 2rem; background:linear-gradient(180deg,#0a0a14 0%,#0d0b18 50%,#0a0a14 100%);
+      border:1px solid rgba(255,215,0,0.12); border-radius:var(--radius); padding:2rem 1.5rem; text-align:center;
+      box-shadow:0 0 60px rgba(107,77,171,0.08), inset 0 0 80px rgba(0,0,0,0.3);
     }
-    .bodygraph-wrap svg { width:100%; height:auto; }
+    .bodygraph-wrap svg { width:100%; height:auto; cursor:pointer; }
+    .bodygraph-wrap svg .center-shape { cursor:pointer; transition:opacity 0.2s; }
+    .bodygraph-wrap svg .center-shape:hover { opacity:0.9 !important; }
+    .bodygraph-wrap svg .channel-line { cursor:pointer; }
+    .bodygraph-wrap svg .channel-line:hover { stroke-width:5 !important; }
+    .bg-legend {
+      display:flex; gap:1.5rem; justify-content:center; margin-top:1rem; font-size:0.75rem; color:var(--text-faint);
+    }
+    .bg-legend span { display:flex; align-items:center; gap:0.35rem; }
+    .bg-legend .dot { width:10px; height:10px; border-radius:2px; }
+
+    /* Info Panel */
+    .info-panel {
+      max-width:560px; margin:0 auto; background:var(--bg-card); border:1px solid var(--border-subtle);
+      border-radius:var(--radius); padding:1.5rem; display:none; animation:fadeIn 0.3s ease;
+    }
+    .info-panel.visible { display:block; }
+    .info-panel .ip-title { font-size:1.1rem; font-weight:700; color:var(--gold); margin-bottom:0.5rem; font-family:'Poppins',sans-serif; }
+    .info-panel .ip-subtitle { font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-faint); margin-bottom:0.75rem; }
+    .info-panel .ip-body { font-size:0.9rem; color:var(--text-secondary); line-height:1.7; }
+    .info-panel .ip-body strong { color:var(--white); }
+    .info-panel .ip-gates { margin-top:0.75rem; display:flex; flex-wrap:wrap; gap:0.4rem; }
+    .info-panel .ip-gate {
+      display:inline-flex; align-items:center; gap:0.25rem; padding:0.25rem 0.6rem;
+      border-radius:12px; font-size:0.75rem; font-weight:600;
+    }
+    .ip-gate-pers { background:rgba(255,255,255,0.08); color:#ccc; }
+    .ip-gate-des { background:rgba(229,57,53,0.12); color:#e57373; }
+    .ip-gate-both { background:rgba(255,215,0,0.1); color:var(--gold); }
+    .info-panel .ip-close {
+      float:right; background:none; border:none; color:var(--text-faint); font-size:1.2rem;
+      cursor:pointer; padding:0; line-height:1;
+    }
+    .info-panel .ip-close:hover { color:var(--white); }
 
     /* Activations table */
     .act-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
@@ -202,8 +236,23 @@
 
         <!-- Bodygraph SVG -->
         <div class="bodygraph-wrap">
-          <h3 style="margin-bottom:1rem;font-size:1rem;color:var(--text-muted)">Your Bodygraph</h3>
+          <h3 style="margin-bottom:0.25rem;font-size:1.1rem;color:var(--white)">Your Bodygraph</h3>
+          <p style="font-size:0.8rem;color:var(--text-faint);margin-bottom:1.25rem">Click any center or channel for details</p>
           <div id="bodygraphContainer"></div>
+          <div class="bg-legend">
+            <span><span class="dot" style="background:#ccc"></span> Personality (conscious)</span>
+            <span><span class="dot" style="background:#e53935"></span> Design (unconscious)</span>
+            <span><span class="dot" style="background:var(--gold)"></span> Both</span>
+          </div>
+        </div>
+
+        <!-- Info Panel (appears on click) -->
+        <div class="info-panel" id="infoPanel">
+          <button class="ip-close" onclick="closeInfoPanel()">&times;</button>
+          <div class="ip-subtitle" id="ipSubtitle"></div>
+          <div class="ip-title" id="ipTitle"></div>
+          <div class="ip-body" id="ipBody"></div>
+          <div class="ip-gates" id="ipGates"></div>
         </div>
 
         <!-- Defined Centers -->
@@ -791,34 +840,49 @@ function getDefinition(defCenters, defChannels) {
 // === PROFILE NAMES ===
 var LINE_NAMES = {1:'Investigator',2:'Hermit',3:'Martyr',4:'Opportunist',5:'Heretic',6:'Role Model'};
 
-// === SVG BODYGRAPH RENDERER ===
+// === SVG BODYGRAPH RENDERER (Premium Interactive) ===
 var CP = {
-  head:{x:220,y:45,shape:'td',w:48,h:38,color:'#FDD835'},
-  ajna:{x:220,y:118,shape:'td',w:52,h:40,color:'#66BB6A'},
-  throat:{x:220,y:198,shape:'sq',w:54,h:44,color:'#A1887F'},
-  g:{x:220,y:308,shape:'dm',w:50,h:50,color:'#FFF176'},
-  heart:{x:335,y:250,shape:'tr',w:34,h:38,color:'#EF5350'},
-  spleen:{x:105,y:400,shape:'tl',w:38,h:44,color:'#8D6E63'},
-  sacral:{x:220,y:420,shape:'sq',w:52,h:42,color:'#FF7043'},
-  solar:{x:335,y:400,shape:'tr',w:38,h:44,color:'#795548'},
-  root:{x:220,y:530,shape:'sq',w:54,h:42,color:'#FF7043'}
+  head:{x:240,y:52,shape:'td',w:56,h:44,color:'#FDD835',glow:'rgba(253,216,53,0.35)'},
+  ajna:{x:240,y:134,shape:'td',w:60,h:46,color:'#66BB6A',glow:'rgba(102,187,106,0.3)'},
+  throat:{x:240,y:222,shape:'sq',w:62,h:50,color:'#AB47BC',glow:'rgba(171,71,188,0.3)'},
+  g:{x:240,y:342,shape:'dm',w:58,h:58,color:'#42A5F5',glow:'rgba(66,165,245,0.3)'},
+  heart:{x:365,y:278,shape:'tr',w:40,h:44,color:'#EF5350',glow:'rgba(239,83,80,0.35)'},
+  spleen:{x:115,y:438,shape:'tl',w:44,h:50,color:'#8D6E63',glow:'rgba(141,110,99,0.3)'},
+  sacral:{x:240,y:458,shape:'sq',w:60,h:48,color:'#FF7043',glow:'rgba(255,112,67,0.3)'},
+  solar:{x:365,y:438,shape:'tr',w:44,h:50,color:'#5C6BC0',glow:'rgba(92,107,200,0.3)'},
+  root:{x:240,y:570,shape:'sq',w:62,h:48,color:'#FF7043',glow:'rgba(255,112,67,0.3)'}
 };
 
-// Channel paths: [gate1,gate2, center1,center2]
 var CH_MAP = [];
 CHANNELS.forEach(function(ch) { CH_MAP.push([ch[0],ch[1],G2C[ch[0]],G2C[ch[1]]]); });
 
-function renderBodygraph(chart) {
-  var svg = '<svg viewBox="0 0 440 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Human Design Bodygraph Chart">';
-  svg += '<defs>';
-  svg += '<filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
-  svg += '<filter id="glowSm"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
-  svg += '</defs>';
-  svg += '<rect width="440" height="590" fill="#0d0d15" rx="8"/>';
+// Store current chart for click handlers
+var _currentChart = null;
 
-  // Group channels by center pair for offset calculation
-  var pairCount = {};
-  var pairIndex = {};
+function renderBodygraph(chart) {
+  _currentChart = chart;
+  var W = 480, H = 640;
+  var svg = '<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Human Design Bodygraph Chart" style="font-family:Inter,sans-serif">';
+
+  // Defs: gradients, filters, glow
+  svg += '<defs>';
+  svg += '<filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  svg += '<filter id="glowSm"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  svg += '<filter id="glowBig"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  // Radial gradient for background
+  svg += '<radialGradient id="bgGrad" cx="50%" cy="45%" r="55%"><stop offset="0%" stop-color="#151020"/><stop offset="100%" stop-color="#0a0a14"/></radialGradient>';
+  svg += '</defs>';
+
+  // Background
+  svg += '<rect width="'+W+'" height="'+H+'" fill="url(#bgGrad)" rx="10"/>';
+
+  // Subtle grid pattern
+  for (var gy = 0; gy < H; gy += 40) {
+    svg += '<line x1="0" y1="'+gy+'" x2="'+W+'" y2="'+gy+'" stroke="rgba(255,255,255,0.015)" stroke-width="0.5"/>';
+  }
+
+  // Group channels by center pair for offset
+  var pairCount = {}, pairIndex = {};
   CH_MAP.forEach(function(ch) {
     var key = ch[2] < ch[3] ? ch[2]+'-'+ch[3] : ch[3]+'-'+ch[2];
     pairCount[key] = (pairCount[key] || 0) + 1;
@@ -829,83 +893,259 @@ function renderBodygraph(chart) {
   CH_MAP.forEach(function(ch) {
     var c1 = CP[ch[2]], c2 = CP[ch[3]];
     var key = ch[2] < ch[3] ? ch[2]+'-'+ch[3] : ch[3]+'-'+ch[2];
-    var total = pairCount[key];
-    var idx = pairIndex[key]++;
+    var total = pairCount[key]; var idx = pairIndex[key]++;
     var isDefined = chart.definedChannels.some(function(dc) {
-      return (dc[0]===ch[0] && dc[1]===ch[1]) || (dc[0]===ch[1] && dc[1]===ch[0]);
+      return (dc[0]===ch[0]&&dc[1]===ch[1])||(dc[0]===ch[1]&&dc[1]===ch[0]);
     });
 
-    var dx = c2.x - c1.x, dy = c2.y - c1.y;
-    var len = Math.sqrt(dx*dx + dy*dy) || 1;
-    var px = -dy/len, py = dx/len;
-    var offset = (idx - (total-1)/2) * 7;
-    var x1 = c1.x + px*offset, y1 = c1.y + py*offset;
-    var x2 = c2.x + px*offset, y2 = c2.y + py*offset;
+    var dx=c2.x-c1.x, dy=c2.y-c1.y, len=Math.sqrt(dx*dx+dy*dy)||1;
+    var px=-dy/len, py=dx/len;
+    var offset = (idx-(total-1)/2)*8;
+    var x1=c1.x+px*offset, y1=c1.y+py*offset;
+    var x2=c2.x+px*offset, y2=c2.y+py*offset;
 
     if (isDefined) {
-      // Determine color: both pers = light, both des = red, mixed = gold
-      var g1p = chart.persGates.has(ch[0]), g1d = chart.desGates.has(ch[0]);
-      var g2p = chart.persGates.has(ch[1]), g2d = chart.desGates.has(ch[1]);
-      var onlyPers = g1p && g2p && !g1d && !g2d;
-      var onlyDes = g1d && g2d && !g1p && !g2p;
-      var color = onlyPers ? '#ccc' : onlyDes ? '#e53935' : '#FFD700';
+      var g1p=chart.persGates.has(ch[0]),g1d=chart.desGates.has(ch[0]);
+      var g2p=chart.persGates.has(ch[1]),g2d=chart.desGates.has(ch[1]);
+      var onlyPers=g1p&&g2p&&!g1d&&!g2d;
+      var onlyDes=g1d&&g2d&&!g1p&&!g2p;
+
+      // Glow line underneath
+      var glowColor = onlyPers?'rgba(200,200,200,0.3)':onlyDes?'rgba(229,57,53,0.3)':'rgba(255,215,0,0.25)';
+      svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+glowColor+'" stroke-width="10" stroke-linecap="round" filter="url(#glowBig)"/>';
+
       if (!onlyPers && !onlyDes) {
-        // Draw striped: red dashed over light
-        svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#ccc" stroke-width="3.5" stroke-linecap="round" filter="url(#glowSm)"/>';
-        svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#e53935" stroke-width="3.5" stroke-dasharray="6 6" stroke-linecap="round"/>';
+        svg += '<line class="channel-line" data-ch="'+ch[0]+'-'+ch[1]+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#ddd" stroke-width="4" stroke-linecap="round" onclick="showChannelInfo('+ch[0]+','+ch[1]+')"/>';
+        svg += '<line class="channel-line" data-ch="'+ch[0]+'-'+ch[1]+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#e53935" stroke-width="4" stroke-dasharray="8 6" stroke-linecap="round" onclick="showChannelInfo('+ch[0]+','+ch[1]+')"/>';
       } else {
-        svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+color+'" stroke-width="3.5" stroke-linecap="round" filter="url(#glowSm)"/>';
+        var color = onlyPers?'#ddd':'#e53935';
+        svg += '<line class="channel-line" data-ch="'+ch[0]+'-'+ch[1]+'" x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="'+color+'" stroke-width="4" stroke-linecap="round" onclick="showChannelInfo('+ch[0]+','+ch[1]+')"/>';
       }
-      // Gate labels
-      var mx = (x1+x2)/2, my = (y1+y2)/2;
-      svg += '<text x="'+(mx+px*8)+'" y="'+(my+py*8)+'" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="8" font-weight="600">'+ch[0]+'-'+ch[1]+'</text>';
+
+      // Gate number badges at each end
+      var bx1=x1+(x2-x1)*0.18, by1=y1+(y2-y1)*0.18;
+      var bx2=x1+(x2-x1)*0.82, by2=y1+(y2-y1)*0.82;
+      svg += '<circle cx="'+bx1+'" cy="'+by1+'" r="9" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>';
+      svg += '<text x="'+bx1+'" y="'+(by1+3.5)+'" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-weight="700">'+ch[0]+'</text>';
+      svg += '<circle cx="'+bx2+'" cy="'+by2+'" r="9" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>';
+      svg += '<text x="'+bx2+'" y="'+(by2+3.5)+'" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-weight="700">'+ch[1]+'</text>';
     } else {
-      svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>';
+      svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" stroke-dasharray="3 4"/>';
     }
   });
 
-  // Draw centers
+  // Draw centers (larger, more detailed)
   for (var name in CP) {
     var c = CP[name];
     var isDef = chart.definedCenters.has(name);
-    var fill = isDef ? c.color : 'none';
-    var stroke = isDef ? c.color : 'rgba(255,255,255,0.2)';
-    var opacity = isDef ? '0.55' : '1';
-    var sw = isDef ? '2' : '1';
-    var filt = isDef ? ' filter="url(#glow)"' : '';
+    var fill = isDef ? c.color : 'rgba(255,255,255,0.02)';
+    var stroke = isDef ? c.color : 'rgba(255,255,255,0.15)';
+    var opacity = isDef ? '0.6' : '1';
+    var sw = isDef ? '2.5' : '1';
+    var onclick = ' onclick="showCenterInfo(\''+name+'\')"';
 
+    // Glow behind defined centers
+    if (isDef) {
+      svg += '<circle cx="'+c.x+'" cy="'+c.y+'" r="'+(c.w*0.7)+'" fill="'+c.glow+'" filter="url(#glowBig)"/>';
+    }
+
+    var points;
     switch(c.shape) {
-      case 'td': // triangle down
-        svg += '<polygon points="'+(c.x-c.w/2)+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+(c.y-c.h/2)+' '+c.x+','+(c.y+c.h/2)+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+      case 'td':
+        points = (c.x-c.w/2)+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+(c.y-c.h/2)+' '+c.x+','+(c.y+c.h/2);
+        svg += '<polygon class="center-shape" points="'+points+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+onclick+'/>';
         break;
-      case 'sq': // square
-        svg += '<rect x="'+(c.x-c.w/2)+'" y="'+(c.y-c.h/2)+'" width="'+c.w+'" height="'+c.h+'" rx="4" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+      case 'sq':
+        svg += '<rect class="center-shape" x="'+(c.x-c.w/2)+'" y="'+(c.y-c.h/2)+'" width="'+c.w+'" height="'+c.h+'" rx="6" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+onclick+'/>';
         break;
-      case 'dm': // diamond
-        svg += '<polygon points="'+c.x+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+c.y+' '+c.x+','+(c.y+c.h/2)+' '+(c.x-c.w/2)+','+c.y+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+      case 'dm':
+        points = c.x+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+c.y+' '+c.x+','+(c.y+c.h/2)+' '+(c.x-c.w/2)+','+c.y;
+        svg += '<polygon class="center-shape" points="'+points+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+onclick+'/>';
         break;
-      case 'tr': // triangle right
-        svg += '<polygon points="'+(c.x-c.w/2)+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+c.y+' '+(c.x-c.w/2)+','+(c.y+c.h/2)+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+      case 'tr':
+        points = (c.x-c.w/2)+','+(c.y-c.h/2)+' '+(c.x+c.w/2)+','+c.y+' '+(c.x-c.w/2)+','+(c.y+c.h/2);
+        svg += '<polygon class="center-shape" points="'+points+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+onclick+'/>';
         break;
-      case 'tl': // triangle left
-        svg += '<polygon points="'+(c.x+c.w/2)+','+(c.y-c.h/2)+' '+(c.x-c.w/2)+','+c.y+' '+(c.x+c.w/2)+','+(c.y+c.h/2)+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+filt+'/>';
+      case 'tl':
+        points = (c.x+c.w/2)+','+(c.y-c.h/2)+' '+(c.x-c.w/2)+','+c.y+' '+(c.x+c.w/2)+','+(c.y+c.h/2);
+        svg += '<polygon class="center-shape" points="'+points+'" fill="'+fill+'" fill-opacity="'+opacity+'" stroke="'+stroke+'" stroke-width="'+sw+'"'+onclick+'/>';
         break;
     }
+
     // Center label
-    var label = {head:'HEAD',ajna:'AJNA',throat:'THROAT',g:'G',heart:'HEART',spleen:'SPLEEN',sacral:'SACRAL',solar:'SOLAR\nPLEXUS',root:'ROOT'};
-    var textY = c.y + (c.shape === 'td' ? -2 : 4);
-    var textColor = isDef ? '#fff' : 'rgba(255,255,255,0.35)';
-    var fontSize = name === 'solar' ? '6.5' : '7.5';
-    if (name === 'solar') {
-      svg += '<text x="'+c.x+'" y="'+(textY-3)+'" text-anchor="middle" fill="'+textColor+'" font-size="'+fontSize+'" font-weight="700">SOLAR</text>';
-      svg += '<text x="'+c.x+'" y="'+(textY+5)+'" text-anchor="middle" fill="'+textColor+'" font-size="'+fontSize+'" font-weight="700">PLEXUS</text>';
+    var labels = {head:'HEAD',ajna:'AJNA',throat:'THROAT',g:'G',heart:'HEART',spleen:'SPLEEN',sacral:'SACRAL',solar:'',root:'ROOT'};
+    var textY = c.y + (c.shape==='td'?-3:5);
+    var textColor = isDef?'#fff':'rgba(255,255,255,0.3)';
+    if (name==='solar') {
+      svg += '<text x="'+c.x+'" y="'+(textY-3)+'" text-anchor="middle" fill="'+textColor+'" font-size="7" font-weight="700" pointer-events="none">SOLAR</text>';
+      svg += '<text x="'+c.x+'" y="'+(textY+5)+'" text-anchor="middle" fill="'+textColor+'" font-size="7" font-weight="700" pointer-events="none">PLEXUS</text>';
     } else {
-      svg += '<text x="'+c.x+'" y="'+textY+'" text-anchor="middle" fill="'+textColor+'" font-size="'+fontSize+'" font-weight="700">'+label[name]+'</text>';
+      svg += '<text x="'+c.x+'" y="'+textY+'" text-anchor="middle" fill="'+textColor+'" font-size="8" font-weight="700" pointer-events="none">'+labels[name]+'</text>';
     }
+
+    // Show defined/undefined status badge
+    var statusY = c.y + (c.shape==='td'?c.h/2+14:c.h/2+14);
+    if (name==='heart'||name==='solar') statusY = c.y+c.h/2+10;
+    if (name==='spleen') statusY = c.y+c.h/2+10;
+    var statusColor = isDef?'rgba(255,215,0,0.5)':'rgba(255,255,255,0.15)';
+    var statusText = isDef?'Defined':'Open';
+    svg += '<text x="'+c.x+'" y="'+statusY+'" text-anchor="middle" fill="'+statusColor+'" font-size="6.5" font-weight="500" pointer-events="none">'+statusText+'</text>';
   }
 
   svg += '</svg>';
   return svg;
+}
+
+// === CENTER INFO DATA ===
+var CENTER_INFO = {
+  head: {
+    title:'Head Center',theme:'Inspiration & Mental Pressure',
+    defined:'You have a consistent way of being inspired. You generate questions and mental pressure in a reliable way. You know what is worth thinking about.',
+    open:'You are open to all kinds of inspiration and questions. You may feel pressure to answer questions that are not yours. Wisdom comes from knowing you do not need to answer every question.',
+    gates:[61,63,64]
+  },
+  ajna: {
+    title:'Ajna Center',theme:'Conceptualization & Mental Processing',
+    defined:'You have a fixed way of processing information. Your mind works in a consistent pattern - whether analytical, logical, or abstract. Others can rely on your mental perspective.',
+    open:'You are mentally flexible and can see things from many perspectives. The challenge is not getting attached to certainty. Your gift is being able to understand how everyone thinks.',
+    gates:[4,11,17,24,43,47]
+  },
+  throat: {
+    title:'Throat Center',theme:'Communication & Manifestation',
+    defined:'You have a consistent voice and way of expressing yourself. You are designed to speak and act in a reliable way. This is the center of manifestation - turning ideas into reality.',
+    open:'Your voice and expression change depending on who you are with. You may feel pressure to talk or prove yourself. Wisdom is knowing when to speak and when to stay silent.',
+    gates:[8,12,16,20,23,31,33,35,45,56,62]
+  },
+  g: {
+    title:'G Center (Identity)',theme:'Identity, Direction & Love',
+    defined:'You have a fixed sense of identity and direction. You know who you are and where you are going. Others feel this certainty and are drawn to it. You are a compass for others.',
+    open:'Your identity and sense of direction shift depending on your environment and the people around you. You are deeply affected by place. Find the right environment and the right direction follows.',
+    gates:[1,2,7,10,13,15,25,46]
+  },
+  heart: {
+    title:'Heart / Will Center',theme:'Willpower, Ego & Material Value',
+    defined:'You have consistent access to willpower. You can make and keep promises. You understand material value and have natural drive to prove your worth. Rest after exertion.',
+    open:'You do not have consistent willpower - and you are not meant to. Do not make promises under pressure. You can sense what is truly valuable to others. Your worth is not something to prove.',
+    gates:[21,26,40,51]
+  },
+  spleen: {
+    title:'Spleen Center',theme:'Intuition, Health & Survival',
+    defined:'You have a reliable immune system and consistent intuitive awareness. You feel safe and grounded in the present moment. Your body tells you what is healthy and what is not.',
+    open:'You are deeply sensitive to your environment - you amplify health and fear. You may hold on to things (relationships, jobs, habits) longer than healthy because letting go feels unsafe. Trust that security comes from within.',
+    gates:[18,28,32,44,48,50,57]
+  },
+  sacral: {
+    title:'Sacral Center',theme:'Life Force Energy, Sexuality & Work',
+    defined:'You are a Generator or Manifesting Generator with sustainable life force energy. You have a powerful motor that responds with gut sounds - "uh-huh" (yes) or "uh-uh" (no). Follow your response, not your mind.',
+    open:'You do not have your own consistent life force energy. You amplify and mirror others\' sacral energy. You may not know when enough is enough. The key is knowing when to stop working and rest.',
+    gates:[3,5,9,14,27,29,34,42,59]
+  },
+  solar: {
+    title:'Solar Plexus Center',theme:'Emotions, Feelings & Desire',
+    defined:'You experience emotional waves - highs and lows that move in cycles. NEVER make decisions in the moment. Wait for emotional clarity. Your truth is revealed over time, not in a single feeling.',
+    open:'You take in and amplify the emotions of others. You may think others\' feelings are your own. Your gift is emotional wisdom - you can feel what everyone in the room is feeling. Avoid making decisions to escape emotional discomfort.',
+    gates:[6,22,30,36,37,49,55]
+  },
+  root: {
+    title:'Root Center',theme:'Adrenaline, Stress & Drive',
+    defined:'You have a consistent way of handling stress and pressure. You work well under deadlines. Your adrenaline is reliable and you can channel pressure into productivity.',
+    open:'You amplify stress and pressure from others and your environment. You may rush to get things done just to relieve the pressure. The wisdom is learning that the pressure is not yours - slow down.',
+    gates:[19,38,39,41,52,53,54,58,60]
+  }
+};
+
+// === CHANNEL INFO DATA ===
+var CHANNEL_INFO = {
+  '1-8':{name:'Inspiration',desc:'The Channel of Inspiration. The creative expression that makes a unique contribution. Gate 1 (Creative) in the G Center to Gate 8 (Contribution) in the Throat. You inspire others through authentic creative expression.'},
+  '2-14':{name:'The Beat',desc:'The Channel of the Beat. The power of direction meeting resources. Gate 2 (Receptive) in the G Center to Gate 14 (Power Skills) in the Sacral. You have the energy to move in a direction that empowers others.'},
+  '3-60':{name:'Mutation',desc:'The Channel of Mutation. Accepting limits to create change. Gate 3 (Ordering) in the Sacral to Gate 60 (Limitation) in the Root. You carry the energy of transformation - bringing something entirely new into existence.'},
+  '4-63':{name:'Logic',desc:'The Channel of Logic. Mental answers seeking proof. Gate 63 (Doubt) in the Head to Gate 4 (Youthful Folly) in the Ajna. A logical mind that doubts and questions until it finds provable answers.'},
+  '5-15':{name:'Rhythm',desc:'The Channel of Rhythm. Being in flow with universal timing. Gate 5 (Waiting) in the Sacral to Gate 15 (Extremes) in the G Center. You embody natural rhythms and help others find their flow.'},
+  '6-59':{name:'Intimacy',desc:'The Channel of Intimacy. Emotional bonding and reproduction. Gate 59 (Sexuality) in the Sacral to Gate 6 (Friction) in the Solar Plexus. Deep emotional-physical connection that can create new life - literal or figurative.'},
+  '7-31':{name:'The Alpha',desc:'The Channel of the Alpha. Leadership through democratic guidance. Gate 7 (The Army) in the G Center to Gate 31 (Leadership) in the Throat. Born to lead - but only when recognized and elected by others.'},
+  '9-52':{name:'Concentration',desc:'The Channel of Concentration. The ability to focus deeply. Gate 9 (Focus) in the Sacral to Gate 52 (Inaction) in the Root. Extraordinary ability to sit still and concentrate energy on details.'},
+  '10-20':{name:'Awakening',desc:'The Channel of Awakening. Being in the now through self-love. Gate 10 (Self-Love) in the G Center to Gate 20 (The Now) in the Throat. Spontaneous, authentic expression of who you truly are in each moment.'},
+  '10-34':{name:'Exploration',desc:'The Channel of Exploration. Following your own convictions. Gate 10 (Self-Love) in the G Center to Gate 34 (Power) in the Sacral. Powerful individuality - you explore life on your own terms.'},
+  '10-57':{name:'Perfected Form',desc:'The Channel of Perfected Form. Intuitive self-love and survival. Gate 10 (Self-Love) in the G Center to Gate 57 (Intuition) in the Spleen. A deeply intuitive sense of self - you know instinctively how to be yourself.'},
+  '11-56':{name:'Curiosity',desc:'The Channel of Curiosity. Stimulating ideas seeking a voice. Gate 11 (Ideas) in the Ajna to Gate 56 (Stimulation) in the Throat. A natural storyteller with an endless stream of ideas and experiences to share.'},
+  '12-22':{name:'Openness',desc:'The Channel of Openness. Social emotional expression. Gate 12 (Caution) in the Throat to Gate 22 (Openness) in the Solar Plexus. Emotional depth expressed through social grace - art, music, or heartfelt words.'},
+  '13-33':{name:'The Prodigal',desc:'The Channel of the Prodigal. A witness returning with experience. Gate 13 (The Listener) in the G Center to Gate 33 (Privacy) in the Throat. You collect and share the wisdom of experience - a natural historian.'},
+  '16-48':{name:'The Wavelength',desc:'The Channel of the Wavelength. Talent meeting depth. Gate 16 (Skills) in the Throat to Gate 48 (Depth) in the Spleen. Mastery through practice - you develop deep skills and express them with talent.'},
+  '17-62':{name:'Acceptance',desc:'The Channel of Acceptance. Organizing opinions into details. Gate 17 (Opinions) in the Ajna to Gate 62 (Details) in the Throat. A logical mind that organizes complex patterns into understandable frameworks.'},
+  '18-58':{name:'Judgment',desc:'The Channel of Judgment. Joy of correcting what can be improved. Gate 18 (Correction) in the Spleen to Gate 58 (Vitality) in the Root. Driven to perfect and improve - you see what is broken and how to fix it.'},
+  '19-49':{name:'Synthesis',desc:'The Channel of Synthesis. Sensitivity to community needs. Gate 19 (Wanting) in the Root to Gate 49 (Principles) in the Solar Plexus. Deep sensitivity to the needs of the group - you feel when principles must be upheld or revolution is needed.'},
+  '20-34':{name:'Charisma',desc:'The Channel of Charisma. Immediate, powerful presence. Gate 20 (The Now) in the Throat to Gate 34 (Power) in the Sacral. Pure power of presence - you act in the now with immediate, busy energy.'},
+  '20-57':{name:'The Brainwave',desc:'The Channel of the Brainwave. Intuitive awareness in the now. Gate 20 (The Now) in the Throat to Gate 57 (Intuition) in the Spleen. Penetrating intuitive awareness expressed spontaneously - you know things before you can explain them.'},
+  '21-45':{name:'Money Line',desc:'The Channel of the Money Line. Material control and gathering. Gate 21 (Control) in the Heart to Gate 45 (The Gatherer) in the Throat. Natural ability to control resources and build material wealth.'},
+  '23-43':{name:'Structuring',desc:'The Channel of Structuring. Genius insights expressed uniquely. Gate 43 (Insight) in the Ajna to Gate 23 (Assimilation) in the Throat. A unique, individual mind that produces breakthrough insights - often misunderstood at first.'},
+  '24-61':{name:'Awareness',desc:'The Channel of Awareness. A thinker seeking mystery. Gate 61 (Mystery) in the Head to Gate 24 (Rationalizing) in the Ajna. A mind drawn to the deepest mysteries of existence - always processing and seeking inner truth.'},
+  '25-51':{name:'Initiation',desc:'The Channel of Initiation. The competitive spirit of innocence. Gate 25 (Innocence) in the G Center to Gate 51 (Shock) in the Heart. The warrior spirit - you initiate boldly from a place of universal love.'},
+  '26-44':{name:'Surrender',desc:'The Channel of Surrender. Transmitting memory into persuasion. Gate 26 (The Trickster) in the Heart to Gate 44 (Alertness) in the Spleen. Instinctive business intelligence - you sense what people need and can sell it.'},
+  '27-50':{name:'Preservation',desc:'The Channel of Preservation. Custodianship and nurturing. Gate 27 (Caring) in the Sacral to Gate 50 (Values) in the Spleen. Deep caring instinct that preserves values and nurtures community.'},
+  '28-38':{name:'Struggle',desc:'The Channel of Struggle. Finding meaning through challenge. Gate 28 (The Player) in the Spleen to Gate 38 (The Fighter) in the Root. Driven to find purpose through struggle - you fight for what matters and inspire others with your tenacity.'},
+  '29-46':{name:'Discovery',desc:'The Channel of Discovery. Commitment meeting serendipity. Gate 29 (Commitment) in the Sacral to Gate 46 (Serendipity) in the G Center. Saying yes to experiences and being in the right place at the right time.'},
+  '30-41':{name:'Recognition',desc:'The Channel of Recognition. Desire seeking new experience. Gate 41 (Contraction) in the Root to Gate 30 (Desire) in the Solar Plexus. Emotional pressure to begin new experiences - the fuel for human evolution.'},
+  '32-54':{name:'Transformation',desc:'The Channel of Transformation. Ambition meeting continuity. Gate 54 (Ambition) in the Root to Gate 32 (Continuity) in the Spleen. Driven, ambitious energy that transforms itself and the world through relentless effort.'},
+  '34-57':{name:'Power',desc:'The Channel of Power. Pure intuitive power. Gate 34 (Power) in the Sacral to Gate 57 (Intuition) in the Spleen. Immediate, powerful action guided by deep intuition - the archetype of the human animal.'},
+  '35-36':{name:'Transitoriness',desc:'The Channel of Transitoriness. Seeking new emotional experience. Gate 35 (Change) in the Throat to Gate 36 (Crisis) in the Solar Plexus. A restless adventurer seeking new experiences - boredom is your greatest fear.'},
+  '37-40':{name:'Community',desc:'The Channel of Community. Family and bargains. Gate 37 (Friendship) in the Solar Plexus to Gate 40 (Aloneness) in the Heart. The foundation of community - loyalty, friendship and fair exchange of resources.'},
+  '39-55':{name:'Emoting',desc:'The Channel of Emoting. Provocation creating emotional depth. Gate 39 (Provocation) in the Root to Gate 55 (Spirit) in the Solar Plexus. Creative emotional spirit - your moods provoke others into feeling deeply.'},
+  '42-53':{name:'Maturation',desc:'The Channel of Maturation. Balanced beginnings and endings. Gate 53 (Beginnings) in the Root to Gate 42 (Growth) in the Sacral. The full cycle of experience - you start things and see them through to completion.'},
+  '47-64':{name:'Abstraction',desc:'The Channel of Abstraction. Making sense of the past. Gate 64 (Confusion) in the Head to Gate 47 (Realization) in the Ajna. A visual, abstract mind that processes life through images and patterns - eventually arriving at clarity.'}
+};
+
+// === INFO PANEL FUNCTIONS ===
+function showCenterInfo(name) {
+  var info = CENTER_INFO[name];
+  if (!info || !_currentChart) return;
+  var isDef = _currentChart.definedCenters.has(name);
+  var panel = document.getElementById('infoPanel');
+  document.getElementById('ipSubtitle').textContent = (isDef?'DEFINED':'OPEN') + ' CENTER';
+  document.getElementById('ipTitle').textContent = info.title + ' - ' + info.theme;
+  document.getElementById('ipBody').innerHTML = '<p>'+(isDef?info.defined:info.open)+'</p>';
+
+  // Show gates in this center
+  var gatesHtml = '';
+  info.gates.forEach(function(g) {
+    var inPers = _currentChart.persGates.has(g);
+    var inDes = _currentChart.desGates.has(g);
+    if (inPers && inDes) gatesHtml += '<span class="ip-gate ip-gate-both">Gate '+g+' - '+GNAMES[g]+' (both)</span>';
+    else if (inPers) gatesHtml += '<span class="ip-gate ip-gate-pers">Gate '+g+' - '+GNAMES[g]+' (personality)</span>';
+    else if (inDes) gatesHtml += '<span class="ip-gate ip-gate-des">Gate '+g+' - '+GNAMES[g]+' (design)</span>';
+    else gatesHtml += '<span class="ip-gate" style="background:rgba(255,255,255,0.03);color:var(--text-faint)">Gate '+g+' - '+GNAMES[g]+' (inactive)</span>';
+  });
+  document.getElementById('ipGates').innerHTML = gatesHtml;
+
+  panel.classList.add('visible');
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function showChannelInfo(g1, g2) {
+  var key = g1+'-'+g2;
+  var info = CHANNEL_INFO[key] || CHANNEL_INFO[g2+'-'+g1];
+  if (!info || !_currentChart) return;
+  var c1 = G2C[g1], c2 = G2C[g2];
+  var panel = document.getElementById('infoPanel');
+  document.getElementById('ipSubtitle').textContent = 'DEFINED CHANNEL - ' + CENTER_NAMES[c1] + ' \u2194 ' + CENTER_NAMES[c2];
+  document.getElementById('ipTitle').textContent = 'Channel ' + g1 + '-' + g2 + ': ' + info.name;
+  document.getElementById('ipBody').innerHTML = '<p>'+info.desc+'</p>';
+
+  var gatesHtml = '';
+  [g1,g2].forEach(function(g) {
+    var inPers = _currentChart.persGates.has(g);
+    var inDes = _currentChart.desGates.has(g);
+    if (inPers && inDes) gatesHtml += '<span class="ip-gate ip-gate-both">Gate '+g+' - '+GNAMES[g]+' (both)</span>';
+    else if (inPers) gatesHtml += '<span class="ip-gate ip-gate-pers">Gate '+g+' - '+GNAMES[g]+' (personality)</span>';
+    else gatesHtml += '<span class="ip-gate ip-gate-des">Gate '+g+' - '+GNAMES[g]+' (design)</span>';
+  });
+  document.getElementById('ipGates').innerHTML = gatesHtml;
+
+  panel.classList.add('visible');
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closeInfoPanel() {
+  document.getElementById('infoPanel').classList.remove('visible');
 }
 
 // === UI: CALCULATE AND DISPLAY ===
