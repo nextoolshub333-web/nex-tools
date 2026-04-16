@@ -37,7 +37,7 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero-animated" style="position:relative;overflow:hidden">
     <div class="container">
       <h1>Decode Your Spiritual Blueprint</h1>
       <p>Free calculators for Angel Numbers, Destiny Matrix, Human Design, Life Path and more. Instant results, zero signup.</p>
@@ -208,6 +208,21 @@
       alert('Thanks! Check your email for the free guide.');
       return false;
     }
+
+    // Scroll reveal animations
+    (function() {
+      var targets = document.querySelectorAll('.card, .blog-item, .section h2, .cta-box, .section > .container > p');
+      targets.forEach(function(el) { el.classList.add('reveal'); });
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      targets.forEach(function(el) { observer.observe(el); });
+    })();
   </script>
 
 </body>

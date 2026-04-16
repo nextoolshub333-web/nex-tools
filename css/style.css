@@ -480,6 +480,71 @@ a:hover { color: var(--gold-soft); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
+.card-grid .reveal:nth-child(3) { transition-delay: 0.2s; }
+.card-grid .reveal:nth-child(4) { transition-delay: 0.25s; }
+.card-grid .reveal:nth-child(5) { transition-delay: 0.3s; }
+
+/* Hero gradient animation */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+.hero-animated {
+  background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 25%, #2D1B69 50%, #1A1A2E 75%, #0A0A0F 100%);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* Floating particles */
+.hero-animated::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 25%, rgba(255,215,0,0.4), transparent),
+    radial-gradient(1px 1px at 45% 65%, rgba(255,215,0,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 75% 35%, rgba(255,215,0,0.35), transparent),
+    radial-gradient(1px 1px at 85% 80%, rgba(107,77,171,0.4), transparent),
+    radial-gradient(1px 1px at 25% 85%, rgba(107,77,171,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 55% 15%, rgba(255,215,0,0.25), transparent),
+    radial-gradient(1px 1px at 35% 50%, rgba(107,77,171,0.35), transparent),
+    radial-gradient(1px 1px at 90% 45%, rgba(255,215,0,0.3), transparent);
+  animation: particleDrift 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-animated > * { position: relative; z-index: 1; }
+@keyframes particleDrift {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-8px) translateX(4px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+/* Gold glow pulse on CTA hover */
+.btn-gold:hover {
+  animation: goldPulse 1.5s ease infinite;
+}
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 4px 24px rgba(255,215,0,0.35); }
+  50% { box-shadow: 0 4px 32px rgba(255,215,0,0.55), 0 0 48px rgba(255,215,0,0.15); }
+}
+
+/* Card hover glow */
+.card:hover {
+  box-shadow: 0 8px 32px rgba(255,215,0,0.12), 0 0 0 1px rgba(255,215,0,0.2);
+}
+
 /* Print */
 @media print {
   .site-header, .site-footer, .cta-box, .email-popup-overlay { display: none; }
