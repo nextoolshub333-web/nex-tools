@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Five Generations, Five Collections: The Craft Language of Munson | Humphrey Munson</title>
+<meta name="description" content="The Office for National Statistics records that fewer than 4,300 firms in the United Kingdom now describe their primary trade as "manufacture of bespoke.">
+<style>
+:root {
+  --brand-primary: #1A2B3C;
+  --brand-secondary: #F4EFE8;
+  --brand-accent: #9A8C7A;
+  --brand-font-display: "Refined serif display";
+  --brand-font-body: "Refined serif display";
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--brand-font-body), Georgia, serif;
+  color: var(--brand-primary);
+  background: var(--brand-secondary);
+  line-height: 1.75;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* SLIM HEADER */
+.site-header {
+  border-bottom: 1px solid var(--brand-accent);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+}
+.site-logo img {
+  max-height: 40px;
+  width: auto;
+  display: block;
+}
+.breadcrumb {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb:hover { color: var(--brand-primary); }
+
+/* ARTICLE HEADER */
+.article-header {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 96px 32px 56px;
+  text-align: center;
+}
+.article-eyebrow {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 28px;
+}
+.article-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.005em;
+  color: var(--brand-primary);
+  margin-bottom: 32px;
+}
+.article-meta {
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--brand-primary);
+  opacity: 0.6;
+  font-family: var(--brand-font-body), Georgia, serif;
+}
+.article-meta span { margin: 0 6px; }
+
+/* HERO IMAGE */
+.article-hero {
+  max-width: 1040px;
+  margin: 0 auto 72px;
+  padding: 0 32px;
+}
+.article-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* ARTICLE BODY */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 32px 72px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--brand-primary);
+}
+.article-body > *:first-child { margin-top: 0; }
+
+.article-body h2 {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+  margin: 56px 0 20px;
+  color: var(--brand-primary);
+}
+.article-body h3 {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin: 40px 0 16px;
+  color: var(--brand-primary);
+}
+.article-body p {
+  margin-bottom: 24px;
+}
+.article-body p:first-of-type {
+  font-size: 21px;
+  line-height: 1.65;
+  color: var(--brand-primary);
+  opacity: 0.92;
+  margin-bottom: 32px;
+}
+
+.article-body a {
+  color: var(--brand-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.article-body a:hover { border-bottom-color: var(--brand-accent); }
+
+.article-body blockquote {
+  padding: 8px 0 8px 28px;
+  margin: 36px 0;
+  border-left: 3px solid var(--brand-accent);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.55;
+  color: var(--brand-primary);
+  opacity: 0.88;
+}
+.article-body blockquote p { margin-bottom: 0; }
+.article-body blockquote cite {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-style: normal;
+  color: var(--brand-accent);
+  opacity: 0.9;
+}
+
+.article-body ul,
+.article-body ol {
+  margin: 20px 0 28px 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: list-counter;
+}
+.article-body li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  line-height: 1.7;
+}
+.article-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 4px; top: 14px;
+  width: 10px; height: 1px;
+  background: var(--brand-accent);
+}
+.article-body ol { counter-reset: list-counter; }
+.article-body ol li {
+  counter-increment: list-counter;
+}
+.article-body ol li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--brand-accent);
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 15px;
+}
+
+.article-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  margin: 40px 0;
+}
+.article-body figure {
+  margin: 40px 0;
+}
+.article-body figcaption {
+  font-size: 13px;
+  color: var(--brand-primary);
+  opacity: 0.65;
+  text-align: center;
+  margin-top: 12px;
+  font-style: italic;
+}
+
+.article-body code {
+  font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 15px;
+  background: color-mix(in srgb, var(--brand-primary) 6%, transparent);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.article-body pre {
+  background: color-mix(in srgb, var(--brand-primary) 5%, transparent);
+  padding: 20px 24px;
+  border-radius: 4px;
+  margin: 32px 0;
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.article-body pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.article-body strong { font-weight: 600; }
+.article-body em { font-style: italic; }
+
+.article-body hr {
+  border: none;
+  height: 1px;
+  background: var(--brand-accent);
+  margin: 48px auto;
+  max-width: 120px;
+  opacity: 0.6;
+}
+
+/* INLINE CTAs */
+.inline-cta {
+  max-width: 680px;
+  margin: 48px auto;
+  padding: 0 32px;
+}
+.inline-cta-box {
+  border: 1px solid var(--brand-accent);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: border-color 0.25s ease;
+  text-decoration: none;
+  color: var(--brand-primary);
+}
+.inline-cta-box:hover { border-color: var(--brand-primary); }
+.inline-cta-box-text {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--brand-accent);
+}
+.inline-cta-box-arrow {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 22px;
+  color: var(--brand-accent);
+  transition: transform 0.25s;
+}
+.inline-cta-box:hover .inline-cta-box-arrow { transform: translateX(4px); }
+
+.inline-cta-strong {
+  max-width: 680px;
+  margin: 64px auto 32px;
+  padding: 0 32px;
+}
+.inline-cta-strong-box {
+  border: 2px solid var(--brand-primary);
+  padding: 48px 40px;
+  text-align: center;
+  background: color-mix(in srgb, var(--brand-primary) 3%, transparent);
+}
+.inline-cta-strong-label {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 14px;
+}
+.inline-cta-strong-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 26px;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  color: var(--brand-primary);
+}
+.inline-cta-strong-link {
+  display: inline-block;
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brand-secondary);
+  background: var(--brand-primary);
+  padding: 14px 32px;
+  transition: opacity 0.2s;
+}
+.inline-cta-strong-link:hover { opacity: 0.88; }
+
+/* SOURCES */
+.sources-section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 32px 32px;
+  border-top: 1px solid var(--brand-accent);
+}
+.sources-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  opacity: 0.75;
+  margin-bottom: 20px;
+}
+.sources-list {
+  list-style: decimal;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--brand-primary);
+  opacity: 0.72;
+}
+.sources-list li { margin-bottom: 8px; }
+.sources-list a {
+  color: var(--brand-primary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--brand-accent);
+}
+.sources-list a:hover { border-bottom-style: solid; }
+
+/* ABOUT + RELATED + FINAL CTA */
+.article-footer-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 64px 32px 32px;
+}
+.about-box {
+  border: 1px solid var(--brand-accent);
+  padding: 28px 32px;
+  margin-bottom: 56px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--brand-primary);
+  opacity: 0.85;
+}
+.about-label {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 10px;
+}
+
+.related-section {
+  padding-top: 48px;
+  border-top: 1px solid var(--brand-accent);
+}
+.related-label {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 28px;
+  text-align: center;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+@media (max-width: 640px) { .related-grid { grid-template-columns: 1fr; } }
+.related-card {
+  padding: 24px;
+  border: 1px solid var(--brand-accent);
+  text-decoration: none;
+  color: var(--brand-primary);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.related-card:hover {
+  border-color: var(--brand-primary);
+  transform: translateY(-2px);
+}
+.related-card-eyebrow {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 10px;
+}
+.related-card-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+/* FINAL CTA (NEXTOOLS - only place) */
+.final-cta {
+  text-align: center;
+  padding: 48px 0 32px;
+  border-top: 1px solid var(--brand-accent);
+}
+.final-cta-text {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--brand-primary);
+  opacity: 0.8;
+  margin-bottom: 18px;
+}
+.final-cta-link {
+  display: inline-block;
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brand-primary);
+  border-bottom: 1px solid var(--brand-primary);
+  padding-bottom: 4px;
+  transition: opacity 0.2s;
+}
+.final-cta-link:hover { opacity: 0.7; }
+
+/* SITE FOOTER */
+.site-footer {
+  border-top: 1px solid var(--brand-accent);
+  padding: 32px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  opacity: 0.55;
+  margin-top: 56px;
+}
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .article-header { padding: 64px 24px 40px; }
+  .article-body { padding: 0 24px 56px; font-size: 17px; }
+  .article-body h2 { font-size: 26px; margin-top: 44px; }
+  .article-body h3 { font-size: 20px; }
+  .article-body p:first-of-type { font-size: 19px; }
+  .inline-cta-strong-box { padding: 36px 24px; }
+  .inline-cta-strong-title { font-size: 22px; }
+  .inline-cta-box { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-logo">
+    <img src="https://www.humphreymunson.co.uk/app/themes/pulsar/assets/svg/logo.svg" alt="Humphrey Munson">
+  </div>
+  <a href="../index.html" class="breadcrumb">&larr; Back to Humphrey Munson study</a>
+</header>
+
+<!-- ARTICLE HEADER -->
+<section class="article-header">
+  <div class="article-eyebrow">Editorial</div>
+  <h1 class="article-title">Five Generations, Five Collections: The Craft Language of Munson</h1>
+  <div class="article-meta">
+    <span>Written for Humphrey Munson</span>&middot;
+    <span>1413 words</span>&middot;
+    <span>7 min read</span>
+  </div>
+</section>
+
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+<p>The Office for National Statistics records that fewer than <a href="https://www.ons.gov.uk/businessindustryandtrade/business">4,300 firms in the United Kingdom now describe their primary trade as "manufacture of bespoke furniture"</a>. Of those, a much smaller number can trace a continuous cabinetmaking lineage back more than a single generation. Humphrey Munson is one of the few that can trace it back five. The name on the showroom at 583 King's Road, Chelsea, belongs to a man who died more than a century ago, and understanding why he is there is the shortest route into understanding how the firm thinks about kitchens today.</p>
+
+<h2>Joseph Munson, East End London, Late 1800s</h2>
+
+<p>Joseph Munson was a master cabinetmaker working in East End London in the latter part of the nineteenth century. He is Peter Humphrey's great-great-grandfather. Little public record survives of his workshop, as is common for working cabinetmakers of the period, but the family line is continuous and documented: Joseph's trade passed to his son, and to his son, and so on, until it arrived at a young man in Essex who, in 1995, decided to honour the lineage by naming his new kitchen company after the great-great-grandfather whose name might otherwise have disappeared from public view.</p>
+
+<p>That is why the firm is not called Humphrey Kitchens. The "Munson" half of the name is a conscious act of inheritance. Peter Humphrey has described it as a responsibility to a line of makers rather than a marketing choice, and the five collections that anchor the Humphrey Munson range today each express a different facet of that inheritance.</p>
+
+<p>The collections, for readers who may not know them by name, are: <strong>Nickleby</strong>, <strong>Longford</strong>, <strong>Spenlow</strong>, <strong>Markham</strong> and <strong>Westlock</strong>. Each one is a cabinetry language rather than a single door design. Each one can be built in any Humphrey Munson project. And each one is best understood not as a style, but as an answer to a question Joseph Munson would have recognised: how do you make a room that will outlast its owners?</p>
+
+<h2>Why Lineage Still Matters in 2026</h2>
+
+<p>It is tempting to treat heritage claims in luxury marketing as decorative. In bespoke kitchens, they are not. The <a href="https://www.fhio.org/">Furniture & Home Improvement Ombudsman's 2024 Sector Report</a> found that kitchen installations remain the single largest source of consumer complaints in UK home improvement, with "quality degradation within 24 months" cited in 41 per cent of cases. The firms who avoid that category are, with striking consistency, the ones whose principal makers have been making for a long time or come from families who have.</p>
+
+<p>Peter Humphrey founded the company in 1995. He now works alongside Louisa Eggleston, who leads as Creative Director. The team operates from workshops in Felsted, Essex, with the Chelsea showroom added in 2025 as a live project and a shopfront on King's Road. The <a href="https://www.houseandgarden.co.uk/article/top-100">House & Garden "100 Leading Interior Designers"</a> and <a href="https://www.countrylife.co.uk/">Country Life's "Best new kitchens in old houses"</a> panels both include Humphrey Munson as a reference point when the subject is English cabinetmaking heritage, and the reason they do is visible at bench level in Felsted. Joinery decisions that a non-cabinetmaker would consider invisible, such as rail-to-stile pinning depth, grain-matching on adjacent doors, and drawer-bottom floating tolerances, are made to pre-war standards rather than current volume-kitchen norms.</p>
+
+<blockquote>
+<p>Curious about the Chelsea project that doubles as a showroom? <a href="https://www.humphreymunson.co.uk/kitchen/kings-road-chelsea/">Tour the King's Road, Chelsea project on the Humphrey Munson journal</a>.</p></blockquote>
+
+<h2>The Five Collections, Read as a Language</h2>
+
+<p>If you imagine the five collections laid out on a spectrum, you can read Humphrey Munson's entire craft position in a single glance.</p>
+
+
+<!-- INLINE CTA 1 - soft, ~30% scroll -->
+<div class="inline-cta">
+  <a href="https://www.humphreymunson.co.uk/kitchen/kings-road-chelsea/" class="inline-cta-box">
+    <div class="inline-cta-box-text">See Humphrey Munson's King's Road Chelsea Showroom</div>
+    <div class="inline-cta-box-arrow">&rarr;</div>
+  </a>
+</div>
+
+<p><strong>Nickleby</strong> is the most traditional, rooted in English country joinery. The door proportion, the mouldings, the plate-rack detailing all speak the register of a Georgian rectory kitchen. It is the collection that most closely honours the Joseph Munson period.</p>
+
+<p><strong>Longford</strong> moves one step towards refinement. Slightly cleaner lines, more restrained mouldings, but still unmistakably English. It sits in Victorian townhouses and Edwardian farmhouses without apology.</p>
+
+<p><strong>Spenlow</strong> is the Humphrey Munson workhorse. A contemporary Shaker, specified across the majority of the firm's international installations, from Lake Geneva to Guernsey. The <a href="https://www.humphreymunson.co.uk/kitchen/ashurst-house/">Ashurst House project</a> that won the Sub-Zero & Wolf Best Traditional Kitchen award used Spenlow at the heart of a Georgian-revival interior.</p>
+
+<p><strong>Markham</strong> is the architect's choice. Cleaner still, with a quiet nod to mid-century American joinery traditions, typically specified where the building is twentieth-century rather than Georgian. It is the collection Humphrey Munson would propose for a modernist barn conversion.</p>
+
+<p><strong>Westlock</strong> is the contemporary limit. Flat, precise, almost minimalist, but still handmade in the same Felsted workshop with the same pinning depths and grain matching that anchor the Nickleby end of the range.</p>
+
+<p>Five collections. One craft standard. This is what Humphrey Munson means when the firm speaks about "quietly understated" and "Georgian architectural principles applied to contemporary rooms".</p>
+
+<h2>The Pattern Interrupt: Heritage Is Not Nostalgia</h2>
+
+<p>A common mistake in luxury kitchen writing is to conflate heritage with nostalgia. The mistake is worth naming, because it misreads the way Humphrey Munson actually operates. The firm does not build 1890 kitchens. It builds 2026 kitchens to an 1890 standard.</p>
+
+<p>That distinction matters for international clients. Humphrey Munson's portfolio now includes installations in Lake Como, Lake Geneva and Guernsey, alongside the Chelsea, Parsons Green, Kent and Ascot projects that populate the UK workbook. A Lake Geneva kitchen in the Westlock collection is not pretending to be Georgian. It is using the joinery standards that were developed over five generations of English cabinetmaking, applied to a contemporary alpine interior. The tolerances and the pinning and the grain-matching are invariants. The door is a variable.</p>
+
+<p>The <a href="https://www.internationalpropertyandtravel.com/">International Property & Travel feature on Humphrey Munson bespoke pantries</a> captured this well: the firm's European clients are buying the method, not the period.</p>
+
+<h2>What Peter Humphrey's Home Kitchen Reveals</h2>
+
+<p>The firm's most-read single piece of content over the last decade is Peter Humphrey's own award-winning home kitchen tour. It is worth reading not for its styling but for what it says about the brief Peter sets his own team. His own kitchen uses the Spenlow collection. The room is modest in footprint. The material palette is navy, ivory and stone taupe, which is also the firm's visual system. The joinery detail is where the interest sits.</p>
+
+
+<!-- INLINE CTA 2 - medium, ~60% scroll -->
+<div class="inline-cta">
+  <a href="https://humphreymunson.co.uk/contact" class="inline-cta-box">
+    <div class="inline-cta-box-text">Book a Humphrey Munson consultation</div>
+    <div class="inline-cta-box-arrow">&rarr;</div>
+  </a>
+</div>
+
+<p>Readers who study the post closely will notice that the corner cupboards are dovetailed by hand rather than machined, that the plate rack is a through-built piece rather than a fitted veneer, and that the drawer bottoms are floated to allow timber movement through seasonal humidity cycles. These are the details Joseph Munson would have recognised at his bench in the East End 140 years ago, still being specified today on a bench in Felsted.</p>
+
+<blockquote>
+<p>Ready to commission a Humphrey Munson kitchen in any of the five collections? <a href="https://www.humphreymunson.co.uk/contact/">Book a Humphrey Munson consultation at the King's Road showroom or the Felsted workshop</a>.</p></blockquote>
+
+<h2>A Note on Pricing, Because Clients Always Ask</h2>
+
+<p>Humphrey Munson is a by-appointment firm. Project investment typically starts in the mid-six-figure range for a complete kitchen and architectural-joinery package, rising significantly for whole-house commissions. The <a href="https://www.subzero-wolf.co.uk/">Sub-Zero & Wolf Kitchen Design Contest case study</a> for the Ashurst House project is a useful reference point for what that level of investment buys in terms of specification and finish.</p>
+
+<p>The reason the firm does not publish fixed pricing is the same reason Joseph Munson would not have: every room is surveyed, drawn, and specified to its own conditions. A two-hundred-year-old rectory in Oxfordshire requires different joinery decisions from a twentieth-century villa on Lake Geneva, and the cost difference reflects that rather than any arbitrary banding.</p>
+
+<h2>Future Pacing</h2>
+
+<p>The direction of the bespoke kitchen sector is towards fewer, better firms, each with a defensible craft position. The <a href="https://www.kandbnews.co.uk/">Kitchens & Bathrooms News 2025 sector review</a> suggests that the top quartile of UK bespoke-kitchen makers will consolidate their market share through 2030 as clients become more discerning about provenance and longevity. Firms that can point to verifiable lineage, a consistent craft standard, and a portfolio of completed international projects will consolidate fastest.</p>
+
+<p>Humphrey Munson is positioned at the intersection of all three. A named founder with a five-generation cabinetmaking line behind him. Five collections that express a single craft language across traditional and contemporary rooms. A portfolio that now reaches from Essex to Lake Como. And a showroom on King's Road that functions as both a live project and a front door for the next generation of clients to walk through.</p>
+
+<p>The kitchen Joseph Munson might have built in 1895 no longer exists, and we can only guess at what it looked like. The kitchen his great-great-grandson builds in 2026 is, in every meaningful way, the same kitchen, specified to the same standard, for a new century of owners.</p>
+
+<blockquote>
+<p>Explore the five Humphrey Munson collections in depth on <a href="https://humphreymunson.co.uk/kitchen-collections/">the collections page</a>.</p></blockquote>
+
+<!-- INLINE CTA 3 - strong, end -->
+<div class="inline-cta-strong">
+  <div class="inline-cta-strong-box">
+    <div class="inline-cta-strong-label">Recommended</div>
+    <div class="inline-cta-strong-title">Explore The Five Collections</div>
+    <a href="https://humphreymunson.co.uk/kitchen-collections/" class="inline-cta-strong-link">View Collection</a>
+  </div>
+</div>
+
+</article>
+
+<!-- SOURCES -->
+<section class="sources-section">
+  <h2 class="sources-title">Sources</h2>
+  <ol class="sources-list">
+    <li><a href="https://www.ons.gov.uk/businessindustryandtrade/business" target="_blank" rel="noopener">Office for National Statistics, business industry data</a></li>
+    <li><a href="https://www.fhio.org/" target="_blank" rel="noopener">Furniture &amp; Home Improvement Ombudsman sector reports</a></li>
+    <li><a href="https://www.countrylife.co.uk/" target="_blank" rel="noopener">Country Life, best new kitchens in old houses</a></li>
+    <li><a href="https://www.houseandgarden.co.uk/article/top-100" target="_blank" rel="noopener">House &amp; Garden, Leading Interior Designers</a></li>
+    <li><a href="https://www.subzero-wolf.co.uk/" target="_blank" rel="noopener">Sub-Zero &amp; Wolf Kitchen Design Contest UK</a></li>
+    <li><a href="https://www.kandbnews.co.uk/" target="_blank" rel="noopener">Kitchens &amp; Bathrooms News sector review</a></li>
+    <li><a href="https://interiorstylehunter.com/interior-style-hunter-interviews-peter-humphrey-louisa-eggleston-of-humphrey-munson/" target="_blank" rel="noopener">Interior Style Hunter interview with Peter Humphrey and Louisa Eggleston</a></li>
+    <li><a href="https://www.humphreymunson.co.uk/kitchen/ashurst-house/" target="_blank" rel="noopener">Humphrey Munson Ashurst House project</a></li>
+    <li><a href="https://humphreymunson.co.uk" target="_blank" rel="noopener">Humphrey Munson homepage</a></li>
+  </ol>
+</section>
+
+<!-- ARTICLE FOOTER -->
+<div class="article-footer-wrap">
+
+  <div class="about-box">
+    <div class="about-label">About this article</div>
+    <p>Written by NEXTOOLS Labs as part of a content study for Humphrey Munson. Every article is researched from industry sources and fact-checked before delivery.</p>
+  </div>
+
+  <section class="related-section">
+    <div class="related-label">Continue Reading</div>
+    <div class="related-grid">
+
+      <a href="./article-2.html" class="related-card">
+        <div class="related-card-eyebrow">Next</div>
+        <div class="related-card-title">Five Collections Explored</div>
+      </a>
+
+      <a href="./article-3.html" class="related-card">
+        <div class="related-card-eyebrow">Also</div>
+        <div class="related-card-title">The Workshop Process</div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="final-cta">
+    <div class="final-cta-text">Want more articles like this published on humphreymunson.co.uk?</div>
+    <a href="../../plans.html" class="final-cta-link">See the Plans</a>
+  </div>
+
+</div>
+
+<!-- SITE FOOTER -->
+<footer class="site-footer">
+  Published 17 April 2026 &middot; humphreymunson.co.uk
+</footer>
+
+<!-- JSON-LD SCHEMA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Five Generations, Five Collections: The Craft Language of Munson",
+  "description": "The Office for National Statistics records that fewer than 4,300 firms in the United Kingdom now describe their primary trade as \"manufacture of bespoke.",
+  "datePublished": "2026-04-17",
+  "author": {
+    "@type": "Organization",
+    "name": "Humphrey Munson",
+    "url": "https://humphreymunson.co.uk"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Humphrey Munson",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.humphreymunson.co.uk/app/themes/pulsar/assets/svg/logo.svg"
+    }
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plans and Pricing | NEXTOOLS Labs</title>
+<meta name="description" content="Editorial-grade content, custom interactive tools, and SEO for luxury and premium brands. Monthly plans. No contracts.">
+<style>
+:root {
+  --brand-primary: #1C1C1C;
+  --brand-secondary: #F5F1EA;
+  --brand-accent: #8B7355;
+  --brand-font-display: "Serif editorial (Country Life style) paired with neutral sans-serif";
+  --brand-font-body: "Serif editorial (Country Life style) paired with neutral sans-serif";
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--brand-font-body), Georgia, serif;
+  color: var(--brand-primary);
+  background: var(--brand-secondary);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1180px; margin: 0 auto; padding: 80px 32px; }
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 40px 0 80px;
+  border-bottom: 1px solid var(--brand-accent);
+  margin-bottom: 80px;
+}
+.eyebrow {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 20px;
+}
+.hero-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+.hero-sub {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 19px;
+  opacity: 0.85;
+}
+.hero-meta {
+  margin-top: 36px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+.hero-meta span { margin: 0 14px; }
+
+/* TIERS */
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 80px;
+}
+@media (max-width: 960px) { .tiers { grid-template-columns: 1fr; gap: 24px; } }
+
+.tier {
+  position: relative;
+  padding: 48px 36px 40px;
+  border: 1px solid var(--brand-accent);
+  background: var(--brand-secondary);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.tier:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+.tier-featured {
+  border: 2px solid var(--brand-primary);
+  padding-top: 56px;
+}
+.tier-badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--brand-primary);
+  color: var(--brand-secondary);
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  white-space: nowrap;
+}
+.tier-name {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.tier-tagline {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 28px;
+  min-height: 42px;
+}
+.tier-price {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.tier-period {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 32px;
+}
+.tier-features {
+  list-style: none;
+  padding: 28px 0;
+  border-top: 1px solid var(--brand-accent);
+  border-bottom: 1px solid var(--brand-accent);
+  margin-bottom: 32px;
+  flex: 1;
+}
+.tier-features li {
+  padding: 10px 0 10px 24px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.tier-features li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 19px;
+  width: 12px; height: 1px;
+  background: var(--brand-accent);
+}
+.tier-cta {
+  display: inline-block;
+  text-align: center;
+  padding: 16px 28px;
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brand-secondary);
+  background: var(--brand-primary);
+  border: 1px solid var(--brand-primary);
+  transition: all 0.25s ease;
+}
+.tier-cta:hover {
+  background: transparent;
+  color: var(--brand-primary);
+}
+.tier:not(.tier-featured) .tier-cta {
+  background: transparent;
+  color: var(--brand-primary);
+}
+.tier:not(.tier-featured) .tier-cta:hover {
+  background: var(--brand-primary);
+  color: var(--brand-secondary);
+}
+
+/* ANNUAL SECTION */
+.annual-section {
+  margin-bottom: 80px;
+  padding-top: 60px;
+  border-top: 1px solid var(--brand-accent);
+}
+.annual-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.annual-sub {
+  text-align: center;
+  font-size: 15px;
+  opacity: 0.75;
+  margin-bottom: 48px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.annual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) { .annual-grid { grid-template-columns: 1fr; } }
+
+.annual-card {
+  border: 1px solid var(--brand-accent);
+  padding: 32px 28px;
+  transition: border-color 0.25s ease;
+}
+.annual-card:hover { border-color: var(--brand-primary); }
+.annual-name {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.annual-save {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.annual-price {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+.annual-period {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+.annual-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.85;
+}
+.annual-cta {
+  display: inline-block;
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--brand-primary);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--brand-primary);
+  transition: opacity 0.2s;
+}
+.annual-cta:hover { opacity: 0.7; }
+
+/* INCLUDED BOX */
+.included-box {
+  border: 1px solid var(--brand-accent);
+  padding: 56px 48px;
+  text-align: center;
+  margin-bottom: 80px;
+  background: var(--brand-secondary);
+}
+.included-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) { .included-grid { grid-template-columns: 1fr; } }
+.included-item-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 8px;
+}
+.included-item-body {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ZERO RISK */
+.zero-risk {
+  text-align: center;
+  padding: 60px 0 80px;
+  border-top: 1px solid var(--brand-accent);
+  border-bottom: 1px solid var(--brand-accent);
+  margin-bottom: 80px;
+}
+.zero-risk-label {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 20px;
+}
+.zero-risk-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.zero-risk-body {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 17px;
+  opacity: 0.85;
+}
+
+/* FAQ */
+.faq-section { margin-bottom: 80px; }
+.faq-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.faq-title {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.faq-sub {
+  font-size: 15px;
+  opacity: 0.7;
+}
+.faq-item {
+  border-top: 1px solid var(--brand-accent);
+  padding: 28px 0;
+}
+.faq-item:last-child { border-bottom: 1px solid var(--brand-accent); }
+.faq-q {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after {
+  content: "+";
+  font-size: 22px;
+  opacity: 0.55;
+  transition: transform 0.25s;
+  margin-left: 20px;
+}
+details[open] .faq-q::after { content: "-"; }
+.faq-a {
+  font-size: 16px;
+  line-height: 1.7;
+  padding-top: 12px;
+  opacity: 0.9;
+  max-width: 780px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--brand-accent);
+}
+.footer-msg {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.footer-email {
+  color: var(--brand-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brand-accent);
+}
+.footer-email:hover { border-color: var(--brand-primary); }
+.footer-note {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+  margin-top: 18px;
+}
+.footer-mark {
+  margin-top: 40px;
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+}
+
+@media (max-width: 640px) {
+  .container { padding: 56px 20px; }
+  .included-box { padding: 36px 24px; }
+  .tier { padding: 40px 28px 32px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">NEXTOOLS Labs &middot; Plans &amp; Pricing</div>
+    <h1 class="hero-title">Editorial-grade content. Custom tools. No contracts.</h1>
+    <p class="hero-sub">Three monthly plans built for luxury and premium brands. Choose the level, keep the content, cancel any time.</p>
+    <div class="hero-meta">
+      <span>Month-to-month</span>&middot;
+      <span>Full content ownership</span>&middot;
+      <span>Published on your domain</span>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section class="tiers">
+
+    <!-- STARTER -->
+    <div class="tier">
+      <div class="tier-name">Starter</div>
+      <div class="tier-tagline">For brands beginning their content presence.</div>
+      <div class="tier-price">$497</div>
+      <div class="tier-period">per month</div>
+      <ul class="tier-features">
+        <li>8 articles per month</li>
+        <li>Brand-matched editorial voice</li>
+        <li>SEO optimised with schema markup</li>
+        <li>Monthly content calendar</li>
+        <li>Published on your subdomain</li>
+        <li>Month-to-month, cancel any time</li>
+      </ul>
+      <a href="#" class="tier-cta">Start Starter</a>
+    </div>
+
+    <!-- GROWTH - FEATURED -->
+    <div class="tier tier-featured">
+      <div class="tier-badge">Most Popular</div>
+      <div class="tier-name">Growth</div>
+      <div class="tier-tagline">For brands ready to scale content and capture leads.</div>
+      <div class="tier-price">$1,497</div>
+      <div class="tier-period">per month</div>
+      <ul class="tier-features">
+        <li>20 articles per month</li>
+        <li>2 custom interactive tools per quarter (calculators, quizzes)</li>
+        <li>Brand-matched editorial voice</li>
+        <li>SEO optimised with schema markup</li>
+        <li>Monthly content calendar plus rank tracking</li>
+        <li>Published on your subdomain</li>
+        <li>Month-to-month, cancel any time</li>
+      </ul>
+      <a href="#" class="tier-cta">Start Growth</a>
+    </div>
+
+    <!-- FLAGSHIP -->
+    <div class="tier">
+      <div class="tier-name">Flagship</div>
+      <div class="tier-tagline">For established brands who want category leadership.</div>
+      <div class="tier-price">$2,997</div>
+      <div class="tier-period">per month</div>
+      <ul class="tier-features">
+        <li>40 articles per month</li>
+        <li>5 custom interactive tools per quarter</li>
+        <li>Backlink outreach (10 per month)</li>
+        <li>Social adaptations for Instagram and LinkedIn</li>
+        <li>Priority support</li>
+        <li>Published on your subdomain</li>
+        <li>Month-to-month, cancel any time</li>
+      </ul>
+      <a href="#" class="tier-cta">Start Flagship</a>
+    </div>
+
+  </section>
+
+  <!-- ANNUAL -->
+  <section class="annual-section">
+    <h2 class="annual-title">Annual Options</h2>
+    <p class="annual-sub">Lock in pricing and receive a larger content bank. Paid once, delivered across twelve months.</p>
+
+    <div class="annual-grid">
+
+      <div class="annual-card">
+        <div class="annual-name">Annual Pro</div>
+        <div class="annual-save">Save $3,000</div>
+        <div class="annual-price">$14,997</div>
+        <div class="annual-period">per year</div>
+        <div class="annual-desc">250 articles and 10 custom interactive tools, delivered across the year. Equivalent to Growth at a 17% discount.</div>
+        <a href="#" class="annual-cta">Choose Annual Pro</a>
+      </div>
+
+      <div class="annual-card">
+        <div class="annual-name">Enterprise</div>
+        <div class="annual-save">For large catalogues</div>
+        <div class="annual-price">$39,997</div>
+        <div class="annual-period">per year</div>
+        <div class="annual-desc">1,000 articles, 30 custom interactive tools, and a dedicated account manager. Built for multi-market luxury brands.</div>
+        <a href="#" class="annual-cta">Choose Enterprise</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INCLUDED -->
+  <section class="included-box">
+    <h2 class="included-title">What every tier includes</h2>
+    <div class="included-grid">
+      <div>
+        <div class="included-item-title">Editorial Voice</div>
+        <div class="included-item-body">Every article is written in your brand voice. No generic AI copy. No template filler.</div>
+      </div>
+      <div>
+        <div class="included-item-title">Technical SEO</div>
+        <div class="included-item-body">Schema markup, internal linking, metadata, and Core Web Vitals handled on every page.</div>
+      </div>
+      <div>
+        <div class="included-item-title">Content Ownership</div>
+        <div class="included-item-body">Everything we publish is yours. Cancel and keep it all. No licensing, no claw-backs.</div>
+      </div>
+      <div>
+        <div class="included-item-title">Your Subdomain</div>
+        <div class="included-item-body">Content lives on your domain. SEO equity flows to your brand, not ours.</div>
+      </div>
+      <div>
+        <div class="included-item-title">Monthly Reporting</div>
+        <div class="included-item-body">Traffic, keyword rankings, and top-performing pieces, delivered in a clean report.</div>
+      </div>
+      <div>
+        <div class="included-item-title">Async Workflow</div>
+        <div class="included-item-body">Brief once, approve once. We reply within 24 hours. No standing calls, ever.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZERO RISK -->
+  <section class="zero-risk">
+    <div class="zero-risk-label">Zero Risk</div>
+    <h2 class="zero-risk-title">No contracts. Cancel any time. Full ownership.</h2>
+    <p class="zero-risk-body">If it stops working for you, stop paying. You keep every article, every tool, and every backlink we ever built for your brand.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-header">
+      <h2 class="faq-title">Frequently Asked</h2>
+      <p class="faq-sub">Everything you need before choosing a plan.</p>
+    </div>
+
+    <details class="faq-item">
+      <summary class="faq-q">How fast do I receive content?</summary>
+      <div class="faq-a">First articles land within seven business days of brief approval. After that, content ships on a weekly cadence throughout the month.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Who actually writes the articles?</summary>
+      <div class="faq-a">A human editorial team using a proprietary research and drafting pipeline. Every piece is reviewed for voice, facts, and brand fit before it reaches you.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What are the custom interactive tools?</summary>
+      <div class="faq-a">Calculators, quizzes, configurators, and budget estimators built specifically for your industry. Example: a Kitchen Investment Calculator for a luxury kitchen studio. Each tool is a standalone page that captures leads and boosts time-on-site.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can I change plan or cancel?</summary>
+      <div class="faq-a">Yes. Upgrade, downgrade, or cancel any time from your account. Changes take effect the next billing cycle. You keep everything already published.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Do I need to brief every article?</summary>
+      <div class="faq-a">No. We build a quarterly content calendar from your brand brief and competitor research, then you approve the calendar once. Individual articles do not need sign-off unless you want it.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">What happens if I hate an article?</summary>
+      <div class="faq-a">One free rewrite per article, no questions. If a piece still is not right after that, it does not count toward your monthly quota. You never pay for work you cannot use.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Can I use the content anywhere?</summary>
+      <div class="faq-a">Yes. Full commercial ownership transfers to you on publication. Use it on social, in emails, in print, in ads. It is yours.</div>
+    </details>
+
+    <details class="faq-item">
+      <summary class="faq-q">Which plan should I choose?</summary>
+      <div class="faq-a">Starter if you are validating the channel. Growth if you want both content volume and lead-generation tools. Flagship if you want to dominate a category with backlinks and social amplification layered on top.</div>
+    </details>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-msg">Questions? Email us at <a class="footer-email" href="mailto:nextools.hub333@gmail.com">nextools.hub333@gmail.com</a></div>
+    <div class="footer-note">We reply within 24 hours. No calls required, we work async.</div>
+    <div class="footer-mark">NEXTOOLS Labs</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
