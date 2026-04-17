@@ -930,7 +930,7 @@ function renderBodygraph(chart) {
       svg += '<circle cx="'+bx2+'" cy="'+by2+'" r="9" fill="#1a1a2e" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>';
       svg += '<text x="'+bx2+'" y="'+(by2+3.5)+'" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="7.5" font-weight="700">'+ch[1]+'</text>';
     } else {
-      svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(255,255,255,0.04)" stroke-width="1.5" stroke-dasharray="3 4"/>';
+      svg += '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="rgba(255,255,255,0.13)" stroke-width="1.5" stroke-dasharray="4 5"/>';
     }
   });
 
@@ -938,8 +938,8 @@ function renderBodygraph(chart) {
   for (var name in CP) {
     var c = CP[name];
     var isDef = chart.definedCenters.has(name);
-    var fill = isDef ? c.color : 'rgba(255,255,255,0.02)';
-    var stroke = isDef ? c.color : 'rgba(255,255,255,0.15)';
+    var fill = isDef ? c.color : 'rgba(255,255,255,0.05)';
+    var stroke = isDef ? c.color : 'rgba(255,255,255,0.25)';
     var opacity = isDef ? '0.6' : '1';
     var sw = isDef ? '2.5' : '1';
     var onclick = ' onclick="showCenterInfo(\''+name+'\')"';
@@ -975,7 +975,7 @@ function renderBodygraph(chart) {
     // Center label
     var labels = {head:'HEAD',ajna:'AJNA',throat:'THROAT',g:'G',heart:'HEART',spleen:'SPLEEN',sacral:'SACRAL',solar:'',root:'ROOT'};
     var textY = c.y + (c.shape==='td'?-3:5);
-    var textColor = isDef?'#fff':'rgba(255,255,255,0.3)';
+    var textColor = isDef?'#fff':'rgba(255,255,255,0.45)';
     if (name==='solar') {
       svg += '<text x="'+c.x+'" y="'+(textY-3)+'" text-anchor="middle" fill="'+textColor+'" font-size="7" font-weight="700" pointer-events="none">SOLAR</text>';
       svg += '<text x="'+c.x+'" y="'+(textY+5)+'" text-anchor="middle" fill="'+textColor+'" font-size="7" font-weight="700" pointer-events="none">PLEXUS</text>';
@@ -987,7 +987,7 @@ function renderBodygraph(chart) {
     var statusY = c.y + (c.shape==='td'?c.h/2+14:c.h/2+14);
     if (name==='heart'||name==='solar') statusY = c.y+c.h/2+10;
     if (name==='spleen') statusY = c.y+c.h/2+10;
-    var statusColor = isDef?'rgba(255,215,0,0.5)':'rgba(255,255,255,0.15)';
+    var statusColor = isDef?'rgba(255,215,0,0.5)':'rgba(255,255,255,0.3)';
     var statusText = isDef?'Defined':'Open';
     svg += '<text x="'+c.x+'" y="'+statusY+'" text-anchor="middle" fill="'+statusColor+'" font-size="6.5" font-weight="500" pointer-events="none">'+statusText+'</text>';
   }
