@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · NEXTOOLS Labs</title>
+<meta name="description" content="How NEXTOOLS Labs collects, uses, and protects your personal data. GDPR-compliant privacy policy for B2B clients.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mynextools.com/labs/privacy/">
+<meta property="og:title" content="Privacy Policy · NEXTOOLS Labs">
+<meta property="og:description" content="How NEXTOOLS Labs collects, uses, and protects your personal data.">
+<meta property="og:url" content="https://mynextools.com/labs/privacy/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --labs-primary: #0F0F0F;
+  --labs-secondary: #F5F1EA;
+  --labs-accent: #B8986A;
+  --labs-muted: #8A8A8A;
+  --labs-surface: #161616;
+  --labs-border: rgba(184, 152, 106, 0.18);
+  --labs-font-display: "Cormorant Garamond", Georgia, serif;
+  --labs-font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--labs-font-body);
+  background: var(--labs-primary);
+  color: var(--labs-secondary);
+  line-height: 1.7;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; transition: color 0.25s ease; }
+.container { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 0;
+  background: rgba(15,15,15,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--labs-border);
+  transition: padding 0.3s ease;
+}
+.site-header.scrolled { padding: 16px 0; }
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.logo {
+  font-family: var(--labs-font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--labs-accent);
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.nav-links a { color: var(--labs-secondary); opacity: 0.85; }
+.nav-links a:hover { color: var(--labs-accent); opacity: 1; }
+
+/* Hero */
+.page-hero {
+  padding: 180px 0 70px;
+  text-align: center;
+  border-bottom: 1px solid var(--labs-border);
+}
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--labs-accent);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.page-hero h1 {
+  font-family: var(--labs-font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.effective-date {
+  font-size: 0.88rem;
+  color: var(--labs-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Content */
+.content { padding: 80px 0 100px; }
+.content h2 {
+  font-family: var(--labs-font-display);
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  font-weight: 500;
+  color: var(--labs-accent);
+  letter-spacing: 0.01em;
+  margin: 56px 0 18px;
+  padding-top: 8px;
+}
+.content h2:first-child { margin-top: 0; }
+.content h3 {
+  font-family: var(--labs-font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--labs-secondary);
+  margin: 28px 0 10px;
+}
+.content p {
+  font-size: 1rem;
+  color: rgba(245, 241, 234, 0.82);
+  margin-bottom: 16px;
+}
+.content ul, .content ol {
+  padding-left: 24px;
+  margin-bottom: 20px;
+}
+.content li {
+  font-size: 1rem;
+  color: rgba(245, 241, 234, 0.82);
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+.content ul li::marker { color: var(--labs-accent); }
+.content strong { color: var(--labs-secondary); font-weight: 500; }
+.content a.inline {
+  color: var(--labs-accent);
+  border-bottom: 1px solid rgba(184,152,106,0.4);
+}
+.content a.inline:hover { border-bottom-color: var(--labs-accent); }
+
+/* Footer */
+.site-footer {
+  background: var(--labs-primary);
+  border-top: 1px solid var(--labs-border);
+  padding: 60px 0 40px;
+}
+.footer-wrap { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-brand {
+  font-family: var(--labs-font-display);
+  font-size: 0.95rem;
+  color: var(--labs-muted);
+  letter-spacing: 0.15em;
+}
+.footer-brand strong {
+  color: var(--labs-accent);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+}
+.footer-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+.footer-links a { color: var(--labs-muted); }
+.footer-links a:hover { color: var(--labs-accent); }
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--labs-muted);
+  letter-spacing: 0.1em;
+  margin-top: 40px;
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--labs-border);
+}
+
+@media (max-width: 860px) {
+  .container { padding: 0 24px; }
+  .header-inner, .footer-wrap { padding: 0 24px; }
+  .nav-links { gap: 22px; font-size: 0.72rem; }
+  .page-hero { padding: 140px 0 60px; }
+  .content { padding: 60px 0 80px; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+@media (max-width: 520px) {
+  .nav-links { display: none; }
+  .logo { font-size: 1.05rem; letter-spacing: 0.25em; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="/labs/" class="logo">NEXTOOLS LABS</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/labs/">Home</a></li>
+        <li><a href="/labs/about/">About</a></li>
+        <li><a href="/labs/plans/">Plans</a></li>
+        <li><a href="/labs/contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="eyebrow">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="effective-date">Effective date: 17 April 2026</div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="container">
+
+    <h2>1. Who we are</h2>
+    <p>NEXTOOLS Labs is a premium content studio that provides editorial SEO content and custom interactive tools to luxury service brands. This policy explains how we handle personal data when you visit our website, enquire about our services, or become a client.</p>
+    <p>For any privacy-related question, contact us at <a class="inline" href="mailto:nextools.hub333@gmail.com">nextools.hub333@gmail.com</a>.</p>
+
+    <h2>2. What data we collect</h2>
+    <h3>Contact information</h3>
+    <p>When you enquire or sign up we collect your name, business email, company name, and billing address. This is the minimum required to deliver our services and to invoice you correctly.</p>
+    <h3>Payment data</h3>
+    <p>All payments are processed by LemonSqueezy, which acts as the Merchant of Record for our subscriptions. Card numbers and banking details are handled and stored by LemonSqueezy. We never see or store full payment credentials on our systems.</p>
+    <h3>Brand and project data</h3>
+    <p>To produce content on your behalf we collect brand assets you choose to share, including your website URL, colour and typography preferences, tone-of-voice notes, target keywords, and editorial references.</p>
+    <h3>Usage data</h3>
+    <p>When you browse this website we record standard technical information such as IP address, device type, browser, pages viewed, and referrer. If analytics are enabled this may be processed by a third-party analytics provider (see below).</p>
+
+    <h2>3. How we use your data</h2>
+    <ul>
+      <li>To deliver the content and tools you have subscribed to.</li>
+      <li>To issue invoices, process payments, and handle refunds via LemonSqueezy.</li>
+      <li>To reply to your enquiries and provide client support.</li>
+      <li>To improve our website, editorial quality, and production workflow.</li>
+      <li>To comply with our legal and tax obligations.</li>
+    </ul>
+    <p>We do not sell your personal data. We do not share it with third parties for their own marketing.</p>
+
+    <h2>4. Legal basis (UK and EU clients)</h2>
+    <p>Under the UK GDPR and EU GDPR we rely on the following lawful bases:</p>
+    <ul>
+      <li><strong>Contract:</strong> to deliver services you have purchased.</li>
+      <li><strong>Legitimate interest:</strong> to improve our services, secure our infrastructure, and respond to enquiries.</li>
+      <li><strong>Legal obligation:</strong> to meet tax, accounting, and regulatory duties.</li>
+      <li><strong>Consent:</strong> where we ask for it, such as optional analytics cookies.</li>
+    </ul>
+
+    <h2>5. Third parties we work with</h2>
+    <ul>
+      <li><strong>LemonSqueezy</strong> – payment processor and Merchant of Record. Handles checkout, tax, invoicing, and refunds.</li>
+      <li><strong>Cloudflare</strong> – hosting and content delivery network for this website.</li>
+      <li><strong>Google Analytics</strong> – if enabled on the site, it helps us understand aggregated traffic patterns. Subject to your consent where required.</li>
+    </ul>
+    <p>We do not share your personal data with any other third party for marketing or resale.</p>
+
+    <h2>6. Your rights</h2>
+    <p>If you are based in the UK or the EU, you have the following rights in relation to your personal data:</p>
+    <ul>
+      <li><strong>Access</strong> – request a copy of the data we hold about you.</li>
+      <li><strong>Rectification</strong> – ask us to correct inaccurate or incomplete data.</li>
+      <li><strong>Erasure</strong> – ask us to delete your data, subject to legal retention obligations.</li>
+      <li><strong>Portability</strong> – request your data in a structured, machine-readable format.</li>
+      <li><strong>Restriction</strong> – ask us to limit how we process your data.</li>
+      <li><strong>Objection</strong> – object to processing based on legitimate interest.</li>
+    </ul>
+    <p>To exercise any of these rights, email <a class="inline" href="mailto:nextools.hub333@gmail.com">nextools.hub333@gmail.com</a>. We will respond within thirty days.</p>
+
+    <h2>7. Data retention</h2>
+    <p>We keep active client data for the duration of the engagement plus three years after service termination, to meet accounting, tax, and contractual obligations. Enquiry data from non-clients is deleted after twelve months of inactivity.</p>
+
+    <h2>8. Cookies</h2>
+    <p>We use essential cookies required for the site to function. We may use analytics cookies to understand aggregated traffic, subject to your consent where required. You can refuse analytics cookies without losing access to any part of the site.</p>
+
+    <h2>9. Security</h2>
+    <p>We apply industry-standard security practices: encrypted connections (HTTPS), restricted access to client data, minimal data collection, and regular review of our third-party processors. Payment data is not stored on our systems at any point.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>We may update this policy from time to time. The effective date at the top of the page will always reflect the latest version. If changes are material, we will notify active clients by email.</p>
+
+    <h2>11. Contact</h2>
+    <p>For privacy questions or to exercise your rights, email <a class="inline" href="mailto:nextools.hub333@gmail.com">nextools.hub333@gmail.com</a>. We reply within twenty-four hours on working days.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-wrap">
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>NEXTOOLS LABS</strong> · Premium Content Studio</div>
+      <ul class="footer-links">
+        <li><a href="/labs/">Home</a></li>
+        <li><a href="/labs/about/">About</a></li>
+        <li><a href="/labs/plans/">Plans</a></li>
+        <li><a href="/labs/contact/">Contact</a></li>
+        <li><a href="/labs/privacy/">Privacy</a></li>
+        <li><a href="/labs/terms/">Terms</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">© NEXTOOLS Labs 2026 · All rights reserved</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+</script>
+
+</body>
+</html>

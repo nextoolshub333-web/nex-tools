@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTOOLS Labs · Premium SEO Content and Interactive Tools for Luxury Brands</title>
+<meta name="description" content="Editorial SEO content and custom interactive tools for luxury service businesses. Brand-matched delivery, zero fabrication, async only.">
+<link rel="canonical" href="https://mynextools.com/labs/">
+<meta property="og:title" content="NEXTOOLS Labs · Premium Content Studio">
+<meta property="og:description" content="Editorial SEO content and custom interactive tools for luxury service businesses.">
+<meta property="og:image" content="https://mynextools.com/clients/_shared/images/growth.png">
+<meta property="og:url" content="https://mynextools.com/labs/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "NEXTOOLS Labs",
+      "url": "https://mynextools.com/labs/",
+      "description": "Premium content studio for luxury service businesses.",
+      "email": "nextools.hub333@gmail.com",
+      "logo": "https://mynextools.com/clients/_shared/images/growth.png"
+    },
+    {
+      "@type": "ProfessionalService",
+      "name": "NEXTOOLS Labs",
+      "url": "https://mynextools.com/labs/",
+      "description": "Editorial SEO content and interactive tools for luxury brands.",
+      "priceRange": "$497-$2997",
+      "areaServed": "Worldwide"
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --labs-primary: #0F0F0F;
+  --labs-secondary: #F5F1EA;
+  --labs-accent: #B8986A;
+  --labs-muted: #8A8A8A;
+  --labs-surface: #161616;
+  --labs-border: rgba(184, 152, 106, 0.18);
+  --labs-font-display: "Cormorant Garamond", Georgia, serif;
+  --labs-font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--labs-font-body);
+  background: var(--labs-primary);
+  color: var(--labs-secondary);
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; transition: color 0.25s ease; }
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 0;
+  background: transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, padding 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+.site-header.scrolled {
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 16px 0;
+  border-bottom-color: var(--labs-border);
+}
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: var(--labs-font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--labs-accent);
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.nav-links a { color: var(--labs-secondary); opacity: 0.85; }
+.nav-links a:hover { color: var(--labs-accent); opacity: 1; }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 140px 0 100px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15,15,15,0.75) 0%, rgba(15,15,15,0.88) 60%, rgba(15,15,15,0.97) 100%);
+  z-index: 1;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.2) contrast(1.05);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--labs-accent);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: var(--labs-font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  color: var(--labs-secondary);
+}
+.hero-sub {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(245, 241, 234, 0.75);
+  max-width: 680px;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+.cta-group { display: flex; gap: 24px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: 1px solid var(--labs-accent);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--labs-accent);
+  color: var(--labs-primary);
+}
+.btn-primary:hover { background: transparent; color: var(--labs-accent); }
+.btn-secondary { color: var(--labs-secondary); }
+.btn-secondary:hover { background: var(--labs-accent); color: var(--labs-primary); }
+
+/* Sections */
+section { padding: 120px 0; }
+.section-eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--labs-accent);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.section-title {
+  font-family: var(--labs-font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  font-weight: 400;
+  margin-bottom: 60px;
+  max-width: 720px;
+  letter-spacing: -0.01em;
+}
+
+/* What we do */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 32px;
+}
+.service-card {
+  padding: 48px 36px;
+  background: var(--labs-surface);
+  border: 1px solid var(--labs-border);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.service-card:hover {
+  border-color: var(--labs-accent);
+  transform: translateY(-4px);
+}
+.service-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 28px;
+  color: var(--labs-accent);
+}
+.service-card h3 {
+  font-family: var(--labs-font-display);
+  font-size: 1.65rem;
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: var(--labs-secondary);
+}
+.service-card p {
+  color: rgba(245, 241, 234, 0.7);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* Process */
+.process {
+  background: var(--labs-surface);
+  border-top: 1px solid var(--labs-border);
+  border-bottom: 1px solid var(--labs-border);
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 32px;
+}
+.step {
+  position: relative;
+  padding-top: 48px;
+}
+.step-number {
+  font-family: var(--labs-font-display);
+  font-size: 2.8rem;
+  color: var(--labs-accent);
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 1;
+  opacity: 0.9;
+}
+.step h4 {
+  font-family: var(--labs-font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 14px;
+  color: var(--labs-secondary);
+}
+.step p {
+  color: rgba(245, 241, 234, 0.65);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* Why us */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.why-list {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.why-item {
+  border-left: 1px solid var(--labs-accent);
+  padding-left: 28px;
+}
+.why-item h4 {
+  font-family: var(--labs-font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--labs-secondary);
+}
+.why-item p {
+  color: rgba(245, 241, 234, 0.7);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* Pricing preview */
+.pricing {
+  background: var(--labs-surface);
+  border-top: 1px solid var(--labs-border);
+}
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 32px;
+  margin-bottom: 56px;
+}
+.tier {
+  padding: 44px 36px;
+  background: var(--labs-primary);
+  border: 1px solid var(--labs-border);
+  transition: border-color 0.3s ease;
+}
+.tier:hover { border-color: var(--labs-accent); }
+.tier-name {
+  font-family: var(--labs-font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--labs-accent);
+  letter-spacing: 0.04em;
+}
+.tier-price {
+  font-family: var(--labs-font-display);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--labs-secondary);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.tier-period {
+  font-size: 0.82rem;
+  color: var(--labs-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.tier-desc {
+  color: rgba(245, 241, 234, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.pricing-cta {
+  text-align: center;
+}
+.pricing-cta a {
+  font-size: 0.88rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--labs-accent);
+  border-bottom: 1px solid var(--labs-accent);
+  padding-bottom: 6px;
+  font-weight: 500;
+}
+.pricing-cta a:hover { opacity: 0.75; }
+
+/* CTA block */
+.cta-block {
+  background: var(--labs-accent);
+  color: var(--labs-primary);
+  text-align: center;
+  padding: 120px 0;
+}
+.cta-block h2 {
+  font-family: var(--labs-font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 400;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.cta-email {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  font-family: var(--labs-font-display);
+}
+.cta-email a { border-bottom: 1px solid var(--labs-primary); }
+.cta-note {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* Footer */
+.site-footer {
+  background: var(--labs-primary);
+  border-top: 1px solid var(--labs-border);
+  padding: 60px 0 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-brand {
+  font-family: var(--labs-font-display);
+  font-size: 0.95rem;
+  color: var(--labs-muted);
+  letter-spacing: 0.15em;
+}
+.footer-brand strong {
+  color: var(--labs-accent);
+  letter-spacing: 0.25em;
+  font-weight: 500;
+}
+.footer-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.footer-links a { color: var(--labs-muted); }
+.footer-links a:hover { color: var(--labs-accent); }
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--labs-muted);
+  letter-spacing: 0.1em;
+  margin-top: 40px;
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid var(--labs-border);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .container { padding: 0 24px; }
+  section { padding: 80px 0; }
+  .nav-links { gap: 24px; font-size: 0.75rem; }
+  .services-grid, .process-grid, .tier-grid { grid-template-columns: 1fr; gap: 24px; }
+  .why-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero { padding: 120px 0 80px; min-height: auto; }
+  .cta-group { flex-direction: column; gap: 16px; }
+  .btn { text-align: center; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 520px) {
+  .nav-links { display: none; }
+  .logo { font-size: 1.05rem; letter-spacing: 0.25em; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="/labs/" class="logo">NEXTOOLS LABS</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/labs/about/">About</a></li>
+        <li><a href="/labs/plans/">Plans</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="/clients/_shared/images/growth.png" alt="" aria-hidden="true">
+  </div>
+  <div class="container hero-content">
+    <p class="eyebrow">Premium content studio</p>
+    <h1>Editorial content and interactive tools for brands that sell craft.</h1>
+    <p class="hero-sub">We write SEO articles and build custom tools that rank and convert, for luxury service businesses with patience for real work.</p>
+    <div class="cta-group">
+      <a href="/labs/plans/" class="btn btn-primary">View Plans</a>
+      <a href="#process" class="btn btn-secondary">How we work</a>
+    </div>
+  </div>
+</section>
+
+<section id="what-we-do">
+  <div class="container">
+    <span class="section-eyebrow">What we do</span>
+    <h2 class="section-title">Three disciplines, one standard.</h2>
+    <div class="services-grid">
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 40 L34 14 L40 20 L14 46 Z M32 16 L38 22 M8 40 L6 48 L14 46"/>
+          <line x1="20" y1="28" x2="26" y2="34"/>
+        </svg>
+        <h3>Editorial Articles</h3>
+        <p>Long-form SEO content written by editorial hands. Every draft passes a 23-signal brand fluency study before a single word lands on your subdomain.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="6" width="16" height="16"/>
+          <rect x="26" y="6" width="16" height="16"/>
+          <rect x="6" y="26" width="16" height="16"/>
+          <circle cx="34" cy="34" r="8"/>
+        </svg>
+        <h3>Custom Interactive Tools</h3>
+        <p>Calculators, configurators, quote builders. Tools your prospects actually use, built into your site, owned entirely by you, designed to earn links and convert.</p>
+      </article>
+
+      <article class="service-card">
+        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 6 C12 6 4 14 4 24 C4 31 10 34 16 34 C18 34 20 32 20 30 C20 27 22 26 24 26 C34 26 44 22 44 14 C44 9 35 6 24 6 Z"/>
+          <circle cx="14" cy="20" r="2"/>
+          <circle cx="24" cy="14" r="2"/>
+          <circle cx="34" cy="20" r="2"/>
+        </svg>
+        <h3>Brand-Matched Delivery</h3>
+        <p>Your colours, your typography, your voice. We study the brand before we start and ship work that looks like it came from inside your studio, not outside.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="container">
+    <span class="section-eyebrow">Process</span>
+    <h2 class="section-title">Four stages. No guesswork.</h2>
+    <div class="process-grid">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h4>Brand Fluency Study</h4>
+        <p>We map 23 brand signals before writing a line: voice, cadence, typography, palette, editorial tone, audience posture.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <h4>Editorial Plan</h4>
+        <p>Keyword research paired with narrative structure. Every article has intent, funnel position, and internal linking mapped before commissioning.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <h4>Draft, Fact-check, QA</h4>
+        <p>Writing, citation pass, brand-voice check, technical SEO pass, editorial QA. Four gates before you ever see a draft.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <h4>Publish on your subdomain</h4>
+        <p>We ship to a subdomain you control. Full ownership, your CMS or ours, clean handover, zero lock-in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <span class="section-eyebrow">Why us</span>
+        <h2 class="section-title">Standards, not shortcuts.</h2>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <h4>Zero fabrication</h4>
+          <p>Every statistic cites a source. Every claim has provenance. We do not invent numbers to fill a paragraph.</p>
+        </div>
+        <div class="why-item">
+          <h4>Brand-matched from day one</h4>
+          <p>Your colours, your voice, your typography, loaded before the first brief. The output reads like your studio wrote it.</p>
+        </div>
+        <div class="why-item">
+          <h4>Async only</h4>
+          <p>No scheduled calls. Briefs, drafts, approvals over email and WhatsApp. Fewer meetings, more craft.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <span class="section-eyebrow">Plans</span>
+    <h2 class="section-title">Three engagements. One standard.</h2>
+    <div class="tier-grid">
+      <article class="tier">
+        <div class="tier-name">Starter</div>
+        <div class="tier-price">$497</div>
+        <div class="tier-period">Per month</div>
+        <p class="tier-desc">Two editorial articles per month. Brand study included. Ideal for brands testing the channel before committing.</p>
+      </article>
+      <article class="tier">
+        <div class="tier-name">Growth</div>
+        <div class="tier-price">$1,497</div>
+        <div class="tier-period">Per month</div>
+        <p class="tier-desc">Six articles per month plus one custom tool per quarter. Full editorial cadence for brands serious about organic.</p>
+      </article>
+      <article class="tier">
+        <div class="tier-name">Flagship</div>
+        <div class="tier-price">$2,997</div>
+        <div class="tier-period">Per month</div>
+        <p class="tier-desc">Twelve articles per month plus ongoing tool development. Dedicated editorial capacity for market leaders.</p>
+      </article>
+    </div>
+    <div class="pricing-cta">
+      <a href="/labs/plans/">See full plans</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block" id="contact">
+  <div class="container">
+    <h2>Ready to talk?</h2>
+    <div class="cta-email">
+      <a href="mailto:nextools.hub333@gmail.com">nextools.hub333@gmail.com</a>
+    </div>
+    <p class="cta-note">We reply within 24 hours · Async only</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand"><strong>NEXTOOLS LABS</strong> · Premium Content Studio</div>
+      <ul class="footer-links">
+        <li><a href="mailto:nextools.hub333@gmail.com">Email</a></li>
+        <li><a href="/labs/plans/">Plans</a></li>
+        <li><a href="/labs/about/">About</a></li>
+        <li><a href="/labs/privacy/">Privacy</a></li>
+        <li><a href="/labs/terms/">Terms</a></li>
+      </ul>
+    </div>
+    <div class="footer-copy">© NEXTOOLS Labs 2026</div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('header');
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>
