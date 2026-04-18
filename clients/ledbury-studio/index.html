@@ -111,6 +111,24 @@ body {
   opacity: 0.85;
   margin-bottom: 16px;
 }
+
+.article-read-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--brand-accent);
+  padding-bottom: 4px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.article-read-link:hover { color: var(--brand-accent); border-color: var(--brand-primary); }
+.article-read-link span { display: inline-block; margin-left: 6px; transition: transform 0.2s; }
+.article-read-link:hover span { transform: translateX(4px); }
+
 .article-meta {
   font-size: 13px;
   color: var(--brand-accent);
@@ -123,7 +141,10 @@ body {
   background: var(--brand-primary);
   color: var(--brand-secondary);
   padding: 80px 32px;
-  margin: 0 -32px;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  max-width: 100vw;
   text-align: center;
 }
 .about-study-inner { max-width: 640px; margin: 0 auto; }
@@ -193,19 +214,22 @@ body {
     <article class="article-card">
       <h2 class="article-title"><a href="./article-1.html">From Smallbone to Signature Metal: Charlie Smallbone's Second Act</a></h2>
       <p class="article-excerpt">Why the founder of Smallbone of Devizes walked away from the brand he built and started over with metal. Inside Ledbury Studio's five metal collections and the 2025 Super Luxe Oxford Kitchen.</p>
-      <p class="article-meta">1400 words &nbsp;·&nbsp; Read article →</p>
+      <p class="article-meta">1400 words</p>
+      <a href="./article-1.html" class="article-read-link">Read article <span aria-hidden="true">&rarr;</span></a>
     </article>
 
     <article class="article-card">
       <h2 class="article-title"><a href="./article-2.html">Five Collections Explored</a></h2>
       <p class="article-excerpt">Coming soon in the full content plan.</p>
-      <p class="article-meta">- words &nbsp;·&nbsp; Read article →</p>
+      <p class="article-meta">- words</p>
+      <a href="./article-2.html" class="article-read-link">Read article <span aria-hidden="true">&rarr;</span></a>
     </article>
 
     <article class="article-card">
       <h2 class="article-title"><a href="./article-3.html">The Workshop Process</a></h2>
       <p class="article-excerpt">Coming soon in the full content plan.</p>
-      <p class="article-meta">- words &nbsp;·&nbsp; Read article →</p>
+      <p class="article-meta">- words</p>
+      <a href="./article-3.html" class="article-read-link">Read article <span aria-hidden="true">&rarr;</span></a>
     </article>
   </section>
 
