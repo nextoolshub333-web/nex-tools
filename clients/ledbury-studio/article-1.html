@@ -490,6 +490,79 @@ body {
   .inline-cta-strong-title { font-size: 22px; }
   .inline-cta-box { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* Key Takeaways box */
+.takeaways {
+  max-width: 680px;
+  margin: 0 auto 56px;
+  padding: 32px 36px;
+  border: 1px solid var(--brand-accent);
+  background: color-mix(in srgb, var(--brand-accent) 4%, transparent);
+}
+.takeaways-label {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.takeaways ul { list-style: none; padding: 0; margin: 0; }
+.takeaways li {
+  position: relative;
+  padding: 8px 0 8px 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--brand-primary);
+  opacity: 0.88;
+}
+.takeaways li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 17px;
+  width: 12px; height: 1px;
+  background: var(--brand-accent);
+}
+@media (max-width: 640px) {
+  .takeaways { margin: 0 24px 48px; padding: 26px 24px; }
+  .takeaways li { font-size: 15px; }
+}
+
+/* Stat callout */
+.stat-callout {
+  max-width: 680px;
+  margin: 48px auto;
+  padding: 36px 32px;
+  text-align: center;
+  border-top: 1px solid var(--brand-accent);
+  border-bottom: 1px solid var(--brand-accent);
+}
+.stat-callout-number {
+  font-family: var(--brand-font-display), Georgia, serif;
+  font-size: clamp(40px, 6vw, 58px);
+  line-height: 1;
+  color: var(--brand-accent);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.stat-callout-text {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--brand-primary);
+  opacity: 0.82;
+  max-width: 480px;
+  margin: 0 auto 10px;
+}
+.stat-callout-source {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-accent);
+  opacity: 0.85;
+}
+.stat-callout-source a { color: inherit; border-bottom: 1px dotted var(--brand-accent); }
+@media (max-width: 640px) { .stat-callout { margin: 40px 24px; padding: 28px 20px; } }
 </style>
 </head>
 <body>
@@ -513,6 +586,17 @@ body {
   </div>
 </section>
 
+<!-- KEY TAKEAWAYS -->
+<aside class="takeaways">
+  <div class="takeaways-label">Key Takeaways</div>
+  <ul>
+    <li>Charlie Smallbone founded Ledbury Studio in 2016 after selling Smallbone of Devizes, pursuing a deliberately narrower brief around metal and material language.</li>
+    <li>Ledbury's five signature collections (Copper, Pewter &amp; Zinc, Marquetry, Shaker, Stainless Steel) are named for materials rather than styles, a craft position nearly alone in UK bespoke.</li>
+    <li>In 18 months Charlie received the Mark Wilkinson Lifetime Achievement award and the designerati Super Luxe Kitchen Design of the Year 2025 for the Oxford Kitchen.</li>
+    <li>A 34 per cent rise in artisan-metalwork spend since 2019 validates the studio's timing, with the wider market now moving towards the vernacular Ledbury helped define.</li>
+  </ul>
+</aside>
+
 
 <!-- ARTICLE BODY -->
 <article class="article-body">
@@ -528,6 +612,12 @@ body {
 <p>That brief is worth quoting in his own words: to explore "the interface between kitchens to cook and work in, and kitchens to live in." The interface is a craft position, and it is the reason the studio's five signature collections are named for materials rather than styles: <strong>Copper</strong>, <strong>Pewter & Zinc</strong>, <strong>Marquetry</strong>, <strong>Ledbury Shaker</strong>, <strong>Stainless Steel</strong>. The material is the primary expressive choice. Everything else, door design, proportion, finish, follows from that.</p>
 
 <h2>Why Metal, Why Now</h2>
+
+<div class="stat-callout">
+  <div class="stat-callout-number">+34%</div>
+  <div class="stat-callout-text">Rise in consumer spend on artisan-metalwork domestic interiors between 2019 and 2024, the fastest growing craft category by value.</div>
+  <div class="stat-callout-source"><a href="https://www.craftscouncil.org.uk/about/press/" target="_blank" rel="noopener">Crafts Council UK Makers Market Report 2024</a></div>
+</div>
 
 <p>The <a href="https://www.craftscouncil.org.uk/about/press/">Crafts Council UK Makers Market Report 2024</a> recorded a 34 per cent rise in consumer spend on artisan-metalwork domestic interiors between 2019 and 2024, the fastest growing craft category by value. The number reflects a wider shift in what high-net-worth homeowners want from their kitchens. After twenty years in which painted Shaker was the dominant luxury vernacular, the bespoke market is moving towards surfaces that record time, heat and hand. Metal does all three.</p>
 

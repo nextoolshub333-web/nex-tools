@@ -508,11 +508,39 @@ details[open] .faq-q::after { content: "–"; }
   border-top: 1px solid var(--labs-border);
 }
 
+/* Trusted by */
+.trusted { padding: 56px 0 32px; text-align: center; border-bottom: 1px solid var(--labs-border); }
+.trusted-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--labs-muted); margin-bottom: 24px; font-weight: 500; }
+.trusted-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 48px; }
+.trusted-row span { font-family: var(--labs-font-display); font-size: 1.15rem; color: rgba(245, 241, 234, 0.68); letter-spacing: 0.08em; white-space: nowrap; }
+
+/* Comparison table */
+.compare { padding: 110px 0; background: var(--labs-primary); border-top: 1px solid var(--labs-border); }
+.compare-header { text-align: center; margin-bottom: 56px; }
+.compare-wrap { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
+.compare-table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 0.92rem; }
+.compare-table th, .compare-table td { padding: 18px 20px; text-align: center; border-bottom: 1px solid var(--labs-border); vertical-align: middle; }
+.compare-table th { font-family: var(--labs-font-display); font-size: 1.1rem; font-weight: 500; color: var(--labs-accent); letter-spacing: 0.04em; background: var(--labs-surface); }
+.compare-table th:first-child { width: 38%; color: var(--labs-muted); font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; text-align: left; }
+.compare-table th.compare-featured { color: var(--labs-primary); background: var(--labs-accent); }
+.compare-table td:first-child { text-align: left; color: rgba(245, 241, 234, 0.88); font-weight: 400; }
+.compare-table td { color: rgba(245, 241, 234, 0.72); }
+.compare-table td.featured-col { background: rgba(184, 152, 106, 0.07); color: var(--labs-secondary); font-weight: 500; }
+.compare-check { display: inline-block; color: var(--labs-accent); font-size: 1.1rem; line-height: 1; }
+.compare-dash { display: inline-block; width: 14px; height: 1px; background: var(--labs-muted); opacity: 0.5; vertical-align: middle; }
+
+/* Price anchor */
+.price-anchor { max-width: 760px; margin: 56px auto 0; text-align: center; padding: 36px 32px; border: 1px solid var(--labs-border); background: var(--labs-surface); }
+.price-anchor-stat { font-family: var(--labs-font-display); font-size: 2.2rem; color: var(--labs-accent); line-height: 1.1; margin-bottom: 10px; }
+.price-anchor-label { font-size: 0.95rem; color: rgba(245, 241, 234, 0.72); line-height: 1.65; max-width: 560px; margin: 0 auto; }
+
 /* Responsive */
 @media (max-width: 960px) {
   .tiers { grid-template-columns: 1fr; gap: 24px; }
   .included-grid { grid-template-columns: 1fr; gap: 32px; }
   .zero-risk-grid { grid-template-columns: 1fr; gap: 36px; }
+  .trusted-row { gap: 28px; }
+  .trusted-row span { font-size: 1rem; }
 }
 @media (max-width: 860px) {
   .container { padding: 0 24px; }
@@ -550,12 +578,26 @@ details[open] .faq-q::after { content: "–"; }
 <section class="hero">
   <div class="container">
     <div class="eyebrow">Plans &amp; Pricing</div>
-    <h1>Three monthly plans. No contracts.</h1>
-    <p class="hero-sub">Choose the level, keep every article we deliver, cancel any time.</p>
+    <h1>Editorial content that ranks. Tools that convert. Full ownership, always.</h1>
+    <p class="hero-sub">Three monthly plans built for luxury service brands. Keep every article, cancel any time, no contracts.</p>
     <div class="hero-badges">
       <span>USD</span>
       <span>Month-to-month</span>
       <span>Full ownership</span>
+      <span>Async only</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<section class="trusted">
+  <div class="container">
+    <div class="trusted-label">Studies delivered to</div>
+    <div class="trusted-row">
+      <span>Guild Anderson</span>
+      <span>Humphrey Munson</span>
+      <span>Ledbury Studio</span>
+      <span>Thomas James</span>
     </div>
   </div>
 </section>
@@ -628,6 +670,114 @@ details[open] .faq-q::after { content: "–"; }
         </div>
       </article>
 
+    </div>
+
+    <div class="price-anchor">
+      <div class="price-anchor-stat">Replaces a full-time content hire</div>
+      <div class="price-anchor-label">A senior editorial writer plus a part-time developer starts at $8,000 to $12,000 per month. Flagship delivers both disciplines for $2,997, with zero hiring overhead, zero onboarding, and month-to-month flexibility.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="compare">
+  <div class="container">
+    <div class="compare-header">
+      <span class="section-eyebrow">Side by side</span>
+      <h2 class="section-title" style="margin: 0 auto;">Compare what each plan delivers.</h2>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Starter</th>
+            <th class="compare-featured">Growth</th>
+            <th>Flagship</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Editorial articles per month</td>
+            <td>8</td>
+            <td class="featured-col">20</td>
+            <td>40</td>
+          </tr>
+          <tr>
+            <td>Custom interactive tools per quarter</td>
+            <td><span class="compare-dash"></span></td>
+            <td class="featured-col">2</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>Brand-matched editorial voice</td>
+            <td><span class="compare-check">✓</span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>SEO optimised with schema markup</td>
+            <td><span class="compare-check">✓</span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Monthly content calendar</td>
+            <td><span class="compare-check">✓</span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Keyword rank tracking</td>
+            <td><span class="compare-dash"></span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Backlink outreach</td>
+            <td><span class="compare-dash"></span></td>
+            <td class="featured-col"><span class="compare-dash"></span></td>
+            <td>10 per month</td>
+          </tr>
+          <tr>
+            <td>Social adaptations (Instagram, LinkedIn)</td>
+            <td><span class="compare-dash"></span></td>
+            <td class="featured-col"><span class="compare-dash"></span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Priority support</td>
+            <td><span class="compare-dash"></span></td>
+            <td class="featured-col"><span class="compare-dash"></span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Published on your subdomain</td>
+            <td><span class="compare-check">✓</span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Commercial ownership</td>
+            <td><span class="compare-check">✓</span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Month-to-month, cancel any time</td>
+            <td><span class="compare-check">✓</span></td>
+            <td class="featured-col"><span class="compare-check">✓</span></td>
+            <td><span class="compare-check">✓</span></td>
+          </tr>
+          <tr>
+            <td style="font-family: var(--labs-font-display); font-size: 1.25rem; color: var(--labs-secondary); padding-top: 24px;">Monthly price</td>
+            <td style="font-family: var(--labs-font-display); font-size: 1.5rem; color: var(--labs-secondary);">$497</td>
+            <td class="featured-col" style="font-family: var(--labs-font-display); font-size: 1.5rem; color: var(--labs-accent);">$1,497</td>
+            <td style="font-family: var(--labs-font-display); font-size: 1.5rem; color: var(--labs-secondary);">$2,997</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
