@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karmic Debt Number Calculator - Free Numerology Tool</title>
+  <meta name="description" content="Find your karmic debt numbers (13, 14, 16, 19) instantly. Enter your birthdate and discover the karmic lessons your soul carries from past lives. Free, no signup.">
+  <meta name="keywords" content="karmic debt number, karmic debt calculator, 13 karmic debt, 14 karmic debt, 16 karmic debt, 19 karmic debt, numerology karmic debt">
+  <link rel="canonical" href="https://mynextools.com/tools/karmic-debt-calculator/">
+  <meta property="og:title" content="Karmic Debt Number Calculator - Free Numerology Tool">
+  <meta property="og:description" content="Discover your karmic debt numbers from your birthdate. Find the soul lessons you carry from past lives. Free instant results.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/karmic-debt-calculator/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Karmic Debt Number Calculator",
+    "description": "Free numerology calculator that identifies karmic debt numbers (13, 14, 16, 19) from your birthdate, revealing past-life lessons encoded in your life path.",
+    "url": "https://mynextools.com/tools/karmic-debt-calculator/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are karmic debt numbers?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Karmic debt numbers are the four special numbers in numerology - 13, 14, 16, and 19 - that appear as intermediate results when calculating your core numerology numbers. They indicate unresolved lessons from past lives that your soul has carried into this lifetime." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I know if I have a karmic debt number?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You have a karmic debt number if any intermediate step in calculating your Life Path or Birthday Number produces 13, 14, 16, or 19 before further reduction. For example, if you were born on the 14th, you carry Karmic Debt 14." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Karmic Debt 13 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Karmic Debt 13 (reduces to 4) indicates that in a past life you avoided hard work and responsibility. The lesson is to embrace discipline, perseverance and consistent effort without shortcuts." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Karmic Debt 16 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Karmic Debt 16 (reduces to 7) is the most intense karmic debt. It involves ego destruction and rebuilding. You may have abused relationships or power in past lives. The lesson is transcending the ego through humility and spiritual wisdom." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you have more than one karmic debt number?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can carry multiple karmic debts - for example from your birthday (day only), from your full Life Path calculation, or from your name-based numbers. Each adds a distinct layer of lessons to work through." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .kd-input-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .kd-input-row label { font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.35rem; }
+    .kd-input-row input { background: var(--bg-input); border: 2px solid var(--border-light); border-radius: var(--radius-sm); color: var(--white); font-size: 1.1rem; padding: 0.7rem 1rem; width: 100%; transition: border-color 0.2s; }
+    .kd-input-row input:focus { outline: none; border-color: var(--gold); }
+    .kd-field { flex: 1; min-width: 90px; }
+    .kd-field.year { min-width: 130px; }
+    .calculate-btn { background: var(--gold); color: #08080C; border: none; border-radius: var(--radius); padding: 0.875rem 2.5rem; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; margin-top: 0.5rem; letter-spacing: 0.02em; transition: opacity 0.2s; }
+    .calculate-btn:hover { opacity: 0.9; }
+
+    .result-area { display: none; margin-top: 2rem; }
+    .step-box { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+    .step-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 0.35rem; }
+    .step-value { font-size: 1.2rem; font-weight: 700; color: var(--white); }
+    .step-math { font-size: 0.9rem; color: var(--text-muted); margin-top: 0.25rem; font-family: monospace; }
+
+    .debt-card { background: linear-gradient(135deg, rgba(255,215,0,0.06), rgba(255,215,0,0.02)); border: 2px solid var(--gold); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1.25rem; }
+    .debt-number-badge { display: inline-block; background: var(--gold); color: #08080C; font-size: 2rem; font-weight: 800; padding: 0.25rem 1rem; border-radius: var(--radius-sm); margin-bottom: 0.75rem; font-family: 'Poppins', sans-serif; }
+    .debt-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .debt-tag { display: inline-block; background: rgba(255,215,0,0.15); color: var(--gold); font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 20px; margin-bottom: 0.75rem; }
+    .debt-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .debt-lesson { background: rgba(107,77,171,0.12); border-left: 3px solid var(--purple-light); padding: 0.75rem 1rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text-secondary); font-size: 0.9rem; }
+    .debt-lesson strong { color: var(--purple-light); }
+
+    .no-debt-box { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.5rem; text-align: center; }
+    .no-debt-icon { width: 48px; height: 48px; margin: 0 auto 1rem; }
+
+    .calc-steps { background: var(--bg-tertiary); border-radius: var(--radius); padding: 1.25rem; margin-top: 1rem; }
+    .calc-steps h4 { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; }
+    .calc-step-row { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border-subtle); font-size: 0.9rem; }
+    .calc-step-row:last-child { border-bottom: none; }
+    .calc-step-row .label { color: var(--text-muted); }
+    .calc-step-row .val { color: var(--white); font-weight: 600; }
+    .calc-step-row .val.has-debt { color: var(--gold); }
+
+    .cta-box { background: linear-gradient(135deg, rgba(45,27,105,0.15), rgba(107,77,171,0.08)); border: 1px solid var(--purple-light); border-radius: var(--radius); padding: 1.5rem; margin-top: 1.5rem; text-align: center; }
+    .cta-box h4 { margin-bottom: 0.5rem; }
+    .cta-box p { font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+    .article-content h2 { margin-top: 2rem; margin-bottom: 0.75rem; }
+    .article-content h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--gold); font-size: 1.1rem; }
+    .article-content ul, .article-content ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    .article-content li { color: var(--text-secondary); margin-bottom: 0.4rem; }
+    .faq-item { background: var(--bg-card); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin-bottom: 0.75rem; }
+    .faq-item h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .faq-item p { margin-bottom: 0; font-size: 0.92rem; }
+    @media (max-width: 768px) {
+      .kd-input-row { flex-direction: column; }
+      .kd-field { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/tools/karmic-debt-calculator/" style="color:var(--gold)">Karmic Debt</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Karmic Debt Number Calculator</h1>
+      <p>Enter your birthdate to discover the karmic debt numbers encoded in your numerology. These are the unresolved soul lessons you carry from past lives - and the key to your greatest growth in this one.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:680px">
+
+      <div class="step-box">
+        <div class="step-label">Step 1 - Enter your date of birth</div>
+        <div class="kd-input-row" style="margin-top:0.5rem">
+          <div class="kd-field">
+            <label for="kd-day">Day</label>
+            <input type="number" id="kd-day" min="1" max="31" placeholder="14">
+          </div>
+          <div class="kd-field">
+            <label for="kd-month">Month</label>
+            <input type="number" id="kd-month" min="1" max="12" placeholder="03">
+          </div>
+          <div class="kd-field year">
+            <label for="kd-year">Year</label>
+            <input type="number" id="kd-year" min="1900" max="2020" placeholder="1987">
+          </div>
+        </div>
+        <button class="calculate-btn" onclick="calculateKarmicDebt()">Reveal My Karmic Debt Numbers</button>
+      </div>
+
+      <div class="result-area" id="result-area">
+
+        <div class="calc-steps" id="calc-steps">
+          <h4>Your Calculation Breakdown</h4>
+          <div id="step-rows"></div>
+        </div>
+
+        <div style="margin-top:1.75rem">
+          <h2 id="result-headline" style="margin-bottom:1rem"></h2>
+          <div id="debt-cards"></div>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Go Deeper With Your Numerology</h4>
+          <p>Your karmic debt numbers are just one layer. Discover how they interact with your Life Path, Soul Urge and Destiny Matrix energies.</p>
+          <a href="https://hop.clickbank.net/?affiliate=nextools&vendor=numtoc&pid=karmic" class="btn btn-gold" target="_blank" rel="noopener sponsored">Get the Full Karmic Report</a>
+        </div>
+
+        <div class="cta-box" style="margin-top:1rem;background:rgba(12,10,20,0.5);border-color:var(--border-light)">
+          <h4>Related Tools</h4>
+          <p>Explore more numerology calculators to complete your spiritual profile.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center">
+            <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Life Path Calculator</a>
+            <a href="/tools/soul-urge-calculator/" class="btn btn-purple btn-sm">Soul Urge Number</a>
+            <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Destiny Matrix</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content" style="max-width:760px;margin:0 auto">
+
+        <h2>What Are Karmic Debt Numbers?</h2>
+        <p>In numerology, karmic debt numbers are four specific numbers - 13, 14, 16, and 19 - that carry a special weight. When one of these numbers appears as an intermediate step while calculating your core numerology numbers, it signals that your soul carries an unresolved lesson from a past lifetime.</p>
+        <p>Unlike regular numbers, karmic debt numbers are not reduced directly. They are noted before reduction. For example, if your birthday is the 14th, you carry Karmic Debt 14 even though 1+4=5 is your final Birthday Number. The 14 matters precisely because it is the original form before reduction.</p>
+        <p>Karmic debts are not punishments. They are concentrated growth opportunities. The soul chose to incarnate with these challenges because resolving them leads to extraordinary wisdom and freedom.</p>
+
+        <h2>The Four Karmic Debt Numbers Explained</h2>
+
+        <h3>Karmic Debt 13 - The Lesson of Effort</h3>
+        <p>The number 13 reduces to 4 (1+3). In a past life, you may have avoided hard work, taken shortcuts, or left responsibilities for others. This life asks you to build slowly and deliberately - without skipping steps.</p>
+        <ul>
+          <li>Core challenge: laziness, procrastination, negative thinking</li>
+          <li>Shadow behavior: starting many projects but finishing few</li>
+          <li>The gift when resolved: extraordinary discipline and the ability to build lasting structures</li>
+          <li>Key practice: commit to one goal, work on it daily without rushing</li>
+        </ul>
+
+        <h3>Karmic Debt 14 - The Lesson of Responsible Freedom</h3>
+        <p>The number 14 reduces to 5 (1+4). In a past life, you may have abused your freedom - pursuing pleasure at others' expense, becoming addicted, or refusing commitment. This life asks you to experience freedom responsibly.</p>
+        <ul>
+          <li>Core challenge: overindulgence, addiction, inconsistency, fear of commitment</li>
+          <li>Shadow behavior: escaping through substances, relationships, or constant change</li>
+          <li>The gift when resolved: mastery of adaptation and the ability to inspire freedom in others ethically</li>
+          <li>Key practice: make one commitment and honor it, even when it feels limiting</li>
+        </ul>
+
+        <h3>Karmic Debt 16 - The Lesson of Ego and Love</h3>
+        <p>The number 16 reduces to 7 (1+6). This is the most intense karmic debt. In a past life, you may have built your identity around romantic conquest, status, or ego-driven achievement - and destroyed yourself or others in the process. This life brings repeated experiences of loss that strip the ego away.</p>
+        <ul>
+          <li>Core challenge: ego destruction cycles, isolation, profound loneliness</li>
+          <li>Shadow behavior: building self-image on external success or relationships, then losing both</li>
+          <li>The gift when resolved: deep spiritual wisdom, authentic connection beyond ego</li>
+          <li>Key practice: spiritual practice, journaling, therapy - anything that brings you to your true self beneath the persona</li>
+        </ul>
+
+        <h3>Karmic Debt 19 - The Lesson of Interdependence</h3>
+        <p>The number 19 reduces to 1 (1+9=10, 1+0=1). In a past life, you held great power and used it selfishly - at the expense of those around you. This life you will find yourself in repeated situations where you need others but struggle to ask for help.</p>
+        <ul>
+          <li>Core challenge: isolation, stubbornness, refusing support even when needed</li>
+          <li>Shadow behavior: insisting on doing everything alone, pushing away help until crisis</li>
+          <li>The gift when resolved: true leadership - power wielded with compassion and community</li>
+          <li>Key practice: ask for help before you need it desperately. Practice receiving gracefully.</li>
+        </ul>
+
+        <h2>Where Do Karmic Debt Numbers Appear?</h2>
+        <p>Karmic debt numbers can appear in several places within your numerology profile:</p>
+        <ul>
+          <li><strong>Birthday Number:</strong> Simply the day of your birth. If you were born on the 13th, 14th, 16th, or 19th - you carry that karmic debt directly.</li>
+          <li><strong>Life Path Number:</strong> Calculated by adding all digits of your full birthdate. If the month total, day total, year total, or final sum produces 13, 14, 16, or 19 before final reduction - it carries karmic debt energy.</li>
+          <li><strong>Expression Number:</strong> Derived from your full birth name using the Pythagorean numerology chart. If the total of your name letters equals a karmic debt number before reduction - it is present.</li>
+          <li><strong>Personal Year Number:</strong> Calculated from your birthdate and current year. Karmic years bring intensified lessons.</li>
+        </ul>
+
+        <h2>How to Calculate Your Karmic Debt Number (Step by Step)</h2>
+        <p>The most common place to find karmic debt numbers is in your Life Path calculation. Here is how it works:</p>
+        <ol>
+          <li>Write your full birth date (day, month, year)</li>
+          <li>Reduce each component: add the digits of your day to get a 1-2 digit number, same for month and year separately</li>
+          <li>Before reducing each component further, check if it equals 13, 14, 16, or 19</li>
+          <li>Add the three component results together</li>
+          <li>Before reducing the sum, check again for 13, 14, 16, or 19</li>
+          <li>Reduce to a single digit (unless it is 11, 22, or 33 - master numbers)</li>
+        </ol>
+        <p><strong>Example:</strong> Born on March 14, 1987</p>
+        <ul>
+          <li>Day: 14 - Karmic Debt 14 detected (reduces to 5)</li>
+          <li>Month: 3</li>
+          <li>Year: 1987 - 1+9+8+7 = 25 - 2+5 = 7</li>
+          <li>Life Path: 5+3+7 = 15 - 1+5 = 6</li>
+          <li>Result: Life Path 6, with Karmic Debt 14 active from the birthday</li>
+        </ul>
+
+        <div class="cta-box" style="margin:2rem 0">
+          <h4>Try the Calculator Above</h4>
+          <p>Use the <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">free karmic debt calculator</a> at the top of this page to find your numbers instantly. Then explore your <a href="/tools/life-path-calculator/">Life Path Number</a> for the full picture.</p>
+        </div>
+
+        <h2>Do You Have to Have a Karmic Debt?</h2>
+        <p>No. Many people have no karmic debt numbers at all in their birthdate. This does not mean they have no karma - it simply means their primary karmic work shows up through other systems or is less concentrated. If you have no karmic debt numbers, your life challenges tend to be more diffuse rather than focused on one specific lesson.</p>
+        <p>If you do have one or more karmic debt numbers, consider it a gift of clarity. You know exactly where your growth edge is. Many of the most accomplished people in history carried intense karmic debts - the friction was precisely what drove their breakthroughs.</p>
+
+        <h2>Karmic Debt vs. Karmic Lessons</h2>
+        <p>These two terms are often confused. Here is the distinction:</p>
+        <ul>
+          <li><strong>Karmic Debt Numbers</strong> (13, 14, 16, 19) - specific, intense, past-life origin. They appear as intermediate calculation results.</li>
+          <li><strong>Karmic Lesson Numbers</strong> - the numbers 1-9 that are missing from your birth name. Each missing number represents a quality your soul has not yet fully developed. You can have up to 8 karmic lessons.</li>
+        </ul>
+        <p>Karmic debts are generally considered more intense and specific than karmic lessons. Both systems give complementary information about your soul's growth agenda in this lifetime.</p>
+
+        <h2>How to Work With Your Karmic Debt</h2>
+        <p>Knowing your karmic debt number is the first step. Working with it is a lifetime practice. Here are principles that apply to all four numbers:</p>
+        <ul>
+          <li><strong>Lean into the lesson, not away from it.</strong> If 13 asks for hard work - embrace projects that require sustained effort. Running from the lesson intensifies it.</li>
+          <li><strong>Notice recurring patterns.</strong> Karmic debts show up as patterns that repeat until resolved. The same relationship dynamic, the same career obstacle, the same inner struggle. The pattern is the lesson.</li>
+          <li><strong>Use spiritual practices as anchors.</strong> Meditation, journaling, therapy, and inner work are especially powerful for those with karmic debt numbers - particularly 16.</li>
+          <li><strong>Expect acceleration in midlife.</strong> Karmic lessons often intensify between 30 and 50 as the soul's urgency to resolve them increases.</li>
+          <li><strong>Forgiveness is the master key.</strong> Karmic debt fundamentally involves unresolved emotional debts - to yourself and others. Forgiveness dissolves what force cannot.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>What are karmic debt numbers?</h3>
+          <p>Karmic debt numbers are the four numbers 13, 14, 16, and 19 that appear in numerology calculations as intermediate steps before final reduction. They signal that your soul carries an unresolved lesson from a past life into this lifetime.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>How do I know if I have a karmic debt number?</h3>
+          <p>You have a karmic debt number if any intermediate step in your Life Path or Birthday Number calculation equals 13, 14, 16, or 19. The simplest check is your birthday: if you were born on the 13th, 14th, 16th, or 19th of any month, you carry that karmic debt.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What does Karmic Debt 13 mean?</h3>
+          <p>Karmic Debt 13 (reduces to 4) indicates past-life patterns of laziness or irresponsibility. The lesson this lifetime is to embrace disciplined, consistent hard work - building results slowly and refusing to cut corners.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What does Karmic Debt 16 mean?</h3>
+          <p>Karmic Debt 16 (reduces to 7) is the most intense karmic debt. It involves ego destruction and spiritual rebuilding. You may experience repeated losses that strip away identity and force a deeper encounter with your true self. The reward is rare spiritual depth.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Can you have more than one karmic debt number?</h3>
+          <p>Yes. You can have karmic debt from your birthday, from your Life Path calculation, and from your Expression Number (name-based). Each adds a distinct layer of lessons, though having multiple karmic debts simply means your growth opportunities are rich and concentrated.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>What if I have no karmic debt number?</h3>
+          <p>Having no karmic debt number is common and does not mean you have no growth edge. It simply means your challenges are more distributed across different areas rather than concentrated in one intense theme. You may still have karmic lessons from missing name numbers.</p>
+        </div>
+
+        <h2>Explore More Numerology Tools</h2>
+        <p>Karmic debt numbers are one piece of your complete numerology profile. Combine them with these free tools for a deeper understanding:</p>
+        <ul>
+          <li><a href="/tools/life-path-calculator/">Life Path Calculator</a> - your primary soul journey number</li>
+          <li><a href="/tools/soul-urge-calculator/">Soul Urge Number</a> - what your heart truly desires</li>
+          <li><a href="/tools/destiny-matrix-calculator/">Destiny Matrix Calculator</a> - the 22 energies of your life purpose</li>
+          <li><a href="/tools/angel-number-calculator/">Angel Number Calculator</a> - divine messages through numbers</li>
+          <li><a href="/tools/numerology-compatibility/">Numerology Compatibility</a> - karmic connections in relationships</li>
+          <li><a href="/blog/numerology-beginners-guide/">Numerology for Beginners</a> - start with the full system overview</li>
+          <li><a href="/blog/what-is-soul-urge-number/">What Is Soul Urge Number?</a> - deep dive into name numerology</li>
+          <li><a href="/blog/what-is-destiny-matrix/">What Is the Destiny Matrix?</a> - how all numbers connect</li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">More Free Numerology Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 44C8 44 14 36 16 30C18 24 14 20 18 16C22 12 26 18 28 14" stroke="#FFD700"/><path d="M4 12l4 4-4 4"/></svg></div>
+          <h3>Life Path Calculator</h3>
+          <p>Discover your primary soul journey number calculated from your full birthdate.</p>
+          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Calculate</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode divine messages from the universe.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Find My Number</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3>Destiny Matrix Calculator</h3>
+          <p>Uncover the 22 energy arcana that define your life purpose and karmic themes.</p>
+          <a href="/tools/destiny-matrix-calculator/" class="btn btn-purple btn-sm">Calculate Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/human-design-calculator/">Human Design</a><a href="/tools/life-path-calculator/">Life Path</a><a href="/tools/soul-urge-calculator/">Soul Urge</a><a href="/tools/karmic-debt-calculator/">Karmic Debt</a><a href="/tools/zodiac-calculator/">Zodiac</a><a href="/tools/breathing-exercise/">Breathing</a><a href="/tools/numerology-compatibility/">Compatibility</a><a href="/tools/gratitude-journal/">Gratitude</a><a href="/tools/affirmation-generator/">Affirmations</a><a href="/tools/wisdom-mirror/">Wisdom Mirror</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/what-is-destiny-matrix/">What is Destiny Matrix?</a><a href="/blog/angel-number-111-meaning/">Angel Number 111</a><a href="/blog/human-design-types-explained/">HD Types Explained</a><a href="/blog/numerology-beginners-guide/">Numerology Guide</a><a href="/blog/how-to-karmic-debt-calculator/">Karmic Debt Guide</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var KARMIC_DEBTS = {
+    13: {
+      title: "Karmic Debt 13/4 - The Lesson of Effort",
+      tag: "Source: Birthday or Life Path",
+      past: "In a past life, you avoided hard work, left responsibilities unfinished, or used others to do what you should have done yourself.",
+      lesson: "This life asks you to embrace sustained effort, discipline and responsibility. Results come slower - but they last.",
+      challenge: "Procrastination, shortcuts, starting without finishing, negative self-talk when things feel hard.",
+      gift: "Once resolved, you become capable of extraordinary, lasting achievement through sheer persistence."
+    },
+    14: {
+      title: "Karmic Debt 14/5 - The Lesson of Responsible Freedom",
+      tag: "Source: Birthday or Life Path",
+      past: "In a past life, you abused freedom - through overindulgence, addiction, exploitation of others, or refusing commitment when it was needed.",
+      lesson: "This life asks you to experience freedom within structure. Commitment is not imprisonment - it is the container that makes true freedom sustainable.",
+      challenge: "Addictive tendencies, difficulty with commitment, restlessness, escaping through pleasure or constant change.",
+      gift: "Once resolved, you become a master of adaptability who can model responsible freedom for others in ways few can."
+    },
+    16: {
+      title: "Karmic Debt 16/7 - The Lesson of Ego Transcendence",
+      tag: "Source: Birthday or Life Path",
+      past: "In a past life, you built your identity on ego - romantic conquest, status, power - and used it at others' expense. This led to self-destruction.",
+      lesson: "This life brings repeated experiences of loss that strip the ego away. Each collapse is an invitation to find the self that exists beyond persona.",
+      challenge: "Ego destruction cycles, profound isolation, loss of relationships or status that felt central to identity.",
+      gift: "Once resolved, you carry rare spiritual depth and the ability to help others through their own ego dissolution."
+    },
+    19: {
+      title: "Karmic Debt 19/1 - The Lesson of Interdependence",
+      tag: "Source: Birthday or Life Path",
+      past: "In a past life, you held great power and wielded it selfishly - refusing to consider those around you or using others as means to your ends.",
+      lesson: "This life places you in situations where you desperately need others but struggle to ask. The lesson is learning to receive as gracefully as you give.",
+      challenge: "Isolation, extreme self-reliance, difficulty accepting help, stubbornness that leads to unnecessary suffering.",
+      gift: "Once resolved, you become a true leader - powerful, yet genuinely connected to and invested in the people around you."
+    }
+  };
+
+  function reduceNumber(n) {
+    while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+      var sum = 0;
+      var digits = String(n).split('');
+      for (var i = 0; i < digits.length; i++) sum += parseInt(digits[i]);
+      n = sum;
+    }
+    return n;
+  }
+
+  function sumDigits(n) {
+    var sum = 0;
+    var digits = String(n).split('');
+    for (var i = 0; i < digits.length; i++) sum += parseInt(digits[i]);
+    return sum;
+  }
+
+  function checkKarmicDebt(n) {
+    return n === 13 || n === 14 || n === 16 || n === 19;
+  }
+
+  function calculateKarmicDebt() {
+    var day = parseInt(document.getElementById('kd-day').value);
+    var month = parseInt(document.getElementById('kd-month').value);
+    var year = parseInt(document.getElementById('kd-year').value);
+
+    if (!day || !month || !year || day < 1 || day > 31 || month < 1 || month > 12 || year < 1900 || year > 2020) {
+      alert('Please enter a valid birthdate (year between 1900 and 2020).');
+      return;
+    }
+
+    var debtsFound = {};
+    var stepRows = [];
+
+    // --- Day calculation ---
+    var dayRaw = day;
+    var dayReduced = dayRaw;
+    if (checkKarmicDebt(dayRaw)) {
+      debtsFound[dayRaw] = true;
+      stepRows.push({ label: 'Birthday Number (' + dayRaw + ')', val: dayRaw, isDebt: true });
+      dayReduced = reduceNumber(dayRaw);
+    } else if (dayRaw > 9) {
+      dayReduced = sumDigits(dayRaw);
+      if (checkKarmicDebt(dayReduced)) {
+        debtsFound[dayReduced] = true;
+        stepRows.push({ label: 'Birthday Number (' + dayRaw + ' - ' + dayReduced + ')', val: dayReduced, isDebt: true });
+        dayReduced = reduceNumber(dayReduced);
+      } else {
+        dayReduced = reduceNumber(dayRaw);
+        stepRows.push({ label: 'Birthday Number (' + dayRaw + ')', val: dayReduced, isDebt: false });
+      }
+    } else {
+      stepRows.push({ label: 'Birthday Number (' + dayRaw + ')', val: dayRaw, isDebt: false });
+    }
+
+    // --- Month calculation ---
+    var monthReduced = month;
+    stepRows.push({ label: 'Month Number', val: month, isDebt: false });
+
+    // --- Year calculation ---
+    var yearDigitSum = sumDigits(year);
+    var yearReduced = yearDigitSum;
+    if (checkKarmicDebt(yearDigitSum)) {
+      debtsFound[yearDigitSum] = true;
+      stepRows.push({ label: 'Year Sum (' + year + ' = ' + yearDigitSum + ')', val: yearDigitSum, isDebt: true });
+      yearReduced = reduceNumber(yearDigitSum);
+    } else if (yearDigitSum > 9) {
+      var yearStep2 = sumDigits(yearDigitSum);
+      if (checkKarmicDebt(yearStep2)) {
+        debtsFound[yearStep2] = true;
+        stepRows.push({ label: 'Year Sum (' + year + ' = ' + yearDigitSum + ' = ' + yearStep2 + ')', val: yearStep2, isDebt: true });
+        yearReduced = reduceNumber(yearStep2);
+      } else {
+        yearReduced = reduceNumber(yearDigitSum);
+        stepRows.push({ label: 'Year Sum (' + year + ' = ' + yearDigitSum + ')', val: yearReduced, isDebt: false });
+      }
+    } else {
+      stepRows.push({ label: 'Year Sum (' + year + ' = ' + yearDigitSum + ')', val: yearDigitSum, isDebt: false });
+    }
+
+    // --- Life Path total ---
+    var lpSum = dayReduced + monthReduced + yearReduced;
+    var lpFinal = lpSum;
+    if (checkKarmicDebt(lpSum)) {
+      debtsFound[lpSum] = true;
+      stepRows.push({ label: 'Life Path Sum (' + dayReduced + '+' + monthReduced + '+' + yearReduced + '=' + lpSum + ')', val: lpSum, isDebt: true });
+      lpFinal = reduceNumber(lpSum);
+    } else {
+      lpFinal = reduceNumber(lpSum);
+      stepRows.push({ label: 'Life Path Sum (' + dayReduced + '+' + monthReduced + '+' + yearReduced + '=' + lpSum + ')', val: lpFinal, isDebt: false });
+    }
+    stepRows.push({ label: 'Your Life Path Number', val: lpFinal, isDebt: false });
+
+    // Render steps
+    var stepRowsHtml = '';
+    for (var i = 0; i < stepRows.length; i++) {
+      var r = stepRows[i];
+      stepRowsHtml += '<div class="calc-step-row"><span class="label">' + r.label + '</span><span class="val' + (r.isDebt ? ' has-debt' : '') + '">' + r.val + (r.isDebt ? ' - Karmic Debt' : '') + '</span></div>';
+    }
+    document.getElementById('step-rows').innerHTML = stepRowsHtml;
+
+    // Render debt cards
+    var debtKeys = Object.keys(debtsFound).map(Number).sort();
+    var headline = '';
+    var cardsHtml = '';
+
+    if (debtKeys.length === 0) {
+      headline = 'No Karmic Debt Numbers Found';
+      cardsHtml = '<div class="no-debt-box"><svg class="no-debt-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke="#FFD700" stroke-width="1.5" opacity="0.5"/><path d="M16 24l6 6 10-12" stroke="#FFD700" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><h3 style="color:var(--gold)">Clean Karmic Slate</h3><p style="color:var(--text-muted)">No karmic debt numbers (13, 14, 16, or 19) appear in your birthdate calculations. Your soul enters this life without the concentrated karmic debts - though karmic lessons from your name may still apply.</p><p style="color:var(--text-muted)">Explore your <a href="/tools/life-path-calculator/">Life Path Number</a> and <a href="/tools/soul-urge-calculator/">Soul Urge Number</a> for the full picture of your soul\'s agenda.</p></div>';
+    } else {
+      headline = debtKeys.length === 1 ? 'You Carry 1 Karmic Debt Number' : 'You Carry ' + debtKeys.length + ' Karmic Debt Numbers';
+      for (var j = 0; j < debtKeys.length; j++) {
+        var kd = KARMIC_DEBTS[debtKeys[j]];
+        cardsHtml += '<div class="debt-card">';
+        cardsHtml += '<div class="debt-number-badge">' + debtKeys[j] + '</div>';
+        cardsHtml += '<div class="debt-title">' + kd.title + '</div>';
+        cardsHtml += '<div class="debt-tag">' + kd.tag + '</div>';
+        cardsHtml += '<p class="debt-desc"><strong>Past life pattern:</strong> ' + kd.past + '</p>';
+        cardsHtml += '<p class="debt-desc"><strong>This life challenge:</strong> ' + kd.challenge + '</p>';
+        cardsHtml += '<div class="debt-lesson"><strong>The lesson:</strong> ' + kd.lesson + '</div>';
+        cardsHtml += '<p class="debt-desc" style="margin-top:0.75rem;margin-bottom:0"><strong>The gift:</strong> ' + kd.gift + '</p>';
+        cardsHtml += '</div>';
+      }
+    }
+
+    document.getElementById('result-headline').textContent = headline;
+    document.getElementById('debt-cards').innerHTML = cardsHtml;
+    document.getElementById('result-area').style.display = 'block';
+    document.getElementById('result-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Allow Enter key to trigger calculation
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calculateKarmicDebt();
+  });
+  </script>
+
+</body>
+</html>
