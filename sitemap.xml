@@ -129,6 +129,20 @@
   <url><loc>https://mynextools.com/mirror-hours/22-22/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://mynextools.com/mirror-hours/23-23/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- Zodiac Sign Landing Pages (Programmatic SEO) -->
+  <url><loc>https://mynextools.com/zodiac/aries/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/taurus/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/gemini/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/cancer/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/leo/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/virgo/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/libra/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/scorpio/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/sagittarius/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/capricorn/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/aquarius/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/zodiac/pisces/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
   <!-- Pages -->
   <url><loc>https://mynextools.com/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://mynextools.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
