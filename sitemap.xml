@@ -240,6 +240,19 @@
   <url><loc>https://mynextools.com/moon-signs/aquarius-moon/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://mynextools.com/moon-signs/pisces-moon/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 
+  <!-- Authority Pages 2026-04-22 (Session G Phase 3 - E-E-A-T) -->
+  <url><loc>https://mynextools.com/about/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/methodology/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/editorial-standards/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/authors/nex-editorial-team/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/sources/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Topic Hubs 2026-04-22 (Session G Phase 3) -->
+  <url><loc>https://mynextools.com/hubs/numerology/</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://mynextools.com/hubs/astrology/</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://mynextools.com/hubs/human-design/</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://mynextools.com/hubs/wellness/</loc><changefreq>weekly</changefreq><priority>0.95</priority></url>
+
   <!-- Pages -->
   <url><loc>https://mynextools.com/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://mynextools.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
