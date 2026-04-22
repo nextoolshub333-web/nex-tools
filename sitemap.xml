@@ -91,6 +91,18 @@
   <url><loc>https://mynextools.com/blog/spiritual-awakening-signs/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://mynextools.com/blog/angel-numbers-vs-life-path/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 
+  <!-- Angel Number Landing Pages (Programmatic SEO) -->
+  <url><loc>https://mynextools.com/angel-numbers/000/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/111/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/222/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/333/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/444/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/555/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/666/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/777/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/888/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mynextools.com/angel-numbers/999/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
   <!-- Pages -->
   <url><loc>https://mynextools.com/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://mynextools.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
