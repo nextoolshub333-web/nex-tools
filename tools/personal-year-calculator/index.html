@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Year 2026 Calculator - Find Your Numerology Year Number</title>
+  <meta name="description" content="Free Personal Year 2026 Calculator. Enter your birth month and day and discover your numerology year number 1-9, and what 2026 holds for you personally.">
+  <meta name="keywords" content="personal year calculator, personal year 2026, numerology year number, 2026 numerology, year 9 numerology">
+  <link rel="canonical" href="https://mynextools.com/tools/personal-year-calculator/">
+  <meta property="og:title" content="Personal Year 2026 Calculator - Find Your Year Number">
+  <meta property="og:description" content="Free calculator. Discover your personal year number for 2026 and what the year holds for you.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mynextools.com/tools/personal-year-calculator/">
+  <meta property="og:site_name" content="NexTools">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Personal Year 2026 Calculator",
+    "description": "Free numerology calculator for Personal Year 2026 number and meaning.",
+    "url": "https://mynextools.com/tools/personal-year-calculator/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is a personal year number?","acceptedAnswer":{"@type":"Answer","text":"Your personal year number is a numerology cycle between 1 and 9 that changes every calendar year. It is calculated from your birth month, birth day, and the current year, and reveals the specific theme and lesson of that year for you personally."}},
+      {"@type":"Question","name":"How is the personal year calculated?","acceptedAnswer":{"@type":"Answer","text":"Add your birth month + birth day + the current year, then reduce the result to a single digit between 1 and 9. For 2026, that means: month + day + 2026 reduced to a single digit."}},
+      {"@type":"Question","name":"Does the personal year change on January 1?","acceptedAnswer":{"@type":"Answer","text":"Traditional numerology uses January 1 as the shift. Some schools use your birthday. This calculator uses January 1 for calendar alignment, which is the standard for most modern numerologists."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/personal-year-calculator/" style="color:var(--gold)">Personal Year</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Personal Year 2026 Calculator</h1>
+      <p>2026 is a 1 Universal Year - a fresh start for everyone. But for you, personally, it could be anything from 1 to 9. Find out which cycle you are actually in.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Calculate Your Personal Year</h2>
+        <p class="text-center" style="color:var(--text-muted);margin-bottom:2rem">Enter your birth month and day. The year is locked to 2026.</p>
+
+        <div class="calc-input-group">
+          <label for="py-month">Birth Month</label>
+          <input type="number" id="py-month" min="1" max="12" placeholder="e.g. 7 for July">
+        </div>
+        <div class="calc-input-group">
+          <label for="py-day">Birth Day</label>
+          <input type="number" id="py-day" min="1" max="31" placeholder="e.g. 15">
+        </div>
+
+        <button class="calc-btn" onclick="calculatePersonalYear()">Reveal My 2026 Year</button>
+
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-number"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Your Full 2026 Moon Reading</h4>
+            <p>Your personal year number is one layer. A full Moon Reading decodes exactly what 2026 holds: the months of breakthrough, the weeks to rest, the exact timing the universe has planned for you.</p>
+            <a href="https://a967dlko2h36yv6iin7frmwa7g.hop.clickbank.net/?&traffic_source=website&traffic_type=organic&campaign=mynextoolsMOON" class="btn btn-gold" target="_blank" rel="noopener">Get Your Free Moon Reading</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem">
+            <h4>Deeper Numerology Tools</h4>
+            <p>Pair your personal year with your Life Path number for the most accurate yearly forecast.</p>
+            <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Life Path Calculator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is a Personal Year Number?</h2>
+        <p>Your personal year number is a 1-9 cycle that changes every January. It tells you what the year is about for you personally, beneath whatever is happening in the world. While 2026 is a "1 Universal Year" (the start of a new 9-year global cycle), your own personal year could be anywhere from 1 to 9.</p>
+
+        <h2>How It Is Calculated</h2>
+        <p>Add your birth month plus your birth day plus the current year (2026), then reduce to a single digit. Example: born July 15. That is 7 + 15 + 2026 = 2048. Reduce: 2+0+4+8 = 14, then 1+4 = 5. Personal Year 5.</p>
+
+        <h2>Why 2026 Is Different</h2>
+        <p>2+0+2+6 = 10, and 1+0 = 1. So 2026 is a 1 Universal Year globally - new beginnings, fresh identity, planting seeds. Your personal year layers on top of this energy. A Personal Year 1 during a Universal Year 1 is a double-strength launch year. A Personal Year 9 in 2026 means you are completing something massive while the world resets.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>Full 2026 Personal Year Guide</h4>
+          <p>All 9 personal years explained in depth, with month-by-month themes.</p>
+          <a href="/blog/personal-year-2026/" class="btn btn-gold">Read Full Guide</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>When does my personal year change?</h3>
+        <p>Modern numerology uses January 1 as the shift. If you follow older traditions, some use your birthday as the change point. For most people, January 1 is accurate.</p>
+
+        <h3>What if I got a master number (11, 22, 33)?</h3>
+        <p>This calculator reduces to a single digit for simplicity. If your personal year reduces to 11, 22 or 33 before hitting a single digit, that is a master personal year with heightened spiritual intensity. Treat it as the reduced number (2, 4 or 6) plus the master number's themes.</p>
+
+        <h3>How accurate is this for 2026 specifically?</h3>
+        <p>The number is exact. The interpretation is based on classical numerology applied to 2026's Universal Year 1 energy. For your full personal chart, combine this with your Life Path number.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">Related Free Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Life Path Number</h3>
+          <p>Your core soul number. Combine with personal year for full context.</p>
+          <a href="/tools/life-path-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Mirror Hour Decoder</h3>
+          <p>What the clock is telling you at 11:11, 22:22 and beyond.</p>
+          <a href="/tools/mirror-hour-decoder/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg></div>
+          <h3>HD Authority Finder</h3>
+          <p>Which of the 7 Human Design authorities runs your decisions.</p>
+          <a href="/tools/hd-authority-finder/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/mirror-hour-decoder/">Mirror Hours</a><a href="/tools/hd-authority-finder/">HD Authority</a><a href="/tools/personal-year-calculator/">Personal Year</a><a href="/tools/life-path-calculator/">Life Path</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/personal-year-2026/">Personal Year 2026</a><a href="/blog/mirror-hours-complete-guide/">Mirror Hours Guide</a><a href="/blog/hd-authority-7-types/">HD Authority Types</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var yearMeanings = {
+    1: {
+      title: "Personal Year 1 - The Launch",
+      desc: "2026 is your year of new beginnings. A fresh 9-year cycle starts now. You are being asked to plant seeds for the next chapter of your life.",
+      themes: "New identity, bold action, planting seeds, independence, leadership.",
+      career: "Start the business. Take the promotion. Launch the project you have been sitting on. 2026 is the foundation year for the next decade.",
+      love: "New relationships or a reset inside an existing one. You are becoming someone new, and love will either evolve with you or release.",
+      caution: "Do not wait for permission. Do not second-guess the vision. Your only job this year is to start."
+    },
+    2: {
+      title: "Personal Year 2 - The Partnership",
+      desc: "2026 is about relationships, patience and receiving. After last year's launch, this year you build through collaboration. The lesson is that slow is fast.",
+      themes: "Partnership, patience, receptivity, diplomacy, emotional depth.",
+      career: "Find your partners, mentors, allies. Solo hustle slows down so collaborative work can rise.",
+      love: "A deep, committed connection is forming or deepening. Old friendships become soulmate-level.",
+      caution: "Do not force outcomes. This is not a year to push. It is a year to nurture."
+    },
+    3: {
+      title: "Personal Year 3 - The Expression",
+      desc: "2026 is your creative, expressive, social year. Joy, art, communication and visibility all bloom. This is the year your voice finds its stage.",
+      themes: "Creativity, self-expression, communication, joy, social connection.",
+      career: "Write, speak, create, publish, share. If you have been hiding, 2026 is when you come forward.",
+      love: "Light, playful, expressive love. Dates, dating apps, events, chance meetings. The social energy is high.",
+      caution: "Do not scatter your energy. Create with purpose, not just activity."
+    },
+    4: {
+      title: "Personal Year 4 - The Foundation",
+      desc: "2026 is your build year. After the expansion of year 3, this is about structure, discipline and hard work. Whatever you build this year holds for the next 5 years.",
+      themes: "Foundation, discipline, systems, health, structure.",
+      career: "Build the systems, document the processes, lock in the routines. Not flashy, but everything depends on it.",
+      love: "Stable, committed energy. If your relationship has foundations, they strengthen. If not, cracks show.",
+      caution: "Do not expect overnight results. This is the year the iceberg grows under water."
+    },
+    5: {
+      title: "Personal Year 5 - The Change",
+      desc: "2026 is your most dynamic, unpredictable year. Change is coming, wanted or not. Travel, relocation, career pivots, breakthroughs.",
+      themes: "Freedom, change, adventure, adaptation, unexpected opportunity.",
+      career: "Pivot. Move. Travel for work. Take the opportunity that scares you. Staying still is the real risk.",
+      love: "Dynamic, exciting, possibly chaotic. New chapters, long-distance, fresh starts. Hold attachments loosely.",
+      caution: "Do not resist the change. The more you fight it, the more intensely 2026 delivers it."
+    },
+    6: {
+      title: "Personal Year 6 - The Heart",
+      desc: "2026 is your year of love, family, home, and responsibility. The focus shifts from external achievement to relationships and the foundations of your emotional life.",
+      themes: "Love, family, home, responsibility, service, beauty.",
+      career: "Careers centered on caring, teaching, healing, designing beautiful spaces. Service-oriented work rises.",
+      love: "Marriage, engagement, moving in, committing deeper. Major relationship milestones.",
+      caution: "Do not over-give. Your cup must be full before you pour into others."
+    },
+    7: {
+      title: "Personal Year 7 - The Awakening",
+      desc: "2026 is your inward, introspective, spiritually awakening year. The outside world quiets so your inner world can speak. This is a year for depth, not breadth.",
+      themes: "Spirituality, introspection, study, solitude, inner work.",
+      career: "Research, learning, deep specialization. Not a loud-visibility year. A master-your-craft year.",
+      love: "Solo time deepens you. Partnered love requires intentional presence.",
+      caution: "Do not force external progress. The breakthroughs happen in silence."
+    },
+    8: {
+      title: "Personal Year 8 - The Harvest",
+      desc: "2026 is your power and abundance year. Everything you have built in the previous 7 years starts paying off. Money, status, recognition arrive.",
+      themes: "Abundance, power, recognition, mastery, material success.",
+      career: "Promotions, bonuses, breakthroughs, big contracts. Step into leadership visibility.",
+      love: "Powerful, equal partnerships. You attract partners at your level.",
+      caution: "Do not let success cost you integrity. 2026 rewards character-aligned action."
+    },
+    9: {
+      title: "Personal Year 9 - The Completion",
+      desc: "2026 is your completion year. A 9-year cycle is ending so the next one can begin. This is the year to release, forgive, let go and clear space.",
+      themes: "Completion, release, forgiveness, endings, humanitarian service.",
+      career: "Finish the project. Close the chapter. Do not start anything new in late 2026.",
+      love: "Release relationships that have completed their lesson. Forgive what needs forgiving.",
+      caution: "Do not hold on. What leaves in 2026 was already done. New arrives in your personal year 1 (2027)."
+    }
+  };
+
+  function calculatePersonalYear() {
+    var month = parseInt(document.getElementById('py-month').value);
+    var day = parseInt(document.getElementById('py-day').value);
+    if (!month || !day || month < 1 || month > 12 || day < 1 || day > 31) {
+      alert('Please enter a valid birth month and day.');
+      return;
+    }
+    var sum = month + day + 2026;
+    while (sum > 9) {
+      var s = String(sum);
+      var next = 0;
+      for (var i = 0; i < s.length; i++) next += parseInt(s[i]);
+      sum = next;
+    }
+    var meaning = yearMeanings[sum];
+    document.getElementById('result-number').textContent = sum;
+    document.getElementById('result-title').textContent = meaning.title;
+    document.getElementById('result-desc').textContent = meaning.desc;
+    var details = '';
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--gold)">Your 2026 Themes</h3>';
+    details += '<p><strong>Core themes:</strong> ' + meaning.themes + '</p>';
+    details += '<p><strong>Career & money:</strong> ' + meaning.career + '</p>';
+    details += '<p><strong>Love & relationships:</strong> ' + meaning.love + '</p>';
+    details += '<p><strong>What to avoid:</strong> ' + meaning.caution + '</p>';
+    details += '<p style="color:var(--text-muted);font-size:0.95rem;margin-top:1rem"><em>2026 is a 1 Universal Year globally (2+0+2+6 = 10 = 1). Your personal year layers on top of this global reset energy.</em></p>';
+    document.getElementById('result-details').innerHTML = details;
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+</body>
+</html>

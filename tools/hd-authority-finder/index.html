@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human Design Authority Finder - Discover Your Decision-Making Authority</title>
+  <meta name="description" content="Free Human Design Authority Finder. Answer 5 questions and discover which of the 7 authorities is yours: Emotional, Sacral, Splenic, Ego, Self-Projected, Mental, Lunar.">
+  <meta name="keywords" content="human design authority, hd authority finder, emotional authority, sacral authority, splenic authority, which authority am i">
+  <link rel="canonical" href="https://mynextools.com/tools/hd-authority-finder/">
+  <meta property="og:title" content="Human Design Authority Finder - Find Your Decision-Making Authority">
+  <meta property="og:description" content="Free 5-question Human Design Authority Finder. All 7 authorities explained.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mynextools.com/tools/hd-authority-finder/">
+  <meta property="og:site_name" content="NexTools">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Human Design Authority Finder",
+    "description": "Free quiz that identifies your Human Design decision-making authority.",
+    "url": "https://mynextools.com/tools/hd-authority-finder/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What is a Human Design authority?","acceptedAnswer":{"@type":"Answer","text":"Your authority is your personal inner decision-making system. Human Design identifies 7 authorities, each with a different body signal you can trust when making important choices."}},
+      {"@type":"Question","name":"Why is authority more important than type?","acceptedAnswer":{"@type":"Answer","text":"Type tells you your general energy pattern. Authority tells you how to actually make decisions. Following your authority is the single highest-leverage move in Human Design practice."}},
+      {"@type":"Question","name":"Can my authority change?","acceptedAnswer":{"@type":"Answer","text":"No. Your authority is fixed at birth based on your exact chart. What changes is how well you learn to listen to it."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/hd-authority-finder/" style="color:var(--gold)">HD Authority</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Human Design Authority Finder</h1>
+      <p>Type tells you your energy. Authority tells you how to actually decide. Answer 5 questions and find yours.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc-container">
+        <h2 class="text-center">Find Your Authority</h2>
+        <p class="text-center" style="color:var(--text-muted);margin-bottom:2rem">Pick the answer that feels most true. Not the one that sounds smartest.</p>
+
+        <div id="quiz-form"></div>
+        <button class="calc-btn" onclick="calculateAuthority()">Reveal My Authority</button>
+
+        <div id="result-box" class="result-box">
+          <div class="result-number" id="result-number"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-description" id="result-desc"></div>
+          <div id="result-details" style="text-align:left;margin-top:1.5rem"></div>
+
+          <div class="cta-box">
+            <h4>Get Your Full Human Design Chart</h4>
+            <p>This quiz is a guide. Your real authority is locked into your birth chart. Get a detailed free reading with your type, strategy, profile and full authority breakdown.</p>
+            <a href="/tools/human-design-calculator/" class="btn btn-gold">Free Full HD Chart</a>
+          </div>
+
+          <div class="cta-box" style="margin-top:1rem">
+            <h4>Personalized Moon Reading</h4>
+            <p>Go deeper than Human Design alone. A personalized Moon Reading combines your birth chart with lunar cycles to reveal your exact purpose and timing.</p>
+            <a href="https://a967dlko2h36yv6iin7frmwa7g.hop.clickbank.net/?&traffic_source=website&traffic_type=organic&campaign=mynextoolsMOON" class="btn btn-gold" target="_blank" rel="noopener">Get Your Free Moon Reading</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="article-content">
+        <h2>What is Human Design Authority?</h2>
+        <p>Your authority is the specific body signal that tells you "yes" or "no" to any decision. Human Design identifies 7 authorities: Emotional (Solar Plexus), Sacral, Splenic, Ego (Heart), Self-Projected (G-Center), Mental (Environment), and Lunar (Reflector-only). Each works through a different part of your body and operates on a different timeline.</p>
+
+        <h2>Why Authority Matters More Than Type</h2>
+        <p>Your type tells you how your energy works in the world. Your authority tells you how to move within it. Following your authority correctly is the single most transformative practice in Human Design. When you decide from your authority, your life aligns. When you decide from your mind, you spend years reversing decisions that never should have been made.</p>
+
+        <div class="cta-box" style="margin-top:2rem">
+          <h4>The Complete HD Authority Guide</h4>
+          <p>All 7 authorities explained in depth, with how-to-use instructions and common misidentifications.</p>
+          <a href="/blog/hd-authority-7-types/" class="btn btn-gold">Read Full Guide</a>
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>Is this quiz accurate?</h3>
+        <p>This quiz is directionally accurate. It is based on the behavioral signatures of each authority. For a fully accurate reading, you need your exact birth time to generate a Human Design chart. Use our free HD Calculator for the precise answer.</p>
+
+        <h3>What if my authority does not feel right?</h3>
+        <p>Your mind has spent decades overriding your body signals. If an authority feels "off," try living by it for 30 days and notice what happens to your energy and outcomes. Your body will confirm the truth faster than your mind will.</p>
+
+        <h3>Can I have two authorities?</h3>
+        <p>No. Every chart has exactly one authority. What you may feel is the tension between your authority (body) and your mind (not-authority). Only one actually makes correct decisions for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2">Related Free Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h3>Full HD Calculator</h3>
+          <p>Get your complete chart: type, strategy, profile and authority.</p>
+          <a href="/tools/human-design-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Mirror Hour Decoder</h3>
+          <p>Decode the meaning of 11:11, 22:22 and every mirror hour.</p>
+          <a href="/tools/mirror-hour-decoder/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFD700" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <h3>Personal Year 2026</h3>
+          <p>Find out what 2026 personally holds for you.</p>
+          <a href="/tools/personal-year-calculator/" class="btn btn-purple btn-sm">Try Free</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/mirror-hour-decoder/">Mirror Hours</a><a href="/tools/hd-authority-finder/">HD Authority</a><a href="/tools/personal-year-calculator/">Personal Year</a><a href="/tools/human-design-calculator/">Human Design</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/hd-authority-7-types/">HD Authority Types</a><a href="/blog/mirror-hours-complete-guide/">Mirror Hours Guide</a><a href="/blog/human-design-types-explained/">HD Types</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var questions = [
+    {
+      q: "How do you usually know a decision is right?",
+      options: [
+        { t: "I need to sleep on it. My feelings shift over hours or days until I land.", a: "emotional" },
+        { t: "My gut makes a sound or a pull in the moment. It is instant.", a: "sacral" },
+        { t: "I get a sudden knowing or hear a voice. Once. I either act or miss it.", a: "splenic" },
+        { t: "I feel what I want in my heart and my willpower kicks in.", a: "ego" },
+        { t: "When I talk it out loud, I hear myself say the truth.", a: "self-projected" },
+        { t: "I need to be in the right environment and people before I can feel it.", a: "mental" },
+        { t: "I have to wait about 28 days. My clarity changes with the lunar cycle.", a: "lunar" }
+      ]
+    },
+    {
+      q: "What ruins your decisions?",
+      options: [
+        { t: "Saying yes in the moment when I should have waited.", a: "emotional" },
+        { t: "Ignoring that first gut 'no' because it seemed irrational.", a: "sacral" },
+        { t: "Overthinking after my instinct already spoke.", a: "splenic" },
+        { t: "Committing to things I do not actually want to do.", a: "ego" },
+        { t: "Deciding in isolation without talking it through.", a: "self-projected" },
+        { t: "Rushing before I have been around the right people.", a: "mental" },
+        { t: "Being pressured to decide on someone else's timeline.", a: "lunar" }
+      ]
+    },
+    {
+      q: "Which body signal do you trust most?",
+      options: [
+        { t: "My emotional wave and how I feel over time.", a: "emotional" },
+        { t: "The 'uh-huh' or 'uh-uh' sound my gut makes.", a: "sacral" },
+        { t: "A spontaneous flash of intuition.", a: "splenic" },
+        { t: "My willpower and a deep heart-level 'I want this'.", a: "ego" },
+        { t: "The sound of my own voice speaking the truth aloud.", a: "self-projected" },
+        { t: "A felt sense that only shows up in the right environment.", a: "mental" },
+        { t: "A slow, cyclical clarity that builds over weeks.", a: "lunar" }
+      ]
+    },
+    {
+      q: "What kind of advice works best for you?",
+      options: [
+        { t: "'Sleep on it' and 'ride the wave, do not fight it'.", a: "emotional" },
+        { t: "'What does your gut say, yes or no?'", a: "sacral" },
+        { t: "'Trust your first instinct.'", a: "splenic" },
+        { t: "'What do you actually want?' and 'do you have the willpower for this?'", a: "ego" },
+        { t: "'Talk it out and listen to yourself.'", a: "self-projected" },
+        { t: "'Be patient, wait to feel clear.'", a: "mental" },
+        { t: "'You do not need to decide today. Take your time.'", a: "lunar" }
+      ]
+    },
+    {
+      q: "Which HD type do you suspect you are?",
+      options: [
+        { t: "Projector", a: "self-projected" },
+        { t: "Generator or Manifesting Generator", a: "sacral" },
+        { t: "Manifestor", a: "splenic" },
+        { t: "Reflector", a: "lunar" },
+        { t: "Not sure, but I feel things in waves", a: "emotional" },
+        { t: "Not sure, but I feel it in my heart/will", a: "ego" },
+        { t: "Not sure, but I need to talk to people first", a: "mental" }
+      ]
+    }
+  ];
+
+  var authorities = {
+    "emotional": {
+      name: "Emotional Authority (Solar Plexus)",
+      desc: "You are one of about 50% of the population with defined Solar Plexus. Your truth arrives over time, not in the moment. There is no such thing as truth-in-the-now for you. Your emotional wave must complete before you can know your real answer.",
+      how: "Never decide in the moment. Wait out your wave (hours for small decisions, days or weeks for big ones). When clarity arrives quietly, it is real.",
+      trust: "The feeling you land on after the wave passes, not the peak or valley.",
+      career: "Careers that respect time and reflection. Avoid high-pressure on-the-spot decision roles unless you have your wave mastered."
+    },
+    "sacral": {
+      name: "Sacral Authority",
+      desc: "You are a Generator or Manifesting Generator. Your body responds in the moment with a sound or feeling: an energetic 'uh-huh' (yes) or 'uh-uh' (no). The response is instant and pre-verbal.",
+      how: "Notice your body's response before your mind speaks. Ask yes/no questions and feel the immediate gut reaction.",
+      trust: "The first sound or lift. Not the mental justification that follows.",
+      career: "Work that lights you up. If your gut is a 'no' on a role, leave. The sacral gets louder the more you honor it."
+    },
+    "splenic": {
+      name: "Splenic Authority",
+      desc: "You are a Manifestor or Projector with defined Spleen. Your intuition speaks once, quietly, in the moment, and then it is gone. The spleen is the oldest awareness system in the body - survival, immunity, instinct.",
+      how: "Act on the first whisper. Splenic hints do not repeat themselves. If you hesitate and overthink, the signal is lost.",
+      trust: "The very first hit. Spontaneous. Quiet. Non-negotiable.",
+      career: "Careers where your instant read of people and situations is the value: healer, advisor, strategist, investigator."
+    },
+    "ego": {
+      name: "Ego Authority (Heart)",
+      desc: "You are a rare Manifestor or Projector with Ego (Heart) authority - about 1% of the population. You decide from your heart and your willpower. The question is never 'should I' but 'do I actually want to, and do I have the resources to keep my word?'",
+      how: "Ask yourself 'do I want this?' and 'do I have the willpower?' If both are yes, commit. If either is no, do not.",
+      trust: "The heart's fierce yes and the body's willingness to back it.",
+      career: "Entrepreneurship, sales, leadership. Roles that require courage and the ability to say 'I want this' without apology."
+    },
+    "self-projected": {
+      name: "Self-Projected Authority",
+      desc: "You are a Projector with open Solar Plexus, Sacral and Spleen but defined G-Center. Your truth comes out of your own mouth. Until you speak, you do not fully know.",
+      how: "Do not decide in silence. Talk to someone - a trusted friend, a voice memo, even yourself. Listen for what you say, not what they advise.",
+      trust: "The words that surprise you when they come out of your own mouth.",
+      career: "Coaching, teaching, therapy, creative fields. Anywhere your voice is the instrument."
+    },
+    "mental": {
+      name: "Mental Authority (Environment)",
+      desc: "You are a Projector with no defined inner authority. Your decisions depend on being in the right environment and around the right people. Your clarity is relational and spatial.",
+      how: "Take your time. Visit the place. Sit with the person. Your body absorbs the environment over days and tells you through felt sense.",
+      trust: "The felt sense that shows up in the right environment, not the mental analysis.",
+      career: "Advisory roles, consulting, design. Work where environment and fit matter as much as output."
+    },
+    "lunar": {
+      name: "Lunar Authority",
+      desc: "You are a Reflector - 1% of the population. Your authority moves with the moon. Over 28 days, your awareness cycles through every center in the chart, and your clarity forms slowly.",
+      how: "For any big decision, wait a full lunar cycle (28 days). Talk to multiple trusted people. Your clarity emerges across the cycle, not in a single moment.",
+      trust: "The clarity that holds across the entire 28 days, not a single bright moment.",
+      career: "You are the barometer of the room. Careers where your reflective wisdom serves groups: leadership advisory, culture design, community stewardship."
+    }
+  };
+
+  function renderQuiz() {
+    var form = document.getElementById('quiz-form');
+    questions.forEach(function(q, i) {
+      var group = document.createElement('div');
+      group.className = 'calc-input-group';
+      var label = document.createElement('label');
+      label.textContent = 'Q' + (i + 1) + '. ' + q.q;
+      group.appendChild(label);
+      q.options.forEach(function(opt, j) {
+        var id = 'q' + i + '_' + j;
+        var wrapper = document.createElement('div');
+        wrapper.style.cssText = 'display:flex;gap:0.5rem;align-items:flex-start;padding:0.5rem 0;color:rgba(255,255,255,0.85)';
+        wrapper.innerHTML = '<input type="radio" name="q' + i + '" value="' + opt.a + '" id="' + id + '" style="margin-top:0.25rem"><label for="' + id + '" style="font-weight:400;cursor:pointer;margin:0">' + opt.t + '</label>';
+        group.appendChild(wrapper);
+      });
+      form.appendChild(group);
+    });
+  }
+  renderQuiz();
+
+  function calculateAuthority() {
+    var scores = {};
+    for (var i = 0; i < questions.length; i++) {
+      var selected = document.querySelector('input[name="q' + i + '"]:checked');
+      if (!selected) { alert('Please answer all 5 questions.'); return; }
+      scores[selected.value] = (scores[selected.value] || 0) + 1;
+    }
+    var top = Object.keys(scores).sort(function(a, b) { return scores[b] - scores[a]; })[0];
+    var auth = authorities[top];
+    document.getElementById('result-number').textContent = auth.name.split(' ')[0];
+    document.getElementById('result-title').textContent = auth.name;
+    document.getElementById('result-desc').textContent = auth.desc;
+    var details = '';
+    details += '<h3 style="margin-bottom:0.75rem;color:var(--gold)">How to Use Your Authority</h3>';
+    details += '<p><strong>The practice:</strong> ' + auth.how + '</p>';
+    details += '<p><strong>What to trust:</strong> ' + auth.trust + '</p>';
+    details += '<p><strong>Career alignment:</strong> ' + auth.career + '</p>';
+    details += '<p style="color:var(--text-muted);font-size:0.95rem;margin-top:1rem"><em>Reminder: this is a directional quiz. Your exact authority is locked into your birth chart. Run our free HD Calculator for your full, accurate profile.</em></p>';
+    document.getElementById('result-details').innerHTML = details;
+    var box = document.getElementById('result-box');
+    box.classList.add('visible');
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  </script>
+</body>
+</html>
