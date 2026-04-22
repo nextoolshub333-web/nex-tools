@@ -552,3 +552,21 @@ a:hover { color: var(--gold-soft); }
   .site-header, .site-footer, .cta-box, .email-popup-overlay { display: none; }
   body { background: white; color: black; }
 }
+
+/* TL;DR block (auto-injected for GEO / AI search) */
+.tldr {
+  background: rgba(255, 215, 0, 0.06);
+  border-left: 3px solid var(--gold, #FFD700);
+  padding: 18px 24px;
+  border-radius: 4px;
+  margin: 0 0 28px 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+}
+.tldr strong {
+  color: var(--gold, #FFD700);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-right: 8px;
+}
