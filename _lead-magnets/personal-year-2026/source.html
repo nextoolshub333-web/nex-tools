@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2026 Personal Year Forecast - NEX Tools</title>
+<link rel="stylesheet" href="../_template-base.css">
+<style>
+  .year-wheel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 6mm 0;
+  }
+  .year-wheel .slot {
+    background: #12101A;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 4mm;
+    text-align: center;
+  }
+  .year-wheel .slot .big {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30pt;
+    font-weight: 800;
+    color: #FFD700;
+    line-height: 1;
+  }
+  .year-wheel .slot .lbl {
+    color: rgba(255,255,255,0.6);
+    font-size: 9pt;
+    margin-top: 2mm;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .months-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm 6mm;
+    margin: 4mm 0;
+  }
+  .months-grid .m {
+    padding: 2mm 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 10.5pt;
+  }
+  .months-grid .m strong { color: #FFD700; font-weight: 700; display: inline-block; width: 22mm; }
+  .formula {
+    background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 60%, #0A0A0F 100%);
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 10px;
+    padding: 8mm;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14pt;
+    color: #FFD700;
+    margin: 5mm 0;
+    letter-spacing: 0.02em;
+  }
+  .affirmation {
+    border-left: 3px solid #FFD700;
+    padding: 2mm 0 2mm 6mm;
+    margin: 3mm 0;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+    font-size: 11pt;
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER (page 1) -->
+<section class="page cover">
+  <div class="cover-inner">
+    <div class="cover-brand">NEX<span class="muted"> TOOLS</span></div>
+    <div>
+      <div class="cover-kicker">Free Guide 01 / 2026</div>
+      <div class="cover-symbol">2026</div>
+      <h1>Your <span class="gold">Personal Year</span><br>Forecast</h1>
+      <p class="cover-sub">A complete 25-page breakdown of your nine-year numerology cycle. Find your number, read your year, move with the frequency.</p>
+    </div>
+    <div class="cover-footer">
+      <div class="site">mynextools.com</div>
+      <div>Issued 2026 - Free Lead Magnet 01 of 05</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 - TOC -->
+<section class="page">
+  <div class="kicker">Contents</div>
+  <h1>What Is Inside</h1>
+  <p class="lead">This guide walks you through the nine-year Personal Year cycle and delivers a full chapter for each number, plus a Mercury retrograde safety map and monthly focus.</p>
+  <div class="toc">
+    <ol>
+      <li><span class="num">01</span><span class="title">What is a Personal Year</span><span class="page-num">03</span></li>
+      <li><span class="num">02</span><span class="title">How to calculate yours</span><span class="page-num">04</span></li>
+      <li><span class="num">03</span><span class="title">Personal Year 1 - The Seed</span><span class="page-num">05</span></li>
+      <li><span class="num">04</span><span class="title">Personal Year 2 - The Partnership</span><span class="page-num">07</span></li>
+      <li><span class="num">05</span><span class="title">Personal Year 3 - The Voice</span><span class="page-num">09</span></li>
+      <li><span class="num">06</span><span class="title">Personal Year 4 - The Foundation</span><span class="page-num">11</span></li>
+      <li><span class="num">07</span><span class="title">Personal Year 5 - The Shift</span><span class="page-num">13</span></li>
+      <li><span class="num">08</span><span class="title">Personal Year 6 - The Heart</span><span class="page-num">15</span></li>
+      <li><span class="num">09</span><span class="title">Personal Year 7 - The Inward</span><span class="page-num">17</span></li>
+      <li><span class="num">10</span><span class="title">Personal Year 8 - The Harvest</span><span class="page-num">19</span></li>
+      <li><span class="num">11</span><span class="title">Personal Year 9 - The Release</span><span class="page-num">21</span></li>
+      <li><span class="num">12</span><span class="title">2026 Mercury retrograde windows</span><span class="page-num">23</span></li>
+      <li><span class="num">13</span><span class="title">Month-by-month prompts</span><span class="page-num">24</span></li>
+      <li><span class="num">14</span><span class="title">Your next step</span><span class="page-num">25</span></li>
+    </ol>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 02</span></div>
+</section>
+
+<!-- PAGE 3 - What is Personal Year -->
+<section class="page">
+  <div class="kicker">Chapter 01</div>
+  <h1>What is a Personal Year</h1>
+  <p class="lead">A Personal Year is your private chapter inside the universal nine-year cycle. It shows you the theme your life is calling for right now.</p>
+  <p>The Universal Year is the same for everyone and is calculated from the year alone. In 2026, the Universal Year reduces to 1 (2+0+2+6 = 10 = 1). That means the planet, collectively, is in a launch, seed, and pioneer year.</p>
+  <p>Your Personal Year is different. It blends your date of birth with the current year, so it runs on its own clock. It rolls over each year at your birthday. Two people born on the same day share a Personal Year. Everyone else is on their own unique nine-year loop.</p>
+  <div class="card gold-border">
+    <h4>Why it matters</h4>
+    <p>Working with the current of your Personal Year is the difference between rowing downstream and rowing upstream. Same effort, completely different result. A Personal Year 4 spent building a solid foundation will compound for nearly a decade. The same year spent trying to travel, play, and rebel will feel heavy and disappointing.</p>
+  </div>
+  <h3>The big picture</h3>
+  <p>Year 1 plants. Year 2 partners. Year 3 expresses. Year 4 builds. Year 5 shifts. Year 6 loves. Year 7 reflects. Year 8 harvests. Year 9 releases. Then it starts again. This guide decodes each one.</p>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 03</span></div>
+</section>
+
+<!-- PAGE 4 - Formula -->
+<section class="page">
+  <div class="kicker">Chapter 02</div>
+  <h1>How to calculate your 2026 Personal Year</h1>
+  <p class="lead">Add your birth month plus birth day plus the current year, then reduce to a single digit.</p>
+  <div class="formula">Birth Month + Birth Day + 2026 = Personal Year</div>
+  <h3>Example</h3>
+  <p>Birth date: July 15, 1990.</p>
+  <p>Personal Year calculation: 7 + 1+5 + 2+0+2+6 = 7 + 6 + 10 = 23 = 2+3 = 5.</p>
+  <p class="gold">This person is in a Personal Year 5 for 2026.</p>
+  <h3>The rules</h3>
+  <ul>
+    <li>Always reduce multi-digit numbers until you reach a single digit from 1 through 9.</li>
+    <li>Ignore the birth year. Personal Year uses the current year, not the year you were born.</li>
+    <li>Use the current calendar year, not the fiscal year.</li>
+    <li>The new Personal Year technically begins at your birthday each year. Some practitioners count from January 1. Both are common. This guide uses the January 1 method for simplicity.</li>
+  </ul>
+  <div class="card">
+    <h4>Master numbers</h4>
+    <p>If your sum lands on 11, 22, or 33, some numerologists preserve it as a master number. For Personal Year purposes, most reduce all the way to a single digit. Use the single digit for the yearly forecast in this guide.</p>
+  </div>
+  <p class="small muted">Want this done for you in one click? Try the free calculator at mynextools.com/tools/personal-year-calculator.</p>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 04</span></div>
+</section>
+
+<!-- PAGE 5 - PY 1 -->
+<section class="page">
+  <div class="kicker">Chapter 03 - Personal Year 1</div>
+  <h1>The Seed</h1>
+  <p class="lead">A Personal Year 1 is the start of a new nine-year chapter. You are standing at the edge of a blank page. Everything you plant now will grow for almost a decade.</p>
+  <h3>The theme</h3>
+  <p>Initiation. Fresh direction. Risk with intention. The Personal Year 1 is not the year to coast on last year's momentum. It is the year to make the bold move you have been circling for years. Universal Year 1 plus Personal Year 1 in 2026 is a once-in-81-years double alignment.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Starting the business. Moving to the city. Publishing the thing. Breaking the pattern. Picking up the skill. Ending what drains you so there is room for what nourishes you.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Waiting one more year. Making the same commitment to the same dead routine. Believing the doubt in your head before you test the action with your body.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">I am the first mover of my own life. The seed I plant this year will feed me for nine.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>January</strong> Ignition - pick your seed.</div>
+    <div class="m"><strong>March</strong> First bloom - public declaration.</div>
+    <div class="m"><strong>July</strong> Mid-year test - is your seed rooted?</div>
+    <div class="m"><strong>November</strong> Harvest preview - keep going.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 05</span></div>
+</section>
+
+<!-- PAGE 6 - PY1 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 1 continued</div>
+  <h2>The Seed in practice</h2>
+  <p>The Personal Year 1 rewards courage, not size. A tiny seed planted with full intention beats a grand gesture planted out of guilt. Your job this year is to keep choosing your direction, small choice after small choice, even when it is uncomfortable.</p>
+  <h3>Relationship notes</h3>
+  <p>If a partnership is already healthy, it will lean forward with you in a Personal Year 1. If a partnership has been quietly misaligned for years, this year's pressure will reveal that. Honor what you learn. The Year 1 frequency does not want to end things for the sake of ending them. It wants you aligned before the nine-year build begins.</p>
+  <h3>Career notes</h3>
+  <p>Launch energy favors ownership. This is the year to ask for equity, stake, or a founding role rather than another salary bump. If you have been dreaming of going independent, 2026 is the Personal Year 1 window many people wait a decade for.</p>
+  <h3>Health and body</h3>
+  <p>Your body likes beginnings this year. New training, new nutrition, a fresh sleep rhythm. Use the initiation energy. Avoid big restrictive extremes that are impossible to sustain for nine years. You are laying a pattern, not a punishment.</p>
+  <div class="card gold-border">
+    <h4>If you feel stuck</h4>
+    <p>Pick the one decision you have been postponing the longest. Make a small, measurable move on it within 48 hours. Personal Year 1 does not reward overthinking. It rewards motion.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 06</span></div>
+</section>
+
+<!-- PAGE 7 - PY 2 -->
+<section class="page">
+  <div class="kicker">Chapter 04 - Personal Year 2</div>
+  <h1>The Partnership</h1>
+  <p class="lead">A Personal Year 2 is the year of relationship, cooperation, and slowing down. If Year 1 was the seed, Year 2 is the quiet season that protects the seed while it grows its first root.</p>
+  <h3>The theme</h3>
+  <p>Connection. Patience. Diplomacy. The things you launched last year need tending, not a second launch. Personal Year 2 is not a time for big solo moves. It is a time for the partners, collaborators, and communities that make Year 1's seeds survive.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Co-founders. Deeper intimate partnership. Mentors. Listening more than talking. Mediating conflict gently. Slowing your calendar to match your nervous system.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Launching a second big thing while the first is still young. Going it alone. Cutting off relationships hastily. Confusing slowness for stuckness.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">I am allowed to be held. What I plant needs partners to grow.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>February</strong> Venus love corridor.</div>
+    <div class="m"><strong>May</strong> Partnership clarity.</div>
+    <div class="m"><strong>September</strong> Community harvest.</div>
+    <div class="m"><strong>December</strong> Gentle review, no big moves.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 07</span></div>
+</section>
+
+<!-- PAGE 8 - PY2 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 2 continued</div>
+  <h2>The Partnership in practice</h2>
+  <p>In a Personal Year 2, your superpower is noticing what others miss. The quality of attention you offer the right partner this year is the same attention that will repay you for the rest of the decade.</p>
+  <h3>Relationship notes</h3>
+  <p>Marriage, long-term commitment, and co-founder contracts formed in a Personal Year 2 have unusually long legs. If you have been waiting for the right moment to go deeper with a trusted partner, this year offers permission.</p>
+  <h3>Career notes</h3>
+  <p>Your best career move this year is not a title change. It is a collaboration that was not on your org chart. Look sideways, not up.</p>
+  <h3>Body and nervous system</h3>
+  <p>Personal Year 2 is sensitive. Your body picks up other peoples' states faster than usual. Build solo reset time into each week, or the ambient signal will drain you.</p>
+  <div class="card gold-border">
+    <h4>If you feel alone</h4>
+    <p>Ask one trusted person for help this week with something specific. The ask itself is the medicine. Personal Year 2 does not reward self-sufficiency; it rewards reciprocity.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 08</span></div>
+</section>
+
+<!-- PAGE 9 - PY 3 -->
+<section class="page">
+  <div class="kicker">Chapter 05 - Personal Year 3</div>
+  <h1>The Voice</h1>
+  <p class="lead">A Personal Year 3 is the creative, expressive, social chapter of the nine-year cycle. The seed has rooted and now wants to show its color to the world.</p>
+  <h3>The theme</h3>
+  <p>Expression. Visibility. Playfulness. Creative output. Your voice wants to be heard this year, and the culture around you will listen in ways it has not listened for years.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Publishing. Performing. Travelling to new circles. Saying the thing out loud. Creative projects you have been hiding in a drawer. Social ecosystems that feed you.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Disappearing for a long silent season. Staying in the drawer. Over-refining and never shipping. Comparing your voice to a more practiced one.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">My voice is ready. I do not need more rehearsal to be heard.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>April</strong> Creative burst.</div>
+    <div class="m"><strong>June</strong> First public response.</div>
+    <div class="m"><strong>August</strong> Unexpected invitation.</div>
+    <div class="m"><strong>October</strong> Consolidation.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 09</span></div>
+</section>
+
+<!-- PAGE 10 - PY3 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 3 continued</div>
+  <h2>The Voice in practice</h2>
+  <p>Personal Year 3 rewards volume, not polish. The person who publishes twenty imperfect pieces this year will grow more than the person who publishes one perfect one. The Year 3 current prefers quantity because quantity teaches.</p>
+  <h3>Relationship notes</h3>
+  <p>Social life can expand quickly this year. Be selective about which circles you give your weekly energy to. The friends of your Year 3 tend to become the allies of your Year 8.</p>
+  <h3>Career notes</h3>
+  <p>Ship publicly. A personal brand built in a Personal Year 3 has the wind at its back for the rest of the cycle. Quiet back-end work, while sometimes necessary, tends to feel heavier in a Year 3.</p>
+  <h3>Body and nervous system</h3>
+  <p>Your body likes movement, music, and company this year. Dance classes, group sports, collaborative creative sessions all feed the Year 3 frequency.</p>
+  <div class="card gold-border">
+    <h4>If you feel unseen</h4>
+    <p>Pick one creative thing you have been hiding and show it to one trusted person this week. Their reaction is not the point. The act of revealing is the point.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 10</span></div>
+</section>
+
+<!-- PAGE 11 - PY 4 -->
+<section class="page">
+  <div class="kicker">Chapter 06 - Personal Year 4</div>
+  <h1>The Foundation</h1>
+  <p class="lead">A Personal Year 4 is the builder year. After three years of seeding, partnering, and expressing, the cycle wants structure. What you put down now is what the later years stand on.</p>
+  <h3>The theme</h3>
+  <p>Discipline. Systems. Routine. Patient construction. The Year 4 does not glitter. It does not reward spontaneity. It rewards the small repeated acts that, by December, have built something unmistakable.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Habits. Financial structure. Real estate. Contracts in writing. Health routines that will last years. Skill mastery through daily practice.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Chasing novelty. Travel that interrupts your core practice. Waiting for motivation. Half-committing to the foundation work.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">The slow work is the real work. I am building what my future self will stand on.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>January</strong> Set the systems.</div>
+    <div class="m"><strong>May</strong> First visible structure.</div>
+    <div class="m"><strong>September</strong> Stress test.</div>
+    <div class="m"><strong>December</strong> Structural reward.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 11</span></div>
+</section>
+
+<!-- PAGE 12 - PY 4 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 4 continued</div>
+  <h2>The Foundation in practice</h2>
+  <p>The Year 4 can feel restrictive. The cycle is asking you to keep your word to yourself over and over again. This is the year that separates the dreamers from the builders.</p>
+  <h3>Relationship notes</h3>
+  <p>Long-term love tightens this year. Engagements, marriages, moving in together, and hard conversations about money and co-parenting all belong to the Year 4 frequency. Casual relationships tend to end or graduate.</p>
+  <h3>Career notes</h3>
+  <p>Career moves that add structure (long-term contracts, equity vesting, retirement accounts, insurance in place) are favored. Quitting a job impulsively is not.</p>
+  <h3>Body and nervous system</h3>
+  <p>Year 4 is the best year of the cycle to repair the body. Daily practice beats intense sporadic effort. A one-year physical therapy protocol, strength training routine, or sleep reset has unusual compounding power in this year.</p>
+  <div class="card gold-border">
+    <h4>If you feel trapped</h4>
+    <p>Remember the Year 4 is only one-ninth of the cycle. The structure you build now is what allows the freedom of later years. Restriction now is permission later.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 12</span></div>
+</section>
+
+<!-- PAGE 13 - PY 5 -->
+<section class="page">
+  <div class="kicker">Chapter 07 - Personal Year 5</div>
+  <h1>The Shift</h1>
+  <p class="lead">A Personal Year 5 breaks patterns. This is the freedom, travel, and change chapter of your nine-year cycle.</p>
+  <h3>The theme</h3>
+  <p>Movement. Novelty. Adventure. Reinvention. After the discipline of Year 4, the cycle releases its grip and invites you to explore. Expect surprises and unexpected pivots.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Travel. Career pivots. New environments. Unlearning outdated identity. Healthy risk. Teaching yourself something completely new.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Major long-term commitments signed at wave-peak. Overcommitting to five experiments when one deep one would serve more. Using freedom as escape.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">I am allowed to outgrow the shape I was in.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>March</strong> Wanderlust peak.</div>
+    <div class="m"><strong>June</strong> Pivot point.</div>
+    <div class="m"><strong>October</strong> Second chance to shift.</div>
+    <div class="m"><strong>December</strong> Integrate what changed.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 13</span></div>
+</section>
+
+<!-- PAGE 14 - PY 5 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 5 continued</div>
+  <h2>The Shift in practice</h2>
+  <p>Year 5 brings change whether you cooperate with it or resist it. The people who resist change in Year 5 often experience it forced upon them, which is more disorienting than if they had been moving voluntarily.</p>
+  <h3>Relationship notes</h3>
+  <p>Long-term relationships can stretch in Year 5. A healthy partnership meets the shift together. A brittle partnership discovers it was not built to travel.</p>
+  <h3>Career notes</h3>
+  <p>Your job title may change this year. Your industry may change. The people you collaborate with may change. If you keep your center of gravity strong, the Year 5 changes are liberating rather than destabilizing.</p>
+  <h3>Body and nervous system</h3>
+  <p>Your body wants to move and be moved. Fresh climates, new foods, new sleep patterns all feed the Year 5 frequency. Listen to what wants to change.</p>
+  <div class="card gold-border">
+    <h4>If you feel lost</h4>
+    <p>Remember the compass. Year 5 is allowed to feel chaotic. Ground yourself in one non-negotiable daily practice and let everything else move.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 14</span></div>
+</section>
+
+<!-- PAGE 15 - PY 6 -->
+<section class="page">
+  <div class="kicker">Chapter 08 - Personal Year 6</div>
+  <h1>The Heart</h1>
+  <p class="lead">A Personal Year 6 turns the focus toward home, family, love, and responsibility. This is the year of the caretaker.</p>
+  <h3>The theme</h3>
+  <p>Love. Home. Service. Beauty. Healing. The Year 6 asks you to slow the outward movement of Year 5 and pour care into your inner circle.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Family. Home as sanctuary. Deep romantic commitment. Creative beauty work. Caring for elders, children, partners, self.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Martyrdom. Saying yes to everyone. Losing your own center in service to others. Perfectionism about appearances.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">My love is medicine when I give it without losing myself.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>February</strong> Love corridor.</div>
+    <div class="m"><strong>May</strong> Home renovation pulls.</div>
+    <div class="m"><strong>September</strong> Family reconfiguration.</div>
+    <div class="m"><strong>November</strong> Beauty creation.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 15</span></div>
+</section>
+
+<!-- PAGE 16 - PY 6 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 6 continued</div>
+  <h2>The Heart in practice</h2>
+  <p>Year 6 is the most beautiful year of the cycle, and also the most dangerous for self-neglect. The Year 6 who remembers to love themselves while they love everyone else becomes the center of a thriving circle. The one who forgets becomes exhausted.</p>
+  <h3>Relationship notes</h3>
+  <p>Engagement, marriage, pregnancy, and deepening family bonds are favored. Relationships that have been half-alive become either fully alive or conclude cleanly.</p>
+  <h3>Career notes</h3>
+  <p>Any work that involves caregiving, design, beauty, teaching, or healing is amplified. Consider working from home or in a home-like environment this year.</p>
+  <h3>Body and nervous system</h3>
+  <p>Year 6 loves touch, warmth, and slow beauty. Baths, massages, cooking, gardening, creating an aesthetic environment all nourish the body in this frequency.</p>
+  <div class="card gold-border">
+    <h4>If you feel drained</h4>
+    <p>You are giving more than you are receiving. Name one person who can pour into you this week and ask them to. Personal Year 6 is not one-directional.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 16</span></div>
+</section>
+
+<!-- PAGE 17 - PY 7 -->
+<section class="page">
+  <div class="kicker">Chapter 09 - Personal Year 7</div>
+  <h1>The Inward</h1>
+  <p class="lead">A Personal Year 7 is the mystical, reflective, soul-deepening chapter. After the outer emphasis of Year 6, the cycle asks you to turn inward and listen.</p>
+  <h3>The theme</h3>
+  <p>Study. Introspection. Spiritual practice. Solo time. The Year 7 does not want you at parties all the time. It wants you in books, in nature, in the practices that put you in contact with what is beyond the visible.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Meditation. Retreats. Therapy. Deep study. Writing. Prayer. Long walks. Time with teachers. Listening to the quiet voice.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Forcing decisions. Avoiding silence. Filling every hour with social noise. Pushing for external results.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">What I need most this year cannot be found outside. It is already here.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>January</strong> Study phase begins.</div>
+    <div class="m"><strong>April</strong> Retreat window.</div>
+    <div class="m"><strong>August</strong> Spiritual breakthrough.</div>
+    <div class="m"><strong>November</strong> Wisdom integrates.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 17</span></div>
+</section>
+
+<!-- PAGE 18 - PY 7 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 7 continued</div>
+  <h2>The Inward in practice</h2>
+  <p>Year 7 is often the year people describe as feeling slow, strange, or suspended. It is the year of the monk, the scholar, the mystic. External results slow down because the real work is internal.</p>
+  <h3>Relationship notes</h3>
+  <p>Your intimate relationships want depth, not more activity. Long silent nights, deep conversations about meaning, shared practices all nourish the Year 7 frequency.</p>
+  <h3>Career notes</h3>
+  <p>Not the best year to start a new business or dramatically expand. Strong year for deepening craft, writing, research, and teaching.</p>
+  <h3>Body and nervous system</h3>
+  <p>Year 7 wants stillness. Long sleep. Fewer but deeper social engagements. Nature. The body recovers and resets in this frequency.</p>
+  <div class="card gold-border">
+    <h4>If you feel restless</h4>
+    <p>The restlessness is resistance to the inner work. Try one hour of complete silence (no phone, no input) and see what surfaces. Year 7 is not for doing more. It is for becoming more.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 18</span></div>
+</section>
+
+<!-- PAGE 19 - PY 8 -->
+<section class="page">
+  <div class="kicker">Chapter 10 - Personal Year 8</div>
+  <h1>The Harvest</h1>
+  <p class="lead">A Personal Year 8 is the power, money, and material achievement year. The work of the first seven years becomes visible in the material world.</p>
+  <h3>The theme</h3>
+  <p>Harvest. Authority. Wealth. Recognition. Executive leadership. The Year 8 does not like small moves. It asks for clear, confident, material action at scale.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Asking for the promotion. Raising rates. Scaling the business. Claiming authority. Owning the room. Making visible wealth moves.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Under-charging. Playing small. Avoiding visibility. Hiding from leadership. Refusing to receive what you have earned.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">I am ready to be seen. I am ready to receive. The harvest is mine.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>March</strong> Visibility push.</div>
+    <div class="m"><strong>June</strong> Financial window.</div>
+    <div class="m"><strong>September</strong> Authority claim.</div>
+    <div class="m"><strong>December</strong> Year-end harvest.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 19</span></div>
+</section>
+
+<!-- PAGE 20 - PY 8 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 8 continued</div>
+  <h2>The Harvest in practice</h2>
+  <p>Year 8 rewards boldness that is backed by the seven prior years of work. The person who built a foundation, partnered wisely, expressed their voice, and deepened into mastery harvests abundantly in Year 8. The person who avoided the earlier years' lessons can feel the Year 8 pressure without the capacity to meet it.</p>
+  <h3>Relationship notes</h3>
+  <p>Partnership power dynamics clarify this year. If a relationship has been one-sided, the Year 8 will either rebalance it or reveal it. Strong partnerships thrive together in this year.</p>
+  <h3>Career notes</h3>
+  <p>Raises, promotions, book deals, business exits, investment rounds, major contracts are all favored in Year 8. Do not be shy. Ask for the number that matches your actual value.</p>
+  <h3>Body and nervous system</h3>
+  <p>Year 8 energy is strong but can stress the body if you do not pace. Schedule rest into your calendar the same way you schedule meetings.</p>
+  <div class="card gold-border">
+    <h4>If you feel unworthy</h4>
+    <p>The unworthiness is a Year 8 test. Every person steps into a bigger version of their authority in this year. Your discomfort is part of the process, not proof you should step back.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 20</span></div>
+</section>
+
+<!-- PAGE 21 - PY 9 -->
+<section class="page">
+  <div class="kicker">Chapter 11 - Personal Year 9</div>
+  <h1>The Release</h1>
+  <p class="lead">A Personal Year 9 completes the cycle. This is the year of endings, graduations, and the quiet preparation for the next nine-year chapter.</p>
+  <h3>The theme</h3>
+  <p>Completion. Forgiveness. Ending. Legacy. The Year 9 asks you to release what has reached its natural end so Year 1 can plant fresh seeds in empty soil.</p>
+  <h3>Focus areas</h3>
+  <div class="two-col">
+    <div class="card">
+      <h4>Yes to</h4>
+      <p>Closing old chapters. Forgiving. Writing the book. Completing the course. Giving away what you have outgrown. Gratitude rituals.</p>
+    </div>
+    <div class="card">
+      <h4>No to</h4>
+      <p>Starting a huge new project you will regret by spring. Clinging to what is clearly done. Resisting the natural endings.</p>
+    </div>
+  </div>
+  <h3>Affirmation</h3>
+  <p class="affirmation">I bless what was. I release what is complete. I prepare the empty soil.</p>
+  <h3>Months to watch</h3>
+  <div class="months-grid">
+    <div class="m"><strong>February</strong> Forgiveness window.</div>
+    <div class="m"><strong>July</strong> Legacy work.</div>
+    <div class="m"><strong>October</strong> Material release.</div>
+    <div class="m"><strong>December</strong> Threshold to Year 1.</div>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 21</span></div>
+</section>
+
+<!-- PAGE 22 - PY 9 continued -->
+<section class="page">
+  <div class="kicker">Personal Year 9 continued</div>
+  <h2>The Release in practice</h2>
+  <p>Year 9 is misunderstood. Many people read it as loss and fear it. The Year 9 is not loss. It is the natural harvest of a cycle completing, and the clearing that makes new planting possible.</p>
+  <h3>Relationship notes</h3>
+  <p>Relationships that have reached their natural end will end in a Year 9, often with surprising ease. Relationships that have deepened through the full cycle graduate to a new level of intimacy.</p>
+  <h3>Career notes</h3>
+  <p>Not the best year to start a new venture. Strong year to complete a body of work, write a book summarizing what you have learned, or prepare a graceful transition out of a role.</p>
+  <h3>Body and nervous system</h3>
+  <p>Year 9 is cleansing. Fasting protocols, rest, purification practices, clearing of accumulated possessions all harmonize with the frequency.</p>
+  <div class="card gold-border">
+    <h4>If you feel empty</h4>
+    <p>The emptiness is the prepared soil. Year 1 is coming. What feels like nothing is actually the clearing that allows the next cycle to plant something true. Trust the quiet.</p>
+  </div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 22</span></div>
+</section>
+
+<!-- PAGE 23 - Retrogrades -->
+<section class="page">
+  <div class="kicker">Chapter 12</div>
+  <h1>2026 Mercury retrograde windows</h1>
+  <p class="lead">Three Mercury retrograde windows affect all Personal Years in 2026. Plan major communication, contract, and tech decisions outside these periods when possible.</p>
+  <div class="card">
+    <h4>Window 1 - February 26 to March 20</h4>
+    <p>Pisces to Aquarius retrograde. Affects digital projects, remote collaboration, intuition-based decisions. Back up data at the end of February. Delay major software launches until after March 20.</p>
+  </div>
+  <div class="card">
+    <h4>Window 2 - June 29 to July 23</h4>
+    <p>Leo retrograde. Affects creative work, self-expression, romantic communication. Not the window for a major public launch. Excellent for reviewing, revising, editing.</p>
+  </div>
+  <div class="card">
+    <h4>Window 3 - October 24 to November 13</h4>
+    <p>Scorpio to Libra retrograde. Affects intimate partnership communication, shared finances, and long-term contracts. Delay signing major partnership contracts until after November 13 when possible.</p>
+  </div>
+  <h3>The golden rule</h3>
+  <p>Mercury retrograde is not a curse. It is a natural review cycle. Use these windows for revision, re-connection, return, and re-evaluation. Save the launches for the direct windows.</p>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 23</span></div>
+</section>
+
+<!-- PAGE 24 - Monthly prompts -->
+<section class="page">
+  <div class="kicker">Chapter 13</div>
+  <h1>Month-by-month prompts</h1>
+  <p class="lead">One small question per month to align your actions with your Personal Year theme. Journal the answer in under five minutes.</p>
+  <div class="qa"><div class="q">January</div><div class="a">What is the one thing I will begin this year, and what is the first small move I can make in the next 48 hours?</div></div>
+  <div class="qa"><div class="q">February</div><div class="a">Who are the three people who deserve my deeper attention this year, and how will I show them?</div></div>
+  <div class="qa"><div class="q">March</div><div class="a">What version of my voice has been hiding, and where will I let it be heard this month?</div></div>
+  <div class="qa"><div class="q">April</div><div class="a">Which daily practice, done 30 days in a row, would reshape my year?</div></div>
+  <div class="qa"><div class="q">May</div><div class="a">Where am I ready to move, pivot, or release that has been stuck for too long?</div></div>
+  <div class="qa"><div class="q">June</div><div class="a">Who in my inner circle needs my care this month, and how do I refill myself while I care for them?</div></div>
+  <div class="qa"><div class="q">July</div><div class="a">What wants to quiet down so I can hear what is actually guiding me?</div></div>
+  <div class="qa"><div class="q">August</div><div class="a">Where am I underclaiming my worth, and what is the specific ask I need to make?</div></div>
+  <div class="qa"><div class="q">September</div><div class="a">What is ready to be released so that the next chapter has room?</div></div>
+  <div class="qa"><div class="q">October</div><div class="a">What promise do I need to re-keep to myself as the year prepares to close?</div></div>
+  <div class="qa"><div class="q">November</div><div class="a">What three people or experiences am I most grateful for, and have I told them?</div></div>
+  <div class="qa"><div class="q">December</div><div class="a">What is my one-line prayer for next year, and what does it ask me to do today?</div></div>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 24</span></div>
+</section>
+
+<!-- PAGE 25 - CTA -->
+<section class="page">
+  <div class="kicker">Chapter 14</div>
+  <h1>Your next step</h1>
+  <p class="lead">You now have your Personal Year theme, your monthly focus, and the retrograde windows. Here is how to keep the guidance fresh all year.</p>
+  <div class="cta">
+    <h3>Try the free Personal Year Calculator</h3>
+    <p>Enter your birthday. Get your number in seconds. Bookmark the page and re-check when your Personal Year rolls over.</p>
+    <a class="btn" href="https://mynextools.com/tools/personal-year-calculator/">mynextools.com/tools/personal-year-calculator</a>
+  </div>
+  <div class="cta">
+    <h3>Layer Human Design on top</h3>
+    <p>Your Personal Year tells you the theme of the chapter. Your HD authority tells you how to make each decision inside that theme. The combination is the most reliable guidance system we know.</p>
+    <a class="btn" href="https://mynextools.com/tools/hd-authority-finder/">mynextools.com/tools/hd-authority-finder</a>
+  </div>
+  <div class="cta">
+    <h3>Keep the guidance flowing</h3>
+    <p>Free daily mirror-hour readings, angel number decoder, and year-ahead articles are live at our site. No signup required.</p>
+    <a class="btn" href="https://mynextools.com/">mynextools.com</a>
+  </div>
+  <hr class="divider">
+  <p class="small muted text-center">This guide is for personal, non-commercial use. Share a copy with anyone who would benefit, but please do not modify the content or remove attribution. Thank you for reading.</p>
+  <p class="small muted text-center">NEX Tools - mynextools.com - Issued 2026</p>
+  <div class="page-footer"><span class="brand">NEX</span><span>Personal Year 2026 - Page 25</span></div>
+</section>
+
+</body>
+</html>

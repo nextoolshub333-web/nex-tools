@@ -3,6 +3,9 @@
   <!-- Homepage -->
   <url><loc>https://mynextools.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
 
+  <!-- Free Guides (Lead Magnets) -->
+  <url><loc>https://mynextools.com/free-guides/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
   <!-- Tools -->
   <url><loc>https://mynextools.com/tools/destiny-matrix-calculator/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://mynextools.com/tools/angel-number-calculator/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Spiritual Guides - Downloadable PDFs - NEX Tools</title>
+<meta name="description" content="Five free downloadable PDF guides on angel numbers, mirror hours, Human Design authority, Personal Year numerology, and 2026 zodiac. No signup. Instant download.">
+<link rel="canonical" href="https://mynextools.com/free-guides/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .guides-hero {
+    background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 50%, #0A0A0F 100%);
+    padding: 4rem 0 3rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .guides-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 1rem;
+  }
+  .guides-hero h1 .gold { color: #FFD700; }
+  .guides-hero p {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 640px;
+    margin: 0 auto 1.5rem;
+  }
+  .guides-hero .kicker {
+    display: inline-block;
+    color: #FFD700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+  }
+  .guide-card {
+    background: #12101A;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .guide-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,215,0,0.3);
+    box-shadow: 0 4px 24px rgba(255,215,0,0.08);
+  }
+  .guide-card .card-top {
+    background: linear-gradient(135deg, #08080C 0%, #1A1A2E 55%, #08080C 100%);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,215,0,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .guide-card .card-top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,215,0,0.08), transparent 55%);
+    pointer-events: none;
+  }
+  .guide-card .symbol {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #FFD700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-shadow: 0 0 30px rgba(255,215,0,0.22);
+    position: relative;
+    z-index: 2;
+  }
+  .guide-card .kicker {
+    color: #FFD700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    position: relative;
+    z-index: 2;
+  }
+  .guide-card .card-body {
+    padding: 1.5rem 1.75rem 1.75rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .guide-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.3;
+    margin: 0 0 0.5rem;
+  }
+  .guide-card .sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  .guide-card .desc {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex: 1;
+    margin: 0 0 1.25rem;
+  }
+  .guide-card .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .guide-card .meta .stats {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+  }
+  .guide-card .meta .stats strong {
+    color: #FFD700;
+    font-weight: 600;
+  }
+  .guide-card .meta .btn {
+    background: #FFD700;
+    color: #08080C;
+    padding: 0.55rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .guide-card .meta .btn:hover {
+    background: #e6c200;
+    transform: translateY(-1px);
+  }
+  .why-section {
+    padding: 3rem 0;
+    background: #0F0D15;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .why-item {
+    padding: 1.5rem;
+    background: #12101A;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+  }
+  .why-item h4 {
+    color: #FFD700;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .why-item p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .cta-final {
+    background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 50%, #0A0A0F 100%);
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .cta-final h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    margin: 0 0 1rem;
+  }
+  .cta-final p {
+    color: rgba(255,255,255,0.85);
+    max-width: 560px;
+    margin: 0 auto 1.5rem;
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Free Spiritual Guides",
+  "description": "Five free downloadable PDF guides on angel numbers, mirror hours, Human Design authority, Personal Year numerology, and 2026 zodiac.",
+  "url": "https://mynextools.com/free-guides/",
+  "about": [
+    {"@type": "Thing", "name": "Angel Numbers"},
+    {"@type": "Thing", "name": "Mirror Hours"},
+    {"@type": "Thing", "name": "Human Design"},
+    {"@type": "Thing", "name": "Numerology"},
+    {"@type": "Thing", "name": "Astrology"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo">Nex<span>Tools</span></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+    <nav class="nav">
+      <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+      <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+      <a href="/tools/human-design-calculator/">Human Design</a>
+      <a href="/tools/life-path-calculator/">Life Path</a>
+      <a href="/tools/zodiac-calculator/">Zodiac</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<section class="guides-hero">
+  <div class="container">
+    <div class="kicker">Free Downloadable Guides</div>
+    <h1>Free PDF Guides<br><span class="gold">Built to Be Read Once, Used All Year</span></h1>
+    <p>Five in-depth spiritual guides. Each one a searchable reference for a specific practice. Download instantly. No signup. No email gate.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="guides-grid">
+
+      <div class="guide-card">
+        <div class="card-top">
+          <div class="symbol">2026</div>
+          <div class="kicker">Guide 01</div>
+        </div>
+        <div class="card-body">
+          <h3>2026 Personal Year Forecast</h3>
+          <div class="sub">Your numerology year, decoded for 2026.</div>
+          <p class="desc">Nine Personal Year chapters, a simple calculator, Mercury retrograde windows, and twelve monthly prompts. Find your number, read your year, move with the frequency.</p>
+          <div class="meta">
+            <div class="stats"><strong>25 pages</strong> &middot; 1.0 MB</div>
+            <a class="btn" href="/_lead-magnets/personal-year-2026/personal-year-2026.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-top">
+          <div class="symbol">11:11</div>
+          <div class="kicker">Guide 02</div>
+        </div>
+        <div class="card-body">
+          <h3>Mirror Hours Complete Cheat Sheet</h3>
+          <div class="sub">All 24 mirror hours in one place.</div>
+          <p class="desc">From 00:00 to 23:23, grouped by time of day. Two or three quick sentences per hour plus a simple spiritual action you can take the moment you see it.</p>
+          <div class="meta">
+            <div class="stats"><strong>20 pages</strong> &middot; 1.4 MB</div>
+            <a class="btn" href="/_lead-magnets/mirror-hours-cheat/mirror-hours-cheat.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-top">
+          <div class="symbol">HD</div>
+          <div class="kicker">Guide 03</div>
+        </div>
+        <div class="card-body">
+          <h3>HD Authority Decision Guide</h3>
+          <div class="sub">All seven Human Design authorities.</div>
+          <p class="desc">Recognize yours, practice it, and make decisions your body can stand behind. Includes a five-question identifier quiz and Pavaka authority-first teaching notes.</p>
+          <div class="meta">
+            <div class="stats"><strong>20 pages</strong> &middot; 1.7 MB</div>
+            <a class="btn" href="/_lead-magnets/hd-authority-guide/hd-authority-guide.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-top">
+          <div class="symbol">000-999</div>
+          <div class="kicker">Guide 04</div>
+        </div>
+        <div class="card-body">
+          <h3>Angel Numbers Dictionary</h3>
+          <div class="sub">The complete reference, 000 through 999.</div>
+          <p class="desc">Meanings, actions, sequences, and the mirror-hour cross-reference. A chapter for every primary number. Thirty pages of one-file guidance.</p>
+          <div class="meta">
+            <div class="stats"><strong>30 pages</strong> &middot; 2.0 MB</div>
+            <a class="btn" href="/_lead-magnets/angel-numbers-dictionary/angel-numbers-dictionary.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <div class="card-top">
+          <div class="symbol">Zodiac</div>
+          <div class="kicker">Guide 05</div>
+        </div>
+        <div class="card-body">
+          <h3>Zodiac 2026 Yearly Guide</h3>
+          <div class="sub">Twelve signs, one year map.</div>
+          <p class="desc">All twelve signs read against the biggest transits of 2026. Love, career, health, and the Mercury retrograde survival map you will actually use.</p>
+          <div class="meta">
+            <div class="stats"><strong>25 pages</strong> &middot; 2.2 MB</div>
+            <a class="btn" href="/_lead-magnets/zodiac-2026-guide/zodiac-2026-guide.pdf" download>Download PDF</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div class="container">
+    <h2 style="font-family:'Poppins',sans-serif;font-size:1.6rem;color:#FFFFFF;font-weight:700;margin:0 0 0.5rem;">Why free, why now</h2>
+    <p style="color:rgba(255,255,255,0.85);max-width:720px;line-height:1.7;margin:0;">We make spiritual tools for anyone who wants to take their inner life seriously without paying a subscription. These guides distill the same material our free calculators sit on top of, in a format you can keep on your phone.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <h4>Print-ready</h4>
+        <p>Each PDF is formatted for A4 printing, with margins, footer, and bookmarks. Print the whole thing or just the chapter you need.</p>
+      </div>
+      <div class="why-item">
+        <h4>Mobile readable</h4>
+        <p>Large type, clear hierarchy, and minimal scroll pain. Built to read on a phone during a coffee break.</p>
+      </div>
+      <div class="why-item">
+        <h4>No signup</h4>
+        <p>Download instantly. No email, no account, no tracking pixel. Take the file and keep it. Share it with a friend if you like.</p>
+      </div>
+      <div class="why-item">
+        <h4>Free forever</h4>
+        <p>These guides are part of our core mission. We will never paywall them. If they help you, tell one person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <h2>Prefer to calculate, not read</h2>
+    <p>Try the free spiritual calculators that power these guides. Same material, interactive, instant results.</p>
+    <a href="/" class="btn btn-gold btn-lg">Open the Calculators</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>NEX Tools - mynextools.com - Free guides are provided for personal, non-commercial use.</p>
+    <p><a href="/">Home</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
