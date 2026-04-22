@@ -166,6 +166,30 @@
   <url><loc>https://mynextools.com/hd-authorities/mental/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mynextools.com/hd-authorities/lunar/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
+  <!-- Tarot Major Arcana Landing Pages -->
+  <url><loc>https://mynextools.com/tarot/00-fool/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/01-magician/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/02-high-priestess/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/03-empress/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/04-emperor/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/05-hierophant/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/06-lovers/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/tarot/07-chariot/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/08-strength/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/09-hermit/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/10-wheel-of-fortune/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/11-justice/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/12-hanged-man/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/13-death/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/tarot/14-temperance/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/15-devil/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/16-tower/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/17-star/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/tarot/18-moon/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/19-sun/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mynextools.com/tarot/20-judgement/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mynextools.com/tarot/21-world/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+
   <!-- Pages -->
   <url><loc>https://mynextools.com/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://mynextools.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
