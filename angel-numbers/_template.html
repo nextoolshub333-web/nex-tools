@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{META_TITLE}}</title>
   <meta name="description" content="{{META_DESC}}">
-  <meta name="keywords" content="angel number {{NUM}}, {{NUM}} meaning, {{NUM}} angel number meaning, what does {{NUM}} mean, seeing {{NUM}}, {{NUM}} spiritual meaning">
+  <meta name="keywords" content="angel number {{NUM}}, {{NUM}} meaning, {{NUM}} angel number meaning, what does {{NUM}} mean, seeing {{NUM}}, {{NUM}} spiritual meaning, {{NUM}} human design, {{NUM}} 2026">
+  <meta name="author" content="NexTools Editorial">
+  <meta name="last-modified" content="2026-04-22">
   <link rel="canonical" href="https://mynextools.com/angel-numbers/{{NUM}}/">
   <meta property="og:title" content="{{META_TITLE}}">
   <meta property="og:description" content="{{META_DESC}}">
@@ -13,11 +15,32 @@
   <meta property="og:url" content="https://mynextools.com/angel-numbers/{{NUM}}/">
   <meta property="og:site_name" content="NexTools">
   <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{META_TITLE}}">
+  <meta name="twitter:description" content="{{META_DESC}}">
+  <meta name="twitter:image" content="https://mynextools.com/images/og/default.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .tldr-box { background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(107,77,171,0.05)); border-left: 4px solid #FFD700; padding: 1.25rem 1.5rem; border-radius: 8px; margin: 1.5rem 0 2rem; }
+    .tldr-box strong { color: #FFD700; display:block; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .attr-table { width: 100%; margin: 1.5rem 0; border-collapse: collapse; font-size: 0.95rem; }
+    .attr-table th, .attr-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: left; }
+    .attr-table th { color: #FFD700; font-weight: 600; width: 35%; }
+    .related-qs { background: #12101A; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; margin: 2rem 0; }
+    .related-qs h3 { color: #FFD700; margin-bottom: 1rem; }
+    .related-qs details { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0.75rem 0; }
+    .related-qs summary { cursor: pointer; font-weight: 600; padding: 0.25rem 0; }
+    .related-qs details p { margin-top: 0.5rem; color: rgba(255,255,255,0.75); }
+    .citations { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin: 2rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .citations h4 { color: rgba(255,255,255,0.8); margin-bottom: 0.75rem; }
+    .citations ul { list-style: none; padding: 0; }
+    .citations li { padding: 0.25rem 0; }
+    .last-updated { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-top: 2rem; font-style: italic; }
+  </style>
   <script type="application/ld+json">{{ARTICLE_SCHEMA}}</script>
   <script type="application/ld+json">{{FAQ_SCHEMA}}</script>
 </head>
@@ -47,6 +70,18 @@
   <section class="section">
     <div class="container">
       <div class="article-content">
+
+        <div class="tldr-box">
+          <strong>TL;DR</strong>
+          {{TLDR}}
+        </div>
+
+        <table class="attr-table">
+          <tbody>
+            {{ATTR_ROWS}}
+          </tbody>
+        </table>
+
         <h2>What Does Angel Number {{NUM}} Mean?</h2>
         <p>{{WHAT}}</p>
 
@@ -54,7 +89,7 @@
         <p>{{SPIRITUAL}}</p>
 
         <blockquote>
-          <p><strong>Curious about the mirror hour showing up alongside {{NUM}}?</strong> <a href="/tools/mirror-hour-decoder/">Decode any mirror hour free</a> - 11:11, 22:22 and all 24 times.</p>
+          <p><strong>Curious about the mirror hour showing up alongside {{NUM}}?</strong> <a href="/tools/mirror-hour-decoder/">Decode any mirror hour free</a> - all 24 times from 00:00 to 23:23.</p>
         </blockquote>
 
         <h2>{{NUM}} Meaning in Love and Relationships</h2>
@@ -70,12 +105,23 @@
         <h2>{{NUM}} and Spiritual Awakening</h2>
         <p>{{AWAKENING}}</p>
 
-        <h2>What to Do When You See {{NUM}}</h2>
-        <p>{{ACTION}}</p>
+        <h2>{{NUM}} and Your Human Design Authority</h2>
+        <p>{{HD_AUTHORITY}}</p>
 
         <blockquote>
           <p><strong>Making decisions during {{NUM}} energy?</strong> Your <a href="/tools/hd-authority-finder/">Human Design authority</a> tells you how to decide correctly - 7 authorities, 5-question quiz.</p>
         </blockquote>
+
+        <h2>{{NUM}} and the 2027 Consciousness Shift</h2>
+        <p>{{FORWARD_2027}}</p>
+
+        <h2>What to Do When You See {{NUM}}</h2>
+        <p>{{ACTION}}</p>
+
+        <div class="related-qs">
+          <h3>People Also Ask</h3>
+          {{RELATED_QS_HTML}}
+        </div>
 
         <h2>Frequently Asked Questions About {{NUM}}</h2>
         {{FAQ_HTML}}
@@ -91,6 +137,16 @@
           <p>Every birthday carries a unique angel number. Enter yours and get your personal spiritual vibration.</p>
           <a href="/tools/angel-number-calculator/" class="btn btn-gold">Free Angel Number Calculator</a>
         </div>
+
+        <div class="citations">
+          <h4>Sources & Further Reading</h4>
+          <ul>
+            {{CITATIONS_HTML}}
+          </ul>
+        </div>
+
+        <p class="last-updated">Last updated: 2026-04-22 · Reviewed by NexTools Editorial · Aligned with Pavaka Halel Katzir authority-first Human Design methodology.</p>
+
       </div>
     </div>
   </section>
