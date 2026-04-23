@@ -1,0 +1,16 @@
+.git
+.git/**
+.gitignore
+.assetsignore
+node_modules
+node_modules/**
+.wrangler
+.wrangler/**
+wrangler.jsonc
+wrangler.toml
+functions
+functions/**
+sitemap.xml.backup-*
+_fix-client-studies.py
+_template-*.html
+*.md
