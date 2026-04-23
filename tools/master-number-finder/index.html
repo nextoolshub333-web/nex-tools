@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Number Calculator - Find 11, 22 or 33 in Your Chart</title>
+  <meta name="description" content="Free master number calculator. Discover if you carry master number 11, 22, or 33 in your life path, birthday, or expression number. Instant results.">
+  <meta name="keywords" content="master number calculator, master number 11 22 33, life path master number, numerology master numbers">
+  <link rel="canonical" href="https://mynextools.com/tools/master-number-finder/">
+  <meta property="og:title" content="Master Number Calculator - Find 11, 22 or 33 in Your Chart">
+  <meta property="og:description" content="Discover if you carry a master number in your numerology chart. Free calculator for life path, birthday and expression numbers.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/master-number-finder/">
+  <meta property="og:site_name" content="NexTools">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Master Number Finder",
+    "description": "Free numerology calculator that detects master numbers 11, 22, and 33 across your life path, birthday, and expression number positions.",
+    "url": "https://mynextools.com/tools/master-number-finder/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are master numbers in numerology?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Master numbers (11, 22, 33) are special double-digit numbers in numerology that are never reduced to a single digit. They carry amplified energy and are associated with higher spiritual potential and greater life challenges."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How rare is a master number life path?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Master number life paths appear in roughly 10-12% of the population for 11, about 8% for 22, and less than 1% for 33. Having one is not inherently better - it comes with intensified challenges alongside the expanded potential."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between 11, 22, and 33?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Master number 11 is called the Intuitive or Psychic - it governs spiritual insight and inspiration. Master number 22 is the Master Builder - it combines vision with the practical ability to create lasting structures. Master number 33 is the Master Teacher - the rarest, focused on compassionate service and uplifting humanity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I have more than one master number?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Your numerology chart has multiple positions (life path, birthday, expression, soul urge, personality). You can carry a master number in one, two, or even all of these positions. Each adds a distinct layer to your spiritual blueprint."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my master number keeps reducing to 2 or 4?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Many numerologists say that master number carriers often operate at the lower vibration (2, 4, or 6) until they do deeper inner work and consciously step into the master number frequency. If your life path is 11, you will resonate with both 2-energy and 11-energy at different life stages."
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    .tool-card {
+      background: var(--bg-card);
+      border: 2px solid var(--border-gold);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .input-group label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: var(--bg-input);
+      border: 1.5px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      color: var(--white);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .input-group input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(255,215,0,0.08);
+    }
+    .calc-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--gold);
+      color: #08080C;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .calc-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .calc-btn:active { transform: translateY(0); }
+    .results-wrap {
+      display: none;
+      margin-top: 2rem;
+    }
+    .results-wrap.visible { display: block; }
+    .result-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--border-light);
+      transition: border-color 0.3s;
+    }
+    .result-row.master {
+      border-left-color: var(--gold);
+      background: linear-gradient(135deg, rgba(255,215,0,0.06), rgba(255,215,0,0.01));
+    }
+    .result-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-faint);
+      min-width: 3rem;
+      text-align: center;
+      line-height: 1;
+    }
+    .result-row.master .result-number {
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(255,215,0,0.4);
+    }
+    .result-info h4 {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .result-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+    .master-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #08080C;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .master-meaning {
+      margin-top: 2rem;
+      display: none;
+    }
+    .master-meaning.visible { display: block; }
+    .master-block {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .master-block h3 {
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+    .master-block .traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    .trait-pill {
+      background: rgba(255,215,0,0.1);
+      border: 1px solid rgba(255,215,0,0.25);
+      color: var(--gold-soft);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    .no-master-msg {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--text-muted);
+      background: var(--bg-tertiary);
+      border-radius: var(--radius-sm);
+      display: none;
+    }
+    .no-master-msg.visible { display: block; }
+    .cta-mid {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-tertiary));
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin: 2.5rem 0;
+    }
+    .cta-mid h3 { color: var(--gold); margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .cta-mid p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem; }
+    .cta-link {
+      display: inline-block;
+      background: var(--gold);
+      color: #08080C;
+      font-weight: 700;
+      padding: 0.65rem 1.5rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+    .cta-link:hover { opacity: 0.88; }
+    .cta-main {
+      background: linear-gradient(135deg, rgba(255,215,0,0.07), rgba(255,165,0,0.04));
+      border: 2px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+    }
+    .cta-main h3 { color: var(--gold); font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .cta-main p { color: var(--text-secondary); margin-bottom: 1.25rem; }
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .number-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+    .number-card:hover { border-color: var(--border-gold); }
+    .number-card .num-label {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold);
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+    .number-card h4 { color: var(--white); margin-bottom: 0.5rem; font-size: 1rem; }
+    .number-card p { color: var(--text-muted); font-size: 0.875rem; margin: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.25rem 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { color: var(--gold); font-size: 1rem; margin-bottom: 0.5rem; }
+    .faq-item p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+    @media (max-width: 768px) {
+      .result-row { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .result-number { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/karmic-debt-calculator/">Karmic Debt</a>
+        <a href="/tools/soul-urge-calculator/">Soul Urge</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 2rem">
+    <div class="container">
+      <h1>Master Number Finder (11, 22, 33)</h1>
+      <p>Enter your full birth name and date of birth. This calculator checks three key positions in your numerology chart and reveals any master numbers present - plus their deeper meaning.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:720px">
+
+      <div class="tool-card">
+        <div class="input-group">
+          <div>
+            <label for="full-name">Full name at birth (as on birth certificate)</label>
+            <input type="text" id="full-name" placeholder="e.g. Sarah Elizabeth Johnson" autocomplete="off">
+          </div>
+          <div>
+            <label for="dob">Date of birth</label>
+            <input type="date" id="dob" max="2010-12-31" min="1920-01-01">
+          </div>
+        </div>
+        <button class="calc-btn" onclick="findMasterNumbers()">Find My Master Numbers</button>
+
+        <div class="results-wrap" id="results-wrap">
+          <h2 style="margin-bottom:1.25rem;font-size:1.2rem;color:var(--text-secondary)">Your Numerology Positions</h2>
+
+          <div class="result-row" id="row-lifepath">
+            <div class="result-number" id="num-lifepath">-</div>
+            <div class="result-info">
+              <h4 id="label-lifepath">Life Path Number</h4>
+              <p id="desc-lifepath">Calculated from your full date of birth</p>
+            </div>
+          </div>
+
+          <div class="result-row" id="row-birthday">
+            <div class="result-number" id="num-birthday">-</div>
+            <div class="result-info">
+              <h4 id="label-birthday">Birthday Number</h4>
+              <p id="desc-birthday">The day of the month you were born</p>
+            </div>
+          </div>
+
+          <div class="result-row" id="row-expression">
+            <div class="result-number" id="num-expression">-</div>
+            <div class="result-info">
+              <h4 id="label-expression">Expression Number</h4>
+              <p id="desc-expression">Calculated from all letters in your full birth name</p>
+            </div>
+          </div>
+
+          <div class="no-master-msg" id="no-master-msg">
+            <p style="margin:0">No master numbers found in these three positions. Your chart carries standard single-digit energy - which is equally valid and purposeful. Explore your <a href="/tools/karmic-debt-calculator/" style="color:var(--gold)">Karmic Debt</a> or <a href="/tools/soul-urge-calculator/" style="color:var(--gold)">Soul Urge</a> for deeper layers.</p>
+          </div>
+
+          <div class="master-meaning" id="master-meaning"></div>
+        </div>
+      </div>
+
+      <!-- Mid CTA -->
+      <div class="cta-mid">
+        <h3>Explore Your Full Numerology Blueprint</h3>
+        <p>Your Life Path is just the beginning. Try the <a href="/tools/soul-urge-calculator/" style="color:var(--gold)">Soul Urge Calculator</a> or the <a href="/tools/karmic-debt-calculator/" style="color:var(--gold)">Karmic Debt Finder</a> to go deeper.</p>
+        <a href="/tools/karmic-debt-calculator/" class="cta-link">Discover Your Karmic Debt</a>
+      </div>
+
+      <h2>What Are Master Numbers?</h2>
+      <p>In numerology, most multi-digit numbers are broken down (reduced) to a single digit between 1 and 9. Master numbers are the exception. When your calculations produce 11, 22, or 33, you stop - these numbers are never reduced further because they carry a distinct, amplified vibration.</p>
+
+      <p>The three recognized master numbers each correspond to an elevated version of their root number:</p>
+
+      <div class="number-grid">
+        <div class="number-card">
+          <div class="num-label">11</div>
+          <h4>The Intuitive</h4>
+          <p>The higher vibration of 2. Master number 11 governs psychic sensitivity, spiritual illumination, and the ability to inspire others. People with 11 energy are highly perceptive but prone to anxiety when their gifts go unrecognized.</p>
+        </div>
+        <div class="number-card">
+          <div class="num-label">22</div>
+          <h4>The Master Builder</h4>
+          <p>The higher vibration of 4. Master number 22 combines visionary thinking with the discipline to turn ideas into lasting reality. Called the most powerful number in numerology, it operates on a large scale - often building systems, organizations, or movements.</p>
+        </div>
+        <div class="number-card">
+          <div class="num-label">33</div>
+          <h4>The Master Teacher</h4>
+          <p>The higher vibration of 6. Rarest of all master numbers, 33 is associated with unconditional service, compassionate leadership, and the desire to uplift humanity. Only a tiny fraction of people carry this in a major chart position.</p>
+        </div>
+      </div>
+
+      <h2>How Master Numbers Are Calculated</h2>
+      <p>This tool checks three core positions in your numerology chart:</p>
+
+      <h3>1. Life Path Number</h3>
+      <p>Your <a href="/tools/life-path-calculator/" style="color:var(--gold)">Life Path Number</a> is calculated from your full date of birth. Each component (month, day, and year) is reduced separately, and then the three results are added together. If any component reduces to 11, 22, or 33 during the process, it is preserved before the final addition - which means the total can also land on a master number.</p>
+      <p><strong>Example:</strong> Born February 14, 1984. Month = 2. Day = 14 (1+4 = 5). Year = 1984 (1+9+8+4 = 22 - preserved). Total = 2 + 5 + 22 = 29, then 2+9 = 11. Life Path is 11.</p>
+
+      <h3>2. Birthday Number</h3>
+      <p>The day of the month you were born, reduced if needed. If you were born on the 11th or 22nd, your birthday number is automatically a master number. The 29th reduces to 11 (2+9=11). No other day produces a master birthday number.</p>
+
+      <h3>3. Expression Number</h3>
+      <p>Also called the Destiny Number, the <a href="/tools/soul-urge-calculator/" style="color:var(--gold)">Expression Number</a> is derived from all letters in your full name at birth using the Pythagorean chart (A=1, B=2 ... I=9, J=1 ...). If the total of all letter values reduces to 11, 22, or 33, your expression carries master number energy.</p>
+
+      <h2>What It Means to Be a Master Number</h2>
+      <p>Carrying a master number does not mean life is easier - in most interpretations it means the opposite. The potential is higher, but so are the expectations and the inner tension. People with strong master number placements often feel they operate on two levels simultaneously: the practical demands of everyday life, and a deeper pull toward something greater.</p>
+
+      <p>Many numerologists observe that master number carriers tend to operate at the lower vibration (2, 4, or 6) for much of their life, stepping into the master frequency only after significant inner work or crisis. This is not failure - it is the natural cycle of integrating the amplified energy.</p>
+
+      <p>If you carry an 11, you may feel intensely sensitive and easily overwhelmed by environments or people who lack depth. If your chart holds a 22, you likely have grand visions but may struggle to start because the stakes feel enormous. With a 33, the challenge is boundaries - learning to give without depleting yourself.</p>
+
+      <p>Explore how your master number interacts with your <a href="/tools/karmic-debt-calculator/" style="color:var(--gold)">Karmic Debt</a>, your <a href="/tools/numerology-compatibility/" style="color:var(--gold)">numerology compatibility</a>, and your <a href="/tools/life-path-calculator/" style="color:var(--gold)">Life Path</a> for the full picture.</p>
+
+      <h2>Master Numbers Across Spiritual Systems</h2>
+      <p>While master numbers are primarily a numerology concept, similar themes appear across traditions. The number 11 mirrors the twin pillars in Kabbalah and appears in many prophetic traditions as a gateway number. The 22 corresponds to the 22 letters of the Hebrew alphabet used to describe creation, and the 22 Major Arcana cards in Tarot. The 33 is associated with the highest degree in certain esoteric orders and with the age of enlightenment in several religious narratives.</p>
+
+      <p>Whether you approach this through numerology or a broader spiritual lens, the presence of a master number in your chart is generally understood as a marker of a soul that chose a more demanding - and more expansive - path. Use this alongside your <a href="/tools/human-design-calculator/" style="color:var(--gold)">Human Design type</a>, your <a href="/tools/angel-number-calculator/" style="color:var(--gold)">angel number patterns</a>, and your <a href="/tools/zodiac-calculator/" style="color:var(--gold)">birth chart basics</a> to build a more complete map.</p>
+
+      <!-- Main CTA -->
+      <div class="cta-main">
+        <h3>Want a Deeper Numerology Reading?</h3>
+        <p>Get the Premium Numerology Blueprint - a comprehensive guide covering all master numbers, life path archetypes, and karmic patterns with interpretation frameworks.</p>
+        <a href="https://hop.clickbank.net/?affiliate=nextools&vendor=PLACEHOLDER&pid=master-number-finder" class="cta-link" rel="nofollow noopener" target="_blank">Get the Premium Numerology Bundle</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>What are master numbers in numerology?</h3>
+        <p>Master numbers (11, 22, 33) are special double-digit numbers in numerology that are never reduced to a single digit. They carry amplified energy and are associated with higher spiritual potential and greater life challenges.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How rare is a master number life path?</h3>
+        <p>Master number life paths appear in roughly 10-12% of the population for 11, about 8% for 22, and less than 1% for 33. Having one is not inherently better - it comes with intensified challenges alongside the expanded potential.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the difference between 11, 22, and 33?</h3>
+        <p>Master number 11 is the Intuitive - it governs spiritual insight and inspiration. Master number 22 is the Master Builder - it combines vision with the practical ability to create lasting structures. Master number 33 is the Master Teacher - the rarest, focused on compassionate service and uplifting humanity.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I have more than one master number?</h3>
+        <p>Yes. Your numerology chart has multiple positions. You can carry a master number in one, two, or even all of the key positions. Each adds a distinct layer to your spiritual blueprint. Having multiple master numbers intensifies both the gifts and the challenges.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What if my master number keeps feeling like its root number?</h3>
+        <p>Many numerologists say that master number carriers often operate at the lower vibration (2, 4, or 6) until they do deeper inner work and consciously step into the master frequency. If your life path is 11, you will resonate with both 2-energy and 11-energy at different life stages - and that is normal.</p>
+      </div>
+
+      <hr style="border-color:var(--border-subtle);margin:3rem 0">
+
+      <h2>Related Tools</h2>
+      <p>Continue exploring your numerology chart with these free calculators:</p>
+      <ul style="color:var(--text-muted);padding-left:1.5rem;line-height:2">
+        <li><a href="/tools/life-path-calculator/" style="color:var(--gold)">Life Path Number Calculator</a> - your core numerology number</li>
+        <li><a href="/tools/karmic-debt-calculator/" style="color:var(--gold)">Karmic Debt Number Calculator</a> - lessons carried from past cycles</li>
+        <li><a href="/tools/soul-urge-calculator/" style="color:var(--gold)">Soul Urge Number Calculator</a> - what your heart truly wants</li>
+        <li><a href="/tools/numerology-compatibility/" style="color:var(--gold)">Numerology Compatibility</a> - how your numbers align with others</li>
+        <li><a href="/tools/angel-number-calculator/" style="color:var(--gold)">Angel Number Calculator</a> - decode repeating number sequences</li>
+        <li><a href="/tools/human-design-calculator/" style="color:var(--gold)">Human Design Calculator</a> - your energy type and strategy</li>
+        <li><a href="/blog/human-design-beginners-guide/" style="color:var(--gold)">Human Design Beginners Guide</a></li>
+        <li><a href="/blog/angel-number-111-meaning/" style="color:var(--gold)">Angel Number 111 Meaning</a> - master number in sequence form</li>
+      </ul>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/karmic-debt-calculator/">Karmic Debt</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 NexTools. Free spiritual calculators. No signup required.</p>
+    </div>
+  </footer>
+
+  <script>
+    const LETTER_VALUES = {
+      A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,I:9,
+      J:1,K:2,L:3,M:4,N:5,O:6,P:7,Q:8,R:9,
+      S:1,T:2,U:3,V:4,W:5,X:6,Y:7,Z:8
+    };
+
+    const MASTER_DATA = {
+      11: {
+        title: 'Master Number 11 - The Intuitive',
+        description: 'You carry the highest frequency of spiritual sensitivity. Master number 11 is the bridge between the human and the divine - it speaks through intuition, dreams, and sudden knowing. You have a natural gift for inspiring others, though you often doubt your own perceptions.',
+        traits: ['Highly intuitive','Empathic','Inspirational','Visionary','Sensitive','Idealistic'],
+        challenges: 'The shadow of 11 is self-doubt and chronic anxiety. The intensity of your inner world can feel isolating. The path forward is learning to trust your perceptions without needing external validation.',
+        rootNote: 'Carries the root energy of 2 - relationships, balance, and cooperation.'
+      },
+      22: {
+        title: 'Master Number 22 - The Master Builder',
+        description: 'Master number 22 is the most powerful in numerology. You have the rare ability to hold a grand vision and also do the painstaking work required to bring it into form. Your purpose tends toward building something that outlasts you - a system, an institution, a body of work.',
+        traits: ['Disciplined','Visionary','Practical','Ambitious','Reliable','Large-scale thinker'],
+        challenges: 'The shadow of 22 is paralysis from perfectionism and an overwhelming sense of responsibility. The stakes feel enormous because they often are. The work is learning to start before the conditions are perfect.',
+        rootNote: 'Carries the root energy of 4 - structure, stability, and process.'
+      },
+      33: {
+        title: 'Master Number 33 - The Master Teacher',
+        description: 'The rarest of all master numbers, 33 represents the highest expression of compassionate service. If you carry this number in a primary chart position, your deepest drive is to uplift others - not through teaching as information transfer, but through embodying a level of love and responsibility that transforms everyone around you.',
+        traits: ['Deeply compassionate','Selfless','Nurturing','Responsible','Healing presence','Devoted'],
+        challenges: 'The shadow of 33 is martyrdom and self-sacrifice taken too far. Learning to maintain your own center while serving others is the core work of this master number.',
+        rootNote: 'Carries the root energy of 6 - family, responsibility, and nurturing.'
+      }
+    };
+
+    function digitSum(str) {
+      return str.split('').reduce((a, c) => a + parseInt(c), 0);
+    }
+
+    function reduce(n) {
+      while (n > 9 && n !== 11 && n !== 22 && n !== 33) {
+        n = digitSum(String(n));
+      }
+      return n;
+    }
+
+    function calcLifePath(dob) {
+      const parts = dob.split('-');
+      const m = reduce(parseInt(parts[1], 10));
+      const d = reduce(parseInt(parts[2], 10));
+      const y = reduce(digitSum(parts[0]));
+      return reduce(m + d + y);
+    }
+
+    function calcBirthday(dob) {
+      return reduce(parseInt(dob.split('-')[2], 10));
+    }
+
+    function calcExpression(name) {
+      const letters = name.toUpperCase().replace(/[^A-Z]/g, '');
+      if (!letters.length) return null;
+      const sum = letters.split('').reduce((a, c) => a + (LETTER_VALUES[c] || 0), 0);
+      return reduce(sum);
+    }
+
+    function isMaster(n) { return n === 11 || n === 22 || n === 33; }
+
+    function findMasterNumbers() {
+      const nameEl = document.getElementById('full-name');
+      const dobEl = document.getElementById('dob');
+      const name = nameEl.value.trim();
+      const dob = dobEl.value;
+
+      if (!name || !dob) {
+        nameEl.style.borderColor = name ? '' : '#ff4444';
+        dobEl.style.borderColor = dob ? '' : '#ff4444';
+        return;
+      }
+      nameEl.style.borderColor = '';
+      dobEl.style.borderColor = '';
+
+      const lp = calcLifePath(dob);
+      const bd = calcBirthday(dob);
+      const ex = calcExpression(name);
+
+      const positions = [
+        { id: 'lifepath', num: lp, label: 'Life Path Number', desc: 'From your full date of birth' },
+        { id: 'birthday', num: bd, label: 'Birthday Number', desc: 'Day of birth: ' + parseInt(dob.split('-')[2], 10) },
+        { id: 'expression', num: ex, label: 'Expression Number', desc: 'From all letters in your birth name' }
+      ];
+
+      const foundMasters = new Set();
+
+      positions.forEach(pos => {
+        const row = document.getElementById('row-' + pos.id);
+        const numEl = document.getElementById('num-' + pos.id);
+        const labelEl = document.getElementById('label-' + pos.id);
+        const descEl = document.getElementById('desc-' + pos.id);
+
+        const n = pos.num;
+        numEl.textContent = n !== null ? n : '-';
+        if (n !== null && isMaster(n)) {
+          row.classList.add('master');
+          labelEl.innerHTML = pos.label + '<span class="master-badge">Master</span>';
+          foundMasters.add(n);
+        } else {
+          row.classList.remove('master');
+          labelEl.innerHTML = pos.label;
+        }
+        descEl.textContent = pos.desc;
+      });
+
+      const wrap = document.getElementById('results-wrap');
+      wrap.classList.add('visible');
+
+      const noMasterEl = document.getElementById('no-master-msg');
+      const meaningEl = document.getElementById('master-meaning');
+
+      if (foundMasters.size === 0) {
+        noMasterEl.classList.add('visible');
+        meaningEl.classList.remove('visible');
+        meaningEl.innerHTML = '';
+      } else {
+        noMasterEl.classList.remove('visible');
+        let html = '<h2 style="margin-bottom:1.5rem;color:var(--gold)">Your Master Number Meanings</h2>';
+        [...foundMasters].sort((a, b) => a - b).forEach(mn => {
+          const d = MASTER_DATA[mn];
+          html += `
+            <div class="master-block">
+              <h3>${d.title}</h3>
+              <p style="color:var(--text-secondary);margin-bottom:1rem">${d.description}</p>
+              <div class="traits">${d.traits.map(t => `<span class="trait-pill">${t}</span>`).join('')}</div>
+              <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:0.5rem"><strong style="color:var(--white)">Challenge:</strong> ${d.challenges}</p>
+              <p style="color:var(--text-faint);font-size:0.82rem;margin:0">${d.rootNote}</p>
+            </div>`;
+        });
+        meaningEl.innerHTML = html;
+        meaningEl.classList.add('visible');
+      }
+
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+
+</body>
+</html>
