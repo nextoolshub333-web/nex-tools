@@ -571,11 +571,12 @@
     <div class="container">
       <div style="max-width:550px;margin:0 auto;text-align:center">
         <h2>Get Your Free Angel Numbers Starter Kit</h2>
-        <p>A beautifully designed PDF guide with meanings for all major angel numbers (111-999), what to do when you see them, and a personal reflection journal.</p>
-        <form onsubmit="return handleEmailSubmit(event)" style="margin-top:1.5rem">
-          <input type="email" placeholder="Enter your email" required style="width:100%;padding:0.875rem 1rem;border:2px solid var(--border-light);border-radius:var(--radius-sm);font-size:1rem;margin-bottom:0.75rem">
-          <button type="submit" class="btn btn-gold" style="width:100%">Send Me the Free Guide</button>
+        <p>Meanings for every major angel number (111-999), a personal calculator, and the tools to decode the signs you're seeing. Delivered to your inbox in 60 seconds.</p>
+        <form id="starterKitForm" onsubmit="return handleEmailSubmit(event)" style="margin-top:1.5rem">
+          <input type="email" id="starterKitEmail" placeholder="Enter your email" required style="width:100%;padding:0.875rem 1rem;border:2px solid var(--border-light);border-radius:var(--radius-sm);font-size:1rem;margin-bottom:0.75rem">
+          <button type="submit" id="starterKitBtn" class="btn btn-gold" style="width:100%">Send Me the Starter Kit</button>
         </form>
+        <div id="starterKitMsg" style="margin-top:0.75rem;font-size:0.9rem;display:none"></div>
         <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem">No spam. Unsubscribe anytime.</p>
       </div>
     </div>
@@ -595,11 +596,57 @@
   </footer>
 
   <script>
-    function handleEmailSubmit(e) {
+    async function handleEmailSubmit(e) {
       e.preventDefault();
-      var email = e.target.querySelector('input[type="email"]').value;
-      // TODO: Connect to Mailchimp
-      alert('Thanks! Check your email for the free guide.');
+      var form = e.target;
+      var input = document.getElementById('starterKitEmail');
+      var btn = document.getElementById('starterKitBtn');
+      var msg = document.getElementById('starterKitMsg');
+      var email = (input.value || '').trim();
+      if (!email) return false;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      msg.style.display = 'none';
+
+      try {
+        var res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({email: email, source: 'homepage'})
+        });
+        var data = await res.json().catch(function(){return{};});
+
+        if (res.ok && data.ok) {
+          form.style.display = 'none';
+          msg.style.display = 'block';
+          msg.style.color = 'var(--gold, #FFD700)';
+          msg.style.padding = '1.25rem';
+          msg.style.background = 'rgba(255, 215, 0, 0.08)';
+          msg.style.border = '1px solid rgba(255, 215, 0, 0.3)';
+          msg.style.borderRadius = '8px';
+          var safeEmail = email.replace(/[<>"'&]/g, '');
+          msg.innerHTML = '<strong>Check your inbox.</strong><br>Your Starter Kit is on the way to <strong>' + safeEmail + '</strong>. If you don\'t see it in 2 minutes, check spam.';
+          if (window.gtag) window.gtag('event', 'starter_kit_signup');
+          return false;
+        }
+
+        btn.disabled = false;
+        btn.textContent = 'Send Me the Starter Kit';
+        msg.style.display = 'block';
+        msg.style.color = '#ff6b6b';
+        if (data.error === 'invalid_email') {
+          msg.textContent = 'That email looks invalid. Double-check and try again.';
+        } else {
+          msg.textContent = 'Something went wrong. Try again in a moment, or email us at nextools.hub333@gmail.com.';
+        }
+      } catch (err) {
+        btn.disabled = false;
+        btn.textContent = 'Send Me the Starter Kit';
+        msg.style.display = 'block';
+        msg.style.color = '#ff6b6b';
+        msg.textContent = 'Network error. Check your connection and try again.';
+      }
       return false;
     }
 
