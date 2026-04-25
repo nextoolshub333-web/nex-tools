@@ -1,0 +1,40 @@
+<!--
+  NEX CTA Banner - Reusable HTML Template
+  Phase G - Sprint 2026-04-25
+
+  Placeholders to replace before injection:
+    {{VARIANT}}        = "tool" or "blog"
+    {{EYEBROW}}        = e.g. "Liked this calculator?" or "Reading about 1111?"
+    {{HEADLINE}}       = e.g. "Decode Every Number You Keep Seeing"
+    {{SUBHEAD}}        = e.g. "The Angel Numbers Oracle - the complete decoder for 100+ sequences."
+    {{CTA_TEXT}}       = "Get The Oracle"
+    {{CTA_PRICE}}      = "$19.99"
+    {{PAGE_SLUG}}      = e.g. "karmic-debt-calculator" or "angel-number-1111"
+
+  UTMs already wired:
+    utm_source=internal
+    utm_medium=cta_banner
+    utm_content={{PAGE_SLUG}}
+-->
+
+<section class="nex-cta-banner" data-variant="{{VARIANT}}" aria-labelledby="nex-cta-{{PAGE_SLUG}}">
+  <div class="nex-cta-banner__inner">
+    <span class="nex-cta-banner__eyebrow">{{EYEBROW}}</span>
+    <h2 class="nex-cta-banner__headline" id="nex-cta-{{PAGE_SLUG}}">
+      {{HEADLINE}}
+    </h2>
+    <p class="nex-cta-banner__subhead">{{SUBHEAD}}</p>
+    <a href="/angel-numbers/?utm_source=internal&utm_medium=cta_banner&utm_content={{PAGE_SLUG}}"
+       class="nex-cta-banner__cta"
+       data-cta="oracle"
+       data-source="{{VARIANT}}-page">
+      {{CTA_TEXT}}
+      <span class="nex-cta-banner__cta-price">{{CTA_PRICE}}</span>
+    </a>
+    <div class="nex-cta-banner__meta">
+      <span><span class="dot"></span>Instant PDF</span>
+      <span><span class="dot"></span>100+ sequences</span>
+      <span><span class="dot"></span>30-day refund</span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,234 @@
+/* ============================================================
+   NEX CTA Banner - Cross-Site Conversion Component
+   Phase G - Sprint 2026-04-25 NEX First Dollar
+   Brand: Dark navy (#08080C) + gold (#FFD700) + Inter/Poppins
+   ============================================================ */
+
+.nex-cta-banner {
+  position: relative;
+  margin: 4rem 0 0;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, #08080C 0%, #0F0D15 50%, #08080C 100%);
+  border-top: 1px solid rgba(255,215,0,0.18);
+  border-bottom: 1px solid rgba(255,215,0,0.18);
+  overflow: hidden;
+}
+
+.nex-cta-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1.5px 1.5px at 18% 30%, rgba(255,215,0,0.32), transparent 60%),
+    radial-gradient(1px 1px at 42% 70%, rgba(255,255,255,0.20), transparent 60%),
+    radial-gradient(1.5px 1.5px at 76% 25%, rgba(255,215,0,0.28), transparent 60%),
+    radial-gradient(1px 1px at 88% 65%, rgba(255,255,255,0.18), transparent 60%);
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.nex-cta-banner__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.nex-cta-banner__eyebrow {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFD700;
+  background: rgba(255,215,0,0.08);
+  border: 1px solid rgba(255,215,0,0.25);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.nex-cta-banner__headline {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.18;
+  color: #FFFFFF;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.nex-cta-banner__headline .accent {
+  color: #FFD700;
+}
+
+.nex-cta-banner__subhead {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.78);
+  margin: 0 auto 1.75rem;
+  max-width: 640px;
+}
+
+.nex-cta-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #08080C;
+  background: #FFD700;
+  padding: 0.95rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 2px solid #FFD700;
+  box-shadow: 0 6px 24px rgba(255,215,0,0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.nex-cta-banner__cta:hover,
+.nex-cta-banner__cta:focus {
+  background: #FFECB3;
+  border-color: #FFECB3;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(255,215,0,0.28);
+  color: #08080C;
+}
+
+.nex-cta-banner__cta-price {
+  font-weight: 600;
+  opacity: 0.78;
+}
+
+.nex-cta-banner__meta {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.nex-cta-banner__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nex-cta-banner__meta .dot {
+  width: 4px;
+  height: 4px;
+  background: #FFD700;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Mobile responsive */
+@media (max-width: 720px) {
+  .nex-cta-banner {
+    padding: 2.25rem 1rem;
+    margin: 3rem 0 0;
+  }
+  .nex-cta-banner__headline {
+    font-size: 1.55rem;
+  }
+  .nex-cta-banner__subhead {
+    font-size: 0.98rem;
+  }
+  .nex-cta-banner__cta {
+    font-size: 0.98rem;
+    padding: 0.85rem 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .nex-cta-banner__meta {
+    gap: 0.85rem;
+    font-size: 0.76rem;
+  }
+}
+
+/* ============================================================
+   Related Tools Widget - Tool Page Cross-Linking
+   ============================================================ */
+
+.nex-related-tools {
+  margin: 3rem auto 0;
+  max-width: 880px;
+  padding: 1.75rem 1.5rem;
+  background: #12101A;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+}
+
+.nex-related-tools__title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #FFD700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.35rem;
+}
+
+.nex-related-tools__sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  margin: 0 0 1.25rem;
+}
+
+.nex-related-tools__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.nex-related-tools__item {
+  display: block;
+  padding: 0.9rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+}
+
+.nex-related-tools__item:hover {
+  border-color: rgba(255,215,0,0.35);
+  background: rgba(255,215,0,0.04);
+  transform: translateY(-1px);
+  color: #FFFFFF;
+}
+
+.nex-related-tools__item-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 0.2rem;
+  color: #FFFFFF;
+}
+
+.nex-related-tools__item-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+
+@media (max-width: 720px) {
+  .nex-related-tools {
+    padding: 1.25rem 1rem;
+    margin: 2rem auto 0;
+  }
+  .nex-related-tools__grid {
+    grid-template-columns: 1fr;
+  }
+}
