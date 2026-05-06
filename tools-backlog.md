@@ -69,7 +69,7 @@
 
 | # | slug | title | keyword | status |
 |---|------|-------|---------|--------|
-| 25 | `moon-phase-today` | Moon Phase Today Calculator | moon phase calendar | ready |
+| 25 | `moon-phase-today` | Moon Phase Today Calculator | moon phase calendar | done (2026-05-06) |
 | 26 | `mercury-retrograde-check` | Mercury Retrograde Live Check | mercury retrograde 2026 | ready |
 | 27 | `rising-sign-calculator` | Rising Sign Calculator | ascendant calculator | ready |
 | 28 | `moon-sign-calculator` | Moon Sign Calculator | moon sign birth chart | ready |
