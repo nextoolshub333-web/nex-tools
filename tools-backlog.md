@@ -96,7 +96,7 @@
 | 39 | `crystal-match-finder` | Crystal Match by Intent | crystal for anxiety (etc) | ready |
 | 40 | `dream-symbol-lookup` | Dream Symbol Decoder | dream meaning dictionary | ready |
 | 41 | `dosha-ayurveda-quiz` | Ayurveda Dosha Quiz | dosha quiz vata pitta | ready |
-| 42 | `rune-of-day` | Daily Rune Cast | daily rune reading | ready |
+| 42 | `rune-of-day` | Daily Rune Cast | daily rune reading | done (2026-05-08) |
 
 ## Batch 7 - Tarot & Oracle (5 כלים)
 

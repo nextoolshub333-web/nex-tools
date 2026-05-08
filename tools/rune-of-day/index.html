@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Rune Cast - Free Elder Futhark Rune Reading Tool</title>
+  <meta name="description" content="Pull a daily rune from the 24 Elder Futhark runes. Free interactive rune reading with full meanings, reversed interpretations, journal prompt and history.">
+  <meta name="keywords" content="daily rune reading, rune of the day, free rune cast, elder futhark, rune meanings, daily divination, rune journal">
+  <link rel="canonical" href="https://mynextools.com/tools/rune-of-day/">
+  <meta property="og:title" content="Daily Rune Cast - Free Elder Futhark Rune Reading">
+  <meta property="og:description" content="Pull one rune for the day. 24 Elder Futhark runes, full meanings, reversed cast option, journaling prompt. Free, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/rune-of-day/">
+  <meta property="og:site_name" content="NexTools">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@nex.numbers">
+  <meta name="twitter:title" content="Daily Rune Cast - Free Elder Futhark Reading">
+  <meta name="twitter:description" content="Pull a rune. Read the meaning. Take it into your day. 24 Elder Futhark runes, free.">
+  <meta name="twitter:image" content="https://mynextools.com/images/og/default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cta-banner.css">
+  <script src="/js/email-popup.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Daily Rune Cast",
+    "description": "Free interactive daily rune reading tool. Pull one of 24 Elder Futhark runes with full meanings, reversed interpretations and a journaling prompt.",
+    "url": "https://mynextools.com/tools/rune-of-day/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mynextools.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://mynextools.com/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Daily Rune Cast", "item": "https://mynextools.com/tools/rune-of-day/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does a daily rune reading work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You pull one rune from the 24 Elder Futhark set. The rune you draw points to the dominant theme or signal for the day. Read the upright meaning if it lands face up, or the reversed meaning if it appears inverted. Note your reaction in a journal - that is half the work." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are runes accurate?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Runes are not predictive in the literal sense. They are a structured prompt - 24 archetypes that reflect what is already happening in you. Treat the cast as a mirror, not a forecast. The accuracy is in the framework you build for paying attention." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I pull a rune every day?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One rune in the morning works best. More than that and the readings start to compete. Daily practice for 30 days reveals patterns you would not catch otherwise - which runes recur, which ones you avoid, which ones land hard." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the Elder Futhark?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The Elder Futhark is the oldest known runic alphabet, used across Northern Europe roughly 150 to 800 AD. 24 letters, divided into three groups of eight called aetts. Each rune is both a phonetic letter and a symbolic concept - a tool for writing and for divination." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does a reversed rune mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A reversed rune flips the energy. Fehu upright means flowing wealth - reversed it means scarcity, holding too tight, or money slipping through. Not every rune has a meaningful reversal - Isa, Sowilo, Jera, Dagaz and a few others read the same either way. Toggle reversed mode in the tool to see both." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to be Pagan or Heathen to use runes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The runes themselves predate any religious framework people layer onto them. You can use them as Jungian archetypes, as a structured journaling tool, or within Norse spiritual practice - the symbols do not require belief, they require attention." }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to do a Daily Rune Cast",
+    "description": "Pull one rune for the day in 4 steps",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Set the question", "text": "Hold a quiet question in mind: what should I pay attention to today, or what energy am I carrying in." },
+      { "@type": "HowToStep", "position": 2, "name": "Cast the rune", "text": "Press the cast button. One rune is drawn from the 24 Elder Futhark runes. Toggle reversed mode for a deeper read." },
+      { "@type": "HowToStep", "position": 3, "name": "Read the meaning", "text": "Review the rune name, ancient meaning, modern interpretation and the journaling prompt that comes with it." },
+      { "@type": "HowToStep", "position": 4, "name": "Journal a single line", "text": "Write one line in response to the prompt. Revisit at the end of the day - did the rune land. The pattern only emerges over weeks." }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --paper-bg: #0E0C08;
+      --paper-card: rgba(232, 196, 138, 0.06);
+      --paper-border: rgba(232, 196, 138, 0.25);
+      --paper-amber: #E8C48A;
+      --paper-amber-deep: #C49A5C;
+      --paper-text: #F5EDD8;
+      --paper-text-soft: #B8A88A;
+    }
+    .rune-page-wrap { background: var(--paper-bg); position: relative; min-height: 100vh; }
+    .rune-page-wrap::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; opacity: 0.04; z-index: 0;
+      background-image: radial-gradient(circle at 25% 30%, rgba(232,196,138,1) 0%, transparent 40%), radial-gradient(circle at 75% 70%, rgba(232,196,138,1) 0%, transparent 40%);
+    }
+    .rune-cast-area { background: var(--paper-card); border: 1px solid var(--paper-border); border-radius: 16px; padding: 2.5rem 1.5rem; text-align: center; margin: 2rem auto; max-width: 720px; position: relative; }
+    .rune-cast-area::after {
+      content: ""; position: absolute; inset: 8px; border: 1px solid rgba(232,196,138,0.12); border-radius: 12px; pointer-events: none;
+    }
+    .rune-glyph { font-size: 7rem; line-height: 1; color: var(--paper-amber); font-family: "Poppins", serif; font-weight: 700; margin: 1rem 0 0.5rem; text-shadow: 0 0 24px rgba(232,196,138,0.25); display: inline-block; transition: transform 0.6s ease; }
+    .rune-glyph.reversed { transform: rotate(180deg); }
+    .rune-glyph.empty { color: var(--paper-text-soft); opacity: 0.4; }
+    .rune-name { font-family: "Poppins", sans-serif; font-size: 1.6rem; color: var(--paper-amber); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0.5rem 0 0.25rem; }
+    .rune-pronounce { color: var(--paper-text-soft); font-size: 0.85rem; font-style: italic; margin-bottom: 1rem; }
+    .rune-orientation { display: inline-block; padding: 0.25rem 0.8rem; border: 1px solid var(--paper-border); border-radius: 999px; font-size: 0.75rem; color: var(--paper-amber-deep); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+    .rune-meaning-block { text-align: left; max-width: 560px; margin: 1rem auto; padding: 1.25rem; background: rgba(232,196,138,0.03); border-left: 2px solid var(--paper-amber); border-radius: 6px; }
+    .rune-meaning-block h4 { color: var(--paper-amber); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .rune-meaning-block p { color: var(--paper-text); line-height: 1.6; margin: 0; }
+    .rune-prompt { background: rgba(232,196,138,0.05); border: 1px dashed var(--paper-border); padding: 1rem; border-radius: 8px; margin: 1.5rem auto; max-width: 560px; }
+    .rune-prompt-label { color: var(--paper-amber); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+    .rune-prompt-text { color: var(--paper-text); font-style: italic; line-height: 1.5; }
+    .rune-controls { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0 0; }
+    .rune-btn { padding: 0.7rem 1.6rem; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 1px solid var(--paper-border); background: transparent; color: var(--paper-text); font-family: inherit; }
+    .rune-btn.primary { background: var(--paper-amber); color: var(--paper-bg); border-color: var(--paper-amber); font-weight: 700; }
+    .rune-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(232,196,138,0.15); }
+    .reversed-toggle { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--paper-text-soft); font-size: 0.85rem; cursor: pointer; user-select: none; padding: 0.5rem 1rem; border: 1px solid var(--paper-border); border-radius: 999px; }
+    .reversed-toggle input { accent-color: var(--paper-amber); }
+    .rune-history { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 0.5rem; max-width: 640px; margin: 2rem auto 0; }
+    .rune-history-cell { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 1px solid var(--paper-border); border-radius: 6px; font-size: 1.5rem; color: var(--paper-amber); cursor: pointer; transition: all 0.2s; }
+    .rune-history-cell:hover { background: rgba(232,196,138,0.08); }
+    .rune-history-cell.empty { opacity: 0.2; cursor: default; }
+    .all-runes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.75rem; margin-top: 1.5rem; }
+    .rune-tile { padding: 1rem 0.5rem; text-align: center; border: 1px solid var(--paper-border); border-radius: 8px; background: rgba(232,196,138,0.02); transition: all 0.2s; cursor: pointer; }
+    .rune-tile:hover { background: rgba(232,196,138,0.06); transform: translateY(-2px); }
+    .rune-tile-glyph { font-size: 2rem; color: var(--paper-amber); line-height: 1; margin-bottom: 0.25rem; font-family: "Poppins", sans-serif; font-weight: 700; }
+    .rune-tile-name { font-size: 0.75rem; color: var(--paper-text-soft); letter-spacing: 0.05em; text-transform: uppercase; }
+    @media (max-width: 768px) {
+      .rune-glyph { font-size: 5rem; }
+      .rune-cast-area { padding: 1.75rem 1rem; }
+    }
+  </style>
+</head>
+<body class="rune-page-wrap">
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/wisdom-mirror/">Wisdom Mirror</a>
+        <a href="/tools/rune-of-day/" style="color:var(--paper-amber)">Runes</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="padding:3rem 0 1.5rem;position:relative;z-index:1">
+    <div class="container">
+      <h1 style="color:var(--paper-amber)">Daily Rune Cast</h1>
+      <div class="tldr" style="background:rgba(232,196,138,0.07);border-left:3px solid var(--paper-amber);padding:1rem 1.25rem;margin:1.5rem 0;border-radius:6px">
+        <strong style="color:var(--paper-amber);font-size:0.85rem;letter-spacing:0.05em;text-transform:uppercase">TL;DR</strong>
+        <p style="margin:0.5rem 0 0;color:var(--paper-text);line-height:1.5">Press cast. One rune is drawn from the 24 Elder Futhark runes. Read the meaning, the reversed read if applicable, and the journaling prompt. Pull once a day for 30 days and the pattern starts to read you.</p>
+      </div>
+      <p style="color:var(--paper-text-soft)">Free interactive rune reading. No signup. No email. The Elder Futhark, used across Northern Europe for over a thousand years, condensed into one daily prompt.</p>
+    </div>
+  </section>
+
+  <section class="section" style="position:relative;z-index:1">
+    <div class="container">
+      <div class="rune-cast-area">
+        <div class="rune-glyph empty" id="rune-glyph">?</div>
+        <div class="rune-name" id="rune-name">Cast a Rune</div>
+        <div class="rune-pronounce" id="rune-pronounce">Press the button below to begin</div>
+        <div class="rune-orientation" id="rune-orientation" style="display:none">Upright</div>
+
+        <div id="rune-meaning-wrap" style="display:none">
+          <div class="rune-meaning-block">
+            <h4>Ancient Meaning</h4>
+            <p id="rune-ancient">-</p>
+          </div>
+          <div class="rune-meaning-block">
+            <h4>Modern Read</h4>
+            <p id="rune-modern">-</p>
+          </div>
+          <div class="rune-meaning-block">
+            <h4>Today's Signal</h4>
+            <p id="rune-signal">-</p>
+          </div>
+          <div class="rune-prompt">
+            <span class="rune-prompt-label">Journal Prompt</span>
+            <div class="rune-prompt-text" id="rune-prompt-text">-</div>
+          </div>
+        </div>
+
+        <div class="rune-controls">
+          <button class="rune-btn primary" id="cast-btn" onclick="castRune()">Cast a Rune</button>
+          <label class="reversed-toggle">
+            <input type="checkbox" id="reversed-mode"> Allow reversed runes
+          </label>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:2rem">
+        <h3 style="color:var(--paper-amber-deep);font-size:1rem;letter-spacing:0.1em;text-transform:uppercase">Your last 7 casts</h3>
+        <p style="color:var(--paper-text-soft);font-size:0.85rem;max-width:480px;margin:0 auto 1rem">Saved locally in your browser. Click any to revisit. The runes that recur most often are the ones to listen to.</p>
+        <div class="rune-history" id="rune-history"></div>
+        <button class="rune-btn" style="margin-top:1rem;font-size:0.8rem" onclick="clearHistory()">Clear history</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center" style="color:var(--paper-amber)">All 24 Elder Futhark Runes</h2>
+      <p class="text-center" style="color:var(--paper-text-soft);max-width:640px;margin:0 auto 1.5rem">Three aetts of eight runes. Click any rune to learn its full meaning - this is the same set used in Norse spiritual practice for over fifteen hundred years.</p>
+      <div class="all-runes-grid" id="all-runes-grid"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content" style="max-width:720px;margin:0 auto">
+        <h2 style="color:var(--paper-amber)">What Are Runes</h2>
+        <p>Runes are an ancient Germanic alphabet that doubled as a divinatory system. The Elder Futhark - the oldest and most studied set - contains 24 runes, divided into three groups of eight called aetts. Each rune carries both a phonetic value (so you can write with them) and a symbolic concept that has been used for divination, magic and meditation for nearly two thousand years.</p>
+
+        <p>The earliest known runic inscriptions date to around 150 AD, and the system spread across Scandinavia, the British Isles, and what is now Germany. Tacitus, writing in 98 AD in his work Germania, described Germanic tribes casting marked sticks to seek guidance - one of the earliest references to what we now call rune-casting. The practice survived oral tradition, was suppressed during Christianization, and saw a revival in the 20th century via authors like Ralph Blum and Freya Aswynn.</p>
+
+        <h2 style="color:var(--paper-amber)">How to Use the Daily Rune Cast Tool</h2>
+        <ol style="color:var(--paper-text)">
+          <li>Hold a quiet question in mind. The classical phrasing: "what do I need to pay attention to today."</li>
+          <li>Press cast. One rune is randomly drawn from the 24 Elder Futhark runes. If you toggle reversed mode, the rune may also appear inverted - the reversal flips the energy.</li>
+          <li>Read the four meaning layers: ancient symbolism, modern interpretation, today's signal, and the journal prompt.</li>
+          <li>Write one line in response to the prompt. That single line is half the practice. Revisit at the end of the day.</li>
+          <li>Track which runes recur. The patterns that emerge over weeks are more useful than any single cast.</li>
+        </ol>
+
+        <h2 style="color:var(--paper-amber)">The Three Aetts Explained</h2>
+        <p>The Elder Futhark divides into three groups of eight runes, called aetts (singular: aett). The division is structural and likely older than written records of it - each aett carries a thematic weight.</p>
+        <ul style="color:var(--paper-text)">
+          <li><strong style="color:var(--paper-amber)">Freyr's Aett (runes 1-8):</strong> Material world, fertility, abundance, warmth - the runes you draw when life is asking about resources, partnership, and embodied existence. Fehu, Uruz, Thurisaz, Ansuz, Raidho, Kenaz, Gebo, Wunjo.</li>
+          <li><strong style="color:var(--paper-amber)">Heimdall's Aett (runes 9-16):</strong> Disruption, transformation, the trial layer of life. These runes appear when you are mid-process, between one identity and another. Hagalaz, Nauthiz, Isa, Jera, Eihwaz, Perthro, Algiz, Sowilo.</li>
+          <li><strong style="color:var(--paper-amber)">Tyr's Aett (runes 17-24):</strong> Higher law, social bonds, the daylight self. The runes of duty, lineage, integration. Tiwaz, Berkano, Ehwaz, Mannaz, Laguz, Ingwaz, Dagaz, Othala.</li>
+        </ul>
+
+        <h2 style="color:var(--paper-amber)">Reversed Runes - When to Use Them</h2>
+        <p>Not every rune has a meaningful reversal. Five runes are considered "non-reversible" because their symmetry holds the same meaning either way: Isa, Sowilo, Jera, Dagaz and Gebo. The other nineteen change orientation when reversed, and the reversed read flips the active energy.</p>
+        <p>For beginners, start without reversed runes. The 24 upright meanings are already a lot to learn. Once you have done thirty daily casts and have a feel for the system, toggle reversed mode in this tool to add another layer - the reversal often shows where you are blocking the rune's natural flow.</p>
+
+        <h2 style="color:var(--paper-amber)">Why Daily Practice Matters</h2>
+        <p>One rune does not predict your day. Thirty days of one rune each does something different - it reveals the runes you draw repeatedly, the ones you avoid, and the gap between the rune and your reaction to it. That gap is where the work is.</p>
+        <p>Researchers studying journaling and reflective practice consistently find similar mechanisms: structured daily prompts produce more durable behavior change than open-ended reflection. The runes are a structured prompt - 24 archetypes you cycle through, each one forcing a specific question. The mechanism is closer to cognitive behavioral journaling than to fortune-telling.</p>
+
+        <h2 style="color:var(--paper-amber)">Common Daily Rune Spreads</h2>
+        <p>Beyond the single-rune daily cast, three classic spreads work well for short readings:</p>
+        <ul style="color:var(--paper-text)">
+          <li><strong style="color:var(--paper-amber)">Three-rune past-present-future:</strong> Draw three runes and read left-to-right. Past influence, current state, emerging direction.</li>
+          <li><strong style="color:var(--paper-amber)">Norns spread:</strong> Three runes for Urdr (what was), Verdandi (what is), Skuld (what is becoming). Functionally similar to the above but framed in Norse cosmology.</li>
+          <li><strong style="color:var(--paper-amber)">Five-rune cross:</strong> One in each cardinal direction plus one center. Reads as: present situation, obstacle, hidden influence, advice, outcome.</li>
+        </ul>
+        <p>For daily use, stick with one. The discipline of one rune, every day, for a month, teaches more than a dozen elaborate spreads done occasionally.</p>
+
+        <h2 style="color:var(--paper-amber)">How Runes Differ From Tarot</h2>
+        <p>Both are divinatory tools, but they work differently. Tarot has 78 cards across two arcana, with rich pictorial symbolism that invites narrative interpretation. Runes have 24 spare glyphs with concept-anchored meaning - less narrative, more elemental. Tarot tells you a story; runes name a force.</p>
+        <p>For people who find tarot too symbolic or theatrical, runes often feel cleaner. For people who like the visual richness, tarot is more engaging. Many practitioners use both: runes for daily check-ins, tarot for deeper question-spreads.</p>
+
+        <h2 style="color:var(--paper-amber)">Pair the Rune With Other Free Tools</h2>
+        <p>A rune cast alone is a single signal. Layered with other practices it becomes a daily ritual. Pair your daily rune with a <a href="/tools/breathing-exercise/">breathing exercise</a> to settle before casting, the <a href="/tools/wisdom-mirror/">Wisdom Mirror</a> for a deeper reflection prompt, or the <a href="/tools/affirmation-generator/">Affirmation Generator</a> to anchor the rune's lesson into action.</p>
+
+        <h2 style="color:var(--paper-amber)">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3 style="color:var(--paper-amber)">How does a daily rune reading work?</h3>
+          <p>Pull one rune from 24. Read its meaning, both upright and (if you enabled reversed mode) reversed. Sit with the reading for a beat - what does it name in your day. Journal one line in response to the prompt provided. The rune is the question, not the answer.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 style="color:var(--paper-amber)">Are runes accurate?</h3>
+          <p>Not in the predictive sense. The runes are 24 archetypes - they reflect what is already in you. The accuracy is in the framework: 24 categories you cycle through teaches you to notice what you would not have noticed otherwise. That is the real read.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 style="color:var(--paper-amber)">Should I pull a rune every day?</h3>
+          <p>One rune in the morning is enough. More than that and the readings start to compete. Daily practice for 30 days reveals the patterns - which runes recur, which ones you resist, which ones land hard. That meta-pattern is the value.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3 style="color:var(--paper-amber)">Do I need to be Pagan or Heathen to use runes?</h3>
+          <p>No. The runes predate every framework people layer on them. You can use them as Jungian archetypes, as a structured journaling tool, or within Norse spiritual practice - the symbols do not require belief, they require attention.</p>
+        </div>
+
+        <div class="cta-box" style="margin-top:2rem;background:rgba(232,196,138,0.05);border:1px solid var(--paper-border);padding:1.5rem;border-radius:12px">
+          <h4 style="color:var(--paper-amber)">Want Deeper Insights?</h4>
+          <p>Get the Premium Rune Reading Bundle - all 24 rune cards as printable PDFs, 30-day journal template, and three spreads for relationships, career and shadow work.</p>
+          <a href="https://hop.clickbank.net/?affiliate=nextools&vendor=PLACEHOLDER&pid=rune-of-day" class="btn btn-gold" target="_blank" rel="noopener">Get The Bundle</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-2" style="color:var(--paper-amber)">More Free Spiritual Tools</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Wisdom Mirror</h3>
+          <p>One reflective question each day. Build self-awareness without the noise.</p>
+          <a href="/tools/wisdom-mirror/" class="btn btn-purple btn-sm">Reflect Now</a>
+        </div>
+        <div class="card">
+          <h3>Angel Number Calculator</h3>
+          <p>Find your personal angel number and decode the patterns your attention surfaces.</p>
+          <a href="/tools/angel-number-calculator/" class="btn btn-purple btn-sm">Calculate</a>
+        </div>
+        <div class="card">
+          <h3>Mirror Hour Decoder</h3>
+          <p>11:11, 22:22, 14:14 - what each repeating clock time flags about your current chapter.</p>
+          <a href="/tools/mirror-hour-decoder/" class="btn btn-purple btn-sm">Decode</a>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem">
+        <a href="/blog/how-to-rune-of-day/" class="btn btn-gold">Read the Full Rune Reading Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="nex-related-tools" aria-labelledby="nex-related-rune-of-day">
+    <h3 class="nex-related-tools__title" id="nex-related-rune-of-day">Related Tools</h3>
+    <p class="nex-related-tools__sub">Layer these with the daily rune cast:</p>
+    <div class="nex-related-tools__grid">
+      <a href="/tools/wisdom-mirror/" class="nex-related-tools__item">
+        <div class="nex-related-tools__item-name">Wisdom Mirror</div>
+        <div class="nex-related-tools__item-desc">Reflective prompts that turn your own answers into the insight you were looking for elsewhere.</div>
+      </a>
+      <a href="/tools/breathing-exercise/" class="nex-related-tools__item">
+        <div class="nex-related-tools__item-name">Breathing Exercise Timer</div>
+        <div class="nex-related-tools__item-desc">8 science-backed protocols. Settle the body before casting a rune for a cleaner read.</div>
+      </a>
+      <a href="/tools/affirmation-generator/" class="nex-related-tools__item">
+        <div class="nex-related-tools__item-name">Affirmation Generator</div>
+        <div class="nex-related-tools__item-desc">Build personal affirmations that actually work - rooted in cognitive reframing, not wishful thinking.</div>
+      </a>
+      <a href="/tools/mirror-hour-decoder/" class="nex-related-tools__item">
+        <div class="nex-related-tools__item-name">Mirror Hour Decoder</div>
+        <div class="nex-related-tools__item-desc">Repeating clock times decoded - 11:11, 22:22, 14:14 and the pattern behind them.</div>
+      </a>
+    </div>
+  </aside>
+
+  <section class="nex-cta-banner" data-variant="tool" aria-labelledby="nex-cta-rune-of-day">
+    <div class="nex-cta-banner__inner">
+      <span class="nex-cta-banner__eyebrow">Liked the Rune Cast?</span>
+      <h2 class="nex-cta-banner__headline" id="nex-cta-rune-of-day">Decode Every Number You Keep Seeing</h2>
+      <p class="nex-cta-banner__subhead">The Angel Numbers Oracle. 100+ repeating sequences with three layers each: spiritual meaning, practical signal, what to do the moment you see it.</p>
+      <a href="/angel-numbers/?utm_source=internal&amp;utm_medium=cta_banner&amp;utm_content=rune-of-day"
+         class="nex-cta-banner__cta"
+         data-cta="oracle"
+         data-source="tool-page">
+        Get The Oracle
+        <span class="nex-cta-banner__cta-price">$19.99</span>
+      </a>
+      <div class="nex-cta-banner__meta">
+        <span><span class="dot"></span>Instant PDF</span>
+        <span><span class="dot"></span>100+ sequences</span>
+        <span><span class="dot"></span>30-day refund</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>Free Tools</h4><a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a><a href="/tools/angel-number-calculator/">Angel Numbers</a><a href="/tools/human-design-calculator/">Human Design</a><a href="/tools/life-path-calculator/">Life Path</a><a href="/tools/zodiac-calculator/">Zodiac</a><a href="/tools/breathing-exercise/">Breathing</a><a href="/tools/rune-of-day/">Daily Rune</a><a href="/tools/wisdom-mirror/">Wisdom Mirror</a></div>
+        <div class="footer-col"><h4>Guides</h4><a href="/blog/how-to-rune-of-day/">Rune Reading Guide</a><a href="/blog/spiritual-awakening-signs/">Spiritual Awakening Signs</a><a href="/blog/synchronicity-jung-spiritual-guide/">Synchronicity</a></div>
+        <div class="footer-col"><h4>Resources</h4><a href="https://nextools.gumroad.com/" target="_blank" rel="noopener">Products</a><a href="https://www.instagram.com/nex.numbers/" target="_blank" rel="noopener">Instagram</a><a href="/blog/">Blog</a></div>
+        <div class="footer-col"><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2026 NexTools. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script>
+  var runes = [
+    { id: 1, glyph: "ᚠ", name: "Fehu", pron: "FAY-hoo", aett: "Freyr",
+      ancient: "Cattle, movable wealth. The earliest measure of prosperity in Germanic culture - what could be counted, herded and traded.",
+      modern: "Resources flowing. Income, opportunity, energy that wants to move. The rune of activated abundance, not stored treasure.",
+      signal: "Today is for circulation, not accumulation. Whatever resource is in motion - money, attention, energy - keep it moving.",
+      reversedSignal: "Holding too tight, leaking resources, or ignoring an opportunity. Check what you are gripping that wants to move.",
+      prompt: "What resource am I holding that needs to move today.",
+      reversible: true },
+    { id: 2, glyph: "ᚢ", name: "Uruz", pron: "OO-rooz", aett: "Freyr",
+      ancient: "The aurochs, a wild ox now extinct. Untamed strength, primal vitality, life-force.",
+      modern: "Raw energy and physical resilience. The rune of healing, recovery and rebuilding capacity.",
+      signal: "Trust your body's signal today. Rest if it needs rest, push if it wants to push - but listen first.",
+      reversedSignal: "Force without aim, exhaustion, ignoring physical signals until they shout.",
+      prompt: "Where in my body is the signal I have been ignoring.",
+      reversible: true },
+    { id: 3, glyph: "ᚦ", name: "Thurisaz", pron: "THOOR-ee-saz", aett: "Freyr",
+      ancient: "The thorn, the giant. Defensive force - sharp at the edges, inert in the center.",
+      modern: "A protective boundary or a confrontation that sharpens you. Sometimes the gateway is also the gate-keeper.",
+      signal: "There is a hard conversation today. Walk into it, do not around it. The boundary is the lesson.",
+      reversedSignal: "Avoiding a needed confrontation, or being cruel where you meant to be firm.",
+      prompt: "What boundary have I been avoiding setting.",
+      reversible: true },
+    { id: 4, glyph: "ᚨ", name: "Ansuz", pron: "AN-sooz", aett: "Freyr",
+      ancient: "The mouth, divine breath, Odin's wisdom. The rune of communication and inspiration.",
+      modern: "A signal, a message, a download of insight. Often arrives in the form of someone else's words.",
+      signal: "Listen for the message that lands sideways today - in a stranger's comment, an old book, a song.",
+      reversedSignal: "Miscommunication, misheard advice, or speaking when you should be listening.",
+      prompt: "What message arrived recently that I dismissed too fast.",
+      reversible: true },
+    { id: 5, glyph: "ᚱ", name: "Raidho", pron: "RYE-tho", aett: "Freyr",
+      ancient: "The wagon, the journey, riding. Movement with purpose - not wandering, not stillness, but going.",
+      modern: "Travel, both literal and metaphorical. A path that wants to be walked, even if the destination is unclear.",
+      signal: "Today is for movement. Take the longer route on purpose, change your usual environment, displace yourself.",
+      reversedSignal: "Stuck, going in circles, or moving without direction. Check whether you are traveling or just fleeing.",
+      prompt: "Where am I overdue to move - physically, mentally, or in a relationship.",
+      reversible: true },
+    { id: 6, glyph: "ᚲ", name: "Kenaz", pron: "KEN-az", aett: "Freyr",
+      ancient: "The torch, controlled fire. The first technology - light you carry into the dark.",
+      modern: "Knowledge applied, craft, the moment of clarity. The rune of insight that solves a real problem.",
+      signal: "There is something you have been studying that wants to be tested today. Take it from theory into practice.",
+      reversedSignal: "Hoarding knowledge, or knowing-without-doing. The torch is not lit to be admired.",
+      prompt: "What have I learned recently that I am refusing to apply.",
+      reversible: true },
+    { id: 7, glyph: "ᚷ", name: "Gebo", pron: "GEH-bo", aett: "Freyr",
+      ancient: "The gift, the exchange. In Norse culture, gift-giving created lasting bonds - a gift required a gift in return.",
+      modern: "Partnership, mutual exchange, the contract of generosity. Relationships balanced through giving.",
+      signal: "Today is for giving without keeping score. The exchange that comes back to you will not be in the form you expected.",
+      reversedSignal: "Note: Gebo is symmetrical. The reversal is not meaningful - read the upright meaning.",
+      prompt: "What gift have I been holding back, and from whom.",
+      reversible: false },
+    { id: 8, glyph: "ᚹ", name: "Wunjo", pron: "WOON-yo", aett: "Freyr",
+      ancient: "Joy, glory, perfection. The completion of something done well.",
+      modern: "Earned satisfaction. Not luck - the warmth of work that worked. Belonging in a tribe that fits.",
+      signal: "Notice what is already going right today. The work you did months ago is paying out now - acknowledge it.",
+      reversedSignal: "Misplaced joy, false belonging, or staying in a celebration that has already ended.",
+      prompt: "What did I do months ago that is paying off today.",
+      reversible: true },
+    { id: 9, glyph: "ᚺ", name: "Hagalaz", pron: "HAH-gah-lahz", aett: "Heimdall",
+      ancient: "Hail, the storm that destroys to renew. The seed inside the stone of ice.",
+      modern: "Disruption you did not invite. The crisis that clears space for the next chapter.",
+      signal: "Something is breaking today, and that is on time. Do not rush to rebuild - let the storm finish its work.",
+      reversedSignal: "Note: Hagalaz is non-reversible in most traditions. Read the upright meaning.",
+      prompt: "What is breaking that I have been propping up too long.",
+      reversible: false },
+    { id: 10, glyph: "ᚾ", name: "Nauthiz", pron: "NOW-theez", aett: "Heimdall",
+      ancient: "Need, necessity, the friction of survival. The need-fire kindled by hand in a crisis.",
+      modern: "Constraint that focuses you. The lack that becomes the lesson. Resourcefulness under pressure.",
+      signal: "What you cannot have today is teaching you. Stop fighting the constraint and ask what it is showing you.",
+      reversedSignal: "Self-imposed scarcity, victim posture, or refusing to use the constraint as fuel.",
+      prompt: "What lack is currently focusing me, even though it does not feel like it.",
+      reversible: true },
+    { id: 11, glyph: "ᛁ", name: "Isa", pron: "EE-sa", aett: "Heimdall",
+      ancient: "Ice, stillness, the freeze. The pause where motion is impossible.",
+      modern: "A required halt. The plateau, the writer's block, the pause that precedes the next move.",
+      signal: "Stop pushing today. The stillness is the work. Force will not move what wants to wait.",
+      reversedSignal: "Note: Isa is non-reversible. Read the upright meaning - the symmetry holds either way.",
+      prompt: "What am I trying to force that wants to be still.",
+      reversible: false },
+    { id: 12, glyph: "ᛃ", name: "Jera", pron: "YEH-ra", aett: "Heimdall",
+      ancient: "The year, the harvest. Cyclical time, the reward of patient labor.",
+      modern: "Cycles closing, work paying off, the seasonal turn. The rune of right-timing.",
+      signal: "What you planted is ripening. Do not pick it early - the harvest comes when the harvest comes.",
+      reversedSignal: "Note: Jera is non-reversible. Read the upright meaning.",
+      prompt: "What seed did I plant six months ago that is ready to harvest now.",
+      reversible: false },
+    { id: 13, glyph: "ᛇ", name: "Eihwaz", pron: "EYE-wahz", aett: "Heimdall",
+      ancient: "The yew tree, the world-tree's spine. Endurance, the bridge between worlds.",
+      modern: "Transformation through pressure. The breakthrough that requires a small death first.",
+      signal: "Today is for the long view. The thing that feels endless will end - but only because you stayed in it.",
+      reversedSignal: "Avoiding the necessary transformation, or trying to skip the death-stage.",
+      prompt: "What in me is dying so that something else can live.",
+      reversible: true },
+    { id: 14, glyph: "ᛈ", name: "Perthro", pron: "PER-throh", aett: "Heimdall",
+      ancient: "The dice cup, the lot-cast. Hidden things, fate, the play of chance and choice.",
+      modern: "Mystery, what is not yet revealed. The rune of intuition and the unconscious.",
+      signal: "The right move is not yet visible today. Wait for the cup to be tipped - do not force the read.",
+      reversedSignal: "Refusing to trust intuition, or treating mystery as a problem to solve immediately.",
+      prompt: "What am I trying to know too quickly.",
+      reversible: true },
+    { id: 15, glyph: "ᛉ", name: "Algiz", pron: "AHL-geez", aett: "Heimdall",
+      ancient: "The elk, the protective ward. Sanctuary, the connection to the higher self.",
+      modern: "Protection, sacred space, the line you draw to keep your inner work safe.",
+      signal: "Guard your energy today. Not paranoia - just the discipline of not pouring yourself into the wrong vessels.",
+      reversedSignal: "Boundary leaks, energetic vampires, or trusting where trust is not earned.",
+      prompt: "Whose access to me am I overdue to revoke.",
+      reversible: true },
+    { id: 16, glyph: "ᛋ", name: "Sowilo", pron: "SOH-vee-loh", aett: "Heimdall",
+      ancient: "The sun, the wheel of light. Vital force, victory, illumination.",
+      modern: "Clarity that cannot be undone. The breakthrough where the path becomes visible.",
+      signal: "Whatever was confusing yesterday is clear today. Move on it before the clarity fades.",
+      reversedSignal: "Note: Sowilo is non-reversible. Read the upright meaning.",
+      prompt: "What just became clear that I should act on while it is still bright.",
+      reversible: false },
+    { id: 17, glyph: "ᛏ", name: "Tiwaz", pron: "TEE-wahz", aett: "Tyr",
+      ancient: "Tyr, god of justice and sacrifice. The straight arrow, the warrior's vow.",
+      modern: "Honor, integrity, the choice to act rightly even at cost. The rune of doing the hard correct thing.",
+      signal: "There is a small lie today that is asking to be told. Tell the truth instead - the cost is real, the cost of lying is bigger.",
+      reversedSignal: "Cowardice, broken word, or sacrificing for the wrong cause.",
+      prompt: "What am I tempted to hide today that needs to be said.",
+      reversible: true },
+    { id: 18, glyph: "ᛒ", name: "Berkano", pron: "BER-kah-no", aett: "Tyr",
+      ancient: "The birch tree, the goddess. Birth, growth, motherhood, beginnings.",
+      modern: "A new chapter, regenerative energy, projects in their early stages.",
+      signal: "Tend something young today - a project, a relationship, a habit just starting. The roots you put down now matter.",
+      reversedSignal: "Stunted growth, an idea you abandoned too early, or smothering what wants to develop on its own.",
+      prompt: "What new thing in my life needs more tending than I am giving it.",
+      reversible: true },
+    { id: 19, glyph: "ᛖ", name: "Ehwaz", pron: "AY-wahz", aett: "Tyr",
+      ancient: "The horse. Partnership, trust, mutual movement.",
+      modern: "Working with another - human, animal, or system - that moves you faster than you could move alone.",
+      signal: "Reach out to your partner today, the one who matches your pace. Movement is faster together.",
+      reversedSignal: "A partnership that is dragging instead of carrying, or one you outgrew.",
+      prompt: "Who in my life is my actual partner, and have I told them lately.",
+      reversible: true },
+    { id: 20, glyph: "ᛗ", name: "Mannaz", pron: "MAH-nahz", aett: "Tyr",
+      ancient: "Humanity, the social self. The rune of being-among-others.",
+      modern: "Identity, community, the version of self that exists in relation to others.",
+      signal: "Today is for being seen. Show up, contribute, be the person your community knows you to be.",
+      reversedSignal: "Isolation, narcissism, or hiding from a community that needs your presence.",
+      prompt: "Where am I withholding myself from people I belong with.",
+      reversible: true },
+    { id: 21, glyph: "ᛚ", name: "Laguz", pron: "LAH-gooz", aett: "Tyr",
+      ancient: "Water, the lake, flow. The unconscious, intuition, what runs beneath.",
+      modern: "Trust your gut today. The conscious mind is not the only one solving the problem.",
+      signal: "Pay attention to what feels right before you can explain why. The water knows the path.",
+      reversedSignal: "Drowning in emotion, ignoring intuition, or being swept by feelings instead of moved by them.",
+      prompt: "What does my gut already know that my head has not caught up to.",
+      reversible: true },
+    { id: 22, glyph: "ᛜ", name: "Ingwaz", pron: "ING-wahz", aett: "Tyr",
+      ancient: "Ing, the fertility god. Stored potential released, the seed becoming.",
+      modern: "Completion of a phase, the moment energy you stored finally moves. The rune of integration.",
+      signal: "Something you have been incubating is ready to ship today. Stop refining and release.",
+      reversedSignal: "Note: Ingwaz is non-reversible. Read the upright meaning.",
+      prompt: "What have I been over-preparing that is already ready.",
+      reversible: false },
+    { id: 23, glyph: "ᛞ", name: "Dagaz", pron: "DAH-gahz", aett: "Tyr",
+      ancient: "Dawn, daylight. The rune of the threshold between night and day.",
+      modern: "Breakthrough, awakening, a clear shift in awareness. The point where you cannot go back to seeing it the old way.",
+      signal: "Something you saw differently this week is permanent now. Welcome the new view.",
+      reversedSignal: "Note: Dagaz is non-reversible. Read the upright meaning.",
+      prompt: "What did I see differently this week that I cannot un-see.",
+      reversible: false },
+    { id: 24, glyph: "ᛟ", name: "Othala", pron: "OH-tha-la", aett: "Tyr",
+      ancient: "Ancestral land, inheritance, what is given to you to steward.",
+      modern: "Heritage, legacy, the gifts and burdens you inherit and pass on.",
+      signal: "Today, ask what your work is building for the people who come after you.",
+      reversedSignal: "Clinging to inheritance that does not serve, or refusing the responsibility of stewardship.",
+      prompt: "What am I building that will outlast me.",
+      reversible: true }
+  ];
+
+  var STORAGE_KEY = "nex_rune_history_v1";
+  var todayRune = null;
+
+  function getHistory() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); } catch(e) { return []; }
+  }
+  function saveHistory(h) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(h.slice(-7))); } catch(e) {}
+  }
+
+  function castRune() {
+    var allowReversed = document.getElementById('reversed-mode').checked;
+    var rune = runes[Math.floor(Math.random() * runes.length)];
+    var reversed = allowReversed && rune.reversible && Math.random() < 0.5;
+
+    todayRune = { id: rune.id, reversed: reversed, ts: Date.now() };
+    var hist = getHistory();
+    hist.push(todayRune);
+    saveHistory(hist);
+
+    renderRune(rune, reversed);
+    renderHistory();
+  }
+
+  function renderRune(rune, reversed) {
+    var glyph = document.getElementById('rune-glyph');
+    glyph.textContent = rune.glyph;
+    glyph.classList.remove('empty');
+    if (reversed) glyph.classList.add('reversed'); else glyph.classList.remove('reversed');
+
+    document.getElementById('rune-name').textContent = rune.name;
+    document.getElementById('rune-pronounce').textContent = rune.pron + " | " + rune.aett + "'s Aett";
+
+    var orient = document.getElementById('rune-orientation');
+    orient.style.display = 'inline-block';
+    orient.textContent = reversed ? "Reversed" : "Upright";
+
+    document.getElementById('rune-meaning-wrap').style.display = 'block';
+    document.getElementById('rune-ancient').textContent = rune.ancient;
+    document.getElementById('rune-modern').textContent = rune.modern;
+    document.getElementById('rune-signal').textContent = reversed ? rune.reversedSignal : rune.signal;
+    document.getElementById('rune-prompt-text').textContent = rune.prompt;
+
+    document.getElementById('cast-btn').textContent = "Cast Again";
+  }
+
+  function renderHistory() {
+    var hist = getHistory();
+    var grid = document.getElementById('rune-history');
+    grid.innerHTML = '';
+    var slots = 7;
+    var padded = [];
+    for (var i = hist.length - 1; i >= 0 && padded.length < slots; i--) padded.unshift(hist[i]);
+    while (padded.length < slots) padded.unshift(null);
+    padded.forEach(function(item) {
+      var cell = document.createElement('div');
+      cell.className = 'rune-history-cell';
+      if (!item) {
+        cell.classList.add('empty');
+        cell.textContent = '-';
+      } else {
+        var rune = runes.find(function(r) { return r.id === item.id; });
+        cell.textContent = rune ? rune.glyph : '?';
+        if (item.reversed) cell.style.transform = 'rotate(180deg)';
+        cell.title = (rune ? rune.name : 'Unknown') + (item.reversed ? ' (reversed)' : '');
+        cell.onclick = function() {
+          if (rune) renderRune(rune, item.reversed);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+      }
+      grid.appendChild(cell);
+    });
+  }
+
+  function clearHistory() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    renderHistory();
+  }
+
+  function renderAllRunes() {
+    var grid = document.getElementById('all-runes-grid');
+    grid.innerHTML = '';
+    runes.forEach(function(rune) {
+      var tile = document.createElement('div');
+      tile.className = 'rune-tile';
+      tile.innerHTML = '<div class="rune-tile-glyph">' + rune.glyph + '</div><div class="rune-tile-name">' + rune.name + '</div>';
+      tile.onclick = function() {
+        renderRune(rune, false);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      grid.appendChild(tile);
+    });
+  }
+
+  renderAllRunes();
+  renderHistory();
+  </script>
+</body>
+</html>
