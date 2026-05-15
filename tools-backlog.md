@@ -102,7 +102,7 @@
 
 | # | slug | title | keyword | status |
 |---|------|-------|---------|--------|
-| 43 | `tarot-single-card` | Single Tarot Card Draw | free tarot card draw | ready |
+| 43 | `tarot-single-card` | Single Tarot Card Draw | free tarot card draw | done (2026-05-15) |
 | 44 | `tarot-three-card-spread` | Three Card Tarot Spread | past present future tarot | ready |
 | 45 | `oracle-yes-no` | Yes/No Oracle | yes no oracle free | ready |
 | 46 | `i-ching-hexagram` | I Ching Hexagram Generator | i ching reading free | ready |

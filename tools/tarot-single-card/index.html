@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Tarot Card Draw - Single Card Daily Reading Online</title>
+  <meta name="description" content="Draw a free tarot card online. Instant single card reading with full upright and reversed meanings. No signup. 78 Major and Minor Arcana cards included.">
+  <meta name="keywords" content="free tarot card draw, tarot card reading online free, daily tarot card, single tarot card, tarot one card reading, tarot major arcana free">
+  <link rel="canonical" href="https://mynextools.com/tools/tarot-single-card/">
+  <meta property="og:title" content="Free Tarot Card Draw - Single Card Daily Reading Online">
+  <meta property="og:description" content="Draw one tarot card free. 78 cards, upright and reversed meanings. Instant, no signup.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mynextools.com/images/og/default.png">
+  <meta property="og:url" content="https://mynextools.com/tools/tarot-single-card/">
+  <meta property="og:site_name" content="NexTools">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@nex.numbers">
+  <meta name="twitter:title" content="Free Tarot Card Draw - Single Card Daily Reading">
+  <meta name="twitter:description" content="Draw one tarot card free. 78 cards, instant meanings. No signup.">
+  <meta name="twitter:image" content="https://mynextools.com/images/og/default.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/cta-banner.css">
+  <script src="/js/email-popup.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Tarot Card Draw",
+    "description": "Draw a single tarot card online with full upright and reversed meanings. 78 Major and Minor Arcana cards, free and instant.",
+    "url": "https://mynextools.com/tools/tarot-single-card/",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mynextools.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://mynextools.com/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Tarot Single Card Draw", "item": "https://mynextools.com/tools/tarot-single-card/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does an online tarot card draw work?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The tool randomly selects one card from the full 78-card Rider-Waite tarot deck each time you click Draw. The selection is randomized using JavaScript's Math.random() function. It then shows the card name, its upright or reversed orientation (also randomized), and the specific meaning for that orientation. The process mirrors the randomness of a physical card shuffle." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between upright and reversed tarot meanings?",
+        "acceptedAnswer": { "@type": "Answer", "text": "In upright position, a tarot card expresses its primary energy outwardly - clear action, full expression of the archetype. In reversed position, the same energy is turned inward, blocked, delayed, or expressed in its shadow form. For example, The Tower upright means sudden external disruption. Reversed, it signals internal resistance to necessary change. Both positions carry useful information." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I draw more than one card at a time?",
+        "acceptedAnswer": { "@type": "Answer", "text": "This tool is designed for a focused single card pull - the practice of drawing one card per question or per day. Research on decision-making suggests single focal points reduce cognitive overload. If you need multiple positions, use the three-card spread approach instead, where each draw gets a distinct question: past influence, present situation, likely outcome." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to know tarot to use this?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Each draw includes a plain-language interpretation of the card in context. The tool gives you the core meaning without assuming you have studied the Rider-Waite tradition. If you want to go deeper on any card, follow the link in the result to its full entry in our tarot library." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a best time of day to draw a daily tarot card?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Morning pulls set an intention or theme for the day ahead. Evening pulls serve as a reflection prompt - did the card's energy show up today and how? Neither is more accurate than the other. Consistency matters more than timing. Daily card practice over weeks produces more useful self-observation patterns than occasional reads." }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Major Arcana cards more significant than Minor Arcana?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Major Arcana cards (The Fool through The World, 22 cards) represent archetypal forces and life-defining themes. Minor Arcana cards (56 cards across four suits) represent day-to-day events, moods and practical situations. Neither set is more important - drawing multiple Minor Arcana cards in a period may indicate practical matters dominate. Frequent Major Arcana draws suggest larger themes are at work." }
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* Neon Sigil style overrides for this tool */
+    .tarot-tool-section {
+      background: #08080C;
+    }
+    .draw-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    .draw-btn {
+      background: transparent;
+      border: 2px solid #FF0099;
+      color: #FF0099;
+      padding: 1rem 3rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 16px rgba(255,0,153,0.25), inset 0 0 16px rgba(255,0,153,0.04);
+    }
+    .draw-btn:hover {
+      background: rgba(255,0,153,0.08);
+      box-shadow: 0 0 32px rgba(255,0,153,0.45), inset 0 0 20px rgba(255,0,153,0.08);
+      transform: translateY(-1px);
+    }
+    .draw-btn:active {
+      transform: translateY(0);
+    }
+    .card-result {
+      display: none;
+      width: 100%;
+      max-width: 560px;
+      background: rgba(255,0,153,0.03);
+      border: 1px solid rgba(255,0,153,0.30);
+      border-radius: 12px;
+      padding: 2rem;
+      animation: sigil-appear 0.45s ease;
+    }
+    .card-result.visible {
+      display: block;
+    }
+    @keyframes sigil-appear {
+      from { opacity: 0; transform: translateY(12px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .card-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #FF0099;
+      margin-bottom: 0.25rem;
+      text-shadow: 0 0 20px rgba(255,0,153,0.35);
+    }
+    .card-orientation {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #00E5FF;
+      margin-bottom: 1.25rem;
+    }
+    .card-suit-badge {
+      display: inline-block;
+      background: rgba(255,0,153,0.12);
+      border: 1px solid rgba(255,0,153,0.25);
+      color: #FF0099;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.7rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .card-meaning {
+      color: #F5F5F0;
+      line-height: 1.75;
+      font-size: 0.97rem;
+    }
+    .card-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+    }
+    .keyword-tag {
+      background: rgba(0,229,255,0.06);
+      border: 1px solid rgba(0,229,255,0.20);
+      color: #00E5FF;
+      font-size: 0.72rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .card-symbol {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.25rem;
+      display: block;
+    }
+    .history-section {
+      margin-top: 2rem;
+      border-top: 1px solid rgba(255,0,153,0.12);
+      padding-top: 1.25rem;
+    }
+    .history-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #6B6B7A;
+      margin-bottom: 0.75rem;
+    }
+    .history-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .history-list li {
+      font-size: 0.82rem;
+      color: #A8A8B5;
+    }
+    .history-list li span {
+      color: #FF0099;
+      font-weight: 600;
+    }
+    .draw-counter {
+      font-size: 0.75rem;
+      color: #6B6B7A;
+      letter-spacing: 0.06em;
+    }
+    .redraw-link {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: rgba(255,0,153,0.7);
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    .redraw-link:hover { color: #FF0099; }
+    @media (max-width: 768px) {
+      .card-name { font-size: 1.3rem; }
+      .draw-btn { padding: 0.85rem 2rem; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Nex<span>Tools</span></a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav').classList.toggle('open')">&#9776;</button>
+      <nav class="nav">
+        <a href="/tools/destiny-matrix-calculator/">Destiny Matrix</a>
+        <a href="/tools/angel-number-calculator/">Angel Numbers</a>
+        <a href="/tools/human-design-calculator/">Human Design</a>
+        <a href="/tools/life-path-calculator/">Life Path</a>
+        <a href="/tools/zodiac-calculator/">Zodiac</a>
+        <a href="/tools/breathing-exercise/">Breathing</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="section tarot-tool-section" style="padding-top: 3rem; padding-bottom: 1.5rem;">
+    <div class="container" style="max-width: 700px;">
+      <div style="margin-bottom: 0.5rem;">
+        <a href="/tools/" style="color: #6B6B7A; font-size: 0.82rem;">Tools</a>
+        <span style="color: #6B6B7A; margin: 0 0.4rem;">/</span>
+        <span style="color: #A8A8B5; font-size: 0.82rem;">Tarot Single Card Draw</span>
+      </div>
+      <h1 style="font-family: 'Poppins', sans-serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: #F5F5F0; margin-bottom: 0.75rem;">Free Tarot Card Draw</h1>
+      <p style="color: #A8A8B5; font-size: 1rem; line-height: 1.65; max-width: 540px;">One card from the full 78-card deck. Upright or reversed. Plain-language meaning. No account needed.</p>
+    </div>
+  </section>
+
+  <!-- Tool -->
+  <section class="section tarot-tool-section" style="padding-top: 0; padding-bottom: 3rem;">
+    <div class="container" style="max-width: 700px;">
+      <div class="draw-area">
+        <button class="draw-btn" id="drawBtn" onclick="drawCard()">Draw a Card</button>
+        <p class="draw-counter" id="drawCounter"></p>
+
+        <div class="card-result" id="cardResult">
+          <svg class="card-symbol" id="cardSymbol" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- default placeholder, replaced by JS -->
+          </svg>
+          <div class="card-suit-badge" id="cardSuit"></div>
+          <div class="card-name" id="cardName"></div>
+          <div class="card-orientation" id="cardOrientation"></div>
+          <div class="card-meaning" id="cardMeaning"></div>
+          <div class="card-keywords" id="cardKeywords"></div>
+          <div class="history-section" id="historySection" style="display:none;">
+            <div class="history-label">Today's draws</div>
+            <ul class="history-list" id="historyList"></ul>
+          </div>
+          <span class="redraw-link" onclick="drawCard()">Draw another card</span>
+        </div>
+      </div>
+
+      <!-- Mid-content CTA -->
+      <div style="background: rgba(0,229,255,0.04); border: 1px solid rgba(0,229,255,0.15); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 2rem; text-align: center;">
+        <p style="margin:0; font-size:0.9rem; color:#A8A8B5;">Want to explore numerology alongside tarot? Try the <a href="/tools/life-path-calculator/" style="color:#00E5FF;">Life Path Calculator</a> - your birth numbers often mirror what your cards reveal.</p>
+      </div>
+
+      <!-- Explanation Content -->
+      <article class="prose" style="max-width: 680px;">
+
+        <h2>What Is a Single Card Tarot Draw?</h2>
+        <p>A single card tarot draw is the simplest form of tarot practice. You bring one specific question or intention to mind, then draw one card from the shuffled 78-card deck. The card you receive serves as a focal point for reflection - not a prediction, but a mirror.</p>
+        <p>Unlike three-card spreads or Celtic Cross layouts that map a narrative arc, a single pull forces economy. One card, one theme, one day. Practitioners report that the constraint produces sharper insight precisely because there is no spread to interpret as a story. You must sit with what you got.</p>
+        <p>The <a href="/blog/twin-flame-signs-stages-complete-guide/" style="color: #FF0099;">twin flame literature</a> frequently references tarot as a tool for navigating relationship phases. But you do not need to be in a specific life circumstance to benefit from daily pulls. The cards function as a structured journaling prompt as much as anything else.</p>
+
+        <h2>The 78-Card Deck: What Is In This Draw</h2>
+        <p>This tool draws from the complete 78-card Rider-Waite tarot system, the most widely interpreted deck and the foundation for most modern tarot guidebooks.</p>
+
+        <h3>Major Arcana (22 cards)</h3>
+        <p>The Major Arcana runs from The Fool (card 0) through The World (card 21). These cards represent archetypal forces - the core patterns of human experience: beginnings, power, love, death, rebirth, completion. When you draw a Major Arcana card, it tends to signal that something of larger thematic significance is at play in the area you are examining.</p>
+        <p>The 22 Major Arcana cards are: The Fool, The Magician, The High Priestess, The Empress, The Emperor, The Hierophant, The Lovers, The Chariot, Strength, The Hermit, Wheel of Fortune, Justice, The Hanged Man, Death, Temperance, The Devil, The Tower, The Star, The Moon, The Sun, Judgement, and The World.</p>
+        <p>Curious about the deeper system behind these archetypes? Our <a href="/tools/destiny-matrix-calculator/" style="color: #FF0099;">Destiny Matrix Calculator</a> uses the same 22 Major Arcana energies to map your birth date into a life purpose grid.</p>
+
+        <h3>Minor Arcana (56 cards)</h3>
+        <p>The Minor Arcana covers the texture of daily life across four suits. Each suit corresponds to an element and a domain of experience:</p>
+        <ul style="color: #A8A8B5; line-height: 1.8; padding-left: 1.4rem;">
+          <li><strong style="color: #F5F5F0;">Wands (Fire):</strong> Ambition, creativity, career, energy, projects in motion</li>
+          <li><strong style="color: #F5F5F0;">Cups (Water):</strong> Emotions, relationships, intuition, dreams, the inner life</li>
+          <li><strong style="color: #F5F5F0;">Swords (Air):</strong> Intellect, conflict, communication, decisions, truth</li>
+          <li><strong style="color: #F5F5F0;">Pentacles (Earth):</strong> Money, body, practical matters, long-term projects, resources</li>
+        </ul>
+        <p>Each suit contains Ace through 10 (pip cards) plus four court cards: Page, Knight, Queen, King. Court cards can represent people in your life, aspects of yourself, or archetypal energies entering a situation.</p>
+
+        <h2>Upright vs. Reversed: How Orientation Works</h2>
+        <p>When a card appears reversed (rotated 180 degrees from its normal position), its meaning shifts. The core archetype remains the same, but the expression changes. Reversed cards can indicate:</p>
+        <ul style="color: #A8A8B5; line-height: 1.8; padding-left: 1.4rem;">
+          <li>The energy of the card turned inward rather than expressed outwardly</li>
+          <li>Resistance to or delay of the card's natural process</li>
+          <li>The shadow or challenging aspect of the card's archetype</li>
+          <li>Something that is releasing rather than building</li>
+        </ul>
+        <p>Not all tarot readers use reversals - some prefer to read all cards upright and look for shadow meanings through the card's relationship to surrounding cards in a spread. Since this is a single card draw, this tool includes reversals to give you access to the full spectrum of each card's meaning.</p>
+        <p>The <a href="/blog/synchronicity-jung-spiritual-guide/" style="color: #FF0099;">Jungian concept of synchronicity</a> - meaningful coincidence without direct causation - is one psychological framework for understanding why card draws feel relevant. Carl Jung himself used the I Ching in his practice for similar reasons: structured randomness as a window into the unconscious.</p>
+
+        <h2>How to Use This Tool Effectively</h2>
+
+        <h3>Before You Draw</h3>
+        <p>Take 10 to 30 seconds before clicking Draw. Bring one specific question or area of focus to mind. Not "what will happen to me this year" but something like "what is the dominant energy in my current work situation" or "what am I not seeing in this relationship dynamic." Specificity helps you interpret the card in context rather than looking for a general prediction.</p>
+
+        <h3>After You Draw</h3>
+        <p>Read the meaning. Then ask: where does this energy show up in my life right now? The card rarely describes your situation literally - it describes an underlying pattern. A reversed Tower might not mean chaos is coming. It might mean you are resisting a change that is already overdue.</p>
+        <p>Write down the card and one sentence of interpretation. Even brief journaling anchors the insight. After a week of daily pulls, patterns often emerge that a single reading cannot show you.</p>
+        <p>For number patterns that often accompany significant life transitions, check your <a href="/tools/personal-year-calculator/" style="color: #FF0099;">Personal Year number</a> - it frequently aligns with the themes your cards surface.</p>
+
+        <h3>Daily Card Practice</h3>
+        <p>Many practitioners draw one card every morning as a micro-meditation. The process takes under two minutes. Over time, you build a personal map of which cards appear during which life conditions - more useful than any single definitive reading.</p>
+        <p>If you are new to tarot and want to understand the system more systematically, our <a href="/blog/spiritual-awakening-signs/" style="color: #FF0099;">spiritual awakening resource</a> covers the symbolic languages - including tarot - that tend to become meaningful during periods of personal transition.</p>
+
+        <h2>The Major Arcana in Daily Draws</h2>
+        <p>Statistically, Major Arcana cards make up 22 of 78 cards - roughly 28 percent of the deck. Drawing one is not rare. But patterns matter. If you draw three Major Arcana cards in a five-day period while navigating a major decision, that concentration is worth noting.</p>
+        <p>Some of the most commonly drawn Major Arcana cards in daily practice and their plain-language meanings:</p>
+        <ul style="color: #A8A8B5; line-height: 1.8; padding-left: 1.4rem;">
+          <li><strong style="color: #F5F5F0;">The Fool (0):</strong> New beginning. Risk without full information. Trust the jump.</li>
+          <li><strong style="color: #F5F5F0;">The Magician (I):</strong> You already have what you need. The question is whether you use it.</li>
+          <li><strong style="color: #F5F5F0;">The High Priestess (II):</strong> Pause before acting. Something is not yet visible. Wait for more information.</li>
+          <li><strong style="color: #F5F5F0;">The Tower (XVI):</strong> Disruption that clears what is no longer structurally sound. Often feels catastrophic. Usually necessary.</li>
+          <li><strong style="color: #F5F5F0;">The Star (XVII):</strong> Recovery period. Hope after difficulty. Slow restoration of trust.</li>
+          <li><strong style="color: #F5F5F0;">Judgement (XX):</strong> A call to account. Something is being evaluated and released. A threshold.</li>
+        </ul>
+
+        <h2>Related Tools and Resources</h2>
+        <p>Tarot tends to surface themes that have numerical and astrological correlates. Cross-referencing your card draws with other symbolic systems often deepens the interpretation:</p>
+        <ul style="color: #A8A8B5; line-height: 1.8; padding-left: 1.4rem;">
+          <li><a href="/tools/angel-number-calculator/" style="color: #FF0099;">Angel Number Calculator</a> - number sequences that often appear alongside significant card draws</li>
+          <li><a href="/tools/soul-urge-calculator/" style="color: #FF0099;">Soul Urge Calculator</a> - the inner motivation number that often mirrors Cups and High Priestess themes</li>
+          <li><a href="/tools/wisdom-mirror/" style="color: #FF0099;">Wisdom Mirror</a> - daily reflection prompts that complement a morning card practice</li>
+          <li><a href="/tools/affirmation-generator/" style="color: #FF0099;">Affirmation Generator</a> - convert your card's message into a working intention for the day</li>
+          <li><a href="/blog/shadow-work-beginner-guide-2026/" style="color: #FF0099;">Shadow Work Guide 2026</a> - reversed cards frequently point to shadow material worth examining</li>
+        </ul>
+
+        <!-- Primary CTA -->
+        <div style="background: rgba(255,0,153,0.04); border: 1px solid rgba(255,0,153,0.25); border-radius: 12px; padding: 1.5rem; margin: 2.5rem 0; text-align: center;">
+          <p style="color: #F5F5F0; font-weight: 600; margin-bottom: 0.5rem;">Want deeper tarot insights?</p>
+          <p style="color: #A8A8B5; font-size: 0.88rem; margin-bottom: 1rem;">Get the Premium Tarot + Numerology Bundle with extended card meanings, spread guides, and birth number correlations.</p>
+          <a href="https://hop.clickbank.net/?affiliate=nextools&vendor=PLACEHOLDER&pid=tarot-single-card" target="_blank" rel="noopener" style="display: inline-block; background: transparent; border: 2px solid #FF0099; color: #FF0099; padding: 0.65rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.04em;">Get Premium Bundle</a>
+        </div>
+
+        <!-- FAQ Section -->
+        <h2>Frequently Asked Questions</h2>
+
+        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div>
+            <h3 style="color: #FF0099; font-size: 1rem; margin-bottom: 0.4rem;">How does an online tarot card draw work?</h3>
+            <p style="color: #A8A8B5; margin: 0;">The tool randomly selects one card from the full 78-card Rider-Waite tarot deck using JavaScript's Math.random() function. It shows the card name, upright or reversed orientation, and the specific meaning for that orientation. The process mirrors the randomness of a physical shuffle.</p>
+          </div>
+          <div>
+            <h3 style="color: #FF0099; font-size: 1rem; margin-bottom: 0.4rem;">What is the difference between upright and reversed tarot meanings?</h3>
+            <p style="color: #A8A8B5; margin: 0;">Upright: the card's energy expressed outwardly and fully. Reversed: the same energy turned inward, blocked, delayed, or expressed in its shadow form. The Tower upright signals sudden external disruption. Reversed, it signals internal resistance to necessary change.</p>
+          </div>
+          <div>
+            <h3 style="color: #FF0099; font-size: 1rem; margin-bottom: 0.4rem;">Are Major Arcana cards more significant than Minor Arcana?</h3>
+            <p style="color: #A8A8B5; margin: 0;">Major Arcana represents archetypal, life-defining forces. Minor Arcana covers everyday events and moods. Neither is objectively more important - the context of your question and the pattern across multiple draws matters more than any single card's classification.</p>
+          </div>
+          <div>
+            <h3 style="color: #FF0099; font-size: 1rem; margin-bottom: 0.4rem;">Is there a best time of day to draw a daily tarot card?</h3>
+            <p style="color: #A8A8B5; margin: 0;">Morning pulls set a theme for the day ahead. Evening pulls serve as reflection prompts. Consistency matters more than timing. Daily practice over weeks reveals patterns that single reads cannot.</p>
+          </div>
+          <div>
+            <h3 style="color: #FF0099; font-size: 1rem; margin-bottom: 0.4rem;">Can I draw more than one card at a time with this tool?</h3>
+            <p style="color: #A8A8B5; margin: 0;">This tool is optimized for single card focus. For a three-card past-present-future reading, draw three times with a distinct question for each position. The history section below your result tracks today's sequence.</p>
+          </div>
+          <div>
+            <h3 style="color: #FF0099; font-size: 1rem; margin-bottom: 0.4rem;">Do I need tarot knowledge to use this tool?</h3>
+            <p style="color: #A8A8B5; margin: 0;">No prior knowledge required. Each draw includes a plain-language meaning written without assuming familiarity with tarot tradition. The keywords panel gives you the compressed essence of the card for quick reference.</p>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:0.75rem">Nex<span>Tools</span></div>
+          <p style="color:var(--text-muted);font-size:0.85rem;line-height:1.6">Free spiritual calculators and tools. No ads, no signup required.</p>
+        </div>
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:0.75rem;font-size:0.9rem">Tools</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem">
+            <li><a href="/tools/destiny-matrix-calculator/" style="color:var(--text-muted);font-size:0.85rem">Destiny Matrix</a></li>
+            <li><a href="/tools/life-path-calculator/" style="color:var(--text-muted);font-size:0.85rem">Life Path</a></li>
+            <li><a href="/tools/angel-number-calculator/" style="color:var(--text-muted);font-size:0.85rem">Angel Numbers</a></li>
+            <li><a href="/tools/human-design-calculator/" style="color:var(--text-muted);font-size:0.85rem">Human Design</a></li>
+            <li><a href="/tools/rune-of-day/" style="color:var(--text-muted);font-size:0.85rem">Daily Rune Cast</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="color:var(--gold);margin-bottom:0.75rem;font-size:0.9rem">Resources</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem">
+            <li><a href="/blog/" style="color:var(--text-muted);font-size:0.85rem">Blog</a></li>
+            <li><a href="/blog/shadow-work-beginner-guide-2026/" style="color:var(--text-muted);font-size:0.85rem">Shadow Work Guide</a></li>
+            <li><a href="/blog/synchronicity-jung-spiritual-guide/" style="color:var(--text-muted);font-size:0.85rem">Synchronicity & Jung</a></li>
+            <li><a href="/blog/spiritual-awakening-signs/" style="color:var(--text-muted);font-size:0.85rem">Spiritual Awakening Signs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);margin-top:2rem;padding-top:1.5rem;text-align:center">
+        <p style="color:var(--text-muted);font-size:0.8rem">NexTools is for informational and reflective purposes. Results are not a substitute for professional advice.</p>
+        <p style="color:var(--text-muted);font-size:0.75rem;margin-top:0.5rem">
+          <a href="/privacy/" style="color:var(--text-muted)">Privacy</a> &middot;
+          <a href="/terms/" style="color:var(--text-muted)">Terms</a> &middot;
+          <a href="/methodology/" style="color:var(--text-muted)">Methodology</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  const TAROT_DECK = [
+    // Major Arcana
+    { name: "The Fool", suit: "Major Arcana", number: "0",
+      upright: "A new beginning stands in front of you - uncharted territory, zero guarantees. The Fool signals the energy of pure potential before experience shapes it. This is the moment before the first step, not the moment of hesitation. Something is calling you to begin without a complete map.",
+      reversed: "You are stalling at a threshold you have been standing at for some time. The reversed Fool often marks analysis paralysis - the preparation that has become its own destination. The fear of the wrong move is producing no move. That is also a choice.",
+      keywords_up: ["beginnings", "potential", "risk", "naivety", "trust"],
+      keywords_rev: ["recklessness", "delay", "fear", "stagnation"]
+    },
+    { name: "The Magician", suit: "Major Arcana", number: "I",
+      upright: "You have the resources. The tools are on the table. The Magician signals a window where intention and action are unusually aligned - what you put your will behind now has a higher probability of materializing. The question is not capability; it is direction.",
+      reversed: "Skills are present but misdirected. You may be underutilizing what you have, or you are using real abilities toward ends that do not serve you. The reversed Magician can also indicate someone else manipulating a situation with their own agenda.",
+      keywords_up: ["will", "skill", "manifestation", "focus", "resourcefulness"],
+      keywords_rev: ["manipulation", "misuse", "untapped potential", "distraction"]
+    },
+    { name: "The High Priestess", suit: "Major Arcana", number: "II",
+      upright: "Something is not yet visible. The High Priestess marks the zone between what is known and what is still emerging. This is not a time for aggressive action - it is a time for attention. The information you need is already present but has not surfaced in rational form yet.",
+      reversed: "Knowledge is being suppressed - either withheld by others or ignored by you. You may be overriding intuition with logic, or someone in your situation is not being fully transparent. Surface what has been kept below.",
+      keywords_up: ["intuition", "mystery", "patience", "the unconscious", "inner knowing"],
+      keywords_rev: ["secrets", "repression", "blocked intuition", "surface thinking"]
+    },
+    { name: "The Empress", suit: "Major Arcana", number: "III",
+      upright: "Growth, abundance, creative output. The Empress marks a fertile period - things you have been cultivating are ready to develop further. Relationships, creative projects, and physical wellbeing are all highlighted. Nourishment, both given and received, is the central theme.",
+      reversed: "Creative block or emotional depletion. You may be giving more than you are receiving, or neglecting the conditions that allow things to grow. The reversed Empress asks where the nourishment is going and whether you are part of the receiving end.",
+      keywords_up: ["abundance", "fertility", "nurturing", "creativity", "nature"],
+      keywords_rev: ["depletion", "block", "neglect", "overdependence"]
+    },
+    { name: "The Emperor", suit: "Major Arcana", number: "IV",
+      upright: "Structure produces results. The Emperor signals that the current situation calls for clear authority - whether you exert it or encounter it. Establishing systems, setting boundaries, and operating from a defined framework are all favored now.",
+      reversed: "Rigidity masquerading as leadership. The reversed Emperor can indicate control that has become counterproductive - rules maintained for their own sake, authority without flexibility. Or it can signal the opposite: a situation that lacks structure and is suffering for it.",
+      keywords_up: ["authority", "structure", "stability", "leadership", "discipline"],
+      keywords_rev: ["rigidity", "control", "lack of structure", "domination"]
+    },
+    { name: "The Hierophant", suit: "Major Arcana", number: "V",
+      upright: "Established systems, mentorship, and tradition. The Hierophant indicates a moment where working within existing structures produces better outcomes than working against them. This may also indicate the value of seeking guidance from someone who has walked a similar path.",
+      reversed: "Questioning the orthodoxy. The reversed Hierophant marks the moment when conventional wisdom or established rules stop serving the actual purpose they were designed for. Something about the accepted approach needs reexamination.",
+      keywords_up: ["tradition", "mentorship", "institution", "conformity", "guidance"],
+      keywords_rev: ["rebellion", "questioning", "unconventional", "dogma"]
+    },
+    { name: "The Lovers", suit: "Major Arcana", number: "VI",
+      upright: "A significant choice point involving values and alignment. The Lovers does not simply mean romantic partnership - it marks any decision that requires you to choose between two paths based on what you actually believe in. Alignment between values and action is the central theme.",
+      reversed: "Misalignment in a relationship or decision. There may be a gap between what you say you value and what you are choosing. Or a connection that appeared to be based on shared values is revealing fundamental differences.",
+      keywords_up: ["choice", "alignment", "partnership", "values", "union"],
+      keywords_rev: ["misalignment", "disharmony", "avoidance", "value conflict"]
+    },
+    { name: "The Chariot", suit: "Major Arcana", number: "VII",
+      upright: "Forward momentum through disciplined control of opposing forces. The Chariot marks a period where competing priorities or internal contradictions are being actively managed - not resolved, but held in productive tension while progress continues. Willpower is the engine.",
+      reversed: "Direction has been lost or forward motion has stalled due to internal conflict. The forces that should be harnessed are pulling in too many directions simultaneously. Clarity of purpose is needed before the next move.",
+      keywords_up: ["determination", "control", "victory", "willpower", "forward motion"],
+      keywords_rev: ["stalemate", "scattered focus", "loss of direction", "aggression"]
+    },
+    { name: "Strength", suit: "Major Arcana", number: "VIII",
+      upright: "Quiet power. Strength marks the capacity to work with difficult forces through calm and patient engagement rather than suppression or force. The lion in the card is not chained - it is gently held. This is influence through presence rather than dominance.",
+      reversed: "Either self-doubt is undermining action, or the approach being taken is more forceful than the situation requires. The reversed Strength card asks whether the method being used is actually producing what is needed.",
+      keywords_up: ["patience", "inner strength", "compassion", "courage", "control"],
+      keywords_rev: ["self-doubt", "force", "weakness", "insecurity"]
+    },
+    { name: "The Hermit", suit: "Major Arcana", number: "IX",
+      upright: "A period of deliberate withdrawal for the purpose of insight. The Hermit does not indicate isolation as avoidance - it marks intentional solitude used to integrate experience, find direction, or reconnect with what you actually know apart from external noise.",
+      reversed: "Isolation that has become avoidance rather than reflection. Or alternatively, too much time in your own head without enough external feedback to test your conclusions. The reversed Hermit asks whether the withdrawal is producing insight or reinforcing the status quo.",
+      keywords_up: ["solitude", "introspection", "guidance", "inner wisdom", "retreat"],
+      keywords_rev: ["isolation", "avoidance", "loneliness", "stagnation"]
+    },
+    { name: "Wheel of Fortune", suit: "Major Arcana", number: "X",
+      upright: "A cycle is turning. The Wheel marks transitions that are larger than individual choice - external forces shifting the context of your situation. Whether the shift is favorable depends on what cycle is completing and what is beginning. Pay attention to what is arriving.",
+      reversed: "Resistance to an inevitable shift. The reversed Wheel often appears when someone is holding on past the natural endpoint of a cycle. The resistance is understandable but the turn is happening regardless.",
+      keywords_up: ["change", "cycles", "fate", "turning point", "luck"],
+      keywords_rev: ["resistance", "bad luck", "holding on", "disruption"]
+    },
+    { name: "Justice", suit: "Major Arcana", number: "XI",
+      upright: "Cause and effect are working clearly in the current situation. Justice marks a moment where outcomes are genuinely proportional to actions - accountability in its most direct form. This can also indicate a legal matter, formal agreement, or evaluation process.",
+      reversed: "The scales are off. Justice reversed can indicate unfair treatment, avoidance of accountability, or a situation where the outcome does not match the action. It can also suggest internal dishonesty - self-deception about one's own role in a situation.",
+      keywords_up: ["fairness", "accountability", "truth", "cause and effect", "clarity"],
+      keywords_rev: ["injustice", "dishonesty", "imbalance", "avoidance"]
+    },
+    { name: "The Hanged Man", suit: "Major Arcana", number: "XII",
+      upright: "A deliberate pause that produces a perspective shift. The Hanged Man is not stuck - he chose to hang. The card marks the value of suspension: letting go of forward momentum to see the situation from an angle unavailable while in motion.",
+      reversed: "Unnecessary delay or martyrdom that is not producing insight. The reversed Hanged Man can indicate sacrifice that is not serving any real purpose, or a pause that has extended beyond its useful duration.",
+      keywords_up: ["suspension", "perspective", "letting go", "waiting", "insight"],
+      keywords_rev: ["stalling", "martyrdom", "unnecessary delay", "resistance"]
+    },
+    { name: "Death", suit: "Major Arcana", number: "XIII",
+      upright: "Transformation through ending. The Death card rarely signals physical death - it marks the inevitable close of a chapter and the beginning of what comes next. Something that has been cannot continue in its current form. The transition is real and necessary.",
+      reversed: "Resistance to an ending that needs to happen. The reversed Death card often appears when someone is maintaining something past its natural lifespan - a relationship, an identity, a way of operating - at significant cost to forward movement.",
+      keywords_up: ["transformation", "endings", "change", "release", "transition"],
+      keywords_rev: ["resistance", "stagnation", "clinging", "avoidance of change"]
+    },
+    { name: "Temperance", suit: "Major Arcana", number: "XIV",
+      upright: "Patient blending of opposites. Temperance marks the integration of elements that seem incompatible - finding the middle path not through compromise but through skillful synthesis. The card rewards measured, steady approaches over extremes.",
+      reversed: "Excess in one direction or the other, or impatience with a process that requires time. The reversed Temperance can also indicate that elements which should work together are being kept artificially separate.",
+      keywords_up: ["balance", "patience", "integration", "moderation", "alchemy"],
+      keywords_rev: ["excess", "imbalance", "impatience", "extremes"]
+    },
+    { name: "The Devil", suit: "Major Arcana", number: "XV",
+      upright: "Something is binding you - but the chains in the card are loose. The Devil marks patterns of attachment, compulsion, or self-limiting belief that feel like external constraints but are actually maintained internally. The situation is more within your control than it appears.",
+      reversed: "Breaking free from a pattern. The reversed Devil signals a release from something that has been binding - an addiction, a toxic dynamic, a limiting belief. The unhooking may not be complete, but the direction has changed.",
+      keywords_up: ["bondage", "shadow", "compulsion", "materialism", "restriction"],
+      keywords_rev: ["release", "reclaiming power", "breaking free", "awareness"]
+    },
+    { name: "The Tower", suit: "Major Arcana", number: "XVI",
+      upright: "Sudden disruption that clears what was structurally unsound. The Tower marks events that feel catastrophic but are usually the removal of something that could not have continued. The collapse reveals what the structure was actually built on.",
+      reversed: "A disruption that is being resisted or delayed rather than allowed to complete. The reversed Tower can also indicate that the breakdown is happening internally rather than in external circumstances - a private reckoning.",
+      keywords_up: ["disruption", "revelation", "collapse", "upheaval", "sudden change"],
+      keywords_rev: ["resistance to change", "internal disruption", "delayed crisis"]
+    },
+    { name: "The Star", suit: "Major Arcana", number: "XVII",
+      upright: "Restoration and renewed hope after a difficult period. The Star appears most often in the aftermath of Tower-like disruptions - it signals the beginning of a recovery phase. Trust is being rebuilt, possibility is returning, and a sense of direction is slowly reasserting itself.",
+      reversed: "Hope that is not yet grounded in reality, or a recovery period that is being rushed. The reversed Star can also indicate loss of faith after repeated difficulty - the feeling that things will not improve.",
+      keywords_up: ["hope", "healing", "renewal", "inspiration", "guidance"],
+      keywords_rev: ["despair", "lost faith", "disconnection", "unrealistic hope"]
+    },
+    { name: "The Moon", suit: "Major Arcana", number: "XVIII",
+      upright: "Illusion, uncertainty, and the power of the unconscious. The Moon marks a period where things are not as they appear - perception is distorted by fear, projection, or incomplete information. Pay attention to what surfaces at night, in dreams, and at the edge of awareness.",
+      reversed: "Confusion beginning to lift. The reversed Moon signals the emergence from a period of uncertainty - the fog is not gone but it is thinning. Suppressed fears or hidden information may be surfacing.",
+      keywords_up: ["illusion", "fear", "the unconscious", "uncertainty", "dreams"],
+      keywords_rev: ["clarity returning", "releasing fear", "confusion lifting"]
+    },
+    { name: "The Sun", suit: "Major Arcana", number: "XIX",
+      upright: "Clarity, vitality, and success after difficulty. The Sun is one of the most consistently positive cards in the deck - it marks a period where things are visible as they actually are, energy is available, and outcomes are favorable. Enjoy the clear conditions while they last.",
+      reversed: "The positive energy is present but partially blocked or not yet fully visible. The reversed Sun can indicate a delay in good news, temporary setbacks during an otherwise favorable period, or self-doubt that is obscuring real success.",
+      keywords_up: ["joy", "success", "clarity", "vitality", "optimism"],
+      keywords_rev: ["partial success", "blocked joy", "self-doubt", "temporary setback"]
+    },
+    { name: "Judgement", suit: "Major Arcana", number: "XX",
+      upright: "A threshold between phases. Judgement marks a moment of accounting and release - what was, evaluated for what it produced, and then integrated or released to move into what comes next. This is the energy of graduation, of completion before renewal.",
+      reversed: "Avoiding the reckoning. The reversed Judgement can indicate refusing to complete an internal review that is long overdue - holding onto an old identity or situation because the transition feels too final.",
+      keywords_up: ["awakening", "reckoning", "release", "transition", "evaluation"],
+      keywords_rev: ["avoidance", "self-doubt", "stuck identity", "refusing change"]
+    },
+    { name: "The World", suit: "Major Arcana", number: "XXI",
+      upright: "Completion of a major cycle. The World marks the moment when something significant has genuinely concluded - not abandoned, not paused, but completed. This is followed by the beginning of a new cycle at a higher level. Integration of all that was learned.",
+      reversed: "The cycle is almost complete but something is holding up the final step. The reversed World can indicate a finish line that keeps moving, or an unwillingness to acknowledge that a chapter has actually ended.",
+      keywords_up: ["completion", "integration", "wholeness", "fulfillment", "achievement"],
+      keywords_rev: ["near-completion", "loose ends", "delay", "unfinished cycle"]
+    },
+    // Minor Arcana - Wands
+    { name: "Ace of Wands", suit: "Wands", number: "Ace",
+      upright: "A new creative impulse or opportunity for action. The Ace of Wands signals the raw energy of a new beginning in work, passion, or creative projects. The spark is present - what matters now is whether you act on it.",
+      reversed: "Creative energy is blocked, scattered, or arriving at the wrong time. A project or impulse that should be launching is stalled - possibly due to lack of clarity, enthusiasm that has not found its target, or external obstacles.",
+      keywords_up: ["spark", "new project", "inspiration", "initiative", "creative energy"],
+      keywords_rev: ["blocked energy", "delay", "lack of direction", "scattered focus"]
+    },
+    { name: "Two of Wands", suit: "Wands", number: "2",
+      upright: "Planning at the threshold of action. The Two of Wands marks the moment when a vision is formed and the question becomes: how far do you want to go? This card signals readiness to move from concept into early execution.",
+      reversed: "Fear of the leap or failure to follow through on plans that seemed promising. The reversed Two of Wands can also indicate someone planning endlessly without committing to a direction.",
+      keywords_up: ["planning", "expansion", "vision", "decision", "readiness"],
+      keywords_rev: ["fear", "lack of planning", "indecision", "playing small"]
+    },
+    { name: "Three of Wands", suit: "Wands", number: "3",
+      upright: "Early success and the beginning of forward momentum. Ships are launched. Plans that were made are now in motion. The Three of Wands signals that the foundations are solid and progress is real.",
+      reversed: "Setbacks in expansion or returns that are not materializing as expected. Something in the execution is off - plans made are encountering more resistance than anticipated.",
+      keywords_up: ["expansion", "foresight", "progress", "enterprise", "opportunity"],
+      keywords_rev: ["delays", "setbacks", "lack of foresight", "obstacles to progress"]
+    },
+    { name: "Four of Wands", suit: "Wands", number: "4",
+      upright: "Celebration, stability, and community. A milestone has been reached and deserves acknowledgment. The Four of Wands also signals homecoming in some form - a sense of belonging, a return to something that grounds you.",
+      reversed: "The celebration is premature or incomplete. There may be instability beneath a surface that appears settled, or a homecoming that does not match expectations.",
+      keywords_up: ["celebration", "community", "stability", "homecoming", "milestone"],
+      keywords_rev: ["instability", "disharmony", "premature celebration", "transition"]
+    },
+    { name: "Five of Wands", suit: "Wands", number: "5",
+      upright: "Competition, conflict, and creative friction. The Five of Wands marks a period of active competition or disagreement - not necessarily destructive, but demanding. Energy is required to navigate competing perspectives or stakes.",
+      reversed: "The conflict is winding down, being avoided, or becoming internal. The reversed Five of Wands can indicate suppressed tension that has not been addressed, or competition that is harming rather than stimulating.",
+      keywords_up: ["conflict", "competition", "challenge", "tension", "diversity of views"],
+      keywords_rev: ["internal conflict", "avoided tension", "pointless struggle"]
+    },
+    { name: "Six of Wands", suit: "Wands", number: "6",
+      upright: "Public recognition and victory. The Six of Wands marks a moment when effort is acknowledged by others - a win, a success that is visible, praise that is earned. Confidence is justified here.",
+      reversed: "Recognition is delayed, withheld, or accompanied by ego inflation. The reversed Six of Wands can indicate success that undermines others, or a need for external validation that is becoming problematic.",
+      keywords_up: ["victory", "recognition", "confidence", "success", "public acclaim"],
+      keywords_rev: ["delayed recognition", "ego", "fall from grace", "self-doubt"]
+    },
+    { name: "Seven of Wands", suit: "Wands", number: "7",
+      upright: "Holding your position under pressure. The Seven of Wands marks a situation that requires defending what you have built or standing firm in your perspective when challenged. The position is worth maintaining - but it will require active effort.",
+      reversed: "Either capitulating under pressure you should be holding, or overdefending a position that actually needs to be released. The reversed Seven of Wands asks whether what you are defending is worth the cost.",
+      keywords_up: ["defense", "perseverance", "standing firm", "challenge", "conviction"],
+      keywords_rev: ["giving up", "overwhelm", "defensive posture", "capitulation"]
+    },
+    { name: "Eight of Wands", suit: "Wands", number: "8",
+      upright: "Rapid movement after a period of waiting. The Eight of Wands signals acceleration - things that have been building are now moving fast. Communication speeds up, travel is possible, timelines compress. Act quickly when the window opens.",
+      reversed: "Delays after a period of apparent momentum. The reversed Eight of Wands can indicate miscommunication, plans that were moving fast hitting unexpected obstacles, or energy scattered in too many directions simultaneously.",
+      keywords_up: ["speed", "action", "communication", "movement", "swift change"],
+      keywords_rev: ["delays", "miscommunication", "scattered energy", "frustration"]
+    },
+    { name: "Nine of Wands", suit: "Wands", number: "9",
+      upright: "Resilience near the finish line. The Nine of Wands marks the final stretch of a demanding effort - worn down but still standing. This is not the energy of easy strength but of grit. One more push is required.",
+      reversed: "Burnout, paranoia, or inability to continue without rest. The reversed Nine of Wands suggests that the defensive stance has become a problem in itself - excessive guardedness is blocking what you are trying to protect.",
+      keywords_up: ["resilience", "persistence", "stamina", "last stand", "endurance"],
+      keywords_rev: ["exhaustion", "paranoia", "burnout", "giving up too soon"]
+    },
+    { name: "Ten of Wands", suit: "Wands", number: "10",
+      upright: "Overloaded but almost at the destination. The Ten of Wands marks the final heavy carrying of a burden - the weight is real but the endpoint is visible. The question is whether all the load is yours to carry or whether some of it can be redistributed.",
+      reversed: "Burnout from carrying what should have been delegated or released. The reversed Ten of Wands signals the need to put something down - not every responsibility is yours to hold indefinitely.",
+      keywords_up: ["burden", "responsibility", "hard work", "near completion", "pressure"],
+      keywords_rev: ["burnout", "excessive responsibility", "delegation needed", "collapse"]
+    },
+    { name: "Page of Wands", suit: "Wands", number: "Page",
+      upright: "Enthusiastic new energy entering a creative or professional domain. The Page of Wands brings curiosity and willingness to explore - a fresh start or an emerging project that is driven by genuine excitement rather than obligation.",
+      reversed: "Enthusiasm without follow-through. The reversed Page of Wands marks the idea that does not convert to action, or the energy that arrives but disperses before it accomplishes anything.",
+      keywords_up: ["enthusiasm", "exploration", "new ideas", "creative spark", "optimism"],
+      keywords_rev: ["unfocused energy", "setbacks", "impatience", "lack of follow-through"]
+    },
+    { name: "Knight of Wands", suit: "Wands", number: "Knight",
+      upright: "Fast-moving, bold, action-oriented energy. The Knight of Wands signals a period of rapid advancement and decisive action - charging forward with confidence. The pace is high; ensure direction is clear before accelerating.",
+      reversed: "Recklessness, aggression, or energy that is burning too hot without adequate direction. The reversed Knight of Wands can also indicate someone who is all momentum with no patience for process.",
+      keywords_up: ["action", "adventure", "impulsiveness", "energy", "confidence"],
+      keywords_rev: ["recklessness", "scattered energy", "hastiness", "aggression"]
+    },
+    { name: "Queen of Wands", suit: "Wands", number: "Queen",
+      upright: "Charismatic leadership and independent creative force. The Queen of Wands brings confidence, warmth, and the ability to attract others to a vision through genuine passion. This is influence without force.",
+      reversed: "Insecurity beneath a confident exterior, or a tendency to dominate rather than inspire. The reversed Queen of Wands can also indicate jealousy or using charisma for manipulative ends.",
+      keywords_up: ["charisma", "confidence", "independence", "passion", "attraction"],
+      keywords_rev: ["jealousy", "domination", "manipulation", "insecurity"]
+    },
+    { name: "King of Wands", suit: "Wands", number: "King",
+      upright: "Visionary leadership and entrepreneurial force. The King of Wands has mastered the ability to inspire others while pursuing a genuine vision. Bold, decisive, and capable of sustained effort toward significant goals.",
+      reversed: "Authoritarian tendencies, arrogance, or vision that has disconnected from the people needed to execute it. The reversed King of Wands may be dominating rather than leading.",
+      keywords_up: ["vision", "leadership", "boldness", "entrepreneurship", "mastery"],
+      keywords_rev: ["arrogance", "domination", "impulsiveness", "disconnected vision"]
+    },
+    // Minor Arcana - Cups
+    { name: "Ace of Cups", suit: "Cups", number: "Ace",
+      upright: "New emotional beginning. A fresh relationship, a creative awakening, or a surge of compassion and connection. The Ace of Cups marks the opening of an emotional channel - something is ready to flow that has been still.",
+      reversed: "Emotional blockage or a new connection that is not ready to develop yet. The reversed Ace of Cups can indicate suppressed feelings, self-protection that is preventing intimacy, or an emotional offering that has been declined.",
+      keywords_up: ["new love", "compassion", "creativity", "emotional opening", "intuition"],
+      keywords_rev: ["emotional block", "suppression", "self-protection", "unrequited"]
+    },
+    { name: "Two of Cups", suit: "Cups", number: "2",
+      upright: "Mutual connection and equal exchange. The Two of Cups marks a partnership, romantic or otherwise, where both parties are seen and valued. This is the energy of genuine reciprocity - what flows out is flowing back.",
+      reversed: "Imbalance in a relationship, or a connection that appears mutual but is not. The reversed Two of Cups can also indicate a breakup, a business partnership dissolving, or a failure to communicate across a real divide.",
+      keywords_up: ["partnership", "mutual attraction", "connection", "balance", "reciprocity"],
+      keywords_rev: ["imbalance", "broken connection", "miscommunication", "one-sided"]
+    },
+    { name: "Three of Cups", suit: "Cups", number: "3",
+      upright: "Celebration, community, and joyful connection with others. The Three of Cups marks shared success, reunion, or a period of social richness. Creative collaboration and friendship are favored.",
+      reversed: "Social withdrawal, gossip, or excess in celebration that is starting to become counterproductive. The reversed Three of Cups can also indicate overindulgence or the appearance of friendship that is not genuinely supportive.",
+      keywords_up: ["celebration", "friendship", "community", "joy", "creativity"],
+      keywords_rev: ["overindulgence", "gossip", "withdrawal", "superficial connection"]
+    },
+    { name: "Four of Cups", suit: "Cups", number: "4",
+      upright: "Apathy, introspection, or a missed opportunity due to inward focus. The Four of Cups marks a period of emotional withdrawal - sometimes necessary for contemplation, but sometimes a sign that new possibilities are being overlooked while attention is turned inward.",
+      reversed: "Emerging from a period of withdrawal and becoming receptive again. The reversed Four of Cups signals renewed interest in what is available - the apathy is lifting and options that were previously ignored are becoming visible.",
+      keywords_up: ["apathy", "contemplation", "withdrawal", "missed opportunity", "ennui"],
+      keywords_rev: ["emerging", "receptiveness", "new perspectives", "motivation returning"]
+    },
+    { name: "Five of Cups", suit: "Cups", number: "5",
+      upright: "Grief, loss, and disappointment - but not total loss. The Five of Cups marks a period where attention is fixed on what was lost, while what remains is still present and available. The grief is real. The question is when to turn toward what has not been taken.",
+      reversed: "Beginning to process grief and move forward. The reversed Five of Cups signals recovery - not completion of grief, but the beginning of acceptance. Something long mourned is being released.",
+      keywords_up: ["loss", "grief", "regret", "disappointment", "partial loss"],
+      keywords_rev: ["recovery", "acceptance", "moving on", "releasing grief"]
+    },
+    { name: "Six of Cups", suit: "Cups", number: "6",
+      upright: "Nostalgia, childhood, and past connections. The Six of Cups marks a moment where the past is visiting the present - through a reunion, a memory, a returning person, or simple longing. The card asks whether the past is being revisited productively.",
+      reversed: "Living too much in the past, or refusing to move on. The reversed Six of Cups can also indicate the opposite: needing to reconnect with something from the past that was left behind too quickly.",
+      keywords_up: ["nostalgia", "memory", "past connections", "innocence", "reunion"],
+      keywords_rev: ["living in the past", "stuck", "unrealistic idealization", "disconnect"]
+    },
+    { name: "Seven of Cups", suit: "Cups", number: "7",
+      upright: "Many options but insufficient clarity. The Seven of Cups marks a period of fantasy, wishful thinking, or simply too many directions to choose from. The possibilities are real but the fog makes evaluation difficult. Grounding is needed before choosing.",
+      reversed: "Clarity is arriving after a period of confusion. The reversed Seven of Cups signals that illusions are clearing and a more realistic view is becoming possible. A choice can now be made more clearly.",
+      keywords_up: ["choices", "fantasy", "illusion", "wishful thinking", "confusion"],
+      keywords_rev: ["clarity", "realistic assessment", "decision", "cutting through illusion"]
+    },
+    { name: "Eight of Cups", suit: "Cups", number: "8",
+      upright: "Leaving behind what is no longer fulfilling. The Eight of Cups marks a departure - walking away from something that looked good on paper but has proven emotionally empty. This is the card of authentic need over social expectation.",
+      reversed: "Staying in a situation you know is not fulfilling, or returning to something you had already decided to leave. The reversed Eight of Cups asks what is keeping you when you already know what you need.",
+      keywords_up: ["abandonment", "withdrawal", "seeking meaning", "walking away", "authenticity"],
+      keywords_rev: ["staying", "returning", "avoidance", "emotional emptiness"]
+    },
+    { name: "Nine of Cups", suit: "Cups", number: "9",
+      upright: "Emotional fulfillment and satisfaction. The Nine of Cups is the traditional 'wish card' - it marks a period where emotional needs are genuinely met. Contentment is available. The question is whether it is being received.",
+      reversed: "Satisfaction that is incomplete, conditional, or based on external validation rather than genuine feeling. The reversed Nine of Cups can also indicate overindulgence or a wish that has been granted but does not feel as good as expected.",
+      keywords_up: ["fulfillment", "contentment", "wishes granted", "satisfaction", "emotional health"],
+      keywords_rev: ["overindulgence", "hollow satisfaction", "unfulfilled wish", "discontent"]
+    },
+    { name: "Ten of Cups", suit: "Cups", number: "10",
+      upright: "Emotional completion and lasting happiness in relationships. The Ten of Cups marks harmony in home, family, and long-term connections - not a momentary high but a sustained state of relational wellbeing.",
+      reversed: "Disruption in what appeared to be a stable emotional foundation. The reversed Ten of Cups can indicate family conflict, a relationship that has not reached its potential for depth, or a home environment that does not reflect its outward appearance.",
+      keywords_up: ["harmony", "family", "lasting happiness", "fulfillment", "emotional completion"],
+      keywords_rev: ["disruption", "misalignment", "conflict", "broken harmony"]
+    },
+    { name: "Page of Cups", suit: "Cups", number: "Page",
+      upright: "Creative and emotionally intuitive new energy. The Page of Cups brings messages from the emotional or creative realm - an invitation to follow an unexpected impulse, explore a creative direction, or pay attention to what the intuition is saying.",
+      reversed: "Emotional immaturity or creative energy that has not found its expression. The reversed Page of Cups can indicate someone who is sensitive but unable to process their feelings productively.",
+      keywords_up: ["intuition", "creative messages", "sensitivity", "new emotional energy", "playfulness"],
+      keywords_rev: ["emotional immaturity", "creative block", "escapism", "moodiness"]
+    },
+    { name: "Knight of Cups", suit: "Cups", number: "Knight",
+      upright: "Romantic, idealistic, and emotionally expressive energy in motion. The Knight of Cups acts on feeling - this is the energy of following a creative vision or a relationship toward its fullest potential.",
+      reversed: "Moodiness, emotional manipulation, or a romantic gesture that is not as genuine as it appears. The reversed Knight of Cups can also indicate idealism that is not grounded in reality.",
+      keywords_up: ["romance", "creativity", "idealism", "emotional courage", "expression"],
+      keywords_rev: ["moodiness", "manipulation", "unrealistic idealism", "escapism"]
+    },
+    { name: "Queen of Cups", suit: "Cups", number: "Queen",
+      upright: "Deep emotional intelligence and compassionate presence. The Queen of Cups holds space for others without losing herself. This is the energy of empathy used wisely - warm but boundaried, intuitive but grounded.",
+      reversed: "Emotional overwhelm, codependence, or empathy that has crossed into absorption of others' feelings. The reversed Queen of Cups can also indicate using emotional sensitivity manipulatively.",
+      keywords_up: ["empathy", "emotional intelligence", "compassion", "boundaries", "intuition"],
+      keywords_rev: ["overwhelm", "codependence", "manipulation", "emotional instability"]
+    },
+    { name: "King of Cups", suit: "Cups", number: "King",
+      upright: "Emotional maturity and wise leadership in relational domains. The King of Cups has integrated emotional experience without being ruled by it - he can feel deeply while maintaining perspective and making sound decisions.",
+      reversed: "Emotional manipulation or suppression of genuine feeling beneath a calm exterior. The reversed King of Cups can indicate someone who appears emotionally stable but is actually controlling the situation through emotional unavailability.",
+      keywords_up: ["emotional maturity", "wisdom", "diplomacy", "balance", "compassionate leadership"],
+      keywords_rev: ["manipulation", "volatility", "suppression", "emotional unavailability"]
+    },
+    // Minor Arcana - Swords
+    { name: "Ace of Swords", suit: "Swords", number: "Ace",
+      upright: "Clarity, breakthrough, and the cut of truth. The Ace of Swords marks a moment of sharp mental clarity - the fog lifts and what is actually true becomes undeniable. This may be uncomfortable but it is useful.",
+      reversed: "Mental confusion, a decision being avoided, or clarity that is distorted by personal bias. The reversed Ace of Swords can indicate that the truth of a situation is present but not yet being acknowledged.",
+      keywords_up: ["clarity", "breakthrough", "truth", "mental force", "new perspective"],
+      keywords_rev: ["confusion", "clouded judgment", "avoided decision", "distortion"]
+    },
+    { name: "Two of Swords", suit: "Swords", number: "2",
+      upright: "Stalemate and avoidance of a difficult decision. The Two of Swords marks the temporary peace of refusing to choose - the blindfold keeps the difficult options from view. The situation is stable but not resolved.",
+      reversed: "The choice can no longer be avoided. The reversed Two of Swords signals that the information has arrived or the circumstances have shifted enough that a decision is now necessary.",
+      keywords_up: ["stalemate", "avoidance", "indecision", "truce", "blocked"],
+      keywords_rev: ["decision time", "facing truth", "information revealed", "forced choice"]
+    },
+    { name: "Three of Swords", suit: "Swords", number: "3",
+      upright: "Heartbreak, loss, and grief entering a clear and honest phase. The Three of Swords marks the moment when pain is seen clearly rather than managed or rationalized. It is painful but not ambiguous.",
+      reversed: "Moving through grief toward recovery. The reversed Three of Swords signals the beginning of healing - not the end of pain, but the turn toward integration of a difficult experience.",
+      keywords_up: ["heartbreak", "grief", "loss", "sorrow", "separation"],
+      keywords_rev: ["recovery", "healing", "releasing grief", "moving forward"]
+    },
+    { name: "Four of Swords", suit: "Swords", number: "4",
+      upright: "Rest, recovery, and strategic withdrawal after a period of conflict. The Four of Swords marks the need to stop and restore before the next phase. This is not avoidance - it is the deliberate use of stillness to prepare for what comes next.",
+      reversed: "Returning from rest, or an inability to rest when it is genuinely needed. The reversed Four of Swords can indicate restlessness that is preventing necessary recovery.",
+      keywords_up: ["rest", "recovery", "contemplation", "strategic pause", "recuperation"],
+      keywords_rev: ["restlessness", "forced action", "returning", "inability to rest"]
+    },
+    { name: "Five of Swords", suit: "Swords", number: "5",
+      upright: "Conflict with a winner and a loser - and the question of what the winning costs. The Five of Swords marks situations where victory comes at the expense of relationship or integrity. Pyrrhic victories are the card's signature.",
+      reversed: "Moving past a conflict, or facing the consequences of a victory that cost too much. The reversed Five of Swords asks what the win actually achieved.",
+      keywords_up: ["conflict", "defeat", "hollow victory", "dishonor", "tension"],
+      keywords_rev: ["reconciliation", "regret", "moving past conflict", "consequences"]
+    },
+    { name: "Six of Swords", suit: "Swords", number: "6",
+      upright: "Transition to calmer waters. The Six of Swords marks movement away from difficulty - a journey, a relocation, or a mental shift that takes you out of turbulence and into a more stable situation. The passage is not painless but the direction is right.",
+      reversed: "Delayed transition or the inability to leave a difficult situation behind. The reversed Six of Swords can also indicate carrying the past into a situation where it does not belong.",
+      keywords_up: ["transition", "moving on", "calmer waters", "journey", "recovery"],
+      keywords_rev: ["stuck", "carried baggage", "delayed transition", "rough passage"]
+    },
+    { name: "Seven of Swords", suit: "Swords", number: "7",
+      upright: "Strategy that involves incomplete disclosure or acting alone. The Seven of Swords marks situations where someone is taking what they need without full transparency - sometimes necessary, sometimes problematic depending on intent.",
+      reversed: "A deception is being revealed, or you are choosing to act with full transparency rather than strategic concealment. The reversed Seven of Swords can also indicate someone returning what they took.",
+      keywords_up: ["strategy", "deception", "acting alone", "cunning", "incomplete disclosure"],
+      keywords_rev: ["revelation", "returning", "conscience", "exposure of deception"]
+    },
+    { name: "Eight of Swords", suit: "Swords", number: "8",
+      upright: "Restriction felt as external but largely maintained internally. The Eight of Swords marks the experience of being trapped by thoughts, fears, or narratives that feel like objective constraints but are more permeable than they appear.",
+      reversed: "Beginning to recognize the mental prison for what it is. The reversed Eight of Swords signals the first movement toward releasing the self-imposed restrictions - awareness arriving before full liberation.",
+      keywords_up: ["trapped", "restriction", "self-limiting beliefs", "victim mentality", "confusion"],
+      keywords_rev: ["releasing restriction", "awareness", "freedom", "self-rescue"]
+    },
+    { name: "Nine of Swords", suit: "Swords", number: "9",
+      upright: "Anxiety, insomnia, and catastrophic thinking. The Nine of Swords marks the 3am experience - mental suffering that magnifies difficulty beyond its actual scale. The pain is real but the narrative making it worse is not fully accurate.",
+      reversed: "The anxiety is beginning to release, or the worst fears are not materializing. The reversed Nine of Swords can also indicate depression that has become chronic enough to feel normal.",
+      keywords_up: ["anxiety", "nightmares", "dread", "catastrophizing", "mental anguish"],
+      keywords_rev: ["releasing anxiety", "perspective returning", "worst fears passing"]
+    },
+    { name: "Ten of Swords", suit: "Swords", number: "10",
+      upright: "A difficult ending that is also final. The Ten of Swords marks the low point - something has collapsed and the collapse is complete. The painful part of this card is that it is also the beginning of a new cycle. Rock bottom has its own clarity.",
+      reversed: "A slow recovery from a difficult ending, or the sense that the worst is past even though its effects are still present. The reversed Ten of Swords signals that the crisis has peaked.",
+      keywords_up: ["painful endings", "collapse", "loss", "defeat", "finality"],
+      keywords_rev: ["recovery beginning", "surviving the worst", "slow improvement"]
+    },
+    { name: "Page of Swords", suit: "Swords", number: "Page",
+      upright: "Intellectual curiosity, sharp observation, and communication energy arriving fresh. The Page of Swords brings new ideas, watchful attention, and a willingness to ask questions that others avoid.",
+      reversed: "Gossip, mental restlessness, or ideas that are generating more noise than substance. The reversed Page of Swords can indicate someone who is gathering information without productive application.",
+      keywords_up: ["curiosity", "sharp mind", "communication", "vigilance", "new ideas"],
+      keywords_rev: ["gossip", "scattered thinking", "deception", "immaturity"]
+    },
+    { name: "Knight of Swords", suit: "Swords", number: "Knight",
+      upright: "Fast-moving intellectual force and decisive action. The Knight of Swords charges forward with total confidence in direction - the pace is high, the thinking is sharp, and the goal is clear. Ensure the direction is correct before the charge begins.",
+      reversed: "Impulsive action without sufficient thought, or aggression that has outpaced judgment. The reversed Knight of Swords can indicate rushing in ways that create more problems than they solve.",
+      keywords_up: ["decisive action", "intellectual force", "speed", "ambition", "confidence"],
+      keywords_rev: ["impulsiveness", "aggression", "miscalculation", "haste"]
+    },
+    { name: "Queen of Swords", suit: "Swords", number: "Queen",
+      upright: "Sharp intelligence, clear boundaries, and the ability to cut through complexity to truth. The Queen of Swords has integrated difficult experience and emerged with clarity and directness. She does not confuse kindness with dishonesty.",
+      reversed: "Cold judgment, bitterness, or the use of intellectual clarity as a weapon. The reversed Queen of Swords can indicate someone whose sharpness has become cruelty, or whose independence has become isolation.",
+      keywords_up: ["clarity", "independence", "direct communication", "boundaries", "truth"],
+      keywords_rev: ["bitterness", "cruelty", "isolation", "cold judgment"]
+    },
+    { name: "King of Swords", suit: "Swords", number: "King",
+      upright: "Authority built on clear thinking and principled judgment. The King of Swords makes decisions based on what is true and what is just rather than what is comfortable. This is the energy of ethical authority with full intellectual rigor.",
+      reversed: "Intellectual tyranny or the use of logic to justify self-serving ends. The reversed King of Swords can also indicate mental rigidity - the inability to update positions when new evidence arrives.",
+      keywords_up: ["intellectual authority", "truth", "justice", "principled decision-making", "clarity"],
+      keywords_rev: ["tyranny", "manipulation", "rigidity", "intellectual arrogance"]
+    },
+    // Minor Arcana - Pentacles
+    { name: "Ace of Pentacles", suit: "Pentacles", number: "Ace",
+      upright: "A new material opportunity or financial beginning. The Ace of Pentacles marks the seed of something practical - a job offer, a financial opening, a new business direction, or the beginning of a project with tangible outcomes.",
+      reversed: "A material opportunity that is not as solid as it appears, or a promising start that fails to materialize due to poor planning or timing.",
+      keywords_up: ["new opportunity", "financial beginning", "practicality", "manifestation", "abundance"],
+      keywords_rev: ["missed opportunity", "financial block", "poor planning", "false start"]
+    },
+    { name: "Two of Pentacles", suit: "Pentacles", number: "2",
+      upright: "Juggling multiple priorities with dynamic balance. The Two of Pentacles marks a period of active management of competing demands - finances, time, responsibilities. The balance is possible but requires sustained attention.",
+      reversed: "The juggling is failing. Something is dropping. The reversed Two of Pentacles signals that the demands on resources - time, money, energy - are exceeding the capacity to manage them.",
+      keywords_up: ["balance", "adaptability", "juggling", "priorities", "flexibility"],
+      keywords_rev: ["disorganization", "overwhelm", "imbalance", "losing control"]
+    },
+    { name: "Three of Pentacles", suit: "Pentacles", number: "3",
+      upright: "Skilled collaboration and the satisfaction of craft. The Three of Pentacles marks work done well with others - teamwork that produces something none of the parties could have produced alone. Expertise is recognized.",
+      reversed: "Poor collaboration, a lack of acknowledgment for skill, or work that is not reaching its potential due to misalignment in the team.",
+      keywords_up: ["teamwork", "skill", "collaboration", "apprenticeship", "craft"],
+      keywords_rev: ["poor teamwork", "mediocrity", "lack of recognition", "conflict at work"]
+    },
+    { name: "Four of Pentacles", suit: "Pentacles", number: "4",
+      upright: "Holding on to what has been built. The Four of Pentacles marks the conservative management of resources - protecting what exists. This can be wise when resources are scarce, but the card asks whether the holding has become hoarding.",
+      reversed: "Releasing control over resources, or financial instability after a period of tight management. The reversed Four of Pentacles can indicate generosity returning after a period of scarcity.",
+      keywords_up: ["security", "holding on", "financial caution", "control", "conservation"],
+      keywords_rev: ["releasing control", "generosity", "financial instability", "loosening grip"]
+    },
+    { name: "Five of Pentacles", suit: "Pentacles", number: "5",
+      upright: "Material hardship and a sense of isolation in the struggle. The Five of Pentacles marks a difficult period financially or materially - the experience of being outside the warmth, feeling unsupported. Help may be closer than it appears.",
+      reversed: "Recovery from a period of hardship, or the realization that support has been available all along but was not sought. The reversed Five of Pentacles signals the beginning of improvement.",
+      keywords_up: ["hardship", "poverty", "isolation", "worry", "material struggle"],
+      keywords_rev: ["recovery", "accepting help", "improvement", "spiritual poverty"]
+    },
+    { name: "Six of Pentacles", suit: "Pentacles", number: "6",
+      upright: "Generosity, sharing resources, and the dynamic between giving and receiving. The Six of Pentacles marks a moment of material exchange - either you are the giver or the receiver, and the balance of that exchange matters.",
+      reversed: "Generosity with strings attached, charity that diminishes the recipient, or receiving without genuine gratitude. The reversed Six of Pentacles can also indicate debt or an imbalanced financial dynamic.",
+      keywords_up: ["generosity", "charity", "giving", "wealth distribution", "exchange"],
+      keywords_rev: ["debt", "strings attached", "imbalance", "inequality"]
+    },
+    { name: "Seven of Pentacles", suit: "Pentacles", number: "7",
+      upright: "Patient investment and the evaluation of long-term progress. The Seven of Pentacles marks the pause to assess what has grown from what was planted. The harvest is forming but not yet complete - patience and honest evaluation are required.",
+      reversed: "Impatience with a long-term investment, or a situation where the effort is not producing proportional returns. The reversed Seven of Pentacles asks whether the continued investment makes sense.",
+      keywords_up: ["patience", "long-term investment", "assessment", "growth", "waiting for harvest"],
+      keywords_rev: ["impatience", "poor return on investment", "questioning commitment", "stagnation"]
+    },
+    { name: "Eight of Pentacles", suit: "Pentacles", number: "8",
+      upright: "Mastery through sustained practice and dedicated work. The Eight of Pentacles marks the phase of deep skill development - focused repetition that builds genuine expertise over time. The work is not glamorous but the results compound.",
+      reversed: "Going through the motions without real development, or perfectionism that is preventing completion. The reversed Eight of Pentacles can also indicate boredom with work that has become routine.",
+      keywords_up: ["mastery", "skill development", "diligence", "craft", "learning"],
+      keywords_rev: ["stagnation", "perfectionism", "lack of growth", "uninspired work"]
+    },
+    { name: "Nine of Pentacles", suit: "Pentacles", number: "9",
+      upright: "Material abundance achieved through self-sufficiency. The Nine of Pentacles marks a high point in material success - comfort, security, and the ability to enjoy what has been built. This is independence earned rather than inherited.",
+      reversed: "Material comfort that comes with hidden costs - dependence on others, work that is unfulfilling, or a lifestyle that is maintained at the expense of more meaningful things.",
+      keywords_up: ["abundance", "self-sufficiency", "luxury", "independence", "achievement"],
+      keywords_rev: ["dependence", hollow success", "superficiality", "financial setback"]
+    },
+    { name: "Ten of Pentacles", suit: "Pentacles", number: "10",
+      upright: "Lasting material success and legacy. The Ten of Pentacles marks the achievement of long-term stability that extends beyond the individual - wealth, family security, and the structures that persist across generations.",
+      reversed: "The structures of security are not as stable as they appear, or wealth that has become a source of conflict rather than connection. The reversed Ten of Pentacles can indicate family financial disputes or the costs of pursuing material success.",
+      keywords_up: ["legacy", "lasting wealth", "family security", "stability", "long-term success"],
+      keywords_rev: ["instability", "family conflict", "financial loss", "temporary wealth"]
+    },
+    { name: "Page of Pentacles", suit: "Pentacles", number: "Page",
+      upright: "A new practical opportunity or the beginning of skill development in a material domain. The Page of Pentacles brings studious energy and genuine interest in learning how to build something real.",
+      reversed: "Distraction from practical goals, procrastination, or an inability to convert interest into action.",
+      keywords_up: ["study", "new opportunity", "practicality", "potential", "diligent learning"],
+      keywords_rev: ["procrastination", "distraction", "lack of focus", "missed opportunity"]
+    },
+    { name: "Knight of Pentacles", suit: "Pentacles", number: "Knight",
+      upright: "Methodical, reliable, and committed to finishing what is started. The Knight of Pentacles does not move fast but moves consistently. Long-term projects and practical commitments are his domain.",
+      reversed: "Stuck in routine to the point of stagnation, or conservatism that has become an obstacle to necessary change.",
+      keywords_up: ["reliability", "commitment", "methodical", "conservative", "hard work"],
+      keywords_rev: ["stagnation", "boredom", "perfectionism", "inflexibility"]
+    },
+    { name: "Queen of Pentacles", suit: "Pentacles", number: "Queen",
+      upright: "Practical wisdom and the ability to create comfort and security through grounded action. The Queen of Pentacles brings nurturing through tangible means - she builds environments that sustain and support.",
+      reversed: "Neglect of practical matters or using material resources as a substitute for genuine connection. The reversed Queen of Pentacles can also indicate financial insecurity despite apparent resources.",
+      keywords_up: ["practical nurturing", "financial security", "warmth", "resourcefulness", "grounded wisdom"],
+      keywords_rev: ["neglect", "financial anxiety", "material obsession", "disconnection"]
+    },
+    { name: "King of Pentacles", suit: "Pentacles", number: "King",
+      upright: "Material mastery and the wisdom of sustained financial stewardship. The King of Pentacles has built something lasting and knows how to maintain and grow it. Reliable, generous with what has been earned, and clear about value.",
+      reversed: "Financial control that has become greed, or material success that has cost the things money cannot buy. The reversed King of Pentacles can also indicate financial rigidity or poor stewardship.",
+      keywords_up: ["financial mastery", "stability", "generosity", "abundance", "stewardship"],
+      keywords_rev: ["greed", "financial rigidity", "materialism", "poor stewardship"]
+    }
+  ];
+
+  let drawCount = 0;
+  let sessionHistory = [];
+
+  function getSymbolSVG(suit) {
+    const svgs = {
+      "Major Arcana": `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="28" stroke="#FF0099" stroke-width="1.5" opacity="0.5"/><circle cx="36" cy="36" r="18" stroke="#FF0099" stroke-width="1.5"/><line x1="36" y1="8" x2="36" y2="64" stroke="#FF0099" stroke-width="1" opacity="0.4"/><line x1="8" y1="36" x2="64" y2="36" stroke="#FF0099" stroke-width="1" opacity="0.4"/><circle cx="36" cy="36" r="4" fill="#FF0099"/></svg>`,
+      "Wands": `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="36" y1="8" x2="36" y2="64" stroke="#FF0099" stroke-width="2"/><line x1="20" y1="24" x2="52" y2="24" stroke="#FF0099" stroke-width="1.5"/><line x1="24" y1="40" x2="48" y2="40" stroke="#FF0099" stroke-width="1.5"/><line x1="28" y1="56" x2="44" y2="56" stroke="#FF0099" stroke-width="1.5"/><circle cx="36" cy="12" r="4" fill="#FF0099"/></svg>`,
+      "Cups": `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 20 Q20 52 36 56 Q52 52 52 20 Z" stroke="#00E5FF" stroke-width="1.5" fill="none"/><line x1="28" y1="56" x2="44" y2="56" stroke="#00E5FF" stroke-width="1.5"/><line x1="26" y1="60" x2="46" y2="60" stroke="#00E5FF" stroke-width="1.5"/><circle cx="36" cy="16" r="3" fill="#00E5FF" opacity="0.5"/></svg>`,
+      "Swords": `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="36" y1="8" x2="36" y2="56" stroke="#FF0099" stroke-width="2"/><line x1="22" y1="42" x2="50" y2="42" stroke="#FF0099" stroke-width="1.5"/><line x1="26" y1="56" x2="46" y2="56" stroke="#FF0099" stroke-width="1.5" stroke-linecap="round"/><circle cx="36" cy="64" r="3" fill="#FF0099" opacity="0.5"/></svg>`,
+      "Pentacles": `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="36" cy="36" r="22" stroke="#FFD700" stroke-width="1.5"/><polygon points="36,16 41,31 57,31 44,40 49,55 36,46 23,55 28,40 15,31 31,31" stroke="#FFD700" stroke-width="1.2" fill="none"/></svg>`
+    };
+    return svgs[suit] || svgs["Major Arcana"];
+  }
+
+  function drawCard() {
+    const idx = Math.floor(Math.random() * TAROT_DECK.length);
+    const card = TAROT_DECK[idx];
+    const isReversed = Math.random() > 0.5;
+    drawCount++;
+
+    document.getElementById('cardSymbol').innerHTML = getSymbolSVG(card.suit);
+    document.getElementById('cardSuit').textContent = card.suit + (card.number ? ' - ' + card.number : '');
+    document.getElementById('cardName').textContent = card.name + (isReversed ? ' (Reversed)' : '');
+    document.getElementById('cardOrientation').textContent = isReversed ? 'Reversed' : 'Upright';
+    document.getElementById('cardMeaning').textContent = isReversed ? card.reversed : card.upright;
+
+    const keywords = isReversed ? card.keywords_rev : card.keywords_up;
+    const kDiv = document.getElementById('cardKeywords');
+    kDiv.innerHTML = keywords.map(k => `<span class="keyword-tag">${k}</span>`).join('');
+
+    document.getElementById('drawCounter').textContent = drawCount === 1 ? '1 card drawn this session' : drawCount + ' cards drawn this session';
+
+    sessionHistory.unshift({ name: card.name, orientation: isReversed ? 'Rev' : 'Up' });
+    if (sessionHistory.length > 5) sessionHistory.pop();
+
+    if (sessionHistory.length > 1) {
+      const histSec = document.getElementById('historySection');
+      histSec.style.display = 'block';
+      document.getElementById('historyList').innerHTML = sessionHistory.map((h, i) =>
+        i === 0 ? `<li><span>${h.name}</span> (${h.orientation}) - current</li>` : `<li>${h.name} (${h.orientation})</li>`
+      ).join('');
+    }
+
+    const result = document.getElementById('cardResult');
+    result.classList.remove('visible');
+    void result.offsetWidth;
+    result.classList.add('visible');
+  }
+  </script>
+
+</body>
+</html>
